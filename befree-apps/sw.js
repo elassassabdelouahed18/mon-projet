@@ -1,5 +1,22 @@
-const CACHE='befree-suite-r5-visual-repair-1';
-const FILES=["./", "index.html", "suite.js", "manifest.webmanifest", "finance-core.js", "gap/index.html", "gap/app.js", "gap/manifest.webmanifest", "gap/icons/icon-192.png", "gap/icons/icon-512.png", "gap/icons/apple-touch-icon.png", "gap/icons/icon-maskable-512.png", "streak/index.html", "streak/app.js", "streak/manifest.webmanifest", "streak/icons/icon-192.png", "streak/icons/icon-512.png", "streak/icons/apple-touch-icon.png", "streak/icons/icon-maskable-512.png"];
-self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting())));
-self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k.startsWith('befree-suite-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
-self.addEventListener('fetch',e=>{if(e.request.method!=='GET'||new URL(e.request.url).origin!==location.origin)return;e.respondWith(caches.open(CACHE).then(async c=>(await c.match(e.request,{ignoreSearch:true}))||fetch(e.request)));});
+/* BeFree root. Gap and Streak are separate apps, each with its own service
+   worker in gap/ and streak/. This worker replaces the old shared-window one
+   for anyone who installed it: it clears the shared-window cache and keeps
+   only the root redirect page available offline. Other requests are left to
+   the network or to the app's own worker. */
+const CACHE = 'befree-root-v1';
+const ROOT = new URL('./', self.location).pathname;
+self.addEventListener('install', e => e.waitUntil(
+  caches.open(CACHE).then(c => c.addAll(['./', 'index.html'].map(u => new Request(u, {cache: 'reload'}))))
+    .then(() => self.skipWaiting())));
+self.addEventListener('activate', e => e.waitUntil(
+  caches.keys().then(ks => Promise.all(ks.filter(k => k.startsWith('befree-suite-') ||
+    (k.startsWith('befree-root-') && k !== CACHE)).map(k => caches.delete(k)))).then(() => self.clients.claim())));
+self.addEventListener('fetch', e => {
+  const u = new URL(e.request.url);
+  if (e.request.method !== 'GET' || u.origin !== location.origin) return;
+  if (u.pathname !== ROOT && u.pathname !== ROOT + 'index.html') return;
+  e.respondWith(fetch(u.href, {cache: 'no-cache'}).then(r => {
+    if (r.ok) { const copy = r.clone(); caches.open(CACHE).then(c => c.put(e.request, copy)); }
+    return r;
+  }).catch(() => caches.match(e.request, {ignoreSearch: true})));
+});

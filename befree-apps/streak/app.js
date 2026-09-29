@@ -581,7 +581,7 @@ function drawSpan(wrap){
 const relTime=ts=>{const m=Math.round((Date.now()-ts)/6e4);if(m<2)return 'just now';if(m<60)return m+' minutes ago';const h=Math.round(m/60);if(h<24)return plural(h,'hour')+' ago';return plural(Math.round(h/24),'day')+' ago'};
 function connHTML(){
  if(!LIVE)return `<div class="status"><span class="dotc"></span><div><b>Sample mode.</b> This demo keeps its own separate data and doesn't connect to Gap.</div></div>`;
- if(!G)return `<div class="status"><span class="dotc"></span><div><b>Not connected or summary older than 24 hours.</b> Open the Gap tab in this same BeFree window to refresh it. Until then, tick habits yourself; everything still works.</div></div>`;
+ if(!G)return `<div class="status"><span class="dotc"></span><div><b>Not connected or summary older than 24 hours.</b> Open Gap on this device to refresh it. Until then, tick habits yourself; everything still works.</div></div>`;
  if(G.old)return `<div class="status"><span class="dotc"></span><div><b>Gap needs updating.</b> The version of Gap on this device doesn't separate your own entries from automatic ones, so Streak won't count from it.</div></div>`;
  const c=G.cycle||{};
  return `<div class="status on"><span class="dotc"></span><div><b>Connected on this device.</b> Gap was last opened ${relTime(G.updated)}.
@@ -1255,10 +1255,10 @@ function revisionRecovery(){
  let box=document.getElementById('revisionRecovery');if(!box){box=document.createElement('section');box.id='revisionRecovery';box.className='card';const host=document.querySelector('main')||document.querySelector('.wrap')||document.body;host.appendChild(box);}
  const t=today(),r7=rate(S.habits,addD(t,-6),t),r30=rate(S.habits,addD(t,-29),t);
  let lastMiss=null,lastReturn=null;for(let i=29;i>=0;i--){const d=addD(t,-i);if(S.habits.some(h=>status(h,d,t)==='missed'))lastMiss=d;if(lastMiss&&d>lastMiss&&S.habits.some(h=>DONE.has(status(h,d,t))))lastReturn=d;}
- box.innerHTML=`<h2>Your return matters</h2><p>Last 7 days: ${r7.d}/${r7.t} counted habits completed (open today is not yet counted). Last 30 days: ${r30.d}/${r30.t}. Small versions count toward habits; they do not certify complete financial records.</p><p>${lastReturn?'Most recent return after a missed day: '+fmtD(lastReturn)+'.':'After a missed day, do the next small step. No catch-up streak is required.'}</p><p>Streak is optional support. Gap remains the financial record. Automatic evidence requires Gap opened in this BeFree window in the last 24 hours. A tick is evidence of an action, not proof of financial progress.</p>${Object.keys(S.legacyAutoTicks||{}).length?'<p>Earlier automatic ticks are preserved as historical records. Their original evidence rules differed; they do not certify a complete financial ledger.</p>':''}`;
+ box.innerHTML=`<h2>Your return matters</h2><p>Last 7 days: ${r7.d}/${r7.t} counted habits completed (open today is not yet counted). Last 30 days: ${r30.d}/${r30.t}. Small versions count toward habits; they do not certify complete financial records.</p><p>${lastReturn?'Most recent return after a missed day: '+fmtD(lastReturn)+'.':'After a missed day, do the next small step. No catch-up streak is required.'}</p><p>Streak is optional support. Gap remains the financial record. Automatic evidence requires Gap opened on this device, in the same browser, in the last 24 hours. On iPhone and iPad each Home Screen app keeps its own data, so tick habits yourself if automatic ticks do not arrive. A tick is evidence of an action, not proof of financial progress.</p>${Object.keys(S.legacyAutoTicks||{}).length?'<p>Earlier automatic ticks are preserved as historical records. Their original evidence rules differed; they do not certify a complete financial ledger.</p>':''}`;
 }
 
-document.addEventListener('click',function(e){const a=e.target.closest('a');if(!a||window.top===window.self)return;const u=new URL(a.href,location.href);if(u.origin!==location.origin)return;const part=u.pathname.includes('/streak/')?'streak':u.pathname.includes('/gap/')?'gap':null;if(part){e.preventDefault();parent.postMessage({befreeTab:part},location.origin);}});
 
-// Redraw after the workspace reveals a previously hidden app.
-addEventListener('befree:shown',()=>{readGap();if(refreshDates()|autoTick())save();render();});
+// Coming back from Gap with the back button restores this page from the
+// back/forward cache without reloading; pick up Gap's latest evidence.
+addEventListener('pageshow',e=>{if(e.persisted){readGap();if(refreshDates()|autoTick())save();render();}});

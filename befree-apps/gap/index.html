@@ -1672,7 +1672,6 @@ svg [data-tip].kf{stroke:var(--tx);stroke-width:2px}
 
 </script>
 <script data-befree-bundle="app.js">
-
 /* ══════════ storage ══════════ */
 const DB=(()=>{let m={};try{localStorage.setItem('__t','1');localStorage.removeItem('__t');
  const API={mem:false,
@@ -4681,16 +4680,15 @@ function remindCheck(){
 }
 
 
-document.addEventListener('click',function(e){const a=e.target.closest('a');if(!a||window.top===window.self)return;const u=new URL(a.href,location.href);if(u.origin!==location.origin)return;const part=u.pathname.includes('/streak/')?'streak':u.pathname.includes('/gap/')?'gap':null;if(part){e.preventDefault();parent.postMessage({befreeTab:part},location.origin);}});
 
 INFO.surplus=['Gap and assignments','<p>Gap = received income minus recorded living costs and required payments on existing debt. Planned entries do not count. Purchase refunds reduce spending. Extra debt payments and net transfers to savings, funds, investments and tax reserves assign the gap. Settlement of already-recorded card purchases is not a second expense.</p><p>Unassigned gap = gap minus net assignments. It can be negative. Your checking balance is a separate number.</p>'];
 INFO.savings=['Assigned cash','<p>Net transfers into savings, goals, sinking funds, tax reserves and investments, less withdrawals or spending from funds. Extra debt is shown separately. A tax reserve is an obligation, and a sinking fund is planned future spending; neither is investment growth.</p>'];
 INFO.balance=['Checking estimate','<p>Starts with your current available checking balance. New checking transactions change it; card purchases do not. Paying a card reduces checking. Reconcile after backdated entries or changes to records already included in a balance. Physical cash is assumed covered by the checking figure; adjust for withdrawals so cash is not counted twice.</p>'];
 INFO.available=['Protected room until payday','<p>Checking estimate minus unpaid bills, planned transfers, essential spending, sinking-fund set-asides, protective buffer, unsettled card-purchase reserve and the estimated tax-reserve shortfall. Expected income is excluded until received. Review overdue obligations, pending charges and the card reserve today before using this estimate.</p><p>Do not treat it as permission to spend. Unknown obligations or incomplete records can make it too high. Only allocate within the protected amount. Extra debt payments must also fit the lender’s rules.</p>'];
 
-// Redraw after the workspace reveals a previously hidden app.
-addEventListener('befree:shown',()=>{render();});
-
+// Coming back from Streak with the back button restores this page from the
+// back/forward cache without reloading; pick up Streak's latest summary.
+addEventListener('pageshow',e=>{if(e.persisted){importStreak();render();}});
 </script>
 </body>
 </html>

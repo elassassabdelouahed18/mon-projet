@@ -1,0 +1,35 @@
+{
+  "book": {
+    "pages": 166,
+    "fields": 148,
+    "widgets": 148,
+    "field_geometry_preserved": true,
+    "roundtrip_text_fields": 112,
+    "roundtrip_checkboxes": 36,
+    "roundtrip_values_and_appearances_agree": true,
+    "unchanged_page_content_streams_verified": 72,
+    "sha256": "ab8a864d88be358b01436ec96994cb524e8a0b442a45157b6b9b6566cec67937"
+  },
+  "start": {
+    "pages": 33,
+    "fields": 0,
+    "widgets": 0,
+    "field_geometry_preserved": true,
+    "roundtrip_text_fields": 0,
+    "roundtrip_checkboxes": 0,
+    "roundtrip_values_and_appearances_agree": true,
+    "unchanged_page_content_streams_verified": 5,
+    "sha256": "c0dcfbf5044753dc65d5f602d53e0edbceed310ac63deeb4a9602ffb42de133b"
+  },
+  "install": {
+    "pages": 1,
+    "fields": 0,
+    "widgets": 0,
+    "field_geometry_preserved": true,
+    "roundtrip_text_fields": 0,
+    "roundtrip_checkboxes": 0,
+    "roundtrip_values_and_appearances_agree": true,
+    "unchanged_page_content_streams_verified": 0,
+    "sha256": "e3907569a0ce498b6f800c924fd8d887b701e856ecd5b81132e2d1b5d65949f4"
+  }
+}

@@ -1,0 +1,25 @@
+const assert=require('node:assert/strict'),F=require('../befree-apps/finance-core.js'),fs=require('node:fs'),vm=require('node:vm');let count=0;const test=(name,fn)=>{fn();count++;console.log('PASS '+name)};
+const tx=(type,amt,x={})=>({type,amt,status:'done',...x});
+test('Worked 300-dollar gap, fully assigned',()=>{const t=F.totals([tx('income',3000),tx('fixed',2700),tx('transfer',150,{cat:'Savings'}),tx('transfer',100,{debtRole:'extra'}),tx('transfer',50,{cat:'Sinking fund'})]);assert.equal(t.gap,300);assert.equal(t.assigned,300);assert.equal(t.unassigned,0)});
+test('Card purchase and settlement counted once',()=>{const l=[tx('variable',100,{payFrom:'card',card:'c'}),tx('transfer',100,{debt:'c',debtRole:'settlement'})];assert.equal(l.reduce((s,t)=>s+F.cash(t),0),-100);assert.equal(F.totals(l).out,100)});
+test('Card refund changes debt, not checking',()=>{const t=tx('variable',20,{payFrom:'card',card:'c',refund:true});assert.equal(F.cash(t),0);assert.equal(F.debtEffect({id:'c'},t),-20)});
+test('Loan principal excludes interest',()=>{const d={id:'l',kind:'loan',bal0:1000,ts:0};assert.equal(F.debtBalance(d,[tx('fixed',100,{debt:'l',principal:80,ts:1})]),920)});
+test('Unknown loan principal does not invent a reduction',()=>assert.equal(F.debtBalance({id:'l',kind:'loan',bal0:1000,ts:0},[tx('fixed',100,{debt:'l',ts:1})]),1000));
+test('Reconciled debt handles edited/deleted payments',()=>{const d={id:'l',kind:'loan',bal0:920,ledgerBaseline:{a:-80}};assert.equal(F.debtBalance(d,[]),1000);assert.equal(F.debtBalance(d,[tx('fixed',100,{id:'a',debt:'l',principal:70})]),930)});
+test('Minimum versus extra debt semantics',()=>{const t=F.totals([tx('income',1000),tx('transfer',100,{debtRole:'minimum'}),tx('transfer',50,{debtRole:'extra'})]);assert.equal(t.gap,900);assert.equal(t.unassigned,850)});
+test('Planned income/expense/transfer excluded',()=>{const l=['income','fixed','transfer'].map(type=>tx(type,500,{status:'planned',cat:'Savings'}));assert.equal(F.totals(l).gap,0);assert.equal(F.totals(l).sav,0);assert.equal(l.reduce((s,t)=>s+F.cash(t),0),0)});
+test('Tax reserve is assigned cash, not wealth',()=>{const t=F.totals([tx('transfer',100,{cat:'Tax reserve'})]);assert.equal(t.tax,100);assert.equal(t.wealth,0);assert.equal(t.gap,0)});
+test('Fractional allocation never creates money',()=>{for(let cents=1;cents<50000;cents+=97){const x=F.allocation(cents/100,33,33);assert.equal(Math.round((x.g+x.d+x.y)*100),cents)}});
+test('FI zero return and monthly timing',()=>{const r=F.fi({annualSpending:12000,portfolio:0,monthlyInvestment:1000,realReturn:0,withdrawalRate:4});assert.equal(r.target,300000);assert.equal(r.years,25)});
+test('FI cannot promise a date with no contributions',()=>assert.equal(F.fi({annualSpending:12000,monthlyInvestment:0,realReturn:0}).years,null));
+test('FI invalid assumptions rejected',()=>assert.throws(()=>F.fi({annualSpending:-1})));
+test('Review/income entry does not certify spending completeness',()=>{assert.equal(F.evidence({link:'log'},{review:1,log:1}),null);assert.ok(F.evidence({link:'log'},{complete:1}));assert.ok(F.evidence({link:'log'},{nospend:1}))});
+test('Savings evidence belongs to requested target',()=>{const h={link:'save',ref:{goal:'a'}};assert.equal(F.evidence(h,{save:1,saveRefs:{'goal:b':1}}),null);assert.ok(F.evidence(h,{saveRefs:{'goal:a':1}}))});
+test('Bill evidence belongs to requested schedule',()=>{assert.equal(F.evidence({link:'bills',ref:{rid:'rent'}},{bill:1,billRefs:{phone:1}}),null)});
+test('Balance habit requires reconciliation',()=>{assert.equal(F.evidence({link:'balance'},{review:1}),null);assert.ok(F.evidence({link:'balance'},{balance:1}))});
+const src=fs.readFileSync(__dirname+'/../befree-apps/gap/app.js','utf8');
+function fn(name,next){return src.slice(src.indexOf('function '+name+'('),src.indexOf(next,src.indexOf('function '+name+'(')));}
+test('Actual app uses shared ledger semantics',()=>{const c={BeFreeFinance:F};vm.createContext(c);vm.runInContext(fn('cashEff','/* ══════════ demo data'),c);assert.equal(c.tot([tx('income',200),tx('transfer',50,{debtRole:'extra'})]).unassigned,150)});
+test('24-month scenarios balance every dollar',()=>{const {scenarios}=require('./financial-model.cjs');for(const s of Object.values(scenarios)){assert.equal(s.rows.length,25);for(const l of s.ledger)assert.ok(Math.abs(F.totals(l.transactions).unassigned)<.05)}assert.equal(scenarios.Marcus.rows[0].debt,19230);assert.ok(scenarios.Maya.ledger[5].transactions.some(t=>t.cat==='Side income'&&t.amt===600))});
+test('All local scripts parse',()=>{for(const a of ['gap','streak'])new vm.Script(fs.readFileSync(__dirname+'/../befree-apps/'+a+'/app.js','utf8'));new vm.Script(fs.readFileSync(__dirname+'/../befree-apps/suite.js','utf8'));new vm.Script(fs.readFileSync(__dirname+'/../befree-apps/sw.js','utf8'));});
+console.log(count+' tests passed');

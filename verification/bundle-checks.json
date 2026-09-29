@@ -1,0 +1,7 @@
+{
+  "embedded_code_matches_editable_sources": true,
+  "inline_scripts_parse": true,
+  "offline_file_references_exist": true,
+  "browser_acceptance": "not completed: local browser access was blocked",
+  "live_deployment": "not performed"
+}

@@ -1,0 +1,275 @@
+[
+  {
+    "product": "الكتاب",
+    "item": 1,
+    "change": "توحيد معنى الفائض والإنفاق والتحويلات، وفصلها عن الرصيد النقدي.",
+    "evidence": "ص 44، 47، 150–152",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "الكتاب",
+    "item": 2,
+    "change": "تخصيص المتاح بعد حماية الالتزامات، مع اعتبار نسب التوزيع أمثلة قابلة للتعديل.",
+    "evidence": "ص 89–92، 142",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "الكتاب",
+    "item": 3,
+    "change": "ترتيب مشروط للضروريات والاحتياطي والديون ومساهمة صاحب العمل والاستثمار.",
+    "evidence": "ص 56، 60، 94–100، 123–127",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "الكتاب",
+    "item": 4,
+    "change": "تسجيل الإيراد والتكلفة والاحتياطي الضريبي والسداد دون خصم الضريبة مرتين.",
+    "evidence": "ص 128–129، 147",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "الكتاب",
+    "item": 5,
+    "change": "تصحيح معادلات الاستقلال المالي ونقطة التقاطع، وإظهار الافتراضات.",
+    "evidence": "ص 117–133، 163–164",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "الكتاب",
+    "item": 6,
+    "change": "إعادة حساب حالتي Marcus وMaya بسجل شهري قابل لإعادة الحساب، مع صدمات وتكاليف وضرائب.",
+    "evidence": "ص 19، 43، 80، 108، 146–149؛ verification/financial-model.json",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "الكتاب",
+    "item": 7,
+    "change": "تحديث رسوم المنصات والمراجع الرسمية وإضافة تاريخ التحقق.",
+    "evidence": "ص 82، 156–160",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "الكتاب",
+    "item": 8,
+    "change": "تصحيح الإحالات وإضافة طريقة للعودة بعد الانقطاع دون اختراع تاريخ مكتمل.",
+    "evidence": "ص 4–7، 110–114، 144–145",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "الكتاب",
+    "item": 9,
+    "change": "تحويل مسارات الدخل إلى تجارب محددة، مع خطوات للحصول على أول عميل.",
+    "evidence": "ص 67–88",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "الكتاب",
+    "item": 10,
+    "change": "تقييد الوعود غير المبررة وبيان أن الحالات تعليمية؛ الحفاظ على النماذج التفاعلية.",
+    "evidence": "ص 3، 21، 135، 161–162؛ 148 حقلًا",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "دليل Start Here",
+    "item": 1,
+    "change": "توحيد أنواع القيود المالية مع منطق Gap الجديد.",
+    "evidence": "ص 9–14",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "دليل Start Here",
+    "item": 2,
+    "change": "توضيح أن الفاتورة المتكررة قد يتغير مبلغها، وفصل الضروري عن الاختياري.",
+    "evidence": "ص 9–10، 17–18",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "دليل Start Here",
+    "item": 3,
+    "change": "توضيح الإعداد الأول وكون نتيجته تقديرًا أوليًا.",
+    "evidence": "ص 5–8",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "دليل Start Here",
+    "item": 4,
+    "change": "فصل المعاملات المخططة عن المنفذة وشرح التأكيد والتصحيح.",
+    "evidence": "ص 14، 17–18",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "دليل Start Here",
+    "item": 5,
+    "change": "شرح التخصيص المحمي والأولويات والأهداف والصناديق.",
+    "evidence": "ص 15–18، 21",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "دليل Start Here",
+    "item": 6,
+    "change": "توحيد دورية المراجعة والنسخ الاحتياطي وتقدير الجهد بصورة واقعية.",
+    "evidence": "ص 7–8، 26–28",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "دليل Start Here",
+    "item": 7,
+    "change": "شرح السجل الجزئي والتعافي وحدود علامات Streak.",
+    "evidence": "ص 13، 23–30",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "دليل Start Here",
+    "item": 8,
+    "change": "الحفاظ على التصميم الأصلي في 33 صفحة، مع تصحيح الفهرس وحدود التخزين والمزامنة.",
+    "evidence": "كامل الدليل: 33 صفحة",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "دليل التثبيت",
+    "item": 1,
+    "change": "اعتماد نافذة BeFree واحدة تضم التطبيقين.",
+    "evidence": "دليل التثبيت: الصفحة الأصلية الواحدة؛ ملفات نافذة BeFree المشتركة",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "دليل التثبيت",
+    "item": 2,
+    "change": "إضافة خطوات تحقق بعد التثبيت والتبادل بين التطبيقين.",
+    "evidence": "دليل التثبيت: الصفحة الأصلية الواحدة؛ ملفات نافذة BeFree المشتركة",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "دليل التثبيت",
+    "item": 3,
+    "change": "شرح شروط العمل دون إنترنت واختباره بعد التحميل الأول.",
+    "evidence": "دليل التثبيت: الصفحة الأصلية الواحدة؛ ملفات نافذة BeFree المشتركة",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "دليل التثبيت",
+    "item": 4,
+    "change": "توضيح النسخ الاحتياطي والتنبيه إلى اختلاف مساحات التخزين؛ شرح الاستعادة والانتقال مفصل في دليل البداية وتقرير الإصلاح.",
+    "evidence": "دليل التثبيت ص 1؛ دليل البداية ص 7–8، 30؛ تقرير الإصلاح",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "دليل التثبيت",
+    "item": 5,
+    "change": "إضافة روابط قابلة للنقر ورمز QR وتوضيح حدود الخصوصية والقفل.",
+    "evidence": "دليل التثبيت: الصفحة الأصلية الواحدة؛ ملفات نافذة BeFree المشتركة",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "تطبيق Gap",
+    "item": 1,
+    "change": "توحيد حساب الفائض واستبعاد القيود المخططة من المنفذ.",
+    "evidence": "finance-core.js؛ اختبارات الحساب",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "تطبيق Gap",
+    "item": 2,
+    "change": "فصل الفائض عن صافي التخصيص والمتبقي غير المخصص.",
+    "evidence": "finance-core.js؛ Overview",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "تطبيق Gap",
+    "item": 3,
+    "change": "فصل شراء البطاقة عن التسوية وسداد الدين القديم والاسترداد.",
+    "evidence": "gap/app.js؛ اختبارات البطاقة",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "تطبيق Gap",
+    "item": 4,
+    "change": "ربط انخفاض القرض بأصل الدين الفعلي ومعالجة تعديل القيود بعد المطابقة.",
+    "evidence": "finance-core.js؛ اختبارات القرض والمطابقة",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "تطبيق Gap",
+    "item": 5,
+    "change": "حماية الالتزامات والضروريات والاحتياطيات وتحديد سقف التخصيص.",
+    "evidence": "gap/app.js: cycle؛ اختبارات التكامل",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "تطبيق Gap",
+    "item": 6,
+    "change": "ربط تقدير الاحتياطي الضريبي بالإيرادات والتكاليف المسجلة والسداد.",
+    "evidence": "gap/app.js: taxEst؛ اختبارات الضريبة",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "تطبيق Gap",
+    "item": 7,
+    "change": "إضافة تأكيد اكتمال اليوم ومراجعة الشهر وإظهار حالة السجل.",
+    "evidence": "gap/app.js؛ Overview",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "تطبيق Gap",
+    "item": 8,
+    "change": "تقدير موعد كل هدف من تحويلاته الفعلية خلال الأشهر المراجعة.",
+    "evidence": "gap/app.js؛ goal forecasts",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "تطبيق Gap",
+    "item": 9,
+    "change": "إضافة تقدير مستقل للاستقلال المالي مع حساسية العائد.",
+    "evidence": "finance-core.js؛ FI dialog",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "تطبيق Gap",
+    "item": 10,
+    "change": "إضافة ترحيل محافظ للبيانات القديمة واختبارات رجوع وتوسيع أعمدة التصدير.",
+    "evidence": "43 اختبارًا آليًا؛ الاختبار داخل متصفح المستخدم لم يُنجز",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "تطبيق Streak",
+    "item": 1,
+    "change": "ربط التأكيد التلقائي بدليل يناسب الفعل بدل الاكتفاء بوجود قيد.",
+    "evidence": "finance-core.js: evidence؛ streak/app.js",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "تطبيق Streak",
+    "item": 2,
+    "change": "مطابقة الدليل مع الهدف أو الفاتورة المحددة.",
+    "evidence": "اختبارات الأدلة المحددة",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "تطبيق Streak",
+    "item": 3,
+    "change": "فصل العادة الصغيرة عن اكتمال السجل المالي.",
+    "evidence": "streak/app.js؛ Start Here ص 23–24",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "تطبيق Streak",
+    "item": 4,
+    "change": "إضافة مؤشرات إكمال 7 و30 يومًا وتشجيع العودة بعد التعثر.",
+    "evidence": "streak/app.js؛ recovery panel",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "تطبيق Streak",
+    "item": 5,
+    "change": "اشتراط تحديث ملخص Gap خلال 24 ساعة والتحقق من الأدلة المتغيرة.",
+    "evidence": "streak/app.js؛ summary freshness",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  },
+  {
+    "product": "تطبيق Streak",
+    "item": 6,
+    "change": "توضيح أن التطبيق اختياري وأن قيمة المهام تقدير محتمل وليست وفرًا محققًا.",
+    "evidence": "streak/app.js؛ Start Here ص 3، 25",
+    "status": "implemented in local release; browser acceptance pending where applicable"
+  }
+]

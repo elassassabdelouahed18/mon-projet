@@ -1,0 +1,9 @@
+BeFree visual and chart repair
+
+Deploy the complete folder at the existing HTTPS origin and paths. This package has not been deployed. Export a backup from each existing app first. Keep original browser storage; do not clear it. A different origin, profile, installation or local file can expose separate storage. Restore only after exporting the destination record.
+
+Gap charts now use recorded completed transactions independently of month-review status. Forecasts retain separate completeness requirements. Streak shows short recorded histories, preserves legacy automatic ticks, and both apps redraw when revealed in the workspace. Original CSS rules are retained.
+
+The child index.html files embed finance-core.js and app.js. Keep those embedded blocks synchronized after source edits. Root and child service-worker versions were advanced. Existing installations may require closing/reopening after the update; verify the loaded release before testing.
+
+Acceptance still required on the target browser/device: use a backed-up record, verify historical/current charts, edit and reload a transaction, restore a test backup, verify cross-tab evidence and offline reopening. Automated renderer tests are not a substitute for these browser checks.

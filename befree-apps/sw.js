@@ -1,0 +1,5 @@
+const CACHE='befree-suite-r5-visual-repair-1';
+const FILES=["./", "index.html", "suite.js", "manifest.webmanifest", "finance-core.js", "gap/index.html", "gap/app.js", "gap/manifest.webmanifest", "gap/icons/icon-192.png", "gap/icons/icon-512.png", "gap/icons/apple-touch-icon.png", "gap/icons/icon-maskable-512.png", "streak/index.html", "streak/app.js", "streak/manifest.webmanifest", "streak/icons/icon-192.png", "streak/icons/icon-512.png", "streak/icons/apple-touch-icon.png", "streak/icons/icon-maskable-512.png"];
+self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting())));
+self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k.startsWith('befree-suite-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
+self.addEventListener('fetch',e=>{if(e.request.method!=='GET'||new URL(e.request.url).origin!==location.origin)return;e.respondWith(caches.open(CACHE).then(async c=>(await c.match(e.request,{ignoreSearch:true}))||fetch(e.request)));});

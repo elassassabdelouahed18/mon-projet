@@ -1,0 +1,239 @@
+financial-model.cjs
+Marcus [
+  {
+    month: 0,
+    income: 2769,
+    living: 2872,
+    gap: -103,
+    buffer: 0,
+    fund: 0,
+    taxReserve: 0,
+    debt: 19230,
+    cards: 6200
+  },
+  {
+    month: 6,
+    income: 2969,
+    living: 2799.4,
+    gap: 169.6,
+    assigned: 169.6,
+    buffer: 477.6,
+    fund: 0,
+    taxReserve: 0,
+    extra: 0,
+    interest: 264.88,
+    relief: 0,
+    shock: 0,
+    cards: 6065.56,
+    debt: 17765.7
+  },
+  {
+    month: 9,
+    income: 3149,
+    living: 2925.4,
+    gap: 223.6,
+    assigned: 223.6,
+    buffer: 500,
+    fund: 183.68,
+    taxReserve: 0,
+    extra: 250.88,
+    interest: 243.79,
+    relief: 0,
+    shock: 0,
+    cards: 5240.93,
+    debt: 16238.29
+  },
+  {
+    month: 12,
+    income: 3149,
+    living: 2925.4,
+    gap: 223.6,
+    assigned: 223.6,
+    buffer: 500,
+    fund: 371.84,
+    taxReserve: 0,
+    extra: 250.88,
+    interest: 215.24,
+    relief: 0,
+    shock: 0,
+    cards: 4341.21,
+    debt: 14609.29
+  },
+  {
+    month: 16,
+    income: 3149,
+    living: 3570.4,
+    gap: -421.4,
+    assigned: -421.4,
+    buffer: 342.72,
+    fund: 0,
+    taxReserve: 45,
+    extra: 250.88,
+    interest: 174.54,
+    relief: 0,
+    shock: 780,
+    cards: 3045.19,
+    debt: 11117.93
+  },
+  {
+    month: 24,
+    income: 3149,
+    living: 2829.4,
+    gap: 319.6,
+    assigned: 319.6,
+    buffer: 500,
+    fund: 508.7,
+    taxReserve: 0,
+    extra: 327.68,
+    interest: 89.14,
+    relief: 0,
+    shock: 0,
+    cards: 320.45,
+    debt: 6205.79
+  }
+]
+Maya [
+  {
+    month: 0,
+    income: 5647,
+    living: 5687,
+    gap: -40,
+    buffer: 0,
+    fund: 0,
+    taxReserve: 0,
+    debt: 43000,
+    cards: 2400
+  },
+  {
+    month: 6,
+    income: 6101,
+    living: 5541.8,
+    gap: 559.2,
+    assigned: 559.2,
+    buffer: 1000,
+    fund: 193.76,
+    taxReserve: 0,
+    extra: 447.36,
+    interest: 253.94,
+    relief: 0,
+    shock: 0,
+    cards: 1487.55,
+    debt: 39030.9
+  },
+  {
+    month: 9,
+    income: 6101,
+    living: 7261.8,
+    gap: -1160.8,
+    assigned: -1160.8,
+    buffer: 81.7,
+    fund: 0,
+    taxReserve: 0,
+    extra: 444.94,
+    interest: 214.62,
+    relief: 0,
+    shock: 1450,
+    cards: 0,
+    debt: 35974.86
+  },
+  {
+    month: 12,
+    income: 6101,
+    living: 5551.8,
+    gap: 549.2,
+    assigned: 549.2,
+    buffer: 1905.04,
+    fund: 226.26,
+    taxReserve: 0,
+    extra: 0,
+    interest: 194.96,
+    relief: 0,
+    shock: 0,
+    cards: 0,
+    debt: 34378.97
+  },
+  {
+    month: 16,
+    income: 6101,
+    living: 5146.8,
+    gap: 954.2,
+    assigned: 954.2,
+    buffer: 4526.48,
+    fund: 881.62,
+    taxReserve: 135,
+    extra: 0,
+    interest: 182.45,
+    relief: 0,
+    shock: 0,
+    cards: 0,
+    debt: 32207.63
+  },
+  {
+    month: 24,
+    income: 6101,
+    living: 5551.8,
+    gap: 549.2,
+    assigned: 549.2,
+    buffer: 9769.36,
+    fund: 2192.34,
+    taxReserve: 0,
+    extra: 0,
+    interest: 156.53,
+    relief: 0,
+    shock: 0,
+    cards: 0,
+    debt: 27711.4
+  }
+]
+
+test-finance.cjs
+PASS Worked 300-dollar gap, fully assigned
+PASS Card purchase and settlement counted once
+PASS Card refund changes debt, not checking
+PASS Loan principal excludes interest
+PASS Unknown loan principal does not invent a reduction
+PASS Reconciled debt handles edited/deleted payments
+PASS Minimum versus extra debt semantics
+PASS Planned income/expense/transfer excluded
+PASS Tax reserve is assigned cash, not wealth
+PASS Fractional allocation never creates money
+PASS FI zero return and monthly timing
+PASS FI cannot promise a date with no contributions
+PASS FI invalid assumptions rejected
+PASS Review/income entry does not certify spending completeness
+PASS Savings evidence belongs to requested target
+PASS Bill evidence belongs to requested schedule
+PASS Balance habit requires reconciliation
+PASS Actual app uses shared ledger semantics
+PASS 24-month scenarios balance every dollar
+PASS All local scripts parse
+20 tests passed
+
+test-integration.cjs
+PASS Availability protects bills, essentials, buffer and card reserve
+PASS Missing cycle review suppresses availability
+PASS Stale checking suppresses availability
+PASS Card purchase reserves money without reducing checking
+PASS Settling a card reserve preserves the same room
+PASS Planned card settlement is not protected twice
+PASS Planned sinking transfer is not protected twice
+PASS Tax estimate respects payment from a reserve
+PASS Enabled tax shortfall reduces protected availability
+PASS No-spend evidence cannot override a later purchase
+PASS Root offline cache includes code and both app pages
+PASS Revision uses new storage without deleting legacy keys on load
+12 integration tests passed
+
+test-charts.cjs
+PASS Unreviewed old records produce visible gap bars
+PASS Current month appears before it can be closed
+PASS Historical chart visibility does not authorize forecasts
+PASS Planned-only records do not appear as completed money
+PASS True zero gap remains a visible data point
+PASS Negative gap renders a negative bar
+PASS Rendering does not alter transaction records
+PASS Streak displays one recorded day instead of hiding the chart
+PASS Streak empty history retains an honest empty state
+PASS Legacy automatic marks survive the evidence upgrade
+PASS Earlier downgrade is repaired from the retained history
+11 chart/history regression tests passed

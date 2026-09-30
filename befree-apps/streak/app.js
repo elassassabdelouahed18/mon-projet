@@ -435,10 +435,12 @@ function drawWeekday(){
  const w=out.map(x=>({...x,r:x.t?x.d/x.t:null})),live=w.filter(x=>x.r!==null);
  if(!live.length){el.innerHTML='';$('#dowTag').textContent='';$('#dowNote').textContent='This fills in after a few weeks of history.';el.style.display='none';return}
  el.style.display='';
- const worst=live.reduce((a,b)=>b.r<a.r?b:a),wi=w.indexOf(worst);
+ const worst=live.reduce((a,b)=>b.r<a.r?b:a),rest=live.filter(x=>x!==worst);
  const enough=live.length>=3&&live.reduce((a,b)=>a+b.t,0)>=10;
- $('#dowTag').textContent=enough?`${DN[wi]} tends to be harder`:'Early history';
- $('#dowNote').textContent=`Share of scheduled habits done on each day, last 12 weeks. ${enough?'If '+DNL[wi]+'s are busy, a smaller version or a different time may fit better.':'More history is needed before interpreting a weekday pattern.'}`;
+ /* name a day only when it is clearly below the others, not by a point or two */
+ const stands=enough&&rest.length&&rest.reduce((a,b)=>a+b.r,0)/rest.length-worst.r>=.08,wi=stands?w.indexOf(worst):-1;
+ $('#dowTag').textContent=!enough?'Early history':stands?`${DN[wi]} tends to be harder`:'No day stands out';
+ $('#dowNote').textContent=`Share of scheduled habits done on each day, last 12 weeks. ${!enough?'More history is needed before interpreting a weekday pattern.':stands?'If '+DNL[wi]+'s are busy, a smaller version or a different time may fit better.':'Every day of the week goes about the same, which is what you want.'}`;
  const L=6,R=334,T=14,B=78,step=(R-L)/7;let o='';
  w.forEach((x,i)=>{const bw=step*.6,bx=L+step*i+(step-bw)/2,h=x.r===null?0:(B-T)*x.r;
   o+=`<rect x="${bx.toFixed(1)}" y="${B-2}" width="${bw.toFixed(1)}" height="2" fill="var(--hair2)"/>`;
@@ -471,7 +473,7 @@ const mk=off=>{const d=new Date();d.setDate(1);d.setMonth(d.getMonth()-off);retu
 function drawGrid(){
  const wrap=$('#gwrap');
  $$('#gviews button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===V.view));
- $('#mNav').style.visibility=V.view==='month'?'visible':'hidden';
+ $('#mNav').style.display=V.view==='month'?'':'none';
  if(!S.habits.length){wrap.innerHTML='<div class="empty">Your history appears here once you add a habit.</div>';return}
  if(V.view==='month')drawMonth(wrap);else drawSpan(wrap)}
 function weekWindows(Y,M){const days=dayCount(Y,M),out=[];for(let a=1;a<=days;a+=7)out.push([a,Math.min(a+6,days)]);return out}
@@ -1193,7 +1195,8 @@ function remindCheck(){
 function revisionRecovery(){
  let box=document.getElementById('revisionRecovery');if(!box){box=document.createElement('section');box.id='revisionRecovery';box.className='card';const host=document.querySelector('main')||document.querySelector('.wrap')||document.body;host.appendChild(box);}
  const t=today(),r7=rate(S.habits,addD(t,-6),t),r30=rate(S.habits,addD(t,-29),t);
- let lastMiss=null,lastReturn=null;for(let i=29;i>=0;i--){const d=addD(t,-i);if(S.habits.some(h=>status(h,d,t)==='missed'))lastMiss=d;if(lastMiss&&d>lastMiss&&S.habits.some(h=>DONE.has(status(h,d,t))))lastReturn=d;}
- box.innerHTML=`<h2>Your return matters</h2><p>Last 7 days: ${r7.d}/${r7.t} counted habits completed (open today is not yet counted). Last 30 days: ${r30.d}/${r30.t}. Small versions count toward habits; they do not certify complete financial records.</p><p>${lastReturn?'Most recent return after a missed day: '+fmtD(lastReturn)+'.':'After a missed day, do the next small step. No catch-up streak is required.'}</p><p>Streak is optional support. Gap remains the financial record. You tick habits yourself; a day you mark as no-spend counts for a daily logging habit. A tick is evidence of an action, not proof of financial progress.</p>${Object.keys(S.legacyAutoTicks||{}).length?'<p>Earlier automatic ticks are preserved as historical records. Their original evidence rules differed; they do not certify a complete financial ledger.</p>':''}`;
+ let lastMiss=null,lastReturn=null;for(let i=29;i>=0;i--){const d=addD(t,-i);if(S.habits.some(h=>status(h,d,t)==='missed')){lastMiss=d;lastReturn=null}else if(lastMiss&&!lastReturn&&S.habits.some(h=>DONE.has(status(h,d,t))))lastReturn=d;}
+ box.setAttribute('aria-labelledby','rcT');
+ box.innerHTML=`<div class="ch"><h2 class="eb" id="rcT">Coming back</h2><div class="eb mono">last 30 days</div></div><p>${lastReturn?`You came back on <b>${fmtD(lastReturn)}</b> after a missed day. Coming back is the habit that matters most.`:'Missed a day? Do the small version next time. There is nothing to catch up on.'}</p><p class="foot">Last 7 days: ${r7.d} of ${r7.t} done. Last 30 days: ${r30.d} of ${r30.t}. Today counts once it is done.${Object.keys(S.legacyAutoTicks||{}).length?' Ticks the older version made for you are kept as they were.':''}</p>`;
 }
 

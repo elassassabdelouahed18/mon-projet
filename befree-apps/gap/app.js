@@ -755,9 +755,11 @@ function moves(){
    ctas:[{l:'Open the simulator',a:'sim'}],todo:{key:'rate-'+d.id,title:`Call ${d.name} about the rate or a hardship plan`,note:`Payment ${money2(+d.min||0)}, interest about ${money2(mi)} a month.`}})});
  /* setup that the numbers depend on */
  if(C.need.length&&(hasData||S.rec.length)){
-  const w={pay:'your pay schedule',bal:'today\'s balance',ess:'an essential-spending estimate',buf:'a protective buffer'};
+  const w={pay:'your pay schedule',bal:'today\'s balance',ess:'an estimate of everyday essentials',buf:'a protective buffer',
+   review:'a quick check that today\'s numbers are current',card:'the cash you keep for card purchases'};
+  const miss=C.need.map(k=>w[k]).filter(Boolean),list=miss.length>1?miss.slice(0,-1).join(', ')+' and '+miss[miss.length-1]:miss[0];
   add({u:2,imp:0,feas:3,tag:'Setup',icon:'cal',head:'See what\'s available until payday',
-   math:`Gap still needs ${C.need.map(k=>w[k]).join(', ')}.`,
+   math:`Gap still needs ${list}.`,
    ctas:[{l:'Add '+(C.need[0]==='pay'?'pay schedule':'the missing numbers'),a:C.need[0]==='pay'?'open:pay':'open:cyc'}]})}
  if(!S.rec.length&&hasData)add({u:2,imp:40,feas:3,tag:'Setup',icon:'loop',head:'Schedule your paycheck and regular bills',
   math:'Scheduled, they show up as coming, and you confirm each one when it happens.',
@@ -1307,8 +1309,9 @@ function debtExtra(d,bal){
   return `<span class="dmeta" style="display:block"><span class="${u.band==='high'?'neg':''}">${Math.round(u.pct)}% of ${money(+d.limit)} limit</span>${+d.close?` · statement closes on the ${ord(d.close)}`:''}</span>`}
  return ''}
 function drawDebts(){
- const ds=S.debts.filter(d=>d.kind!=='due'),rs=S.debts.filter(d=>d.kind==='due');
- const ord2=ordered(liveDebts());
+ const ord2=ordered(liveDebts()),rank=new Map(ord2.map((d,i)=>[d.id,i])),rk=d=>rank.has(d.id)?rank.get(d.id):1e9;
+ /* listed in the order the chosen method pays them; paid-off debts last */
+ const ds=S.debts.filter(d=>d.kind!=='due').sort((a,b)=>rk(a)-rk(b)),rs=S.debts.filter(d=>d.kind==='due');
  $('#mthLbl').textContent=V.method==='avalanche'?'highest rate first':'smallest first';
  $('#dList').innerHTML=ds.length?ds.map(d=>{const bal=debtBal(d),tot0=+d.total||0,p=tot0?Math.min(Math.max(1-bal/tot0,0),1):0;
   const tgt=ord2[0]&&ord2[0].id===d.id,mi=bal*(+d.apr||0)/1200,warn=bal>0&&mi>.5&&(+d.min||0)<=mi;
@@ -1392,7 +1395,7 @@ function drawOrder(){
  let o=PAT;
  ds.forEach((d,i)=>{const y=i*rowH+16,c=sm.clr[d.id],ok=c!=null,end=ok?c:N,col=hues[i%5];
   const when=ok?(()=>{const dd=new Date();dd.setMonth(dd.getMonth()+c);return dd.toLocaleString('en-US',{month:'short',year:'numeric'})})():'not on this plan';
-  o+=`<text x="${L}" y="${y-3}" font-size="12" font-weight="600" fill="var(--tx)" font-family="Poppins">${i+1}. ${esc(d.name)}</text>
+  o+=`<text x="${L}" y="${y-3}" font-size="12" font-weight="600" fill="var(--tx)" font-family="Poppins">${esc(d.name)}</text>
    <text x="${R}" y="${y-3}" text-anchor="end" font-size="11.5" fill="${ok?'var(--tx2)':'var(--neg)'}" font-family="'IBM Plex Mono',monospace">${when}</text>
    <rect class="ob" x="${L}" y="${y+2}" width="${Math.max(x(end)-L,3).toFixed(1)}" height="10" rx="5" fill="${ok?col:'url(#hatchO)'}" ${ok?'':'stroke="var(--c-over)" stroke-width="1"'}
      data-tip="${ok?`Cleared in ${plural(c,'month')}`:'Not paid off on this plan'}|${esc(d.name)} · ${money(debtBal(d))} now"/>`});
@@ -2831,9 +2834,10 @@ function revisionCycleFields(){
 }
 function revisionOverview(){
  const host=$('#p-overview');if(!host)return;let box=$('#revisionOverview');
- if(!box){box=document.createElement('section');box.id='revisionOverview';box.className='card';box.style.cssText='padding:20px;margin-bottom:20px';const grid=host.querySelector('.grid');if(grid){box.className='card c6';grid.appendChild(box);}else host.appendChild(box);}
+ if(!box){box=document.createElement('section');box.id='revisionOverview';box.className='card c6';const grid=host.querySelector('.bento');(grid||host).appendChild(box);}
  const m=V.range==='month'?mKey(V.off):null,reviewed=m&&S.reviewed[m],t=tot(pTx()),pending=S.tx.filter(x=>x.needsReview).length;
- box.innerHTML=`<h2>What these numbers mean</h2><p><b>${reviewed?'Reviewed month':'Partial records / estimate'}</b>${m?' · '+m:''}. Gap: ${money2(t.gap)}. Net assignments: ${money2(t.assigned)}. Unassigned gap: ${money2(t.unassigned)}.</p><p>Gap = received income - recorded living costs - required existing-debt payments. Extra debt and net savings transfers assign the gap. Card settlement does not count the same purchase twice. This is not your checking balance.</p>${pending?`<p class="neg">${pending} older payment entries need a purpose review. Edit them in Ledger, then reconcile debt and checking balances.</p>`:''}<div class="chk-row"><button class="btn2" id="revCompleteDay">Today's spending is complete</button>${m?`<button class="btn2" id="revCloseMonth">${reviewed?'Reopen this month':'Review this month'}</button>`:''}<button class="btn2" id="revFI">Financial independence estimate</button></div><p class="foot">Mark complete only after checking cash, debit and credit purchases. A habit tick or one entry does not mean your records are complete. Save a backup weekly and after setup, major changes or month close.</p>`;
+ const mName=m?fmtD(m+'-01',{month:'long',year:'numeric'}):'';
+ box.innerHTML=`<div class="ch"><h2 class="eb">Your records</h2><div class="eb mono">${reviewed?'reviewed':'in progress'}</div></div><p style="margin:0 0 8px">${reviewed?`${mName} is reviewed: its entries were checked against your statements.`:`${m?mName+' is still open, so these':'These'} totals cover only what you have logged so far.`} The surplus is not your checking balance.</p>${pending?`<p class="neg">${pending} older payment entries need a purpose. Edit them in Money, then check your debt and checking balances.</p>`:''}<div class="chk-row"><button class="btn2" id="revCompleteDay">Today's spending is all logged</button>${m?`<button class="btn2" id="revCloseMonth">${reviewed?'Reopen this month':'Close this month'}</button>`:''}<button class="btn2" id="revFI">Financial independence estimate</button></div><p class="foot">Mark a day as logged only after adding cash, debit and card purchases. Save a backup each week and after you close a month.</p>`;
  $('#revCompleteDay').onclick=()=>{S.checks[today()]={t:'complete',ts:Date.now(),src:'gap'};save();render();toast('Spending marked complete for today.');};
  if($('#revCloseMonth'))$('#revCloseMonth').onclick=async()=>{if(S.reviewed[m]){delete S.reviewed[m];save();render();return;}if(m>=today().slice(0,7)){toast('Close this month after it ends; current totals stay provisional.');return;}if(pending){toast('Review legacy payment purposes before closing a month.');return;}if(await ask('Confirm complete month?','Check all income, cash/card purchases, refunds, bills, debt minimums, business costs and transfers against statements. Missing entries make forecasts misleading.','Records checked')){S.reviewed[m]=Date.now();save();render();}};
  $('#revFI').onclick=revisionFI;

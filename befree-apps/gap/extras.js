@@ -56,6 +56,11 @@ dialog.pxd .save{width:100%}dialog.pxd .ghost{width:100%;margin-top:8px}
 .hh-fix{background:rgba(232,209,186,.1);border:1px dashed rgba(232,209,186,.4);color:#F6EEE2}.hh-fix b{font-weight:600}.hh-n{color:#F2B85E;font-weight:600;white-space:nowrap}
 .hh-cta{justify-content:center;background:#E7A33A;color:#2E2910;font-weight:600;font-size:16px;border:0}
 .homelog{display:block;grid-column:1/-1}
+.mi2>.btn2{flex:none;white-space:nowrap;overflow-wrap:normal}
+#revisionFIDialog{margin:auto;border:1px solid var(--hair3);box-shadow:0 30px 60px -24px rgba(0,0,0,.55);max-height:86vh;overflow:auto;overscroll-behavior:contain}
+#revisionFIDialog::backdrop{background:rgba(4,18,12,.55)}
+#revisionFIDialog h2{font-size:21px;line-height:1.2;margin:0 0 8px}
+#revisionFIDialog p{font-size:14.5px;color:var(--tx2)}
 .logbtn{width:100%;min-height:58px;border-radius:18px;background:var(--btn);color:var(--btnT);font-size:17px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:var(--lift)}
 body[data-page=guide] .fab{display:none!important}
 /* segmented control for sub-pages */
@@ -200,7 +205,7 @@ function taxCard(){
   <p class="foot">Amounts use your reserve rate of ${+S.tax.rate||0}% on income with no withholding, so they are estimates, not a tax bill. A due date on a weekend or DC holiday moves to the next business day. States have their own schedules. Confirm at irs.gov/payments.</p>`}
 
 /* ── employer 401(k) match ── */
-const MATCH=[['100-3-50-2','100% of the first 3%, then 50% of the next 2%',[{rate:100,upTo:3},{rate:50,upTo:2}]],['50-6','50% of the first 6%',[{rate:50,upTo:6}]],
+const MATCH=[['100-3-50-2','100% of first 3%, 50% of next 2%',[{rate:100,upTo:3},{rate:50,upTo:2}]],['50-6','50% of the first 6%',[{rate:50,upTo:6}]],
  ['100-4','100% of the first 4%',[{rate:100,upTo:4}]],['100-6','100% of the first 6%',[{rate:100,upTo:6}]],['custom','Something else',null]];
 function matchCard(){
  const box=$('#plMatch'),k=plus().k401||{},p=primary();

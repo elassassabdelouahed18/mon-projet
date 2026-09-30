@@ -1,5 +1,5 @@
 BeFree automated tests — 2026-09-30
-Run: node verification/<file>.cjs   (bundles: python3 tools/sync-bundles.py --check)
+Run: node verification/<file>.cjs   (bundles and CSP hashes: python3 tools/sync-bundles.py --check)
 
 == test-finance.cjs
 PASS Worked 300-dollar gap, fully assigned
@@ -41,7 +41,8 @@ PASS Embedded code matches every bundled source file
 PASS Service workers keep only the app page as the offline copy
 PASS Revision uses new storage without deleting legacy keys on load
 PASS Phone layout: four Gap tabs with Today first, three Streak tabs, distinct icons
-16 integration tests passed
+PASS Only the pinned inline scripts may run, and the site sends strict headers
+17 integration tests passed
 
 == test-charts.cjs
 PASS Unreviewed old records produce visible gap bars
@@ -73,3 +74,5 @@ PASS Calendar file: escaping, folding, reminders
 PASS Encrypted backup: round trip, wrong passphrase, no plain text
 PASS Streak copies paydays and bill days from the old bridge once
 14 addition tests passed
+
+Browser sweep (Chromium, 390x844, light and dark): 798 clicks on every button, chip, tab, sheet and chart control in both apps; no page error, console error, crash or sideways scroll.

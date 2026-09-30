@@ -40,7 +40,49 @@ dialog.pxd{border:1px solid var(--hair);border-radius:var(--rx);background:var(-
 dialog.pxd::backdrop{background:rgba(3,12,8,.62);backdrop-filter:blur(4px)}
 dialog.pxd h2{font-size:17px;margin:0 0 6px;text-align:center}dialog.pxd p{font-size:14px;color:var(--tx2);line-height:1.55;margin:0 0 12px;text-align:center}
 dialog.pxd .err{color:var(--neg);font-size:13.5px;min-height:1.4em;text-align:center;margin:0 0 8px}
-dialog.pxd .save{width:100%}dialog.pxd .ghost{width:100%;margin-top:8px}`;
+dialog.pxd .save{width:100%}dialog.pxd .ghost{width:100%;margin-top:8px}
+/* Today */
+.homehero{background:var(--hero-bg)!important;color:#F6EEE2;border:0!important;padding:22px 22px 20px!important}
+.homehero .hh-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.homehero .hh-eb{margin:0;color:#A6D8BE}
+.hh-badge{font-size:12px;font-weight:500;padding:3px 10px;border-radius:99px;border:1px solid rgba(232,209,186,.35);color:#E8D1BA}
+.hh-num{font-size:clamp(52px,17vw,76px);line-height:1.02;letter-spacing:-.025em;margin:6px 0 2px;font-variant-numeric:tabular-nums;color:#F6EEE2}
+.hh-num.neg{color:#F9B06A}
+.hh-lead{font-size:30px;line-height:1.15;margin:8px 0 4px;color:#F6EEE2}
+.hh-sub{margin:0;font-size:15px;color:#D6E6DA}.hh-sub b{color:#F6EEE2;font-weight:600}
+.hh-bar{height:8px;border-radius:99px;background:rgba(232,209,186,.18);margin:14px 0 8px;overflow:hidden}.hh-bar i{display:block;height:100%;border-radius:99px;background:#E7A33A}
+.hh-row{display:flex;justify-content:space-between;gap:10px;font-size:13.5px;color:#D6E6DA;flex-wrap:wrap}.hh-row b{color:#F6EEE2}
+.hh-fix,.hh-cta{margin-top:16px;width:100%;min-height:48px;border-radius:14px;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;font-size:14px;text-align:left}
+.hh-fix{background:rgba(232,209,186,.1);border:1px dashed rgba(232,209,186,.4);color:#F6EEE2}.hh-fix b{font-weight:600}.hh-n{color:#F2B85E;font-weight:600;white-space:nowrap}
+.hh-cta{justify-content:center;background:#E7A33A;color:#2E2910;font-weight:600;font-size:16px;border:0}
+.homelog{display:block;grid-column:1/-1}
+.logbtn{width:100%;min-height:58px;border-radius:18px;background:var(--btn);color:var(--btnT);font-size:17px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:var(--lift)}
+body[data-page=guide] .fab{display:none!important}
+/* segmented control for sub-pages */
+.subnav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;padding:4px;border-radius:14px;background:var(--inset);border:1px solid var(--hair2);margin:0 0 14px}
+.subnav button{min-height:40px;border-radius:10px;font-size:14px;font-weight:500;color:var(--tx2)}
+.subnav button[aria-pressed=true]{background:var(--card);color:var(--tx);font-weight:600;box-shadow:0 1px 2px rgba(0,0,0,.12)}
+/* quick log */
+#shTx.quick #seg,#shTx.quick #stSeg,#shTx.quick #refWrap,#shTx.quick #linkWrap,#shTx.quick .two,#shTx.quick #revisionTx,#shTx.quick #txDel{display:none!important}
+#shTx:not(.quick) .qmore{display:none}
+#shTx.quick .amt .v{font-size:52px}
+#shTx.quick #cpick{max-height:none}#shTx.quick #cpick .qhide{display:none}#shTx.quick #cpick .addc{display:none}
+#cpick .qall{padding:8px 13px;border-radius:99px;border:1px dashed var(--hair3);color:var(--tx2);font-size:13.5px}
+#shTx:not(.quick) #cpick .qall{display:none}
+.qmore{width:100%;margin-top:8px}
+@media(max-height:720px){#shTx.quick .amt{padding:0 0 4px}#shTx.quick .amt .v{font-size:40px}#shTx.quick .pad{gap:6px}#shTx.quick .pad button{min-height:46px;padding:10px 0}#shTx.quick #cpick{margin-bottom:8px}#shTx.quick .stitle{margin-bottom:2px}}
+/* undo bar: above the tab bar and the add button */
+.snack{position:fixed;left:12px;right:12px;bottom:calc(154px + env(safe-area-inset-bottom));z-index:92;max-width:460px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;
+ padding:8px 8px 8px 16px;border-radius:16px;background:#13251C;color:#F6EEE2;font-size:14px;box-shadow:0 14px 30px -14px rgba(0,0,0,.5);opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .25s,transform .25s}
+.snack.on{opacity:1;transform:none;pointer-events:auto}
+.snack button{min-height:44px;padding:0 16px;border-radius:12px;background:#2C4A3C;color:#F2B85E;font-weight:600}
+@media(min-width:641px){.snack{bottom:28px}}
+.toast{bottom:calc(96px + env(safe-area-inset-bottom))!important;border-radius:14px}
+body.locked .toast{opacity:0!important}
+@media(min-width:641px){.toast{bottom:28px!important}}
+.instcard.float{position:static;box-shadow:none;animation:none;margin:0 0 14px;width:auto}
+:root{--hero-bg:#0B3B2C}html[data-theme=dark]{--hero-bg:#0A4A36}
+@media(prefers-reduced-motion:reduce){.snack{transition:none}}`;
 document.head.appendChild(css);
 
 /* ── passphrase dialog: top layer, so it also works over the first-run screen ── */
@@ -277,6 +319,84 @@ $('#bkGo').onclick=()=>{
 $('#bankImp').onclick=openBank;$('#bankImpL').onclick=openBank;
 $('#expLock').onclick=exportLocked;
 
+/* ══════════ Today ══════════
+   One number first: what is safe to spend until payday. When some inputs are
+   missing the number is still shown, marked as an estimate, with the next
+   input that would make it exact. Without a pay schedule or a balance there
+   is no honest number, so the card asks for that instead. */
+const FIX={pay:['Add your pay schedule',()=>openPay()],bal:['Update your checking balance',()=>openCyc()],review:["Confirm today's bills and pending charges",()=>openCyc()],
+ ess:['Add what everyday essentials cost you',()=>openCyc()],buf:['Choose a small safety buffer',()=>openCyc()],card:['Enter purchases still owed on your card',()=>openCyc()]};
+function homeState(){
+ const t=today();
+ if(!primary())return{block:'pay'};
+ if(!S.bal||typeof S.bal.amt!=='number')return{block:'bal'};
+ const C=cycle();if(!C.need.length)return{C,est:false,missing:[]};
+ if(C.need.includes('pay'))return{block:'pay'};
+ const keep={cyc:S.cyc,bal:S.bal};
+ try{S.cyc=Object.assign({},S.cyc,{confirmed:t});
+  if(S.cyc.buf==null||S.cyc.buf==='')S.cyc.buf=0;if(S.cyc.cardReserve==null)S.cyc.cardReserve=0;
+  if(!essDaily())S.cyc.ess=0;S.bal=Object.assign({},S.bal,{asOf:t});
+  const E=cycle();return E.need.length?{block:'pay'}:{C:E,est:true,missing:C.need}}
+ finally{S.cyc=keep.cyc;S.bal=keep.bal}}
+window.drawHome=function(){
+ const box=$('#homeHero');if(!box)return;const h=homeState(),t=today();
+ if(h.block){const pay=h.block==='pay';
+  box.innerHTML=`<div class="hh-top"><h2 class="eb hh-eb">Safe to spend</h2></div>
+   <div class="hh-lead fr">${pay?'Find your number':'One step to your number'}</div>
+   <p class="hh-sub">${pay?'Add your paycheck and when it arrives. Gap then shows what is safe to spend until the next one.':'Add what is in checking today. Gap takes out the bills due before payday and shows what is left to spend.'}</p>
+   <button type="button" class="hh-cta" id="hhGo">${pay?'Add my pay schedule':'Add my checking balance'}</button>`;
+  $('#hhGo').onclick=pay?()=>openPay():()=>openCyc();return}
+ const C=h.C,last=lastPay(C.pay,t)||addD(C.next,-14),len=Math.max(diffD(last,C.next),1),pct=Math.min(100,Math.max(4,diffD(last,t)/len*100));
+ const neg=C.avail<0,miss=(h.missing||[]).filter(k=>FIX[k]);
+ box.innerHTML=`<div class="hh-top"><h2 class="eb hh-eb">Safe to spend</h2><span class="hh-badge">${h.est?'Estimate':'Up to date'}</span></div>
+  <div class="hh-num fr${neg?' neg':''}" aria-live="polite">${money(C.avail)}</div>
+  <p class="hh-sub">${neg?'short before payday on ':'until payday, '}<b>${fmtD(C.next,{weekday:'short',month:'short',day:'numeric'})}</b></p>
+  <div class="hh-bar" role="img" aria-label="${Math.round(pct)}% of this pay cycle has passed"><i style="width:${pct.toFixed(1)}%"></i></div>
+  <div class="hh-row"><span>${neg?'Look at what is due below':`About <b>${money(Math.max(C.perDay,0))}</b> a day`}</span><span><b>${plural(C.days,'day')}</b> to payday</span></div>
+  ${miss.length?`<button type="button" class="hh-fix" id="hhFix"><span>Make it exact: <b>${FIX[miss[0]][0].toLowerCase()}</b></span><span class="hh-n">${miss.length===1?'1 step':miss.length+' steps'}</span></button>`:''}`;
+ const f=$('#hhFix');if(f)f.onclick=FIX[miss[0]][1]};
+
+/* ── quick log: amount, one of your usual categories, save ── */
+const txSheet=$('#shTx');
+const more=document.createElement('button');more.type='button';more.className='ghost qmore';more.textContent='More options: type, date, note';
+$('#txSave').insertAdjacentElement('afterend',more);
+more.onclick=()=>{txSheet.classList.remove('quick');A.allCats=true;syncTx()};
+function usual(type){const n={},since=addD(today(),-120);S.tx.forEach(x=>{if(x.type===type&&x.date>=since&&isDone(x))n[x.cat]=(n[x.cat]||0)+1});return n}
+const _sync=syncTx;
+syncTx=function(){_sync();
+ if(!txSheet.classList.contains('quick')||A.allCats)return;
+ const n=usual(A.type),bs=$$('#cpick button[data-c]').sort((a,b)=>(n[b.dataset.c]||0)-(n[a.dataset.c]||0));
+ const box=$('#cpick');bs.forEach((b,i)=>{b.classList.toggle('qhide',i>=6&&b.dataset.c!==A.cat);box.insertBefore(b,box.lastElementChild)});
+ if(bs.length>6&&!$('#cpick .qall')){const a=document.createElement('button');a.type='button';a.className='qall';a.textContent='All categories';a.onclick=()=>{A.allCats=true;syncTx()};box.insertBefore(a,box.lastElementChild)}};
+const _open=openTx;
+openTx=function(t,o){txSheet.classList.remove('quick');return _open(t,o)};
+window.openQuick=function(){_open(null);A.allCats=false;
+ const n=usual('variable'),top=Object.keys(n).sort((a,b)=>n[b]-n[a])[0];if(top&&allCats('variable').includes(top))A.cat=top;
+ txSheet.classList.add('quick');syncTx();$('#txTitle').textContent='Log a purchase'};
+
+/* ── undo instead of "are you sure" ── */
+const snack=document.createElement('div');snack.className='snack';snack.setAttribute('role','status');document.body.appendChild(snack);
+let snT;
+function showSnack(msg,label,fn){snack.innerHTML=`<span>${esc(msg)}</span>${label?`<button type="button">${esc(label)}</button>`:''}`;
+ const b=snack.querySelector('button');if(b)b.onclick=()=>{fn();snack.classList.remove('on')};
+ $('#toast').classList.remove('on');snack.classList.add('on');clearTimeout(snT);snT=setTimeout(()=>snack.classList.remove('on'),6000)}
+const _save=$('#txSave').onclick;
+$('#txSave').onclick=function(e){const before=new Set(S.tx.map(x=>x.id)),edit=A.edit;_save.call(this,e);
+ if(edit)return;const added=S.tx.filter(x=>!before.has(x.id));if(added.length!==1||document.querySelector('.sheet.on'))return;
+ const x=added[0];showSnack(`Saved ${money2(x.amt)} · ${x.cat}`,'Undo',()=>{S.tx=S.tx.filter(y=>y.id!==x.id);save();render();toast('Removed')})};
+
+/* ── Money: Ledger, Goals and Debts under one tab ── */
+const SUB=[['ledger','Ledger'],['goals','Goals'],['debts','Debts']];
+SUB.forEach(([p])=>{const pg=$('#p-'+p);if(!pg)return;const nav=document.createElement('div');nav.className='subnav';nav.setAttribute('role','group');nav.setAttribute('aria-label','Money');
+ nav.innerHTML=SUB.map(([k,l])=>`<button type="button" ${k===p?`id="sub-${k}" aria-pressed="true"`:'aria-pressed="false"'} data-go="${k}">${l}</button>`).join('');
+ pg.insertBefore(nav,pg.firstChild);nav.onclick=e=>{const b=e.target.closest('button');if(b&&b.dataset.go!==V.page)go(b.dataset.go,true)}});
+
+/* ── floating things never cover the page ── */
+/* the install card, when it arrives after the page has loaded, goes below the content, so nothing on screen jumps */
+new MutationObserver(()=>{const c=document.querySelector('body > .instcard');if(c){c.classList.remove('float');const m=$('#main');if(m)m.insertAdjacentElement('afterend',c)}}).observe(document.body,{childList:true});
+$('#logBtn').onclick=()=>openQuick();
+document.body.dataset.page=V.page;
+
 /* the Plan page may already be open when this file loads */
-if(V.page==='plan'||V.page==='debts')render();
+render();
 })();

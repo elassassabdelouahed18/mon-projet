@@ -272,7 +272,7 @@ let S=loadState();
 const save=()=>{mcReset();DB.s(KEY,S)};
 
 /* ══════════ view state ══════════ */
-const V={page:'overview',range:'month',off:0,q:'',type:'all',size:'all',sort:'date',cat:null,
+const V={page:'guide',range:'month',off:0,q:'',type:'all',size:'all',sort:'date',cat:null,
          method:'avalanche',extra:0};
 const mk=o=>{const d=new Date();d.setDate(1);d.setMonth(d.getMonth()-o);return d};
 const sameMonth=(t,m)=>{const d=D(t.date);
@@ -443,17 +443,18 @@ function cycle(){
   incoming,card:cardHold,taxHold,stale:diffD(S.bal.asOf,t),since:S.bal.asOf,payToday}}
 
 /* ══════════ nav ══════════ */
-const PAGES=[['overview','Overview','M4 19V11M10 19V5M16 19v-6M22 19H2'],['guide','Guide','M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3zM9.5 20h5'],
- ['plan','Plan','M4 6h16v14H4zM4 10h16M8 3v4M16 3v4'],['ledger','Ledger','M5 4h14v16H5zM9 9h6M9 13h6M9 17h3'],['goals','Goals','M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zm0-5a4 4 0 1 0 0-8 4 4 0 0 0 0 8z'],
- ['debts','Debts','M3 7h18v10H3zM3 11h18M7 15h3']];
-$('#nav').innerHTML=PAGES.map(([k,l,d])=>`<button type="button" id="tab-${k}" data-p="${k}" role="tab" aria-controls="p-${k}" aria-selected="${k==='overview'}" tabindex="${k==='overview'?0:-1}"><svg class="nvi" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg><span>${l}</span></button>`).join('');
-function go(p,keep){V.page=p;
- $$('#nav button').forEach(x=>{const on=x.dataset.p===p;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1});
+/* four tabs; Money and Insights hold sub-pages chosen with a segmented control */
+const PAGES=[['guide','Today','M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 7.5V12l3 2'],['plan','Plan','M4 6h16v14H4zM4 10h16M8 3v4M16 3v4'],
+ ['ledger','Money','M3 6.5h18v11.5H3zM12 14.8a2.6 2.6 0 1 0 0-5.2 2.6 2.6 0 0 0 0 5.2z'],['overview','Insights','M5 19v-7M10 19V6M15 19v-8M20 19V9']];
+const TAB_OF={guide:'guide',plan:'plan',ledger:'ledger',goals:'ledger',debts:'ledger',overview:'overview'};
+$('#nav').innerHTML=PAGES.map(([k,l,d])=>`<button type="button" id="tab-${k}" data-p="${k}" role="tab" aria-controls="p-${k}" aria-selected="${k==='guide'}" tabindex="${k==='guide'?0:-1}"><svg class="nvi" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg><span>${l}</span></button>`).join('');
+function go(p,keep){V.page=p;if(TAB_OF[p]==='ledger')V.money=p;document.body.dataset.page=p;
+ $$('#nav button').forEach(x=>{const on=x.dataset.p===TAB_OF[p];x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;if(on)x.setAttribute('aria-controls','p-'+p)});
  $$('.page').forEach(x=>x.classList.toggle('on',x.id==='p-'+p));
  if(!keep)window.scrollTo({top:0,behavior:reduced()?'auto':'smooth'});render()}
-$('#nav').onclick=e=>{const b=e.target.closest('button');if(b)go(b.dataset.p)};
+$('#nav').onclick=e=>{const b=e.target.closest('button');if(b)go(b.dataset.p==='ledger'?(V.money||'ledger'):b.dataset.p)};
 $('#nav').addEventListener('keydown',e=>{
- const k=e.key,i=PAGES.findIndex(p=>p[0]===V.page);let n=null;
+ const k=e.key,i=PAGES.findIndex(p=>p[0]===TAB_OF[V.page]);let n=null;
  if(k==='ArrowRight')n=(i+1)%PAGES.length;else if(k==='ArrowLeft')n=(i-1+PAGES.length)%PAGES.length;
  else if(k==='Home')n=0;else if(k==='End')n=PAGES.length-1;
  if(n===null)return;e.preventDefault();go(PAGES[n][0],true);$('#tab-'+PAGES[n][0]).focus()});
@@ -1605,7 +1606,7 @@ function render(){
  mcReset();syncRange();
  if(V.page==='overview'){drawPos();drawGap();drawCycle();drawTiles();drawVari();drawPace();drawTrend();
   drawCats();drawEss();drawSplit();drawIncome();drawHeat();drawMovers();drawDow();drawTable()}
- if(V.page==='guide'){drawMoves();drawUpcoming();drawCheck();drawStreak()}
+ if(V.page==='guide'){if(typeof drawHome==='function')drawHome();drawMoves();drawUpcoming();drawCheck();drawStreak()}
  if(V.page==='ledger'){drawSched();drawTx();drawReps()}
  if(V.page==='plan'&&typeof drawPlan==='function')drawPlan();
  if(V.page==='debts'){drawDebts();if(typeof drawCreditUse==='function')drawCreditUse()}

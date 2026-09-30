@@ -1,3 +1,11 @@
+BeFree redesign for phones
+
+Gap opens on Today: "Safe to spend" until payday as one large number, the days and daily amount beside it, and a "Log a purchase" button in thumb reach. When inputs are missing the number is still shown, marked Estimate, with the next step that makes it exact; without a pay schedule or a checking balance it asks for those instead. Four tabs replace six: Today, Plan, Money (Ledger, Goals and Debts under one segmented control, the last one remembered) and Insights (the charts). Logging opens a quick mode (amount, your six most-used categories, save) with every other field under "More options", and an Undo bar replaces confirmation. The install card never floats over content, messages sit above the tab bar and hide while a sheet is open, and the add button is hidden where the page has its own.
+
+Streak gets three tabs (Today, Challenges, Progress), a warm hero, and its own icon set: Gap's ring on cream with a check. The install page uses the apps' fonts and shows real screens from both apps.
+
+Checked at 360x640, 375x667 and 430x932, light and dark: no horizontal scrolling, and the quick log fits on the smallest screen. Caches: befree-gap-v14, befree-streak-v14, befree-root-v3.
+
 BeFree: two independent apps, install page and additions
 
 Install page (site root, where the QR code points): the BeFree logo in the browser tab and on the page; two required steps, Gap then Streak, each with a direct install button. Each app installs from its own page (gap/install.html, streak/install.html) because a browser can only install the app whose scope the page belongs to. Chrome, Edge and Android get the browser's install prompt; iPhone, iPad and Mac Safari get illustrated steps; Firefox desktop is told to use another browser. Installed apps are named "Gap" and "Streak".

@@ -4,7 +4,7 @@
    fall back to the cached copy offline; icons and the manifest are served from
    the cache and refreshed in the background. Nothing here talks to a server we
    own, because there isn't one. Bump CACHE whenever index.html changes. */
-const CACHE = 'befree-streak-v13';
+const CACHE = 'befree-streak-v14';
 const MINE = /^befree-streak-/;
 const SHELL = ['./app.js', './extras.js', '../finance-core.js', '../plus-core.js', './', './index.html', './manifest.webmanifest',
   './icons/icon-192.png', './icons/icon-512.png', './icons/icon-maskable-192.png',

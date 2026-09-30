@@ -134,5 +134,39 @@ $('#expLock').onclick=async()=>{
  if(ok){closeAll();toast('Encrypted backup saved. Keep the passphrase somewhere safe.')}};
 window.plusUnlock=o=>passDialog({title:'Open encrypted backup',body:o.created?`Saved ${new Date(o.created).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}. Enter its passphrase.`:'Enter its passphrase.',ok:'Open',run:pass=>P.decryptBackup(o,pass)});
 
+/* ── three tabs: Today, Challenges, Progress ── */
+const TABS=[['today','Today','<rect x="4" y="4" width="16" height="16" rx="4"/><path d="m8.5 12.5 2.5 2.5 4.5-5"/>'],
+ ['chal','Challenges','<path d="M6 21V4M6 4h11l-2 4 2 4H6"/>'],['prog','Progress','<path d="M5 19v-7M10 19V6M15 19v-8M20 19V9"/>']];
+const main=$('#main'),place=(el,t)=>{if(el)el.dataset.t=t};
+place(document.querySelector('#main > .card.hero'),'today');['#todoCard','#revCard','#inboxCard'].forEach(s=>place($(s),'today'));
+place($('#chalCard'),'chal');place($('#tiles'),'prog');place(document.querySelector('#main > .bento'),'prog');
+$$('#main > section').forEach(s=>{if(!s.dataset.t)place(s,'prog')});
+const tabs=document.createElement('nav');tabs.className='stabs';tabs.setAttribute('aria-label','Streak sections');
+tabs.innerHTML=TABS.map(([k,l,d])=>`<button type="button" data-tab="${k}" aria-pressed="${k==='today'}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg><span>${l}</span></button>`).join('');
+main.parentNode.insertBefore(tabs,main);
+function setTab(t,keep){document.body.dataset.stab=t;$$('.stabs button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.tab===t)));
+ if(!keep)scrollTo({top:0});render()}
+tabs.onclick=e=>{const b=e.target.closest('button');if(b)setTab(b.dataset.tab)};
+document.body.dataset.stab='today';
+const tcss=document.createElement('style');tcss.textContent=`
+body[data-stab=today] #main>[data-t]:not([data-t=today]),body[data-stab=chal] #main>[data-t]:not([data-t=chal]),body[data-stab=prog] #main>[data-t]:not([data-t=prog]){display:none!important}
+.stabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px;padding:3px;border:1px solid var(--hair);border-radius:99px;margin:0 0 14px;background:var(--card)}
+.stabs button{display:flex;align-items:center;justify-content:center;gap:7px;min-height:var(--tap);border-radius:99px;font-size:14px;font-weight:500;color:var(--tx2)}
+.stabs button[aria-pressed=true]{background:var(--btn);color:var(--btnT);font-weight:600}
+@media(max-width:640px){.stabs{position:fixed;left:8px;right:8px;bottom:calc(8px + env(safe-area-inset-bottom));z-index:50;margin:0;border-radius:20px;padding:4px;
+  background:var(--sheet);backdrop-filter:blur(18px);box-shadow:var(--sh)}
+ .stabs button{flex-direction:column;gap:2px;font-size:12px;border-radius:16px;min-height:52px}
+ .stabs button[aria-pressed=true]{background:var(--inset);color:var(--acc-text)}
+ .fab{bottom:calc(84px + env(safe-area-inset-bottom))}
+ .wrap{padding-bottom:calc(96px + env(safe-area-inset-bottom))}}
+[data-theme=light] #main>.card.hero{background:#F4E3BC;border-color:#E8D29E}
+.instcard.float{position:static;box-shadow:none;animation:none;margin:14px 0;width:auto}
+@media(max-width:640px){.toast{bottom:calc(96px + env(safe-area-inset-bottom))!important;border-radius:14px}}
+@media(min-width:641px){.toast{bottom:28px!important}}
+body.locked .toast{opacity:0!important}`;
+document.head.appendChild(tcss);
+/* an install card that arrives after load goes below the content, so nothing jumps or gets covered */
+new MutationObserver(()=>{const c=document.querySelector('body > .instcard');if(c){c.classList.remove('float');main.insertAdjacentElement('afterend',c)}}).observe(document.body,{childList:true});
+
 drawChal();
 })();

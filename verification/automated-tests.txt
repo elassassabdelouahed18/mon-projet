@@ -40,7 +40,8 @@ PASS Apps run separately: no shared window, no links or data between them
 PASS Embedded code matches every bundled source file
 PASS Service workers keep only the app page as the offline copy
 PASS Revision uses new storage without deleting legacy keys on load
-15 integration tests passed
+PASS Phone layout: four Gap tabs with Today first, three Streak tabs, distinct icons
+16 integration tests passed
 
 == test-charts.cjs
 PASS Unreviewed old records produce visible gap bars

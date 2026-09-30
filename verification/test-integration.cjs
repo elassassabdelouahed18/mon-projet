@@ -33,4 +33,12 @@ test('Embedded code matches every bundled source file',()=>{const root=__dirname
 test('Service workers keep only the app page as the offline copy',()=>{for(const a of ['gap','streak']){const s=fs.readFileSync(__dirname+'/../befree-apps/'+a+'/sw.js','utf8');
  assert.ok(s.includes("if (app && res && res.ok)"),a);for(const f of ["'./extras.js'","'../plus-core.js'"])assert.ok(s.includes(f),a+' caches '+f);}});
 test('Revision uses new storage without deleting legacy keys on load',()=>{assert.ok(src.includes("const KEY='befree.v5'"));assert.ok(src.includes("const old4=DB.g('befree.v4')"));assert.ok(src.includes("d.v>5"));});
+test('Phone layout: four Gap tabs with Today first, three Streak tabs, distinct icons',()=>{const root=__dirname+'/../befree-apps/',rd=f=>fs.readFileSync(root+f,'utf8');
+ const g=rd('gap/app.js'),gh=rd('gap/index.html'),sx=rd('streak/extras.js');
+ assert.ok(g.includes("const V={page:'guide',")&&/const PAGES=\[\['guide','Today'/.test(g),'Gap opens on Today');
+ assert.equal((g.match(/const PAGES=\[([\s\S]*?)\];/)[1].match(/\['[a-z]+','/g)||[]).length,4,'four Gap tabs');
+ assert.ok(gh.includes('id="homeHero"')&&gh.includes('id="logBtn"')&&gh.includes('<section class="page on" id="p-guide"'),'Today hero and log button');
+ assert.ok(/\['today','Today'[\s\S]*\['chal','Challenges'[\s\S]*\['prog','Progress'/.test(sx),'three Streak tabs');
+ assert.ok(rd('streak/icons/favicon.svg').includes('#F2DDB0')&&!rd('streak/icons/favicon.svg').includes('c2pa'),'Streak has its own cream icon');
+ assert.notDeepEqual(fs.readFileSync(root+'streak/icons/icon-192.png'),fs.readFileSync(root+'gap/icons/icon-192.png'),'icons differ');});
 console.log(count+' integration tests passed');

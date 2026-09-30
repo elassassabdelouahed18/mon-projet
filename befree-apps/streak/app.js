@@ -841,8 +841,11 @@ addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'
 /* ── PWA ───────────────────────────────────────────── */
 function iconURL(size,mask){
  const c=document.createElement('canvas');c.width=c.height=size;const x=c.getContext('2d');
- const BG='#2C5745',CR='#F3E9DA',GD='#EDA335';
+ /* Streak's identity: Gap's ring on cream, with a check inside */
+ const BG='#F2DDB0',CR='#0B3B2C',GD='#C9790C';
  x.fillStyle=BG;x.fillRect(0,0,size,size);
+ {const s=size/64*(mask?0.322/0.42:1);x.save();x.translate(size/2,size/2);x.strokeStyle=CR;x.lineWidth=4.4*s;x.lineCap='round';x.lineJoin='round';
+  x.beginPath();x.moveTo(-7.5*s,1.5*s);x.lineTo(-2*s,7*s);x.lineTo(8*s,-4*s);x.stroke();x.restore()}
  const k=(mask?0.322:0.42)*size/142.03, cx=size/2-5.74*k, cy=size/2+8.68*k;
  x.save();x.translate(cx,cy);x.scale(k,k);
  x.strokeStyle=CR;x.lineWidth=38.49;x.lineCap='butt';

@@ -41,4 +41,11 @@ test('Phone layout: four Gap tabs with Today first, three Streak tabs, distinct 
  assert.ok(/\['today','Today'[\s\S]*\['chal','Challenges'[\s\S]*\['prog','Progress'/.test(sx),'three Streak tabs');
  assert.ok(rd('streak/icons/favicon.svg').includes('#F2DDB0')&&!rd('streak/icons/favicon.svg').includes('c2pa'),'Streak has its own cream icon');
  assert.notDeepEqual(fs.readFileSync(root+'streak/icons/icon-192.png'),fs.readFileSync(root+'gap/icons/icon-192.png'),'icons differ');});
+test('Only the pinned inline scripts may run, and the site sends strict headers',()=>{const root=__dirname+'/../befree-apps/',crypto=require('crypto');
+ for(const a of ['gap','streak']){const h=fs.readFileSync(root+a+'/index.html','utf8');const csp=h.match(/http-equiv="Content-Security-Policy" content="([^"]+)"/)[1];
+  const ss=csp.match(/script-src ([^;]+)/)[1];assert.ok(!ss.includes('unsafe'),a+' script-src has no unsafe-*');
+  for(const m of h.matchAll(/<script(?![^>]*\ssrc=)[^>]*>([\s\S]*?)<\/script>/g)){const hash="'sha256-"+crypto.createHash('sha256').update(m[1].replace(/\r\n?/g,'\n')).digest('base64')+"'";assert.ok(ss.includes(hash),a+' inline script hash missing; run tools/sync-bundles.py')}
+  assert.ok(!/\son[a-z]+\s*=\s*["']/i.test(h.replace(/<script[\s\S]*?<\/script>/g,'')),a+' has no inline event handlers')}
+ const hd=fs.readFileSync(root+'_headers','utf8');for(const x of ["X-Frame-Options: DENY","frame-ancestors 'none'","X-Content-Type-Options: nosniff","Strict-Transport-Security","Cross-Origin-Opener-Policy: same-origin"])assert.ok(hd.includes(x),x);
+ assert.ok(!fs.readFileSync(root+'gap/icons/favicon.svg','utf8').includes('c2pa'),'Gap favicon carries no metadata');});
 console.log(count+' integration tests passed');

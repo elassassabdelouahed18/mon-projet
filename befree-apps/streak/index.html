@@ -2,7 +2,7 @@
 <html lang="en-US" data-theme="dark">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; manifest-src 'self' blob: data:; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-4TFfnQTOqRP/UGhk94a/iOaqiq1Vj0Bd3gWmJBEvuKA=' 'sha256-MdnlgQtPATxRUx/87ZtGkMRdSA6GJ6LBnssmTgmvrSo=' 'sha256-23+ybjAFCSiptDWSjbwqJwYeF1JkxOUEjEscyqL5LPk=' 'sha256-m4pEwcLufKv9jzTNrNGGK81YA3hrylroGRBSnVRGm8s=' 'sha256-Am7j14Y1GsJZ3XMMEEjJnySRMWEbTlwSHIxIdnYLRlk='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; manifest-src 'self' blob: data:; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
@@ -621,11 +621,6 @@ body{padding-bottom:max(90px,env(safe-area-inset-bottom))}
 
 <section class="card" id="chalCard" aria-labelledby="chalT"></section>
 
-<section class="card" id="inboxCard" style="display:none" aria-labelledby="inbT">
-  <div class="ch"><h2 class="eb" id="inbT">Suggested from BeFree Gap</h2></div>
-  <div class="inb" id="inbox"></div>
-</section>
-
 <section class="card revcard" id="revCard" aria-labelledby="revT">
   <div class="ch"><h2 class="eb" id="revT">Weekly review</h2><div class="eb mono" id="revTag"></div></div>
   <div id="rev"></div>
@@ -1151,7 +1146,6 @@ const DNL=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday
 const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
 const plural=(n,w,ws)=>`${n} ${n===1?w:(ws||w+'s')}`;
 const money=n=>{const a=Math.round(Math.abs(n));return (n<0&&a?'−':'')+'$'+a.toLocaleString('en-US')};
-const ord=n=>{n=+n||1;const s=['th','st','nd','rd'],v=n%100;return n+(s[(v-20)%10]||s[v]||s[0])};
 
 /* The demo page runs under its own storage names, so opening it can never
    touch a real record on the same site. */
@@ -1244,10 +1238,6 @@ let S=loadS();
 const save=()=>{DB.s(KEY,S)};
 const V={off:0,view:'month',wk:null};
 
-/* ── standalone: nothing is read from Gap ── */
-let G=null;
-function readGap(){G=null;return null}
-
 /* ── schedules ─────────────────────────────────────── */
 function adjWk(ds,wk){if(!wk||wk==='same')return ds;const w=D(ds).getDay();
  if(w===6)return addD(ds,wk==='before'?-1:2);if(w===0)return addD(ds,wk==='before'?-2:1);return ds}
@@ -1261,12 +1251,8 @@ function payOcc(p,from,to){const out=[];if(!p)return out;
  return [...new Set(out)].sort()}
 /* paydays: the schedule set here */
 function paySource(){return S.pay?'own':null}
-function paydayList(from,to){
- if(G&&G.v===2&&G.pay){const l=(G.paydays||[]).filter(d=>d>=from&&d<=to);
-  const p=G.pay;if(p&&(p.anchor||p.day))return [...new Set(l.concat(payOcc(p,from,to)))].sort();return l}
- return S.pay?payOcc(S.pay,from,to):[]}
+function paydayList(from,to){return S.pay?payOcc(S.pay,from,to):[]}
 function billDue(rule,from,to){
- if(rule.rid&&G&&G.v===2){const b=(G.bills||[]).find(x=>x.rid===rule.rid);if(b)return (b.next||[]).filter(d=>d>=from&&d<=to)}
  if(rule.day)return payOcc({freq:'monthly',day:rule.day,wk:'same'},from,to);
  return []}
 const ruleAt=(h,ds)=>{let r=h.sched[0];for(const s of h.sched){if(s.from<=ds)r=s;else break}return r.rule};
@@ -1343,19 +1329,11 @@ function autoTick(){let ch=false;
 const t=today();
  S.habits.forEach(h=>{if(!h.link)return;
   for(let i=0;i<30;i++){const ds=addD(t,-i);if(ds<h.created)break;
-   if(tk(h,ds)==='g'&&!(S.legacyAutoTicks||{})[h.id+'|'+ds]&&G&&G.v===2&&!evidence(h,ds)){delete S.ticks[h.id+'|'+ds];ch=true;}
    if(tk(h,ds)!==undefined)continue;const s=status(h,ds,t);
    if((s==='open'||s==='missed')&&evidence(h,ds)){S.ticks[h.id+'|'+ds]='g';ch=true}}});
  return ch}
 
-function readInbox(){return[]}
-function refName(ref){if(!ref||!G||G.v!==2)return '';
- if(ref.goal){const g=(G.goals||[]).find(x=>x.id===ref.goal);return g?g.name:''}
- if(ref.fund){const f=(G.funds||[]).find(x=>x.id===ref.fund);return f?f.name:''}
- if(ref.rid){const b=(G.bills||[]).find(x=>x.rid===ref.rid);return b?b.name:''}
- return ''}
-function habitFromTpl(id,ref){const L=tplOf(id);if(!L)return null;const nm=refName(ref);
- const name=nm?(id==='fund-topup'?`Top up ${nm}`:id==='payday-save'?`Move money to ${nm} on payday`:id==='bill-before'?`Pay ${nm} before it's due`:L.name):L.name;
+function habitFromTpl(id,ref){const L=tplOf(id);if(!L)return null;const name=L.name;
  const rule=JSON.parse(JSON.stringify(L.rule));if(ref&&ref.rid&&rule.t==='before')rule.rid=ref.rid;
  return{name,action:L.action,when:L.when,small:L.small,rule,link:L.link,tpl:id,ref:ref||null}}
 
@@ -1375,12 +1353,10 @@ const TODO_LIB=[
  {title:'Compare car or renters insurance quotes',note:'Same coverage, three quotes.'},
  {title:'Dispute a charge that looks wrong',note:'Card issuers set a time limit, so sooner is better.'}];
 function nextPayday(){const t=today();return paydayList(t,addD(t,62)).find(d=>d>=t)||null}
-function nextBill(rid){const t=today();return billDue({rid},t,addD(t,120)).find(d=>d>=t)||null}
 function resolveDue(w){const t=today();
  if(!w||w.t==='none')return{due:null,why:''};
  if(w.t==='date')return{due:w.date||null,why:''};
  if(w.t==='payday'){const p=nextPayday();return p?{due:p<=t?t:addD(p,-1),why:'before payday'}:{due:null,why:''}}
- if(w.t==='bill'){const b=nextBill(w.rid),n=refName({rid:w.rid});return b?{due:b<=t?t:addD(b,-1),why:n?`before ${n}`:'before the bill'}:{due:null,why:''}}
  return{due:null,why:''}}
 function taskState(x,t){t=t||today();if(x.done)return 'done';if(!x.due)return 'none';
  if(x.due<t)return 'late';if(x.due===t)return 'today';return diffD(t,x.due)<=7?'soon':'later'}
@@ -1395,12 +1371,7 @@ function todoSummary(){const y=today().slice(0,4),d=S.tasks.filter(x=>x.done&&x.
 const TICK_SVG='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E2910" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>';
 function affordLine(h){
  const L=tplOf(h.tpl);if(!(h.link==='save'||(L&&L.afford)))return '';
- if(!G||G.v!==2)return `<div class="ev">Only move money you won't need before payday. If this pay cycle is tight, the small version or "Not this time" is the right call; it won't count against you.</div>`;
- const c=G.cycle||{status:'unknown'};
- if(c.status==='ok')return `<div class="ev ok">Gap: about <b>${money(c.avail)}</b> available until payday${c.next?` on ${fmtD(c.next,{weekday:'short',month:'short',day:'numeric'})}`:''}, after bills and essentials. A set-aside fits.</div>`;
- if(c.status==='tight')return `<div class="ev warn">Gap: this pay cycle is tight (about <b>${money(c.avail)}</b> until payday). The small version is plenty, and "Not this time" is a fine answer. It won't count against you.</div>`;
- if(c.status==='short')return `<div class="ev warn">Gap: this pay cycle is short before payday. Skipping the transfer this time is the sensible call. Tap "Not this time"; it won't count against you.</div>`;
- return `<div class="ev">Gap can't tell yet whether this cycle has room: it needs your pay schedule and balance. Only move what you won't need before payday.</div>`}
+ return `<div class="ev">Only move money you won't need before payday. If this pay cycle is tight, the small version or "Not this time" is the right call; it won't count against you.</div>`}
 function habitRow(h,ds){
  const s=status(h,ds),on=DONE.has(s),c=hcol(h),v=tk(h,ds),ev=evidence(h,ds);
  const r30=rate([h],addD(ds,-29),ds),st=habitStreak(h);
@@ -1412,7 +1383,7 @@ function habitRow(h,ds){
    <h3 class="hn">${esc(h.name)}${s==='small'?'<span class="pill">Small version</span>':''}${v==='g'?'<span class="pill ok">Automatic</span>':''}${s==='excused'?'<span class="pill">Not needed today</span>':''}</h3>
    ${h.action||h.when?`<p class="ha">${h.action?esc(h.action):''}${h.action&&h.when?' · ':''}${h.when?`<b>${esc(h.when)}</b>`:''}</p>`:''}
    ${h.small&&!on?`<p class="hsm"><b>Hard day?</b> ${esc(h.small)}. That counts.</p>`:''}
-   ${ev?`<div class="ev ok">${v==='g'?'Counted because':'Your record shows'} ${ev.txt} today.</div>`:h.link&&!on&&G&&G.v===2?`<div class="ev">This ticks itself when ${h.link==='bills'?'you confirm a bill payment':h.link==='save'?'you move money to savings':'you mark today’s spending complete'} in Gap.</div>`:''}
+   ${ev?`<div class="ev ok">${v==='g'?'Counted because':'Your record shows'} ${ev.txt} today.</div>`:''}
    ${!on&&s!=='excused'?affordLine(h):''}
    <p class="hm mono">${st?plural(st,'time')+' in a row · ':''}${r30.t?`${r30.d} of ${r30.t} scheduled done in 30 days`:'Just started'}${rule.t==='payday'?' · payday habit':''}</p>
    <div class="hbtns">
@@ -1477,30 +1448,6 @@ function toggleToday(hid,btn){
  const n=$(`[data-tick="${hid}"]`);if(n)n.focus({preventScroll:true});
 }
 
-/* ── inbox from Gap ────────────────────────────────── */
-function drawInbox(){
- const q=readInbox(),box=$('#inboxCard');
- if(!q.length){box.style.display='none';return}
- box.style.display='';
- $('#inbox').innerHTML=q.map(x=>{
-  if(x.kind==='todo'){const dup=S.tasks.some(t=>t.key&&t.key===x.key&&!t.done);
-   return `<div class="inbi"><div><div class="t"><span class="pill">To-do</span> ${esc(x.title)}</div><div class="s">${x.worth?`Worth about ${money(x.worth)} a year · `:''}${x.due==='payday'?'Due before payday · ':''}done once, then gone${dup?' · already on your list':''}</div></div>
-    <div class="b"><button class="btn" data-intodo="${x.id}">${dup?'OK':'Add to-do'}</button><button class="btn2" data-indis="${x.id}">Dismiss</button></div></div>`}
-  const hb=habitFromTpl(x.tpl,x.ref);if(!hb)return '';
-  const dup=S.habits.some(h=>h.tpl===x.tpl&&JSON.stringify(h.ref||null)===JSON.stringify(x.ref||null));
-  return `<div class="inbi"><div><div class="t">${esc(hb.name)}</div><div class="s">${esc(hb.when)} · smallest version: ${esc(hb.small)}${dup?' · already on your list':''}</div></div>
-   <div class="b"><button class="btn" data-inadd="${x.id}">${dup?'OK':'Review and add'}</button><button class="btn2" data-indis="${x.id}">Dismiss</button></div></div>`}).join('');
- $$('[data-inadd]').forEach(b=>b.onclick=()=>{const x=q.find(i=>i.id===b.dataset.inadd);
-  const dup=S.habits.some(h=>h.tpl===x.tpl&&JSON.stringify(h.ref||null)===JSON.stringify(x.ref||null));
-  if(dup){S.inboxDone.push(x.id);save();render();return}
-  openHabit(null,Object.assign(habitFromTpl(x.tpl,x.ref),{inbox:x.id}))});
- $$('[data-intodo]').forEach(b=>b.onclick=()=>{const x=q.find(i=>i.id===b.dataset.intodo);if(!x)return;
-  const dup=S.tasks.some(t=>t.key&&t.key===x.key&&!t.done);
-  if(!dup){const r=resolveDue(x.due==='payday'?{t:'payday'}:null);
-   S.tasks.push({id:uid(),title:String(x.title||'').slice(0,80),note:x.note||'',due:r.due,dueWhy:r.why,worth:+x.worth||null,src:'gap',key:x.key||null,created:today(),done:null})}
-  S.inboxDone.push(x.id);save();render();toast(dup?'Already on your list':'Added to your money to-dos')});
- $$('[data-indis]').forEach(b=>b.onclick=()=>{S.inboxDone.push(b.dataset.indis);save();render();toast('Dismissed')});
-}
 
 /* ── money to-dos ──────────────────────────────────── */
 const CHK_SVG='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>';
@@ -1703,7 +1650,7 @@ function drawSpan(wrap){
 
 function drawGap(){}
 
-function render(){revisionRecovery();if(typeof drawChal==='function')drawChal();drawToday();drawTodos();drawInbox();drawReview();drawStats();drawGrid();drawRank();drawWeekday();drawRing();drawGap()}
+function render(){revisionRecovery();if(typeof drawChal==='function')drawChal();drawToday();drawTodos();drawReview();drawStats();drawGrid();drawRank();drawWeekday();drawRing();drawGap()}
 $('#prevM').onclick=()=>{V.off++;V.wk=null;drawGrid()};
 $('#nextM').onclick=()=>{if(V.off>0){V.off--;V.wk=null;drawGrid()}};
 $$('#gviews button').forEach(b=>b.onclick=()=>{V.view=b.dataset.v;drawGrid()});
@@ -1774,7 +1721,7 @@ function syncSch(){
    <span class="hint">${src?'Paydays come from the schedule set in Settings.':'No paydays yet. Set them here or in Settings → Paydays.'}</span></div>
    ${src?'':'<button type="button" class="btn2" id="hPaySet" style="margin-bottom:12px">Set my paydays</button>'}`}
  else if(r.t==='month'){o=`<div class="fld"><label for="hDay">Day of the month</label><input id="hDay" type="number" inputmode="numeric" min="1" max="31" value="${r.day||1}"><span class="hint">31 means the last day of the month.</span></div>`}
- else if(r.t==='before'){const bills=G&&G.v===2?(G.bills||[]):[];
+ else if(r.t==='before'){
   o=`<div class="two"><div class="fld"><label for="hDue">Due day of the month</label><input id="hDue" type="number" inputmode="numeric" min="1" max="31" value="${r.day||''}" placeholder="1"></div>
    <div class="fld"><label for="hDays">Days before</label><select id="hDays">${[1,2,3,5,7].map(n=>`<option value="${n}" ${(+r.days||2)===n?'selected':''}>${n}</option>`).join('')}</select></div></div>`}
  $('#hSchOpts').innerHTML=o;
@@ -1789,7 +1736,7 @@ function readHabitForm(){H.name=$('#hName').value;H.action=$('#hAction').value;H
  if(r.t==='every'){r.anchor=($('#hAnchor')||{}).value||today();r.n=14}
  if(r.t==='payday')r.off=+(($('#hOff')||{}).value||0);
  if(r.t==='month')r.day=Math.max(1,Math.min(31,+(($('#hDay')||{}).value)||1));
- if(r.t==='before'){r.days=+(($('#hDays')||{}).value||2);const b=($('#hBill')||{}).value;if(b){r.rid=b;delete r.day}else{delete r.rid;r.day=Math.max(1,Math.min(31,+(($('#hDue')||{}).value)||1))}}}
+ if(r.t==='before'){r.days=+(($('#hDays')||{}).value||2);delete r.rid;r.day=Math.max(1,Math.min(31,+(($('#hDue')||{}).value)||1))}}
 $('#hSch').onclick=e=>{const b=e.target.closest('button');if(!b)return;readHabitForm();const t=b.dataset.t;
  H.rule=t==='week'?{t,days:[1,1,1,1,1,1,1]}:t==='every'?{t,n:14,anchor:today()}:t==='payday'?{t,off:1}:t==='month'?{t,day:1}:{t,days:2};syncSch()};
 $('#hLink').onchange=()=>syncSch();
@@ -1808,7 +1755,7 @@ $('#hSave').onclick=()=>{
    if(last.from===t||x.created===t)last.rule=H.rule;else x.sched.push({from:t,rule:H.rule});
    x.dates=x.dates.filter(d=>d<t)}}
  else{S.habits.push(Object.assign({id:uid(),created:t,sched:[{from:t,rule:H.rule}],pauses:[],dates:[],tpl:H.tpl||null,ref:H.ref||null},base));
-  if(H.inbox)S.inboxDone.push(H.inbox)}
+}
  refreshDates();autoTick();save();closeAll();render();toast(H.edit?'Saved':'Habit added. It counts from today.')};
 $('#hPause').onclick=()=>{const x=S.habits.find(y=>y.id===H.id),t=today();
  const p=x.pauses.find(p=>inRange(p,t));
@@ -1836,18 +1783,15 @@ function syncWhen(){const w=T.when;segSet('#tWhen','w',w.t);let o='';
  if(w.t==='date')o=`<div class="fld"><label for="tDate">Due date</label><input id="tDate" type="date" value="${w.date||today()}"></div>`;
  else if(w.t==='payday'){const p=nextPayday();
   o=`<p class="foot" style="margin:-4px 0 12px">${p?`Due <b>${fmtD(p<=today()?today():addD(p,-1))}</b>, the day before your next payday (${fmtD(p)}). The date is fixed once saved.`:'No paydays yet. Set them in Settings → Paydays.'}</p>`}
- else if(w.t==='bill'){const bills=G&&G.v===2?(G.bills||[]):[];
-  o=bills.length?`<div class="fld"><label for="tBill">Which bill</label><select id="tBill">${bills.map(b=>`<option value="${b.rid}" ${w.rid===b.rid?'selected':''}>${esc(b.name)}</option>`).join('')}</select><span class="hint">Due the day before that bill's next due date.</span></div>`
-   :`<p class="foot" style="margin:-4px 0 12px">Connect BeFree Gap on this device to pick one of your scheduled bills. Until then, use a date.</p>`}
  $('#tWhenOpts').innerHTML=o}
 $('#tWhen').onclick=e=>{const b=e.target.closest('button');if(!b)return;readTaskForm();T.when={t:b.dataset.w,date:T.when.date||''};syncWhen()};
 function readTaskForm(){T.title=$('#tName').value;T.note=$('#tNote').value;const w=T.when;
- if(w.t==='date')w.date=($('#tDate')||{}).value||'';if(w.t==='bill')w.rid=($('#tBill')||{}).value||''}
+ if(w.t==='date')w.date=($('#tDate')||{}).value||''}
 $('#tName').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('#tSave').click()}});
 $('#tSave').onclick=()=>{readTaskForm();const n=T.title.trim().slice(0,80);
  if(!n){toast('Give it a name');$('#tName').focus();return}
  const w=T.when;if(w.t==='date'&&!w.date){toast('Pick a date, or choose No date');return}
- const r=resolveDue(w);if((w.t==='payday'||w.t==='bill')&&!r.due){toast('That date is not known yet. Use a date instead.');return}
+ const r=resolveDue(w);if(w.t==='payday'&&!r.due){toast('That date is not known yet. Use a date instead.');return}
  const wv=Math.round(+String($('#tWorth').value).replace(/[^0-9.]/g,''))||null;
  const base={title:n,note:T.note.trim().slice(0,160),due:r.due,dueWhy:r.why,worth:wv};
  if(T.edit){const x=S.tasks.find(y=>y.id===T.id);
@@ -1910,10 +1854,10 @@ function doExport(){const b=new Blob([JSON.stringify(Object.assign({app:'befree-
 window.doExport=doExport;
 $('#expBtn').onclick=doExport;
 $('#impBtn').onclick=()=>$('#impFile').click();
-$('#impFile').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();
+$('#impFile').onchange=e=>{const f=e.target.files[0];if(!f)return;if(f.size>2e7){e.target.value='';toast('That file is too large to be a backup.');return}const r=new FileReader();
  r.onload=async()=>{let d,txt=r.result;
   try{const o=JSON.parse(txt);if(BeFreePlus.isEncrypted(o)){txt=typeof plusUnlock==='function'?await plusUnlock(o):null;if(txt==null)return}}catch(x){}
-  try{d=JSON.parse(txt);if(!d||!Array.isArray(d.habits))throw 0;if(d.v&&d.v>2)throw 1}
+  try{d=JSON.parse(txt,(k,v)=>k==='__proto__'||k==='constructor'||k==='prototype'?undefined:v);if(!d||!Array.isArray(d.habits))throw 0;if(d.v&&d.v>2)throw 1}
   catch(x){toast(x===1?'That backup is from a newer version of Streak':'That file is not a BeFree Streak backup');return}
   if(S.habits.length&&!await ask('Restore this backup?',`It replaces the ${plural(S.habits.length,'habit')} on this device with the ${plural(d.habits.length,'habit')} in the file. A copy of the current record is kept on this device.`,'Restore'))return;
   const raw=DB.raw(KEY);if(raw)DB.put(KEY+'.before-restore',raw);
@@ -2003,12 +1947,11 @@ let deferred=null;
 addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e;$('#installBtn').style.display='grid';$('#installBtn').classList.add('hot')});
 $('#installBtn').onclick=async()=>{if(!deferred)return;deferred.prompt();await deferred.userChoice;deferred=null;$('#installBtn').style.display='none'};
 addEventListener('appinstalled',()=>{$('#installBtn').style.display='none';toast('Added to your home screen. It works with no signal.')});
-let swOn=false;
 if(window.top===window.self&&LIVE&&'serviceWorker' in navigator&&location.protocol.startsWith('http')){
  const had=!!navigator.serviceWorker.controller;
- navigator.serviceWorker.register('./sw.js',{scope:'./'}).then(r=>{swOn=!!r;
+ navigator.serviceWorker.register('./sw.js',{scope:'./'}).then(r=>{
   r.addEventListener('updatefound',()=>{const w=r.installing;if(!w)return;w.addEventListener('statechange',()=>{if(w.state==='activated'&&had)
-   banner({b1:'A new version of Streak is ready',b2:'Reload to use it. Your habits are not affected.',action:'Reload',fn:()=>location.reload()})})})}).catch(()=>{swOn=false})}
+   banner({b1:'A new version of Streak is ready',b2:'Reload to use it. Your habits are not affected.',action:'Reload',fn:()=>location.reload()})})})}).catch(()=>{})}
 
 /* ══════════ last resort ══════════ */
 addEventListener('error',ev=>{ if(window.__bfDown)return; window.__bfDown=true;
@@ -2130,8 +2073,7 @@ if(!migrNotice()&&!backupNudge())remindBanner();
    };
    var save = el.querySelector('#icSave');
    if (save) save.onclick = function(){
-     try { (window.doExport || function(){ var b = document.querySelector('#expBtn');
-       if (b) b.click(); })(); } catch(e) {}
+     try { if (window.doExport) window.doExport(); } catch(e) {}
    };
  }
 
@@ -2386,7 +2328,10 @@ function revisionRecovery(){
 const P=BeFreePlus;
 /* opened from its own icon: let the install page show it as installed */
 try{if(matchMedia('(display-mode: standalone)').matches||navigator.standalone===true)localStorage.setItem('befree.installed.streak','1')}catch(e){}
-const chal=()=>{if(!S.chal||typeof S.chal!=='object')S.chal={};return S.chal};
+/* challenge records come back from backups too: keep only well-formed ones */
+const chal=()=>{if(!S.chal||typeof S.chal!=='object'||Array.isArray(S.chal))S.chal={};
+ for(const k of Object.keys(S.chal)){const e=S.chal[k];if(!e||typeof e.from!=='string'||typeof e.to!=='string'||!Array.isArray(e.habits)||!Array.isArray(e.tasks))delete S.chal[k]}
+ return S.chal};
 
 const css=document.createElement('style');
 css.textContent=`
@@ -2518,7 +2463,7 @@ window.plusUnlock=o=>passDialog({title:'Open encrypted backup',body:o.created?`S
 const TABS=[['today','Today','<rect x="4" y="4" width="16" height="16" rx="4"/><path d="m8.5 12.5 2.5 2.5 4.5-5"/>'],
  ['chal','Challenges','<path d="M6 21V4M6 4h11l-2 4 2 4H6"/>'],['prog','Progress','<path d="M5 19v-7M10 19V6M15 19v-8M20 19V9"/>']];
 const main=$('#main'),place=(el,t)=>{if(el)el.dataset.t=t};
-place(document.querySelector('#main > .card.hero'),'today');['#todoCard','#revCard','#inboxCard'].forEach(s=>place($(s),'today'));
+place(document.querySelector('#main > .card.hero'),'today');['#todoCard','#revCard'].forEach(s=>place($(s),'today'));
 place($('#chalCard'),'chal');place($('#tiles'),'prog');place(document.querySelector('#main > .bento'),'prog');
 $$('#main > section').forEach(s=>{if(!s.dataset.t)place(s,'prog')});
 const tabs=document.createElement('nav');tabs.className='stabs';tabs.setAttribute('aria-label','Streak sections');

@@ -282,7 +282,6 @@ function inRange(t){if(V.range==='month')return sameMonth(t,mk(V.off));
  const n={30:30,90:90,365:365}[V.range]||30,f=new Date();f.setDate(f.getDate()-n);
  return D(t.date)>=f&&t.date<=today()}
 const pTx=()=>S.tx.filter(inRange);
-const pDone=()=>pTx().filter(isDone);
 /* entries grouped by month once per render, so charts that look at six or
    twelve months don't rescan years of history for every bar */
 let MC=null;
@@ -1584,7 +1583,6 @@ function drawStreak(){
   <div class="status${run?' on':''}"><span class="dotc"></span><div>${run?`<b>${plural(run,'day')} in a row</b> with an entry you logged or a review.`:'<b>No run yet.</b> Log an entry or review today to start one.'}</div></div>
   <p class="foot" style="margin-top:10px">Last 30 days: <b>${n30} of 30</b> days checked in. Only entries you log yourself and your reviews count, never automatic ones.</p>`;
 }
-const relTime=ts=>{const m=Math.round((Date.now()-ts)/6e4);if(m<2)return 'just now';if(m<60)return m+' minutes ago';const h=Math.round(m/60);if(h<24)return plural(h,'hour')+' ago';return plural(Math.round(h/24),'day')+' ago'};
 
 /* ══════════ chips + render ══════════ */
 const RG=[['month','This month'],['30','Last 30 days'],['90','Last 90 days'],['365','Last 12 months'],['all','All time']];
@@ -2221,10 +2219,10 @@ $('#expCsv').onclick=()=>{
  dl(`befree-gap-${today()}.csv`,'﻿'+rows.join('\r\n'),'text/csv;charset=utf-8');
  toast('Spreadsheet saved')};
 $('#impBtn').onclick=()=>$('#impFile').click();
-$('#impFile').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();
+$('#impFile').onchange=e=>{const f=e.target.files[0];if(!f)return;if(f.size>2e7){e.target.value='';toast('That file is too large to be a backup.');return}const r=new FileReader();
  r.onload=async()=>{let d,txt=r.result;
   try{const o=JSON.parse(txt);if(BeFreePlus.isEncrypted(o)){txt=typeof plusUnlock==='function'?await plusUnlock(o):null;if(txt==null)return}}catch(x){}
-  try{d=JSON.parse(txt);if(!d||typeof d!=='object'||!Array.isArray(d.tx))throw 0;if(d.v&&d.v>5)throw 1}
+  try{d=JSON.parse(txt,(k,v)=>k==='__proto__'||k==='constructor'||k==='prototype'?undefined:v);if(!d||typeof d!=='object'||!Array.isArray(d.tx))throw 0;if(d.v&&d.v>5)throw 1}
   catch(x){toast(x===1?'That backup is from a newer version of Gap':'That file is not a BeFree Gap backup');return}
   const onSetup=$('#setup').classList.contains('on');
   if(!onSetup&&S.tx.length&&!await ask('Restore this backup?',`It replaces the ${plural(S.tx.length,'entry','entries')} on this device now with the ${plural(d.tx.length,'entry','entries')} in the file. A copy of the current record is kept on this device.`,'Restore'))return;
@@ -2482,85 +2480,15 @@ $('#installBtn').onclick=async()=>{if(!deferred)return;deferred.prompt();
  await deferred.userChoice;deferred=null;$('#installBtn').style.display='none'};
 window.addEventListener('appinstalled',()=>{$('#installBtn').style.display='none';
  toast('Added to your home screen. It works with no signal.')});
-const SW_SRC=`/* BeFree Gap — offline shell.
-   Precache on install so the app opens with the radio off. Pages are
-   network-first (so a new version arrives the next time you're online) and
-   fall back to the cached copy offline; icons and the manifest are served from
-   the cache and refreshed in the background. Nothing here talks to a server we
-   own, because there isn't one. Bump CACHE whenever index.html changes. */
-const CACHE = 'befree-gap-v11';
-const MINE = /^befree-gap-/;
-const SHELL = ['./', './index.html', './manifest.webmanifest',
-  './icons/icon-192.png', './icons/icon-512.png', './icons/icon-maskable-192.png',
-  './icons/icon-maskable-512.png', './icons/apple-touch-icon.png', './icons/favicon.svg'];
-
-self.addEventListener('install', e => {
-  e.waitUntil(caches.open(CACHE)
-    .then(c => c.addAll(SHELL.map(u => new Request(u, {cache: 'reload'}))))
-    .then(() => self.skipWaiting()));
-});
-self.addEventListener('activate', e => {
-  /* only this app's old caches: Gap and Streak share an origin, so deleting
-     every other cache would wipe the sibling app's offline copy */
-  e.waitUntil(caches.keys()
-    .then(ks => Promise.all(ks.filter(k => k !== CACHE && (MINE.test(k) || k === 'befree-1')).map(k => caches.delete(k))))
-    .then(() => self.clients.claim()));
-});
-self.addEventListener('fetch', e => {
-  const req = e.request;
-  if (req.method !== 'GET') return;
-  const url = new URL(req.url);
-  if (url.origin !== location.origin) return;
-  if (req.mode === 'navigate') {
-    e.respondWith(fetch(req).then(res => {
-      if (res && res.ok) { const copy = res.clone(); caches.open(CACHE).then(c => c.put('./index.html', copy)).catch(() => {}); }
-      return res;
-    }).catch(() => caches.match('./index.html').then(hit => hit || caches.match('./'))));
-    return;
-  }
-  e.respondWith(caches.match(req, {ignoreSearch: true}).then(hit => {
-    const net = fetch(req).then(res => {
-      if (res && res.ok && res.type === 'basic') { const copy = res.clone(); caches.open(CACHE).then(c => c.put(req, copy)).catch(() => {}); }
-      return res;
-    }).catch(() => hit);
-    return hit || net;
-  }));
-});
-
-/* optional daily reminder: best-effort only, and only where the browser
-   grants it (installed, Chromium-based). The service worker cannot read
-   localStorage, so this is a generic nudge, not "you haven't logged yet" —
-   that check happens in the page itself, which is the reliable part. */
-self.addEventListener('periodicsync', e => {
-  if (e.tag !== 'befree-daily-reminder') return;
-  e.waitUntil(self.registration.showNotification('Gap', {
-    body: 'A quick minute keeps today’s numbers accurate.',
-    icon: './icons/icon-192.png', badge: './icons/icon-192.png',
-    tag: 'befree-daily-reminder'
-  }));
-});
-self.addEventListener('notificationclick', e => {
-  e.notification.close();
-  e.waitUntil(self.clients.matchAll({type: 'window', includeUncontrolled: true}).then(list => {
-    for (const c of list) if ('focus' in c) return c.focus();
-    if (self.clients.openWindow) return self.clients.openWindow('./');
-  }));
-});
-`;
-$('#swGet').onclick=()=>{dl('sw.js',SW_SRC,'text/javascript');toast('Saved sw.js. Put it in the same folder as this page.')};
-let swOn=false;
 async function registerSW(){
- if(window.top!==window.self){swOn=!!navigator.serviceWorker.controller;$('#swRow').style.display='none';return;}
  /* a service worker must be a real same-origin file next to this page */
- if(!('serviceWorker' in navigator)||!location.protocol.startsWith('http')){
-   $('#swRow').style.display='flex';return}
+ if(window.top!==window.self||!('serviceWorker' in navigator)||!location.protocol.startsWith('http'))return;
  const had=!!navigator.serviceWorker.controller;
- try{const r=await navigator.serviceWorker.register('./sw.js',{scope:'./'});swOn=!!r;
+ try{const r=await navigator.serviceWorker.register('./sw.js',{scope:'./'});
   r.addEventListener('updatefound',()=>{const w=r.installing;if(!w)return;
    w.addEventListener('statechange',()=>{if(w.state==='activated'&&had)
     banner({b1:'A new version of Gap is ready',b2:'Reload to use it. Your entries are not affected.',action:'Reload',fn:()=>location.reload()})})})}
- catch(e){swOn=false}
- $('#swRow').style.display=swOn?'none':'flex';
+ catch(e){}
 }
 registerSW();
 window.onStorageLost=()=>{try{memWarn();toast('This browser stopped saving. Back up now.')}catch(e){}};
@@ -2700,8 +2628,7 @@ else{
    };
    var save = el.querySelector('#icSave');
    if (save) save.onclick = function(){
-     try { (window.doExport || function(){ var b = document.querySelector('#expBtn');
-       if (b) b.click(); })(); } catch(e) {}
+     try { if (window.doExport) window.doExport(); } catch(e) {}
    };
  }
 

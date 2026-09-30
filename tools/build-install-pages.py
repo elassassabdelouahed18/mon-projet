@@ -1,4 +1,21 @@
-<!doctype html>
+#!/usr/bin/env python3
+"""Write the install page twice, identical except for the app it belongs to:
+befree-apps/gap/install.html and befree-apps/streak/install.html.
+
+A browser can only install the app whose manifest and folder the page is in,
+so each copy lives in its app's folder and installs that app in place; the
+other card links to the other copy. The site root forwards to the Gap copy.
+
+    python3 tools/build-install-pages.py
+"""
+import os
+
+ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'befree-apps')
+CHECK = ('<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+         'stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+         '<path d="m5 13 4 4L19 7"/></svg>')
+
+PAGE = """<!doctype html>
 <html lang="en-US">
 <head>
 <meta charset="utf-8">
@@ -14,16 +31,16 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Gap">
+<meta name="apple-mobile-web-app-title" content="{NAME}">
 <title>BeFree · Install Gap and Streak</title>
 <link rel="stylesheet" href="../install.css">
 </head>
-<body data-app="gap">
+<body data-app="{APP}">
 <main class="wrap">
   <header class="brand"><img src="../logo.svg" alt="" width="44" height="44"><span>BeFree</span></header>
   <h1>Two apps.<br>One calmer paycheck.</h1>
   <p class="lead">Gap shows what's safe to spend until payday. Streak builds the small habits that keep it that way. Install both, one after the other; each takes about a minute.</p>
-  <div class="chips"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>No account</span><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>No bank login</span><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>Stays on your phone</span><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>Works offline</span></div>
+  <div class="chips"><span>{CHECK}No account</span><span>{CHECK}No bank login</span><span>{CHECK}Stays on your phone</span><span>{CHECK}Works offline</span></div>
   <div class="phones">
     <figure class="phone"><img src="../shots/gap-today.jpg" width="375" height="780" alt="Gap: $180 safe to spend until payday on Friday, Oct 9, with a Log a purchase button and the bills coming up"></figure>
     <figure class="phone b"><img src="../shots/streak-today.jpg" width="375" height="780" alt="Streak: 12 days in a row, two of three money habits done today"></figure>
@@ -70,3 +87,38 @@
 <script src="../install.js"></script>
 </body>
 </html>
+"""
+
+ROOT_PAGE = """<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="refresh" content="0; url=gap/install.html">
+<meta name="theme-color" content="#063F2E">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<title>BeFree · Install Gap and Streak</title>
+<style>body{margin:0;padding:48px 16px;background:#F3EEE3;color:#16261E;font:16px/1.6 system-ui,sans-serif;text-align:center}a{color:#2C5745;font-weight:600}</style>
+</head>
+<body><p><a href="gap/install.html">Install Gap and Streak</a></p></body>
+</html>
+"""
+
+
+def write(path, text):
+    with open(path, 'w', encoding='utf-8', newline='') as f:
+        f.write(text.replace('\n', '\r\n'))
+
+
+def main():
+    for app, name in (('gap', 'Gap'), ('streak', 'Streak')):
+        write(os.path.join(ROOT, app, 'install.html'),
+              PAGE.replace('{APP}', app).replace('{NAME}', name).replace('{CHECK}', CHECK))
+    write(os.path.join(ROOT, 'index.html'), ROOT_PAGE)
+    print('wrote gap/install.html, streak/install.html, index.html')
+
+
+if __name__ == '__main__':
+    main()

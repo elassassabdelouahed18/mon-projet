@@ -1,2 +1,6 @@
 User-agent: *
+Allow: /$
+Allow: /gap/install.html
+Allow: /streak/install.html
+Allow: /extra-paychecks.html
 Disallow: /

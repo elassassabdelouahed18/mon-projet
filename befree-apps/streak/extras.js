@@ -6,7 +6,10 @@
 const P=BeFreePlus;
 /* opened from its own icon: let the install page show it as installed */
 try{if(matchMedia('(display-mode: standalone)').matches||navigator.standalone===true)localStorage.setItem('befree.installed.streak','1')}catch(e){}
-const chal=()=>{if(!S.chal||typeof S.chal!=='object')S.chal={};return S.chal};
+/* challenge records come back from backups too: keep only well-formed ones */
+const chal=()=>{if(!S.chal||typeof S.chal!=='object'||Array.isArray(S.chal))S.chal={};
+ for(const k of Object.keys(S.chal)){const e=S.chal[k];if(!e||typeof e.from!=='string'||typeof e.to!=='string'||!Array.isArray(e.habits)||!Array.isArray(e.tasks))delete S.chal[k]}
+ return S.chal};
 
 const css=document.createElement('style');
 css.textContent=`
@@ -138,7 +141,7 @@ window.plusUnlock=o=>passDialog({title:'Open encrypted backup',body:o.created?`S
 const TABS=[['today','Today','<rect x="4" y="4" width="16" height="16" rx="4"/><path d="m8.5 12.5 2.5 2.5 4.5-5"/>'],
  ['chal','Challenges','<path d="M6 21V4M6 4h11l-2 4 2 4H6"/>'],['prog','Progress','<path d="M5 19v-7M10 19V6M15 19v-8M20 19V9"/>']];
 const main=$('#main'),place=(el,t)=>{if(el)el.dataset.t=t};
-place(document.querySelector('#main > .card.hero'),'today');['#todoCard','#revCard','#inboxCard'].forEach(s=>place($(s),'today'));
+place(document.querySelector('#main > .card.hero'),'today');['#todoCard','#revCard'].forEach(s=>place($(s),'today'));
 place($('#chalCard'),'chal');place($('#tiles'),'prog');place(document.querySelector('#main > .bento'),'prog');
 $$('#main > section').forEach(s=>{if(!s.dataset.t)place(s,'prog')});
 const tabs=document.createElement('nav');tabs.className='stabs';tabs.setAttribute('aria-label','Streak sections');

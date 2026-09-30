@@ -8,7 +8,7 @@ const P=BeFreePlus;
 /* opened from its own icon: let the install page show it as installed */
 try{if(matchMedia('(display-mode: standalone)').matches||navigator.standalone===true)localStorage.setItem('befree.installed.gap','1')}catch(e){}
 const plus=()=>{if(!S.plus||typeof S.plus!=='object')S.plus={};return S.plus};
-const miles=()=>{if(!Array.isArray(S.miles))S.miles=[];return S.miles};
+const miles=()=>{if(!Array.isArray(S.miles))S.miles=[];S.miles=S.miles.filter(m=>m&&typeof m.date==='string'&&m.date.length===10);return S.miles};
 const mon=(m,o)=>new Date(+m.slice(0,4),+m.slice(5,7)-1,1).toLocaleDateString('en-US',o||{month:'long',year:'numeric'});
 
 const css=document.createElement('style');
@@ -159,7 +159,7 @@ function calCard(){
  if(!calSel||calSel<from||calSel>to)calSel=t>=from&&t<=to?t:from;
  let cells=DN_S.map(d=>`<div class="h" aria-hidden="true">${d}</div>`).join('')+'<div class="blank"></div>'.repeat(m0.getDay());
  for(let d=from;d<=to;d=addD(d,1)){const l=by[d]||[];
-  cells+=`<button type="button" data-d="${d}" aria-pressed="${d===calSel}" class="${d===t?'today':''}" aria-label="${fmtD(d,{weekday:'long',month:'long',day:'numeric'})}: ${l.length?l.map(x=>x.name).join(', '):'nothing scheduled'}">
+  cells+=`<button type="button" data-d="${d}" aria-pressed="${d===calSel}" class="${d===t?'today':''}" aria-label="${fmtD(d,{weekday:'long',month:'long',day:'numeric'})}: ${l.length?esc(l.map(x=>x.name).join(', ')):'nothing scheduled'}">
    <span class="n">${+d.slice(8)}</span><span class="dots">${l.slice(0,4).map(x=>`<i class="${x.kind}"></i>`).join('')}</span></button>`}
  const sel=by[calSel]||[],outM=sum(items.filter(x=>x.kind==='out'),x=>x.amt),inM=sum(items.filter(x=>x.kind==='in'),x=>x.amt);
  box.innerHTML=`<div class="ch"><h2 class="eb">Bill calendar</h2>
@@ -197,7 +197,7 @@ function taxCard(){
   const st=q.due<t?'past':q===next?'next':'';
   return `<div class="pxr"><span class="k">${st==='next'?'<span class="pill warn">Next</span> ':''}Q${q.q} ${q.y}: due ${fmtD(q.due,{month:'short',day:'numeric',year:+q.due.slice(0,4)!==y?'numeric':undefined})}</span>
    <span class="v">${money(e.need)}</span><span class="s">Income ${fmtD(q.from)} to ${fmtD(q.to)}${st==='past'?' · date has passed':''}${q.to>t&&q.from<=t?' · so far':''}</span></div>`}).join('')}</div>
-  <p class="foot">Amounts use your reserve rate of ${S.tax.rate}% on income with no withholding, so they are estimates, not a tax bill. A due date on a weekend or DC holiday moves to the next business day. States have their own schedules. Confirm at irs.gov/payments.</p>`}
+  <p class="foot">Amounts use your reserve rate of ${+S.tax.rate||0}% on income with no withholding, so they are estimates, not a tax bill. A due date on a weekend or DC holiday moves to the next business day. States have their own schedules. Confirm at irs.gov/payments.</p>`}
 
 /* ── employer 401(k) match ── */
 const MATCH=[['100-3-50-2','100% of the first 3%, then 50% of the next 2%',[{rate:100,upTo:3},{rate:50,upTo:2}]],['50-6','50% of the first 6%',[{rate:50,upTo:6}]],
@@ -210,11 +210,11 @@ function matchCard(){
  const per=p?res.missing/((PER_MONTH[p.freq]||1)*12):null;
  box.innerHTML=`<div class="ch"><h2 class="eb">Employer 401(k) match</h2></div>
   <div class="pxform">
-   <div class="fld"><label for="kSal">Pay per year, before tax</label><input id="kSal" type="number" inputmode="decimal" min="0" value="${k.salary||''}" placeholder="${guess?guess:'52000'}"></div>
-   <div class="fld"><label for="kPct">You put in, %</label><input id="kPct" type="number" inputmode="decimal" min="0" max="100" step="0.5" value="${k.pct??''}" placeholder="0"></div>
+   <div class="fld"><label for="kSal">Pay per year, before tax</label><input id="kSal" type="number" inputmode="decimal" min="0" value="${+k.salary||''}" placeholder="${guess?guess:'52000'}"></div>
+   <div class="fld"><label for="kPct">You put in, %</label><input id="kPct" type="number" inputmode="decimal" min="0" max="100" step="0.5" value="${k.pct==null||k.pct===''?'':+k.pct||0}" placeholder="0"></div>
    <div class="fld wide"><label for="kF">Your employer matches</label><select id="kF">${MATCH.map(x=>optVal(x[0],x[1],x===f)).join('')}</select></div>
-   ${f[0]==='custom'?`<div class="fld"><label for="kR1">Match %</label><input id="kR1" type="number" min="0" value="${k.r1||''}" placeholder="100"></div><div class="fld"><label for="kU1">Of the first %</label><input id="kU1" type="number" min="0" value="${k.u1||''}" placeholder="4"></div>
-    <div class="fld"><label for="kR2">Then match %</label><input id="kR2" type="number" min="0" value="${k.r2||''}" placeholder="0"></div><div class="fld"><label for="kU2">Of the next %</label><input id="kU2" type="number" min="0" value="${k.u2||''}" placeholder="0"></div>`:''}
+   ${f[0]==='custom'?`<div class="fld"><label for="kR1">Match %</label><input id="kR1" type="number" min="0" value="${+k.r1||''}" placeholder="100"></div><div class="fld"><label for="kU1">Of the first %</label><input id="kU1" type="number" min="0" value="${+k.u1||''}" placeholder="4"></div>
+    <div class="fld"><label for="kR2">Then match %</label><input id="kR2" type="number" min="0" value="${+k.r2||''}" placeholder="0"></div><div class="fld"><label for="kU2">Of the next %</label><input id="kU2" type="number" min="0" value="${+k.u2||''}" placeholder="0"></div>`:''}
   </div>
   <div class="status ${salary&&res.missing<1?'on':''}" style="margin-top:12px"><span class="dotc"></span><div>${!salary?'Enter your yearly pay to see what the match is worth.'
    :res.max<1?'Enter the match your employer offers.'
@@ -239,7 +239,7 @@ function milesCard(){
   </div>
   <div class="pxrow"><button class="btn2" id="mAdd">Add trip</button>${L.length?'<button class="btn2" id="mCsv">Download the log (CSV)</button>':''}</div>
   ${L.length?`<div class="pxl" style="margin-top:8px">${L.slice(0,8).map(m=>`<div class="pxr"><span class="k">${fmtD(m.date,{month:'short',day:'numeric',year:'numeric'})} · ${esc(m.place||'Trip')}</span>
-   <span class="v">${(+m.miles).toLocaleString('en-US',{maximumFractionDigits:1})} mi <button class="tlink" data-mdel="${m.id}" aria-label="Delete this trip">Delete</button></span><span class="s">${esc(m.purpose||'')}</span></div>`).join('')}</div>
+   <span class="v">${(+m.miles).toLocaleString('en-US',{maximumFractionDigits:1})} mi <button class="tlink" data-mdel="${esc(m.id)}" aria-label="Delete this trip">Delete</button></span><span class="s">${esc(m.purpose||'')}</span></div>`).join('')}</div>
    ${L.length>8?`<p class="foot">${L.length-8} older trips are in the CSV.</p>`:''}`:''}
   <div class="pxform" style="margin-top:12px"><div class="fld"><label for="mRate">Rate per mile</label><input id="mRate" type="number" inputmode="decimal" min="0" step="0.005" value="${rate||''}" placeholder="0.70"></div>
    <div class="fld"><span class="lab">Deduction estimate, ${y}</span><div class="mono" style="font-size:20px;padding-top:6px">${rate?money2(ytd*rate):'—'}</div></div></div>
@@ -286,7 +286,7 @@ function syncBank(){segSet('#bkAcct','a',BK.acct);const cards=S.debts.filter(d=>
  $('#bkCard').innerHTML=optVal('','Not linked to a card')+cards.map(d=>optVal(d.id,d.name)).join('')}
 $('#bkAcct').onclick=e=>{const b=e.target.closest('button');if(!b)return;BK.acct=b.dataset.a;syncBank();if(BK.text)readBank()};
 $('#bkPick').onclick=()=>$('#bkFile').click();
-$('#bkFile').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{BK.text=String(r.result);BK.name=f.name;readBank()};r.readAsText(f);e.target.value=''};
+$('#bkFile').onchange=e=>{const f=e.target.files[0];if(!f)return;if(f.size>1e7){e.target.value='';toast('That file is too large for a bank export. Download a shorter date range.');return}const r=new FileReader();r.onload=()=>{BK.text=String(r.result);BK.name=f.name;readBank()};r.readAsText(f);e.target.value=''};
 function readBank(){
  const res=P.readBankFile(BK.text,BK.name);
  if(res.error||!res.rows.length){$('#bkOut').innerHTML=`<div class="status" style="margin-top:12px"><span class="dotc"></span><div>${esc(res.error||'No transactions found in this file.')} Try the CSV download from your bank's activity page.</div></div>`;$('#bkGo').style.display='none';return}

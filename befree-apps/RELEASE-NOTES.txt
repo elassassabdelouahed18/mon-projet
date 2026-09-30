@@ -1,3 +1,17 @@
+BeFree: two independent apps, install page and additions
+
+Install page (site root, where the QR code points): the BeFree logo in the browser tab and on the page; two required steps, Gap then Streak, each with a direct install button. Each app installs from its own page (gap/install.html, streak/install.html) because a browser can only install the app whose scope the page belongs to. Chrome, Edge and Android get the browser's install prompt; iPhone, iPad and Mac Safari get illustrated steps; Firefox desktop is told to use another browser. Installed apps are named "Gap" and "Streak".
+
+Independence: no switch buttons, links or shared data between the apps. Each has its own theme and PIN keys (the old shared PIN and theme are copied once). Streak copies its paydays and bill due days once from Gap's last shared summary, then never reads it again. This removes the iPhone problem: neither app needs the other.
+
+Gap additions: Plan page (paychecks ahead, extra paycheck months, bill calendar with .ics export, federal estimated tax dates, employer 401(k) match, mileage log); bank file import (CSV, QFX, OFX) with de-duplication; buy now, pay later plans scheduled as bills; credit limits and card use; encrypted backups (PBKDF2-SHA-256 600,000 rounds, AES-256-GCM).
+Streak additions: seasonal challenges on the US calendar, a share picture with no money figures, encrypted backups.
+Also on the site: extra-paychecks.html, a free extra paycheck finder.
+
+Fixes: both apps linked a manifest that no longer existed, so neither could be installed; the app service workers could store another page in the folder as the offline copy of the app; Streak crashed its week view for "before a bill" habits.
+
+Caches: befree-gap-v13, befree-streak-v13, befree-root-v2. After editing any bundled .js file, run python3 tools/sync-bundles.py. Tests: node verification/test-*.cjs.
+
 BeFree apps separated again
 
 Gap (gap/) and Streak (streak/) run as two separate apps. The shared BeFree window, its top bar (BeFree, Gap, Streak, Help & backups) and the "Offline files prepared" notice are removed. The switch button beside Settings in each app opens the other app. The site root now forwards to Gap. The root service worker clears the old shared-window cache for existing installations; each app keeps its own offline worker (caches befree-gap-v12 and befree-streak-v12).

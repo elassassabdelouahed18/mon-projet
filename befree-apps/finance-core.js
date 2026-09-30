@@ -21,7 +21,7 @@
  function debtEffect(d,t){if(!done(t))return 0;
   if(t.payFrom==='card'&&t.card===d.id&&spend(t))return amount(t);
   if(t.debt!==d.id)return 0;
-  if(d.kind==='card'||d.kind==='due')return -(+t.amt||0);
+  if(d.kind==='card'||d.kind==='due'||d.kind==='bnpl')return -(+t.amt||0);
   return Number.isFinite(t.principal)?-Math.max(0,Math.min(t.principal,+t.amt||0)):0;}
  function debtBalance(d,list){let b=+d.bal0||0;const base=d.ledgerBaseline;
   if(base){const current={};list.forEach(t=>{current[t.id]=debtEffect(d,t);});new Set([...Object.keys(base),...Object.keys(current)]).forEach(id=>{b+=(current[id]||0)-(base[id]||0);});}

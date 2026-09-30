@@ -1,3 +1,63 @@
 <!doctype html>
-<html lang="en-US"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'unsafe-inline'; object-src 'none'; base-uri 'none'"><meta http-equiv="refresh" content="0; url=gap/"><title>BeFree</title><style>body{margin:0;padding:40px 16px;background:#f5f1e8;color:#153f30;font:16px/1.6 system-ui,sans-serif;text-align:center}a{color:#153f30;font-weight:600}</style></head>
-<body><p><a href="gap/">Open BeFree Gap</a> · <a href="streak/">Open BeFree Streak</a></p></body></html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#063F2E">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Install BeFree Gap and BeFree Streak: two private money apps with no account and no bank login.">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="gap/icons/apple-touch-icon.png">
+<title>BeFree · Install Gap and Streak</title>
+<link rel="stylesheet" href="install.css">
+</head>
+<body data-page="hub">
+<main class="wrap">
+  <header class="brand"><img src="logo.svg" alt="" width="44" height="44"><span>BeFree</span></header>
+  <h1>Install your two apps</h1>
+  <p class="lead">Gap keeps track of your money. Streak builds the habits that keep it on track. Install both, one after the other. Each takes about a minute.</p>
+  <p class="trust">No account · No bank login · Your numbers stay on this device</p>
+
+  <ol class="steps">
+    <li class="step" id="stepGap">
+      <img class="appicon" src="gap/icons/icon-192.png" alt="" width="64" height="64">
+      <div class="sbody">
+        <div class="shead"><span class="num">1</span><h2>Gap</h2><span class="badge" id="gapState">Not installed yet</span></div>
+        <p>See what's available until payday, plan every paycheck and widen the gap between what comes in and what goes out.</p>
+        <a class="btn" id="gapBtn" href="gap/install.html">Install Gap</a>
+      </div>
+    </li>
+    <li class="step" id="stepStreak">
+      <img class="appicon" src="streak/icons/icon-192.png" alt="" width="64" height="64">
+      <div class="sbody">
+        <div class="shead"><span class="num">2</span><h2>Streak</h2><span class="badge" id="streakState">Not installed yet</span></div>
+        <p>Small money habits, ticked off day by day: logging, bills, paydays, a weekly review, and seasonal challenges.</p>
+        <a class="btn" id="streakBtn" href="streak/install.html">Install Streak</a>
+      </div>
+    </li>
+  </ol>
+
+  <div class="done" id="allDone" hidden>
+    <h2>Both apps are installed</h2>
+    <p>Open Gap and Streak from your home screen or app list from now on, not from this browser tab. Save a backup from each app's Settings once a week.</p>
+  </div>
+
+  <details class="help">
+    <summary>Good to know before you install</summary>
+    <ul>
+      <li><b>Two separate apps.</b> Gap and Streak each keep their own records, so each one needs its own backup.</li>
+      <li><b>iPhone and iPad:</b> use Safari, or Chrome on iOS 16.4 or later. On a Mac, use Safari (File, then Add to Dock) or Chrome.</li>
+      <li><b>Private by design.</b> Your entries are stored in the app on this device. Nothing is sent to us, and there is no login to lose.</li>
+      <li><b>Moving from the older one-window version?</b> Save a backup in the old app first, then restore it in the new app from Settings.</li>
+    </ul>
+  </details>
+
+  <a class="tool" href="extra-paychecks.html"><b>Free tool:</b> find the months you get an extra paycheck &rarr;</a>
+
+  <footer>Questions? <a href="mailto:support@befreeacademy.site">support@befreeacademy.site</a></footer>
+</main>
+<script src="install.js"></script>
+</body>
+</html>

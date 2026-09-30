@@ -88,6 +88,18 @@ function migrate(d){
   ['action','when','small'].forEach(k=>{if(typeof n[k]!=='string')n[k]=''});
   if(n.tpl&&!n.small){const L=tplOf(n.tpl);if(L){n.action=n.action||L.action;n.when=n.when||L.when;n.small=L.small}}
   return n});
+/* Streak runs on its own. Older builds took paydays and bill dates from
+   Gap through shared browser storage; what this record relied on is
+   copied once from Gap's last summary, so payday and bill habits keep
+   their dates. Bill habits become a monthly due day. */
+ let g=null;if(LIVE){try{g=JSON.parse(localStorage.getItem('befree.bridge.gap.v2')||'null')}catch(e){}if(!g||g.v!==2)g=null}
+ if(!S0.standaloneV1){S0.standaloneV1=true;
+  if(!S0.pay&&g&&g.pay&&(g.pay.anchor||g.pay.day)){S0.pay={freq:g.pay.freq,anchor:g.pay.anchor||null,day:+g.pay.day||15,day2:+g.pay.day2||31,wk:g.pay.wk||'same'};log.push('Streak now runs on its own. Your paydays were copied from Gap; check them in Settings → Paydays')}}
+ let billsMoved=0;
+ S0.habits.forEach(h=>h.sched.forEach(s=>{const r=s.rule;if(!r||r.t!=='before'||!r.rid)return;
+  const b=g&&(g.bills||[]).find(x=>x.rid===r.rid),nx=b&&((b.next||[]).find(x=>x>=t)||(b.next||[])[0]);
+  if(!r.day)r.day=nx?+nx.slice(8,10):1;delete r.rid;billsMoved++}));
+ if(billsMoved)log.push('Bill habits now use a due day of the month set in Streak; check any bill that is not monthly');
  if((d.v||1)<2){
   if(conv)log.push('Each habit now keeps its schedule history, so changing a schedule later never rewrites past weeks');
   log.push('Streaks now count each habit only from the day it was created');
@@ -102,19 +114,12 @@ function loadS(){
  return blank()}
 let S=loadS();
 (async()=>{try{if(navigator.storage&&navigator.storage.persist){const a=await navigator.storage.persisted();if(!a)await navigator.storage.persist()}}catch(e){}})();
-const save=()=>{DB.s(KEY,S);try{publishStreak()}catch(e){}};
+const save=()=>{DB.s(KEY,S)};
 const V={off:0,view:'month',wk:null};
 
-/* ── Gap bridge (read) ─────────────────────────────── */
-const BR_GAP1='befree.bridge.gap.v1',BR_GAP2='befree.bridge.gap.v2',BR_S1='befree.bridge.streak.v1',BR_S2='befree.bridge.streak.v2',BR_INBOX='befree.bridge.inbox.v1';
+/* ── standalone: nothing is read from Gap ── */
 let G=null;
-function readGap(){G=null;if(!LIVE)return null;
- try{const r=JSON.parse(localStorage.getItem(BR_GAP2)||'null');
-  if(r&&r.v===2&&Date.now()-r.updated<1000*60*60*24*1){G=r;return G}
-  const o=JSON.parse(localStorage.getItem(BR_GAP1)||'null');
-  if(o&&o.v===1&&Date.now()-o.updated<1000*60*60*24*1)G={v:1,old:true,updated:o.updated}}catch(e){}
- return G}
-readGap();
+function readGap(){G=null;return null}
 
 /* ── schedules ─────────────────────────────────────── */
 function adjWk(ds,wk){if(!wk||wk==='same')return ds;const w=D(ds).getDay();
@@ -127,8 +132,8 @@ function payOcc(p,from,to){const out=[];if(!p)return out;
  for(let i=i0;i<=i1;i++){const y=Math.floor(i/12),m=i%12;
   days.forEach(dd=>{const s=adjWk(iso(new Date(y,m,Math.min(dd,dayCount(y,m)))),p.wk);if(s>=from&&s<=to)out.push(s)})}
  return [...new Set(out)].sort()}
-/* paydays: Gap's schedule when connected, otherwise the one set here */
-function paySource(){if(G&&G.v===2&&G.pay)return 'gap';if(S.pay)return 'own';return null}
+/* paydays: the schedule set here */
+function paySource(){return S.pay?'own':null}
 function paydayList(from,to){
  if(G&&G.v===2&&G.pay){const l=(G.paydays||[]).filter(d=>d>=from&&d<=to);
   const p=G.pay;if(p&&(p.anchor||p.day))return [...new Set(l.concat(payOcc(p,from,to)))].sort();return l}
@@ -203,8 +208,8 @@ function habitStreak(h){const t=today();let n=0;
  return n}
 function nextDue(h){const t=today();for(let i=0;i<120;i++){const ds=addD(t,i);const s=status(h,ds,t);if(s==='open'||s==='future'||(DONE.has(s)&&i>0))return ds}return null}
 
-/* ── evidence from Gap: only things the person did ── */
-function evidence(h,ds){return BeFreeFinance.evidence(h,(G&&G.v===2&&G.ev&&G.ev[ds])||{},!!S.nospend[ds])}
+/* ── evidence: only things the person did ── */
+function evidence(h,ds){return BeFreeFinance.evidence(h,{},!!S.nospend[ds])}
 function autoTick(){let ch=false;
  if(!S.evidenceV5){S.legacyAutoTicks={};Object.keys(S.ticks).forEach(k=>{if(S.ticks[k]==='g')S.legacyAutoTicks[k]='g';});S.habits.forEach(h=>{if(h.tpl==='balance-check')h.link='balance';});S.evidenceV5=true;ch=true;}
  if(!S.historyRepairV1){Object.entries(S.legacyAutoTicks||{}).forEach(([k,v])=>{if(S.ticks[k]==='s'&&v==='g')S.ticks[k]='g';});S.historyRepairV1=true;ch=true;}
@@ -216,15 +221,7 @@ const t=today();
    if((s==='open'||s==='missed')&&evidence(h,ds)){S.ticks[h.id+'|'+ds]='g';ch=true}}});
  return ch}
 
-/* ── bridge (write) ───────────────────────────────── */
-function publishStreak(){if(!LIVE)return;
- try{const t=today();const st=streak(),best=bestStreak();
-  localStorage.setItem(BR_S1,JSON.stringify({v:1,app:'streak',streak:st,best,updated:Date.now()}));
-  localStorage.setItem(BR_S2,JSON.stringify({v:2,app:'streak',streak:st,best,updated:Date.now(),
-   habits:S.habits.map(h=>{const r=rate([h],addD(t,-29),t);return{id:h.id,name:h.name,tpl:h.tpl||null,ref:h.ref||null,link:h.link||null,done30:r.d,sched30:r.t}}),
-   handled:S.inboxDone.slice(-60),nospend:Object.keys(S.nospend).filter(d=>d>=addD(t,-60)).sort(),
-   todos:todoSummary(),todoKeys:S.tasks.filter(x=>x.key).map(x=>x.key).slice(-60)}))}catch(e){}}
-function readInbox(){if(!LIVE)return[];try{const a=JSON.parse(localStorage.getItem(BR_INBOX)||'[]');return Array.isArray(a)?a.filter(x=>x&&x.id&&!S.inboxDone.includes(x.id)):[]}catch(e){return[]}}
+function readInbox(){return[]}
 function refName(ref){if(!ref||!G||G.v!==2)return '';
  if(ref.goal){const g=(G.goals||[]).find(x=>x.id===ref.goal);return g?g.name:''}
  if(ref.fund){const f=(G.funds||[]).find(x=>x.id===ref.fund);return f?f.name:''}
@@ -271,7 +268,7 @@ function todoSummary(){const y=today().slice(0,4),d=S.tasks.filter(x=>x.done&&x.
 const TICK_SVG='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E2910" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>';
 function affordLine(h){
  const L=tplOf(h.tpl);if(!(h.link==='save'||(L&&L.afford)))return '';
- if(!G||G.v!==2)return `<div class="ev">Only move money you won't need before payday. Connected to BeFree Gap, this line would show whether this pay cycle has room.</div>`;
+ if(!G||G.v!==2)return `<div class="ev">Only move money you won't need before payday. If this pay cycle is tight, the small version or "Not this time" is the right call; it won't count against you.</div>`;
  const c=G.cycle||{status:'unknown'};
  if(c.status==='ok')return `<div class="ev ok">Gap: about <b>${money(c.avail)}</b> available until payday${c.next?` on ${fmtD(c.next,{weekday:'short',month:'short',day:'numeric'})}`:''}, after bills and essentials. A set-aside fits.</div>`;
  if(c.status==='tight')return `<div class="ev warn">Gap: this pay cycle is tight (about <b>${money(c.avail)}</b> until payday). The small version is plenty, and "Not this time" is a fine answer. It won't count against you.</div>`;
@@ -285,10 +282,10 @@ function habitRow(h,ds){
   <button class="tick ${s==='small'?'half':''}" data-tick="${h.id}" aria-pressed="${on}" aria-label="${esc(h.name)}: ${on?'done, tap to undo':'mark done'}"
    ${on&&s!=='small'?`style="background:${c};border-color:${c}"`:on?`style="border-color:${c}"`:''}>${TICK_SVG}</button>
   <div style="min-width:0">
-   <h3 class="hn">${esc(h.name)}${s==='small'?'<span class="pill">Small version</span>':''}${v==='g'?'<span class="pill ok">From Gap</span>':''}${s==='excused'?'<span class="pill">Not needed today</span>':''}</h3>
+   <h3 class="hn">${esc(h.name)}${s==='small'?'<span class="pill">Small version</span>':''}${v==='g'?'<span class="pill ok">Automatic</span>':''}${s==='excused'?'<span class="pill">Not needed today</span>':''}</h3>
    ${h.action||h.when?`<p class="ha">${h.action?esc(h.action):''}${h.action&&h.when?' · ':''}${h.when?`<b>${esc(h.when)}</b>`:''}</p>`:''}
    ${h.small&&!on?`<p class="hsm"><b>Hard day?</b> ${esc(h.small)}. That counts.</p>`:''}
-   ${ev?`<div class="ev ok">${v==='g'?'Counted because':'Gap shows'} ${ev.txt} today.</div>`:h.link&&!on&&G&&G.v===2?`<div class="ev">This ticks itself when ${h.link==='bills'?'you confirm a bill payment':h.link==='save'?'you move money to savings':'you mark today’s spending complete'} in Gap.</div>`:''}
+   ${ev?`<div class="ev ok">${v==='g'?'Counted because':'Your record shows'} ${ev.txt} today.</div>`:h.link&&!on&&G&&G.v===2?`<div class="ev">This ticks itself when ${h.link==='bills'?'you confirm a bill payment':h.link==='save'?'you move money to savings':'you mark today’s spending complete'} in Gap.</div>`:''}
    ${!on&&s!=='excused'?affordLine(h):''}
    <p class="hm mono">${st?plural(st,'time')+' in a row · ':''}${r30.t?`${r30.d} of ${r30.t} scheduled done in 30 days`:'Just started'}${rule.t==='payday'?' · payday habit':''}</p>
    <div class="hbtns">
@@ -548,7 +545,7 @@ function drawMonth(wrap){
      ${fut?'disabled':''} data-c="${h.id}|${cc.ds}" aria-pressed="${DONE.has(s)}" aria-label="${esc(lab)}">${s==='excused'?'–':''}</button>`}
   out+=Array.from({length:7-span},()=>'<span class="wc ghost"></span>').join('');
   const r=curRule(h);
-  const nd=r.days?r.days.reduce((a,b)=>a+b,0):0;const per=r.t==='week'?(nd===7?'every day':plural(nd,'day')+' a week'):r.t==='every'?'every 2 weeks':r.t==='payday'?'payday':r.t==='month'?'monthly':'before a bill';
+  const nd=Array.isArray(r.days)?r.days.reduce((a,b)=>a+b,0):0;const per=r.t==='week'?(nd===7?'every day':plural(nd,'day')+' a week'):r.t==='every'?'every 2 weeks':r.t==='payday'?'payday':r.t==='month'?'monthly':'before a bill';
   return `<div class="wrow"><button class="wlab" data-edit="${h.id}" aria-label="Edit ${esc(h.name)}">
     <span class="hdot" style="background:${c}"></span><span class="wn">${esc(h.name)}</span><span class="wx">${per}</span></button>${out}</div>`}).join('');
  wrap.innerHTML=`<div class="wkbar">
@@ -577,20 +574,9 @@ function drawSpan(wrap){
    <span class="mr mono">${r.t?`${r.d}/${r.t}`:'—'}</span></div><div class="sq13" role="img" aria-label="${esc(h.name)}: ${r.d} of ${r.t} scheduled done in 13 weeks">${cells}</div></div>`}).join('')+`</div>
   <p class="whint">Thirteen weeks at a glance: done of scheduled. To change a day, use the Month view.</p>`}
 
-/* ── Gap connection ────────────────────────────────── */
-const relTime=ts=>{const m=Math.round((Date.now()-ts)/6e4);if(m<2)return 'just now';if(m<60)return m+' minutes ago';const h=Math.round(m/60);if(h<24)return plural(h,'hour')+' ago';return plural(Math.round(h/24),'day')+' ago'};
-function connHTML(){
- if(!LIVE)return `<div class="status"><span class="dotc"></span><div><b>Sample mode.</b> This demo keeps its own separate data and doesn't connect to Gap.</div></div>`;
- if(!G)return `<div class="status"><span class="dotc"></span><div><b>Not connected or summary older than 24 hours.</b> Open Gap on this device to refresh it. Until then, tick habits yourself; everything still works.</div></div>`;
- if(G.old)return `<div class="status"><span class="dotc"></span><div><b>Gap needs updating.</b> The version of Gap on this device doesn't separate your own entries from automatic ones, so Streak won't count from it.</div></div>`;
- const c=G.cycle||{};
- return `<div class="status on"><span class="dotc"></span><div><b>Connected on this device.</b> Gap was last opened ${relTime(G.updated)}.
-  ${G.pay?`Paydays come from Gap${(G.paydays||[]).filter(d=>d>=today())[0]?`; next is ${fmtD((G.paydays||[]).filter(d=>d>=today())[0])}`:''}.`:'Gap has no pay schedule yet, so payday habits use the paydays set here.'}
-  ${c.status&&c.status!=='unknown'?` This pay cycle looks <b>${c.status==='ok'?'comfortable':c.status}</b>.`:''}</div></div>
-  <p class="foot">Counts from Gap: completed-day confirmations, the specific bill or savings target, reconciled balances, and reviews. Each habit uses its own evidence. Automatic or scheduled entries never count. Streak reads Gap when you open it; nothing syncs between devices or browsers.</p>`}
-function drawGap(){$('#gapConn').innerHTML=connHTML()}
+function drawGap(){}
 
-function render(){revisionRecovery();drawToday();drawTodos();drawInbox();drawReview();drawStats();drawGrid();drawRank();drawWeekday();drawRing();drawGap()}
+function render(){revisionRecovery();if(typeof drawChal==='function')drawChal();drawToday();drawTodos();drawInbox();drawReview();drawStats();drawGrid();drawRank();drawWeekday();drawRing();drawGap()}
 $('#prevM').onclick=()=>{V.off++;V.wk=null;drawGrid()};
 $('#nextM').onclick=()=>{if(V.off>0){V.off--;V.wk=null;drawGrid()}};
 $$('#gviews button').forEach(b=>b.onclick=()=>{V.view=b.dataset.v;drawGrid()});
@@ -658,17 +644,14 @@ function syncSch(){
  else if(r.t==='every'){o=`<div class="fld"><label for="hAnchor">Starting on</label><input id="hAnchor" type="date" value="${r.anchor||today()}"><span class="hint">Then every 14 days from that date.</span></div>`}
  else if(r.t==='payday'){const src=paySource();
   o=`<div class="fld"><label for="hOff">When</label><select id="hOff">${[[0,'On payday'],[1,'The day after payday'],[2,'Two days after payday']].map(([v,l])=>`<option value="${v}" ${+r.off===v?'selected':''}>${l}</option>`).join('')}</select>
-   <span class="hint">${src==='gap'?'Paydays come from your pay schedule in BeFree Gap.':src==='own'?'Paydays come from the schedule set in Settings.':'No paydays yet. Set them in Gap, or here in Settings → Paydays.'}</span></div>
+   <span class="hint">${src?'Paydays come from the schedule set in Settings.':'No paydays yet. Set them here or in Settings → Paydays.'}</span></div>
    ${src?'':'<button type="button" class="btn2" id="hPaySet" style="margin-bottom:12px">Set my paydays</button>'}`}
  else if(r.t==='month'){o=`<div class="fld"><label for="hDay">Day of the month</label><input id="hDay" type="number" inputmode="numeric" min="1" max="31" value="${r.day||1}"><span class="hint">31 means the last day of the month.</span></div>`}
  else if(r.t==='before'){const bills=G&&G.v===2?(G.bills||[]):[];
-  o=`<div class="two"><div class="fld"><label for="hBill">Which bill</label><select id="hBill">${bills.map(b=>`<option value="${b.rid}" ${r.rid===b.rid?'selected':''}>${esc(b.name)}</option>`).join('')}<option value="" ${!r.rid?'selected':''}>Enter a due day instead</option></select></div>
-   <div class="fld"><label for="hDays">Days before</label><select id="hDays">${[1,2,3,5,7].map(n=>`<option value="${n}" ${(+r.days||2)===n?'selected':''}>${n}</option>`).join('')}</select></div></div>
-   <div class="fld" id="hDueW" style="display:${r.rid&&bills.length?'none':'flex'}"><label for="hDue">Due day of the month</label><input id="hDue" type="number" inputmode="numeric" min="1" max="31" value="${r.day||''}" placeholder="1"></div>
-   ${bills.length?'':'<p class="foot" style="margin:-4px 0 12px">Connect BeFree Gap to pick a scheduled bill, including ones that aren\'t monthly.</p>'}`}
+  o=`<div class="two"><div class="fld"><label for="hDue">Due day of the month</label><input id="hDue" type="number" inputmode="numeric" min="1" max="31" value="${r.day||''}" placeholder="1"></div>
+   <div class="fld"><label for="hDays">Days before</label><select id="hDays">${[1,2,3,5,7].map(n=>`<option value="${n}" ${(+r.days||2)===n?'selected':''}>${n}</option>`).join('')}</select></div></div>`}
  $('#hSchOpts').innerHTML=o;
  $$('#hSchOpts .days button').forEach(b=>b.onclick=()=>{const i=+b.dataset.d;r.days[i]=r.days[i]?0:1;if(!r.days.some(x=>x))r.days[i]=1;syncSch()});
- const bs=$('#hBill');if(bs)bs.onchange=()=>{$('#hDueW').style.display=bs.value?'none':'flex'};
  const ps=$('#hPaySet');if(ps)ps.onclick=()=>{readHabitForm();openPay(true)};
  const daily=r.t==='week'&&r.days.every(x=>x),saveish=$('#hLink').value==='save';
  $('#hSchNote').textContent=H.edit?'Schedule changes apply from today. Past weeks keep the schedule they had.':
@@ -725,7 +708,7 @@ function openTask(x,preset){
 function syncWhen(){const w=T.when;segSet('#tWhen','w',w.t);let o='';
  if(w.t==='date')o=`<div class="fld"><label for="tDate">Due date</label><input id="tDate" type="date" value="${w.date||today()}"></div>`;
  else if(w.t==='payday'){const p=nextPayday();
-  o=`<p class="foot" style="margin:-4px 0 12px">${p?`Due <b>${fmtD(p<=today()?today():addD(p,-1))}</b>, the day before your next payday (${fmtD(p)}). The date is fixed once saved.`:'No paydays yet. Set them in Gap, or in Settings → Paydays.'}</p>`}
+  o=`<p class="foot" style="margin:-4px 0 12px">${p?`Due <b>${fmtD(p<=today()?today():addD(p,-1))}</b>, the day before your next payday (${fmtD(p)}). The date is fixed once saved.`:'No paydays yet. Set them in Settings → Paydays.'}</p>`}
  else if(w.t==='bill'){const bills=G&&G.v===2?(G.bills||[]):[];
   o=bills.length?`<div class="fld"><label for="tBill">Which bill</label><select id="tBill">${bills.map(b=>`<option value="${b.rid}" ${w.rid===b.rid?'selected':''}>${esc(b.name)}</option>`).join('')}</select><span class="hint">Due the day before that bill's next due date.</span></div>`
    :`<p class="foot" style="margin:-4px 0 12px">Connect BeFree Gap on this device to pick one of your scheduled bills. Until then, use a date.</p>`}
@@ -774,11 +757,11 @@ function syncSet(){
  segSet('#thSeg','th',themePref());
  $('#revDay').innerHTML=DNL.map((d,i)=>`<option value="${i}" ${(+S.prefs.revDay||0)===i?'selected':''}>${d}</option>`).join('');
  const src=paySource();
- $('#setPay').textContent=src==='gap'?'From BeFree Gap':src==='own'?`Set here: ${({weekly:'every week',biweekly:'every 2 weeks',semimonthly:'twice a month',monthly:'once a month'})[S.pay.freq]}`:'Not set';
+ $('#setPay').textContent=src==='own'?`Set here: ${({weekly:'every week',biweekly:'every 2 weeks',semimonthly:'twice a month',monthly:'once a month'})[S.pay.freq]}`:'Not set';
  const br=inRange(S.pauseAll,today());
  $('#breakBtn').textContent=br?'Resume':'Pause all';
  $('#setBreak').textContent=br?`On a break since ${fmtD(S.pauseAll.from)}. Paused days don't count.`:'Pause every habit. Paused days aren\'t counted, so nothing is lost.';
- $('#conn').innerHTML=connHTML()}
+ }
 $('#setBtn').onclick=()=>{syncSet();show('#shSet')};
 $('#setClose').onclick=()=>closeAll();
 $('#revDay').onchange=e=>{S.prefs.revDay=+e.target.value;save();render()};
@@ -801,7 +784,9 @@ window.doExport=doExport;
 $('#expBtn').onclick=doExport;
 $('#impBtn').onclick=()=>$('#impFile').click();
 $('#impFile').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();
- r.onload=async()=>{let d;try{d=JSON.parse(r.result);if(!d||!Array.isArray(d.habits))throw 0;if(d.v&&d.v>2)throw 1}
+ r.onload=async()=>{let d,txt=r.result;
+  try{const o=JSON.parse(txt);if(BeFreePlus.isEncrypted(o)){txt=typeof plusUnlock==='function'?await plusUnlock(o):null;if(txt==null)return}}catch(x){}
+  try{d=JSON.parse(txt);if(!d||!Array.isArray(d.habits))throw 0;if(d.v&&d.v>2)throw 1}
   catch(x){toast(x===1?'That backup is from a newer version of Streak':'That file is not a BeFree Streak backup');return}
   if(S.habits.length&&!await ask('Restore this backup?',`It replaces the ${plural(S.habits.length,'habit')} on this device with the ${plural(d.habits.length,'habit')} in the file. A copy of the current record is kept on this device.`,'Restore'))return;
   const raw=DB.raw(KEY);if(raw)DB.put(KEY+'.before-restore',raw);
@@ -809,7 +794,7 @@ $('#impFile').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new Fi
  r.readAsText(f);e.target.value=''};
 async function doWipeEverything(){
  if(!await ask('Clear everything?','This erases every habit, tick, review and to-do on this device, including older saved copies. Save a backup first if you might want it. There is no undo.','Erase everything',true))return false;
- [KEY,KEY1,KEY1+'.pre-v2',KEY+'.before-restore','befree.applock.v1'].forEach(k=>DB.d(k));if(LIVE){DB.d(BR_S1);DB.d(BR_S2)}
+ [KEY,KEY1,KEY1+'.pre-v2',KEY+'.before-restore','befree.bridge.streak.v1','befree.bridge.streak.v2'].forEach(k=>DB.d(k));alSet(null);
  S=blank();save();closeAll();render();toast('Cleared');
  return true}
 $('#wipeBtn').onclick=doWipeEverything;
@@ -838,21 +823,20 @@ function remindBanner(){
  banner({b1:'Nothing ticked yet today',b2:'A quick check-in keeps the streak honest.',
   action:'Open a habit',fn:()=>{const h=S.habits[0];if(h)openHabit(h)}}); return true}
 
-/* ── theme: shared preference with Gap ─────────────── */
+/* ── theme ─────────────────────────────────────────── */
 const SUN='M12 3v2M12 19v2M5 12H3M21 12h-2M6 6 4.6 4.6M19.4 19.4 18 18M6 18l-1.4 1.4M19.4 4.6 18 6M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z';
 const MOON='M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z';
 const mqDark=matchMedia('(prefers-color-scheme: dark)');
-function themePref(){let p=DB.g('befree.theme');if(p==null)p=DB.g('befree.streak.theme');return p==='light'||p==='dark'||p==='system'?p:'system'}
+function themePref(){let p=DB.g('befree.streak.theme.v2');if(p==null)p=DB.g('befree.theme');if(p==null)p=DB.g('befree.streak.theme');return p==='light'||p==='dark'||p==='system'?p:'system'}
 function applyTheme(){const p=themePref(),n=p==='system'?(mqDark.matches?'dark':'light'):p;
  document.documentElement.dataset.theme=n;$('#thI').setAttribute('d',n==='dark'?MOON:SUN);
  $('#thBtn').setAttribute('aria-label',n==='dark'?'Switch to light theme':'Switch to dark theme');
  const tc=document.querySelector('meta[name=theme-color]');if(tc)tc.setAttribute('content',n==='dark'?'#021A13':'#EAF0E5')}
-function setThemePref(p){DB.s('befree.theme',p);applyTheme();setTimeout(render,60)}
+function setThemePref(p){DB.s('befree.streak.theme.v2',p);applyTheme();setTimeout(render,60)}
 mqDark.addEventListener&&mqDark.addEventListener('change',()=>{if(themePref()==='system'){applyTheme();render()}});
 $('#thBtn').onclick=()=>setThemePref(document.documentElement.dataset.theme==='dark'?'light':'dark');
 window.onStorageLost=()=>{try{toast('This browser stopped saving. Back up now.')}catch(e){}};
-addEventListener('storage',e=>{if(e.key===BR_GAP2||e.key===BR_INBOX){readGap();refreshDates();autoTick();save();render()}});
-addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'){readGap();if(refreshDates()|autoTick())save();render()}});
+addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'){if(refreshDates()|autoTick())save();render()}});
 
 /* ── PWA ───────────────────────────────────────────── */
 function iconURL(size,mask){
@@ -872,7 +856,7 @@ if(LIVE)(async()=>{ try{
  if(r.ok){await r.json();return}
  throw 0;
 }catch(e){ try{
- const mf={name:'BeFree Streak',short_name:'Streak',start_url:'.',scope:'.',display:'standalone',
+ const mf={name:'Streak',short_name:'Streak',start_url:'.',scope:'.',display:'standalone',
   orientation:'portrait',background_color:'#021A13',theme_color:'#021A13',
   description:'Small, repeatable money habits. Records are stored in this browser.',
   icons:[{src:iconURL(192),sizes:'192x192',type:'image/png',purpose:'any'},
@@ -959,7 +943,7 @@ if(!migrNotice()&&!backupNudge())remindBanner();
    + 'style="vertical-align:-3px" fill="currentColor"><circle cx="5" cy="12" r="2.1"/>'
    + '<circle cx="12" cy="12" r="2.1"/><circle cx="19" cy="12" r="2.1"/></svg>';
 
- var LEAD = '<p>A few taps and BeFree sits on your ' + DEV + ' like any other app \u2014 no '
+ var LEAD = '<p>A few taps and Streak sits on your ' + DEV + ' like any other app \u2014 no '
    + 'app store, no account. It opens in its own window, works with the internet off, '
    + 'and your figures stay for good.</p>';
 
@@ -1038,9 +1022,9 @@ if(!migrNotice()&&!backupNudge())remindBanner();
    el = document.createElement('section');
    el.className = 'instcard' + (late ? ' float' : '');
    el.setAttribute('role', 'region');
-   el.setAttribute('aria-label', 'Add BeFree to your ' + DEV);
+   el.setAttribute('aria-label', 'Add Streak to your ' + DEV);
    el.innerHTML =
-     '<div class="ic-h"><b>Keep BeFree on your ' + DEV + '</b>'
+     '<div class="ic-h"><b>Keep Streak on your ' + DEV + '</b>'
    + '<button type="button" class="ic-x">Later</button></div>'
    + '<div class="ic-b"></div>'
    + '<button type="button" class="ic-save" id="icSave">Or save a backup file first</button>';
@@ -1086,18 +1070,23 @@ if(!migrNotice()&&!backupNudge())remindBanner();
 
 
 /* ══════════ optional PIN lock, shared by both apps ══════════
-   One PIN protects both BeFree apps on this device: the config lives in
+   Each app has its own PIN: the config lives in
    its own localStorage key (not inside either app's own record, so it
    never gets caught up in an export, a restore, or a version migration),
    and it is checked before either app ever paints on screen — the
    data-applock attribute is set pre-paint by the inline head script, so
    there is nothing to flash while this file loads. The PIN itself is
    never stored: only a salted hash. */
-const AL_KEY='befree.applock.v1';
+/* each app keeps its own PIN. Older builds shared befree.applock.v1 with
+   Gap; that value is copied once, and turning the PIN off here stores
+   {on:false} so the shared copy can't switch it back on. */
+const AL_KEY='befree.streak.applock.v2',AL_OLD='befree.applock.v1';
 const AL_SUPPORTED=!!(window.crypto&&crypto.subtle&&crypto.subtle.digest&&crypto.getRandomValues);
 
-function alGet(){try{const v=JSON.parse(localStorage.getItem(AL_KEY));return v&&v.on&&v.hash&&v.salt?v:null}catch(e){return null}}
-function alSet(v){try{if(v)localStorage.setItem(AL_KEY,JSON.stringify(v));else localStorage.removeItem(AL_KEY)}catch(e){}}
+function alGet(){try{let v=JSON.parse(localStorage.getItem(AL_KEY));
+  if(v==null){v=JSON.parse(localStorage.getItem(AL_OLD));if(v&&v.on&&v.hash&&v.salt)localStorage.setItem(AL_KEY,JSON.stringify(v))}
+  return v&&v.on&&v.hash&&v.salt?v:null}catch(e){return null}}
+function alSet(v){try{localStorage.setItem(AL_KEY,JSON.stringify(v||{on:false}))}catch(e){}}
 function alRandSalt(){const a=new Uint8Array(16);crypto.getRandomValues(a);return[...a].map(b=>b.toString(16).padStart(2,'0')).join('')}
 async function alHash(pin,salt){
  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode('befree.pin:'+salt+':'+pin));
@@ -1150,7 +1139,7 @@ let alStep1=null;
 function alResetSheet(){
  alStep1=null;
  $('#lockPinTitle').textContent='Set a PIN';
- $('#lockPinSub').textContent='Choose 4 to 6 digits. You’ll need it to open BeFree on this device.';
+ $('#lockPinSub').textContent='Choose 4 to 6 digits. You’ll need it to open Streak on this device.';
  $('#lockPinLbl').textContent='PIN';
  $('#lockPinA').value='';$('#lockPinErr').textContent='';$('#lockPinGo').textContent='Continue';
 }
@@ -1158,7 +1147,7 @@ function alOpenSet(){if(!AL_SUPPORTED)return;alResetSheet();show('#shLockPin')}
 if($('#swLock'))$('#swLock').onclick=async()=>{
  if(!AL_SUPPORTED)return;
  if(alGet()){
-  if(!await ask('Turn off the PIN?','Anyone who opens BeFree on this device will see your data.','Turn off',true))return;
+  if(!await ask('Turn off the PIN?','Anyone who opens Streak on this device will see your data.','Turn off',true))return;
   alSet(null);alRefreshRow();toast('PIN turned off');return;
  }
  alOpenSet();
@@ -1173,12 +1162,12 @@ if($('#lockPinGo'))$('#lockPinGo').onclick=async()=>{
   $('#lockPinA').focus();return;
  }
  if(v!==alStep1){alStep1=null;$('#lockPinA').value='';
-  $('#lockPinSub').textContent='Choose 4 to 6 digits. You’ll need it to open BeFree on this device.';
+  $('#lockPinSub').textContent='Choose 4 to 6 digits. You’ll need it to open Streak on this device.';
   $('#lockPinLbl').textContent='PIN';$('#lockPinErr').textContent='Those don’t match. Try again.';
   $('#lockPinA').focus();return}
  const salt=alRandSalt(),hash=await alHash(v,salt);
  alSet({on:true,hash,salt});
- closeAll();alRefreshRow();toast('PIN set. It protects both BeFree apps on this device.');
+ closeAll();alRefreshRow();toast('PIN set. It protects Streak on this device.');
 };
 alRefreshRow();
 
@@ -1255,10 +1244,6 @@ function revisionRecovery(){
  let box=document.getElementById('revisionRecovery');if(!box){box=document.createElement('section');box.id='revisionRecovery';box.className='card';const host=document.querySelector('main')||document.querySelector('.wrap')||document.body;host.appendChild(box);}
  const t=today(),r7=rate(S.habits,addD(t,-6),t),r30=rate(S.habits,addD(t,-29),t);
  let lastMiss=null,lastReturn=null;for(let i=29;i>=0;i--){const d=addD(t,-i);if(S.habits.some(h=>status(h,d,t)==='missed'))lastMiss=d;if(lastMiss&&d>lastMiss&&S.habits.some(h=>DONE.has(status(h,d,t))))lastReturn=d;}
- box.innerHTML=`<h2>Your return matters</h2><p>Last 7 days: ${r7.d}/${r7.t} counted habits completed (open today is not yet counted). Last 30 days: ${r30.d}/${r30.t}. Small versions count toward habits; they do not certify complete financial records.</p><p>${lastReturn?'Most recent return after a missed day: '+fmtD(lastReturn)+'.':'After a missed day, do the next small step. No catch-up streak is required.'}</p><p>Streak is optional support. Gap remains the financial record. Automatic evidence requires Gap opened on this device, in the same browser, in the last 24 hours. On iPhone and iPad each Home Screen app keeps its own data, so tick habits yourself if automatic ticks do not arrive. A tick is evidence of an action, not proof of financial progress.</p>${Object.keys(S.legacyAutoTicks||{}).length?'<p>Earlier automatic ticks are preserved as historical records. Their original evidence rules differed; they do not certify a complete financial ledger.</p>':''}`;
+ box.innerHTML=`<h2>Your return matters</h2><p>Last 7 days: ${r7.d}/${r7.t} counted habits completed (open today is not yet counted). Last 30 days: ${r30.d}/${r30.t}. Small versions count toward habits; they do not certify complete financial records.</p><p>${lastReturn?'Most recent return after a missed day: '+fmtD(lastReturn)+'.':'After a missed day, do the next small step. No catch-up streak is required.'}</p><p>Streak is optional support. Gap remains the financial record. You tick habits yourself; a day you mark as no-spend counts for a daily logging habit. A tick is evidence of an action, not proof of financial progress.</p>${Object.keys(S.legacyAutoTicks||{}).length?'<p>Earlier automatic ticks are preserved as historical records. Their original evidence rules differed; they do not certify a complete financial ledger.</p>':''}`;
 }
 
-
-// Coming back from Gap with the back button restores this page from the
-// back/forward cache without reloading; pick up Gap's latest evidence.
-addEventListener('pageshow',e=>{if(e.persisted){readGap();if(refreshDates()|autoTick())save();render();}});

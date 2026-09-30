@@ -269,7 +269,7 @@ let S=loadState();
     if(!already)await navigator.storage.persist();
   }
 }catch(e){}})();
-const save=()=>{mcReset();DB.s(KEY,S);try{publishBridge()}catch(e){}};
+const save=()=>{mcReset();DB.s(KEY,S)};
 
 /* ══════════ view state ══════════ */
 const V={page:'overview',range:'month',off:0,q:'',type:'all',size:'all',sort:'date',cat:null,
@@ -444,7 +444,7 @@ function cycle(){
 
 /* ══════════ nav ══════════ */
 const PAGES=[['overview','Overview','M4 19V11M10 19V5M16 19v-6M22 19H2'],['guide','Guide','M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3zM9.5 20h5'],
- ['ledger','Ledger','M5 4h14v16H5zM9 9h6M9 13h6M9 17h3'],['goals','Goals','M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zm0-5a4 4 0 1 0 0-8 4 4 0 0 0 0 8z'],
+ ['plan','Plan','M4 6h16v14H4zM4 10h16M8 3v4M16 3v4'],['ledger','Ledger','M5 4h14v16H5zM9 9h6M9 13h6M9 17h3'],['goals','Goals','M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zm0-5a4 4 0 1 0 0-8 4 4 0 0 0 0 8z'],
  ['debts','Debts','M3 7h18v10H3zM3 11h18M7 15h3']];
 $('#nav').innerHTML=PAGES.map(([k,l,d])=>`<button type="button" id="tab-${k}" data-p="${k}" role="tab" aria-controls="p-${k}" aria-selected="${k==='overview'}" tabindex="${k==='overview'?0:-1}"><svg class="nvi" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg><span>${l}</span></button>`).join('');
 function go(p,keep){V.page=p;
@@ -840,15 +840,13 @@ function moves(){
 const U_L={3:'Urgent',2:'Soon',1:'When you can'},F_L={3:'Easy',2:'Some effort',1:'Takes time'};
 function moveHTML(m,i,lead){
  const meta=F_L[m.feas]+(m.yr&&m.imp>=1?` · worth about ${money(m.imp)} a year`:'');
- const sent=m.habit&&inboxHas(m.habit);
  return `<div class="move${lead?' lead':''}">
   <div class="mi" aria-hidden="true">${ico(m.icon,17)}</div>
   <div class="mb"><div class="mtag"><span class="pill ${m.u===3?'neg':m.u===2?'warn':''}">${U_L[m.u]}</span><span class="pill">${m.tag}</span></div>
    <h3 class="mh">${m.head}</h3>
    <div class="mm">${m.math}</div><p class="mmeta">${meta}</p>
    <div class="macts">${(m.ctas||[]).map((c,k)=>`<button type="button" class="${k?'btn2':'mc'}" data-act="${esc(c.a)}">${c.l}${k?'':' <span aria-hidden="true">→</span>'}</button>`).join('')}
-   ${m.todo?(()=>{const ts=todoSent(m.todo);return `<button type="button" class="btn2" data-todo='${esc(JSON.stringify(m.todo))}' ${ts?'aria-disabled="true"':''}>${ts?'To-do in Streak ✓':'Add as a to-do in Streak'}</button>`})():''}
-   ${m.habit?`<button type="button" class="btn2" data-habit='${esc(JSON.stringify(m.habit))}' ${sent?'aria-disabled="true"':''}>${sent?'Sent to Streak ✓':'Track as a habit in Streak'}</button>`:''}</div>
+</div>
   </div></div>`}
 const empty=(icon,title,sub,act)=>`<div class="empty"><div class="em">${ico(icon,20)}</div>
  <b>${title}</b><span class="es">${sub}</span>${act?`<button type="button" class="ea" data-act="${act[1]}">${act[0]}</button>`:''}</div>`;
@@ -866,10 +864,6 @@ function drawMoves(){
 }
 function bindActs(root){
  (root||document).querySelectorAll('[data-act]').forEach(b=>b.onclick=()=>doAct(b.dataset.act));
- (root||document).querySelectorAll('[data-habit]').forEach(b=>b.onclick=()=>{if(b.getAttribute('aria-disabled')==='true')return;
-  try{sendHabit(JSON.parse(b.dataset.habit))}catch(e){}});
- (root||document).querySelectorAll('[data-todo]').forEach(b=>b.onclick=()=>{if(b.getAttribute('aria-disabled')==='true')return;
-  try{sendTodo(JSON.parse(b.dataset.todo))}catch(e){}});
 }
 function doAct(a){
  const i=a.indexOf(':'),k=i<0?a:a.slice(0,i),val=i<0?'':a.slice(i+1);
@@ -945,16 +939,16 @@ function skipPlanned(p){
 function addTx(o){const t=Object.assign({id:uid(),ts:Date.now(),src:'manual',status:'done'},o);
  Object.keys(t).forEach(k=>t[k]===undefined&&delete t[k]);delete S.reviewed[t.date.slice(0,7)];if(S.checks[t.date]&&isSpend(t))delete S.checks[t.date];S.tx.push(t);return t}
 
-/* ══════════ today's money check: the event Streak trusts ══════════ */
+/* ══════════ today's money check ══════════ */
 function todayManual(){const t=today();
  return S.tx.filter(x=>isDone(x)&&['manual','schedule','route'].includes(x.src)&&iso(new Date(x.ts||0))===t)}
 function drawCheck(){
  const t=today(),c=S.checks[t],ml=todayManual(),spentToday=ml.some(x=>isSpend(x)&&!x.refund);
  let h=`<p class="chkd">${ml.length?`You've logged <b>${plural(ml.length,'entry','entries')}</b> today.`:'Nothing logged today yet.'}</p>`;
- if(c){h+=`<div class="status on" style="margin-top:10px"><span class="dotc"></span><div><b>${c.t==='nospend'?'No-spend day, reviewed':'Reviewed today'}</b><br>${c.src==='streak'?'Recorded in BeFree Streak.':'Counts in BeFree Streak for habits linked to reviews.'}</div></div>
+ if(c){h+=`<div class="status on" style="margin-top:10px"><span class="dotc"></span><div><b>${c.t==='nospend'?'No-spend day, reviewed':'Reviewed today'}</b><br>${c.src==='streak'?'Recorded earlier from BeFree Streak.':'Saved to your daily record.'}</div></div>
   <button class="tlink" id="ckUndo" style="margin-top:10px">Undo</button>`}
  else h+=`<div class="chk-row" style="margin-top:12px"><button class="btn2" id="ckRev">I reviewed today</button>${spentToday?'':'<button class="btn2" id="ckNo">No spending today</button>'}</div>
-  <p class="foot" style="margin-top:10px">A quick look at today's spending. Streak counts this, not automatic entries.</p>`;
+  <p class="foot" style="margin-top:10px">A quick look at today's spending. Reviewed days make your spending estimates more reliable.</p>`;
  $('#checkBox').innerHTML=h;
  const rv=$('#ckRev');if(rv)rv.onclick=()=>{S.checks[t]={t:'review',ts:Date.now(),src:'gap'};save();drawCheck();toast('Reviewed. Nice.')};
  const no=$('#ckNo');if(no)no.onclick=()=>{S.checks[t]={t:'nospend',ts:Date.now(),src:'gap'};save();drawCheck();toast('Recorded: reviewed, no spending today')};
@@ -1307,6 +1301,11 @@ function simulate(extra){
  const left=sum(ds,d=>Math.max(d.b,0)),ok=left<=.5;
  return{m:ok?m:null,int:I,ok,left,path,budget,i0,short:Math.max(i0-budget,0),months:m,clr,ds}}
 const SIM_ASSUME=`<b>How this is worked out:</b> interest is charged monthly at each APR you entered and doesn't change; payments stay at today's minimums (real card minimums usually shrink as the balance falls, which makes a minimums-only payoff slower than shown); no new charges; extra money goes to one debt at a time in the order above, and each cleared debt's payment rolls to the next. It stops at 50 years. Balances come from what you entered plus payments logged since; interest charged since then isn't added, so update balances from your statements now and then.`;
+function debtExtra(d,bal){
+ if(d.kind==='bnpl'){const l=bnplLeft(d);return `<span class="dmeta" style="display:block">${l.length?`${plural(l.length,'payment')} left · next ${fmtD(l[0])}`:'No payments scheduled'}</span>`}
+ if(d.kind==='card'&&+d.limit>0){const u=BeFreePlus.utilization(bal,d.limit);
+  return `<span class="dmeta" style="display:block"><span class="${u.band==='high'?'neg':''}">${Math.round(u.pct)}% of ${money(+d.limit)} limit</span>${+d.close?` · statement closes on the ${ord(d.close)}`:''}</span>`}
+ return ''}
 function drawDebts(){
  const ds=S.debts.filter(d=>d.kind!=='due'),rs=S.debts.filter(d=>d.kind==='due');
  const ord2=ordered(liveDebts());
@@ -1314,8 +1313,8 @@ function drawDebts(){
  $('#dList').innerHTML=ds.length?ds.map(d=>{const bal=debtBal(d),tot0=+d.total||0,p=tot0?Math.min(Math.max(1-bal/tot0,0),1):0;
   const tgt=ord2[0]&&ord2[0].id===d.id,mi=bal*(+d.apr||0)/1200,warn=bal>0&&mi>.5&&(+d.min||0)<=mi;
   return `<button type="button" class="dcard ${tgt?'tgt':''}" data-id="${d.id}">
-   <span class="dtop"><span><span class="dname">${esc(d.name)} ${tgt?'<span class="badge">next target</span>':''}<span class="pill">${d.kind==='card'?'Card':'Loan'}</span></span>
-    <span class="dmeta mono" style="display:block">${(+d.apr||0).toFixed(1)}% APR · payment ${money(+d.min||0)}</span></span>
+   <span class="dtop"><span><span class="dname">${esc(d.name)} ${tgt?'<span class="badge">next target</span>':''}<span class="pill">${d.kind==='card'?'Card':d.kind==='bnpl'?'Pay later':'Loan'}</span></span>
+    <span class="dmeta mono" style="display:block">${(+d.apr||0).toFixed(1)}% APR · payment ${money(+d.min||0)}</span>${debtExtra(d,bal)}</span>
     <span><span class="dbal mono" style="display:block">${money(bal)}</span>
     <span class="dmeta mono" style="display:block;text-align:right">${tot0?Math.round(p*100)+'% paid':''}</span></span></span>
    <span class="dtrack" style="display:block"><span class="dfill" data-w="${(p*100).toFixed(1)}" style="display:block"></span></span>
@@ -1576,13 +1575,13 @@ function drawTable(){
 }
 /* ══════════ connection card ══════════ */
 function drawStreak(){
- const s=streakFromApp(),box=$('#streakBox');
- const sent=(S.inbox||[]).length,added=s&&s.handled?(S.inbox||[]).filter(x=>s.handled.includes(x.id)).length:0;
- box.innerHTML=`<div class="ch"><h2 class="eb">BeFree Streak</h2><a class="lnk" href="../streak/index.html">Open Streak</a></div>
-  <div class="status${s?' on':''}"><span class="dotc"></span><div>${s?`<b>Connected on this device.</b> Streak was last opened ${relTime(s.updated)}.${typeof s.streak==='number'?` Current run: <b>${plural(s.streak,'day')}</b>, best ${plural(s.best||0,'day')}.`:''}`
-   :'<b>Not connected yet.</b> Open BeFree Streak once, in this browser, from the same site as Gap.'}</div></div>
-  ${s&&s.todos?`<p class="foot" style="margin-top:10px">Money to-dos in Streak: <b>${s.todos.open} open</b>${s.todos.late?`, ${s.todos.late} overdue`:''}${s.todos.doneYear?`; ${plural(s.todos.doneYear,'done','done')} this year${s.todos.worthYear?`, worth about ${money(s.todos.worthYear)} a year`:''}`:''}.</p>`:''}
-  <p class="foot" style="margin-top:10px">${sent?`${plural(sent,'suggestion')} sent${s?`, ${added} added in Streak`:''}. `:''}Streak counts habits from your reviews and the entries you log yourself, never from automatic ones. It works only on this device and browser; nothing syncs between devices.</p>`;
+ const box=$('#streakBox');if(!box)return;
+ const t=today(),ev=gapEvents(),hit=d=>!!(ev[d]&&(ev[d].log||ev[d].review));
+ let run=0;for(let i=hit(t)?0:1;i<400&&hit(addD(t,-i));i++)run++;
+ let n30=0;for(let i=0;i<30;i++)if(hit(addD(t,-i)))n30++;
+ box.innerHTML=`<div class="ch"><h2 class="eb">Your check-in record</h2></div>
+  <div class="status${run?' on':''}"><span class="dotc"></span><div>${run?`<b>${plural(run,'day')} in a row</b> with an entry you logged or a review.`:'<b>No run yet.</b> Log an entry or review today to start one.'}</div></div>
+  <p class="foot" style="margin-top:10px">Last 30 days: <b>${n30} of 30</b> days checked in. Only entries you log yourself and your reviews count, never automatic ones.</p>`;
 }
 const relTime=ts=>{const m=Math.round((Date.now()-ts)/6e4);if(m<2)return 'just now';if(m<60)return m+' minutes ago';const h=Math.round(m/60);if(h<24)return plural(h,'hour')+' ago';return plural(Math.round(h/24),'day')+' ago'};
 
@@ -1608,7 +1607,8 @@ function render(){
   drawCats();drawEss();drawSplit();drawIncome();drawHeat();drawMovers();drawDow();drawTable()}
  if(V.page==='guide'){drawMoves();drawUpcoming();drawCheck();drawStreak()}
  if(V.page==='ledger'){drawSched();drawTx();drawReps()}
- if(V.page==='debts')drawDebts();
+ if(V.page==='plan'&&typeof drawPlan==='function')drawPlan();
+ if(V.page==='debts'){drawDebts();if(typeof drawCreditUse==='function')drawCreditUse()}
  if(V.page==='goals')drawGoals();
  fitAllType();kbdCharts($('#p-'+V.page));
  bindOpen($('#p-'+V.page));
@@ -1893,8 +1893,8 @@ function syncRep(){
  if(RP.kind==='transfer'){lo=optVal('','Savings (general)',!RP.goal&&!RP.fund&&!RP.debt);
   S.goals.forEach(g=>lo+=optVal('goal:'+g.id,'Goal: '+g.name,RP.goal===g.id));S.funds.forEach(x=>lo+=optVal('fund:'+x.id,'Fund: '+x.name,RP.fund===x.id));
   S.debts.filter(d=>d.kind==='card').forEach(d=>lo+=optVal('debt:'+d.id,'Card payment: '+d.name,RP.debt===d.id))}
- else if(RP.kind==='fixed'){lo=optVal('','Nothing',!RP.debt);S.debts.filter(d=>d.kind==='loan').forEach(d=>lo+=optVal('debt:'+d.id,'Payment on: '+d.name,RP.debt===d.id))}
- $('#repLinkW').style.display=lo&&(RP.kind==='transfer'||S.debts.some(d=>d.kind==='loan'))?'flex':'none';$('#repLink').innerHTML=lo}
+ else if(RP.kind==='fixed'){lo=optVal('','Nothing',!RP.debt);S.debts.filter(d=>d.kind==='loan'||d.kind==='bnpl').forEach(d=>lo+=optVal('debt:'+d.id,'Payment on: '+d.name,RP.debt===d.id))}
+ $('#repLinkW').style.display=lo&&(RP.kind==='transfer'||S.debts.some(d=>d.kind==='loan'||d.kind==='bnpl'))?'flex':'none';$('#repLink').innerHTML=lo}
 $('#repSeg').onclick=e=>{const b=e.target.closest('button');if(!b)return;RP.kind=b.dataset.k;delete RP.goal;delete RP.fund;delete RP.debt;syncRep()};
 $('#repFreq').onclick=e=>{const b=e.target.closest('button');if(!b)return;RP.freq=b.dataset.f;syncRep()};
 $('#repCat').onchange=e=>RP.cat=e.target.value;
@@ -1922,33 +1922,65 @@ $('#addRep').onclick=()=>openRep(null);
 
 /* ── debt sheet ── */
 let DT={};
+function bnplRec(d){return S.rec.find(r=>r.bnpl===d.id)||null}
+/* payments still to come on a pay-later plan: scheduled and not yet confirmed */
+function bnplLeft(d){const r=bnplRec(d);if(!r||!r.end)return[];return occ(r,today(),r.end).filter(x=>!matched(r,x))}
+/* each installment is a scheduled bill linked to the plan, so "available
+   until payday" keeps room for it and confirming one lowers the balance */
+function bnplSchedule(d){const dates=BeFreePlus.installmentDates(d.next,d.every,d.left),mo=d.every==='monthly';
+ const o={kind:'fixed',cat:'Debt minimum',note:(d.prov&&d.prov!=='Other'?d.prov+': ':'')+d.name,amt:+d.min||0,freq:mo?'monthly':'biweekly',wk:'same',on:true,
+  day:+d.next.slice(8,10),day2:31,start:d.next,end:dates[dates.length-1],debt:d.id,bnpl:d.id};
+ if(!mo)o.anchor=d.next;
+ const r=bnplRec(d);if(r){delete r.anchor;Object.assign(r,o)}else S.rec.push(Object.assign({id:uid()},o))}
 function openDebt(d){DT=d?{...d,edit:true}:{kind:'card',name:'',total:'',bal0:'',apr:'',min:'',edit:false};
+ if(!DT.every)DT.every='biweekly';
  $('#dTitle').textContent=DT.edit?'Edit '+DT.name:'Add a debt';$('#dDel').style.display=DT.edit?'block':'none';$('#dPay').style.display=DT.edit?'block':'none';
  $('#dName').value=DT.name;$('#dTotal').value=DT.total;$('#dBal').value=DT.edit?r2(debtBal(DT)):'';
- $('#dApr').value=DT.apr;$('#dMin').value=DT.min;syncDebt();show('#shDebt')}
+ $('#dApr').value=DT.apr;$('#dMin').value=DT.min;
+ $('#dLimit').value=DT.limit||'';$('#dClose').value=DT.close||'';$('#dProv').value=DT.prov||'Afterpay';
+ const bl=DT.edit&&DT.kind==='bnpl'?bnplLeft(DT):[];$('#dNext').value=bl[0]||DT.next||'';$('#dLeft').value=DT.edit&&DT.kind==='bnpl'?bl.length:'';
+ syncDebt();show('#shDebt')}
+$('#dEvery').onclick=e=>{const b=e.target.closest('button');if(!b)return;DT.every=b.dataset.e;syncDebt()};
 $('#dSeg').onclick=e=>{const b=e.target.closest('button');if(!b)return;DT.kind=b.dataset.k;syncDebt()};
 function syncDebt(){segSet('#dSeg','k',DT.kind);
  $('#dTerms').style.display=DT.kind==='due'?'none':'grid';
- $('#dTotalLab').textContent=DT.kind==='due'?'Amount lent':'Original amount';
- $('#dKindNote').textContent=DT.kind==='card'?'Separate settlement of recorded purchases, minimum old-debt payments and extra old-debt payments. Split mixed payments into separate entries.':DT.kind==='loan'?'Minimum payments are recurring bills; extra principal is a transfer. Enter principal from the statement; interest is not principal.':'Money someone owes you. Repayments come back as transfers, not income.';
+ $('#dTotalLab').textContent=DT.kind==='due'?'Amount lent':DT.kind==='bnpl'?'Purchase amount':'Original amount';
+ $('#dMinLab').textContent=DT.kind==='bnpl'?'Each payment':'Minimum payment';
+ const ph=DT.kind==='bnpl'?['Sneakers, Afterpay','200','0','50']:DT.kind==='loan'?['Car loan','18000','7.9','385']:DT.kind==='due'?['Loan to Sam','300','','']:['Blue card','2400','24.9','65'];
+ $('#dName').placeholder=ph[0];$('#dTotal').placeholder=ph[1];$('#dApr').placeholder=ph[2];$('#dMin').placeholder=ph[3];$('#dBal').placeholder=DT.kind==='bnpl'?'150':'1490';
+ $('#dCardX').style.display=DT.kind==='card'?'grid':'none';
+ $('#dBnplX').style.display=DT.kind==='bnpl'?'block':'none';
+ segSet('#dEvery','e',DT.every||'biweekly');
+ $('#dKindNote').textContent=DT.kind==='card'?'Separate settlement of recorded purchases, minimum old-debt payments and extra old-debt payments. Split mixed payments into separate entries.':DT.kind==='loan'?'Minimum payments are recurring bills; extra principal is a transfer. Enter principal from the statement; interest is not principal.':DT.kind==='bnpl'?'Afterpay, Klarna, Affirm and similar. Each payment is scheduled as a bill, so "available until payday" keeps room for it. Log the payments, not the original purchase, so it is not counted twice.':'Money someone owes you. Repayments come back as transfers, not income.';
  $('#dPay').textContent=DT.kind==='due'?'Log money received':'Log a payment';
  $('#dBalNote').textContent=DT.edit?`Balance shown includes payments logged since you last updated it${DT.ts?' on '+fmtD(iso(new Date(DT.ts))):''}. Only confirmed principal reduces loans. Enter card interest/fees as card expenses. Reconcile from each statement; balances are estimates between statements.`:'Use the balance from your latest statement.'}
 $('#dSave').onclick=()=>{
  const bal=$('#dBal').value===''?null:+$('#dBal').value;
  if(['#dBal','#dTotal','#dApr','#dMin'].some(k=>$(k).value!==''&&(!Number.isFinite(+$(k).value)||+$(k).value<0))){toast('Use a valid amount of zero or more.');return;}
  const o={kind:DT.kind,name:$('#dName').value.trim()||'Untitled',total:+$('#dTotal').value||0,apr:+$('#dApr').value||0,min:+$('#dMin').value||0};
- if(DT.edit){const x=S.debts.find(y=>y.id===DT.id);Object.assign(x,o);
-  if(bal!=null){x.bal0=bal;x.ts=Date.now();x.ledgerBaseline=Object.fromEntries(S.tx.map(t=>[t.id,BeFreeFinance.debtEffect(x,t)]));}}
- else S.debts.push(Object.assign({id:uid(),bal0:bal!=null?bal:o.total,ts:Date.now()},o,{total:o.total||bal||0}));
- save();closeAll();render();checkWins();toast(DT.edit?'Updated':'Added')};
+ let nb=bal;
+ if(o.kind==='card'){o.limit=Math.max(0,+$('#dLimit').value||0);o.close=Math.max(0,Math.min(31,Math.round(+$('#dClose').value||0)))}
+ if(o.kind==='bnpl'){const nx=$('#dNext').value,left=Math.round(+$('#dLeft').value||0);
+  if(!(o.min>0)){toast('Enter the amount of each payment');$('#dMin').focus();return}
+  if(!nx){toast('Pick the date of the next payment');$('#dNext').focus();return}
+  if(!(left>=1&&left<=60)){toast('Enter how many payments are left, from 1 to 60');$('#dLeft').focus();return}
+  Object.assign(o,{prov:$('#dProv').value,every:DT.every==='monthly'?'monthly':'biweekly',next:nx,left});
+  if(nb==null&&!DT.edit)nb=r2(o.min*left)}
+ let x;
+ if(DT.edit){x=S.debts.find(y=>y.id===DT.id);Object.assign(x,o);
+  if(nb!=null){x.bal0=nb;x.ts=Date.now();x.ledgerBaseline=Object.fromEntries(S.tx.map(t=>[t.id,BeFreeFinance.debtEffect(x,t)]));}}
+ else{x=Object.assign({id:uid(),bal0:nb!=null?nb:o.total,ts:Date.now()},o,{total:o.total||nb||0});S.debts.push(x)}
+ if(x.kind==='bnpl')bnplSchedule(x);else S.rec=S.rec.filter(r=>r.bnpl!==x.id);
+ save();closeAll();render();checkWins();toast(DT.edit?'Updated':x.kind==='bnpl'?'Added. Its payments are now scheduled bills.':'Added')};
 $('#dPay').onclick=()=>{const d=S.debts.find(x=>x.id===DT.id);if(!d)return;closeAll(true);
  const preset=d.kind==='card'?{type:'transfer',cat:'Card payment',debt:d.id,debtRole:'',dir:'out',amt:d.min||'',note:d.name}
+  :d.kind==='bnpl'?{type:'fixed',cat:'Debt minimum',debt:d.id,debtRole:'minimum',amt:d.min||'',note:d.name}
   :d.kind==='loan'?{type:'fixed',cat:'Loan payment',debt:d.id,debtRole:'minimum',amt:d.min||'',note:d.name}
   :{type:'transfer',cat:'Between accounts',debt:d.id,dir:'in',amt:'',note:d.name};
  openTx(null,{preset})};
 $('#dDel').onclick=async()=>{const id=DT.id;
  if(!await ask('Delete this debt?','Payments already logged stay in the ledger but will no longer be linked.','Delete',true))return;
- S.debts=S.debts.filter(x=>x.id!==id);S.tx.forEach(t=>{if(t.debt===id)delete t.debt});save();closeAll();render();toast('Removed')};
+ S.debts=S.debts.filter(x=>x.id!==id);S.rec=S.rec.filter(r=>r.bnpl!==id);S.tx.forEach(t=>{if(t.debt===id)delete t.debt});save();closeAll();render();toast('Removed')};
 
 /* ── goal sheet ── */
 let G={};
@@ -2137,7 +2169,7 @@ $('#fab').setAttribute('aria-label','Add an entry');
 
 /* ══════════ settings ══════════ */
 function syncSet(){
- segSet('#thSeg','th',DB.g('befree.theme')||'system');
+ segSet('#thSeg','th',themePref());
  const p=primary();
  $('#setPay').textContent=p?`${money(p.amt)} ${FREQ_L[p.freq]}${p.vary?', varies':''} · next ${fmtD(nextPay(p,today()),{month:'short',day:'numeric'})}`:'Not set';
  $('#setCyc').textContent=[S.bal?`balance ${money(S.bal.amt)} on ${fmtD(S.bal.asOf)}`:'no balance',S.cyc.buf!=null?`buffer ${money(S.cyc.buf)}`:'no buffer',S.cyc.ess!=null?`essentials ${money(S.cyc.ess)}/week`:''].filter(Boolean).join(' · ');
@@ -2148,9 +2180,6 @@ function syncSet(){
  $$('#taxCats input').forEach(i=>i.onchange=()=>{S.tax.cats=$$('#taxCats input').filter(x=>x.checked).map(x=>x.dataset.tc);save();render()});
  $('#swRoute').setAttribute('aria-checked',!!S.prefs.askRoute);
  $('#swMonth').setAttribute('aria-checked',!!S.prefs.monthNudge);
- const s=streakFromApp();
- $('#conn').innerHTML=`<div class="status${s?' on':''}"><span class="dotc"></span><div>${s?`<b>Connected on this device.</b> Streak last opened ${relTime(s.updated)}.`:'<b>Not connected.</b> Open BeFree Streak in this browser, from the same site.'}
-  <br><span style="font-size:13.5px">Shared locally: days you logged or reviewed, paydays, bill dates, and whether this pay cycle has room. Streak never changes your entries. Nothing syncs between devices or browsers.</span></div></div>`;
 }
 $('#setBtn').onclick=()=>{syncSet();show('#shSet')};
 $('#setClose').onclick=()=>closeAll();
@@ -2192,8 +2221,9 @@ $('#expCsv').onclick=()=>{
  toast('Spreadsheet saved')};
 $('#impBtn').onclick=()=>$('#impFile').click();
 $('#impFile').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();
- r.onload=async()=>{let d;
-  try{d=JSON.parse(r.result);if(!d||typeof d!=='object'||!Array.isArray(d.tx))throw 0;if(d.v&&d.v>5)throw 1}
+ r.onload=async()=>{let d,txt=r.result;
+  try{const o=JSON.parse(txt);if(BeFreePlus.isEncrypted(o)){txt=typeof plusUnlock==='function'?await plusUnlock(o):null;if(txt==null)return}}catch(x){}
+  try{d=JSON.parse(txt);if(!d||typeof d!=='object'||!Array.isArray(d.tx))throw 0;if(d.v&&d.v>5)throw 1}
   catch(x){toast(x===1?'That backup is from a newer version of Gap':'That file is not a BeFree Gap backup');return}
   const onSetup=$('#setup').classList.contains('on');
   if(!onSetup&&S.tx.length&&!await ask('Restore this backup?',`It replaces the ${plural(S.tx.length,'entry','entries')} on this device now with the ${plural(d.tx.length,'entry','entries')} in the file. A copy of the current record is kept on this device.`,'Restore'))return;
@@ -2205,7 +2235,7 @@ $('#impFile').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new Fi
  r.readAsText(f);e.target.value=''};
 async function doWipeEverything(){
  if(!await ask('Clear everything?','This erases every entry, schedule, goal, fund and debt on this device, including older saved copies. Save a backup first if you might want it. There is no undo.','Erase everything',true))return false;
- ['befree.v5','befree.v5.before-restore','befree.v4','befree.v3','befree.v2','befree.v3.pre-v4','befree.v4.before-restore',BR_GAP1,BR_GAP2,'befree.applock.v1'].forEach(k=>DB.d(k));
+ ['befree.v5','befree.v5.before-restore','befree.v4','befree.v3','befree.v2','befree.v3.pre-v4','befree.v4.before-restore','befree.bridge.gap.v1','befree.bridge.gap.v2','befree.bridge.inbox.v1'].forEach(k=>DB.d(k));alSet(null);
  S=blankState();closeAll();$('#notices').innerHTML='';startSetup();toast('Cleared');
  return true}
 $('#wipeBtn').onclick=doWipeEverything;
@@ -2239,13 +2269,10 @@ function closeWin(){$('#win').classList.remove('on');document.body.classList.rem
  render();checkWins();if(lastFocus&&lastFocus.focus)try{lastFocus.focus()}catch(e){}}
 $('#winBtn').onclick=closeWin;
 
-/* ══════════ bridge: BeFree Gap  <->  BeFree Streak ══════════
-   Same site, same browser: the two apps share localStorage and nothing
-   travels. Gap publishes a small summary of *events a person performed*:
-   entries they logged themselves, bills they confirmed, money they moved,
-   and daily reviews. Automatic entries are never evidence of a habit.
-   Streak reads it; Gap reads Streak's summary and its habit list. */
-const BR_GAP1='befree.bridge.gap.v1',BR_GAP2='befree.bridge.gap.v2',BR_STREAK1='befree.bridge.streak.v1',BR_STREAK2='befree.bridge.streak.v2',BR_INBOX='befree.bridge.inbox.v1';
+/* ══════════ check-in events ══════════
+   Entries a person logged themselves, bills they confirmed, money they moved
+   and daily reviews, by day. Automatic entries never count. Gap runs on its
+   own: nothing is shared with Streak or any other app. */
 function gapEvents(){
  const ev={},from=addD(today(),-120);
  S.tx.forEach(t=>{if(!isDone(t)||!['manual','schedule','route'].includes(t.src))return;
@@ -2257,56 +2284,6 @@ function gapEvents(){
  if(S.balanceReviewed){const e=ev[S.balanceReviewed]=ev[S.balanceReviewed]||{};e.balance=1;}return ev;
 }
 
-function publishBridge(){
- try{
-  const ev=gapEvents(),pay=primary(),t=today();
-  const days=Object.keys(ev).filter(d=>ev[d].log||ev[d].review).sort();
-  localStorage.setItem(BR_GAP1,JSON.stringify({v:1,app:'gap',loggedDays:days.slice(-90),lastLog:days[days.length-1]||null,
-   gapThisMonth:Math.round(monthTot(0).gap||0),updated:Date.now()}));
-  let cyc={status:'unknown'};
-  try{const C=cycle();if(!C.need.length){const ed=C.ed.v*7;
-   cyc={status:C.avail<0?'short':C.avail<Math.max(50,ed)?'tight':'ok',avail:Math.round(C.avail),next:C.next,perDay:Math.round(C.perDay)}}
-   else cyc={status:'unknown',need:C.need}}catch(e){}
-  localStorage.setItem(BR_GAP2,JSON.stringify({v:2,app:'gap',updated:Date.now(),ev,
-   pay:pay?{freq:pay.freq,anchor:pay.anchor||null,day:pay.day||null,day2:pay.day2||null,wk:pay.wk||'same'}:null,
-   paydays:pay?paydays(pay,addD(t,-45),addD(t,120)):[],
-   bills:S.rec.filter(r=>r.on!==false&&r.kind!=='income').map(r=>({rid:r.id,name:r.note||r.cat,cat:r.cat,amt:r.amt,freq:r.freq,
-    next:occ(r,addD(t,-45),addD(t,120),{all:true})})),
-   cycle:cyc,goals:S.goals.map(g=>({id:g.id,name:g.name,emerg:!!g.emerg})),funds:S.funds.map(f=>({id:f.id,name:f.name,due:f.due}))}));
- }catch(e){}
-}
-function streakFromApp(){
- try{const r2=JSON.parse(localStorage.getItem(BR_STREAK2)||'null');
-  if(r2&&r2.v===2&&Date.now()-r2.updated<1000*60*60*24*1)return r2;
-  const r=JSON.parse(localStorage.getItem(BR_STREAK1)||'null');
-  if(r&&r.v===1&&Date.now()-r.updated<1000*60*60*24*1)return r}catch(e){}
- return null}
-/* no-spend days recorded in Streak show up here too, without retyping */
-function importStreak(){const s=streakFromApp();if(!s||!Array.isArray(s.nospend))return;
- s.nospend.forEach(d=>{if(!S.checks[d])S.checks[d]={t:'nospend',src:'streak',ts:Date.now()}})}
-function readInbox(){try{const a=JSON.parse(localStorage.getItem(BR_INBOX)||'[]');return Array.isArray(a)?a:[]}catch(e){return[]}}
-const hKey=h=>h.kind==='todo'?'todo|'+h.key:h.tpl+'|'+JSON.stringify(h.ref||{});
-function inboxHas(h){return (S.inbox||[]).some(x=>hKey(x)===hKey(h))}
-function sendHabit(h){
- if(inboxHas(h)){toast('Already sent to Streak');return}
- const item={id:uid(),ts:Date.now(),tpl:h.tpl,ref:h.ref||null,from:'gap'};
- const q=readInbox();q.push(item);
- try{localStorage.setItem(BR_INBOX,JSON.stringify(q.slice(-30)))}catch(e){toast('This browser is not saving, so Streak cannot receive it');return}
- S.inbox.push(item);save();render();
- toast(streakFromApp()?'Sent. Open Streak to add it.':'Saved for Streak. It appears when you open Streak in this browser.')}
-/* one-time to-dos travel the same way; Streak reports back the keys it holds */
-function todoSent(td){const s=streakFromApp();
- return (S.inbox||[]).some(x=>x.kind==='todo'&&x.key===td.key)||!!(s&&Array.isArray(s.todoKeys)&&s.todoKeys.includes(td.key))}
-function sendTodo(td){
- if(todoSent(td)){toast('Already on your Streak to-do list');return}
- const item={id:uid(),ts:Date.now(),kind:'todo',key:td.key,title:td.title,note:td.note||'',worth:td.worth?Math.round(td.worth):null,due:td.due||null,from:'gap'};
- const q=readInbox();q.push(item);
- try{localStorage.setItem(BR_INBOX,JSON.stringify(q.slice(-30)))}catch(e){toast('This browser is not saving, so Streak cannot receive it');return}
- S.inbox.push(item);save();render();
- toast(streakFromApp()?'Sent. Open Streak to add it to your to-dos.':'Saved for Streak. It appears when you open Streak in this browser.')}
-function pruneInbox(){const s=streakFromApp();if(!s||!Array.isArray(s.handled))return;
- const q=readInbox().filter(x=>!s.handled.includes(x.id));try{localStorage.setItem(BR_INBOX,JSON.stringify(q))}catch(e){}}
-addEventListener('storage',e=>{if(e.key===BR_STREAK2||e.key===BR_STREAK1){importStreak();if(V.page==='guide')drawStreak()}});
 
 /* ══════════ notices ══════════ */
 function banner(o){
@@ -2448,17 +2425,17 @@ $('#suDemo').onclick=()=>{S=demoState();save();
  render();memWarn();toast('Sample numbers loaded. Clear them any time in Settings.')};
 $('#suRestore').onclick=()=>$('#impFile').click();
 
-/* ══════════ theme: match device, light or dark — shared with Streak ══════════ */
+/* ══════════ theme: match device, light or dark ══════════ */
 const SUN='M12 3v2M12 19v2M5 12H3M21 12h-2M6 6 4.6 4.6M19.4 19.4 18 18M6 18l-1.4 1.4M19.4 4.6 18 6M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z';
 const MOON='M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z';
 const mqDark=matchMedia('(prefers-color-scheme: dark)');
-function themePref(){const p=DB.g('befree.theme');return p==='light'||p==='dark'||p==='system'?p:'system'}
+function themePref(){let p=DB.g('befree.gap.theme');if(p==null)p=DB.g('befree.theme');return p==='light'||p==='dark'||p==='system'?p:'system'}
 function applyTheme(){const p=themePref(),n=p==='system'?(mqDark.matches?'dark':'light'):p;
  document.documentElement.dataset.theme=n;
  $('#thI').setAttribute('d',n==='dark'?MOON:SUN);
  $('#thBtn').setAttribute('aria-label',n==='dark'?'Switch to light theme':'Switch to dark theme');
  document.querySelector('meta[name=theme-color]').setAttribute('content',n==='dark'?'#021A13':'#EAF0E5')}
-function setThemePref(p){DB.s('befree.theme',p);applyTheme();setTimeout(render,60)}
+function setThemePref(p){DB.s('befree.gap.theme',p);applyTheme();setTimeout(render,60)}
 mqDark.addEventListener&&mqDark.addEventListener('change',()=>{if(themePref()==='system'){applyTheme();render()}});
 $('#privBtn').onclick=()=>show('#shPriv',true);
 $('#privClose').onclick=()=>{syncSet();show('#shSet',true)};
@@ -2483,7 +2460,7 @@ function iconURL(size,mask){
  throw 0;
 }catch(e){
  try{
-  const mf={name:'BeFree Gap',short_name:'BeFree Gap',start_url:'.',scope:'.',display:'standalone',
+  const mf={name:'Gap',short_name:'Gap',start_url:'.',scope:'.',display:'standalone',
    orientation:'portrait',background_color:'#021A13',theme_color:'#021A13',
    description:'See what is available until payday, and widen the gap between what comes in and what goes out.',
    icons:[{src:iconURL(192),sizes:'192x192',type:'image/png',purpose:'any'},
@@ -2555,7 +2532,7 @@ self.addEventListener('fetch', e => {
    that check happens in the page itself, which is the reliable part. */
 self.addEventListener('periodicsync', e => {
   if (e.tag !== 'befree-daily-reminder') return;
-  e.waitUntil(self.registration.showNotification('BeFree Gap', {
+  e.waitUntil(self.registration.showNotification('Gap', {
     body: 'A quick minute keeps today’s numbers accurate.',
     icon: './icons/icon-192.png', badge: './icons/icon-192.png',
     tag: 'befree-daily-reminder'
@@ -2608,7 +2585,6 @@ if(!S.setup.done&&!S.tx.length){startSetup()}
 else{
  S.setup.done=true;
  seedGlyphs();
- importStreak();pruneInbox();
  save();
  render();
  const shown=migrNotice()||monthNotice();
@@ -2666,7 +2642,7 @@ else{
    + 'style="vertical-align:-3px" fill="currentColor"><circle cx="5" cy="12" r="2.1"/>'
    + '<circle cx="12" cy="12" r="2.1"/><circle cx="19" cy="12" r="2.1"/></svg>';
 
- var LEAD = '<p>A few taps and BeFree sits on your ' + DEV + ' like any other app \u2014 no '
+ var LEAD = '<p>A few taps and Gap sits on your ' + DEV + ' like any other app \u2014 no '
    + 'app store, no account. It opens in its own window, works with the internet off, '
    + 'and your figures stay for good.</p>';
 
@@ -2745,9 +2721,9 @@ else{
    el = document.createElement('section');
    el.className = 'instcard' + (late ? ' float' : '');
    el.setAttribute('role', 'region');
-   el.setAttribute('aria-label', 'Add BeFree to your ' + DEV);
+   el.setAttribute('aria-label', 'Add Gap to your ' + DEV);
    el.innerHTML =
-     '<div class="ic-h"><b>Keep BeFree on your ' + DEV + '</b>'
+     '<div class="ic-h"><b>Keep Gap on your ' + DEV + '</b>'
    + '<button type="button" class="ic-x">Later</button></div>'
    + '<div class="ic-b"></div>'
    + '<button type="button" class="ic-save" id="icSave">Or save a backup file first</button>';
@@ -2793,18 +2769,23 @@ else{
 
 
 /* ══════════ optional PIN lock, shared by both apps ══════════
-   One PIN protects both BeFree apps on this device: the config lives in
+   Each app has its own PIN: the config lives in
    its own localStorage key (not inside either app's own record, so it
    never gets caught up in an export, a restore, or a version migration),
    and it is checked before either app ever paints on screen — the
    data-applock attribute is set pre-paint by the inline head script, so
    there is nothing to flash while this file loads. The PIN itself is
    never stored: only a salted hash. */
-const AL_KEY='befree.applock.v1';
+/* each app keeps its own PIN. Older builds shared befree.applock.v1 with
+   Streak; that value is copied once, and turning the PIN off here stores
+   {on:false} so the shared copy can't switch it back on. */
+const AL_KEY='befree.gap.applock.v2',AL_OLD='befree.applock.v1';
 const AL_SUPPORTED=!!(window.crypto&&crypto.subtle&&crypto.subtle.digest&&crypto.getRandomValues);
 
-function alGet(){try{const v=JSON.parse(localStorage.getItem(AL_KEY));return v&&v.on&&v.hash&&v.salt?v:null}catch(e){return null}}
-function alSet(v){try{if(v)localStorage.setItem(AL_KEY,JSON.stringify(v));else localStorage.removeItem(AL_KEY)}catch(e){}}
+function alGet(){try{let v=JSON.parse(localStorage.getItem(AL_KEY));
+  if(v==null){v=JSON.parse(localStorage.getItem(AL_OLD));if(v&&v.on&&v.hash&&v.salt)localStorage.setItem(AL_KEY,JSON.stringify(v))}
+  return v&&v.on&&v.hash&&v.salt?v:null}catch(e){return null}}
+function alSet(v){try{localStorage.setItem(AL_KEY,JSON.stringify(v||{on:false}))}catch(e){}}
 function alRandSalt(){const a=new Uint8Array(16);crypto.getRandomValues(a);return[...a].map(b=>b.toString(16).padStart(2,'0')).join('')}
 async function alHash(pin,salt){
  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode('befree.pin:'+salt+':'+pin));
@@ -2857,7 +2838,7 @@ let alStep1=null;
 function alResetSheet(){
  alStep1=null;
  $('#lockPinTitle').textContent='Set a PIN';
- $('#lockPinSub').textContent='Choose 4 to 6 digits. You’ll need it to open BeFree on this device.';
+ $('#lockPinSub').textContent='Choose 4 to 6 digits. You’ll need it to open Gap on this device.';
  $('#lockPinLbl').textContent='PIN';
  $('#lockPinA').value='';$('#lockPinErr').textContent='';$('#lockPinGo').textContent='Continue';
 }
@@ -2865,7 +2846,7 @@ function alOpenSet(){if(!AL_SUPPORTED)return;alResetSheet();show('#shLockPin')}
 if($('#swLock'))$('#swLock').onclick=async()=>{
  if(!AL_SUPPORTED)return;
  if(alGet()){
-  if(!await ask('Turn off the PIN?','Anyone who opens BeFree on this device will see your data.','Turn off',true))return;
+  if(!await ask('Turn off the PIN?','Anyone who opens Gap on this device will see your data.','Turn off',true))return;
   alSet(null);alRefreshRow();toast('PIN turned off');return;
  }
  alOpenSet();
@@ -2880,12 +2861,12 @@ if($('#lockPinGo'))$('#lockPinGo').onclick=async()=>{
   $('#lockPinA').focus();return;
  }
  if(v!==alStep1){alStep1=null;$('#lockPinA').value='';
-  $('#lockPinSub').textContent='Choose 4 to 6 digits. You’ll need it to open BeFree on this device.';
+  $('#lockPinSub').textContent='Choose 4 to 6 digits. You’ll need it to open Gap on this device.';
   $('#lockPinLbl').textContent='PIN';$('#lockPinErr').textContent='Those don’t match. Try again.';
   $('#lockPinA').focus();return}
  const salt=alRandSalt(),hash=await alHash(v,salt);
  alSet({on:true,hash,salt});
- closeAll();alRefreshRow();toast('PIN set. It protects both BeFree apps on this device.');
+ closeAll();alRefreshRow();toast('PIN set. It protects Gap on this device.');
 };
 alRefreshRow();
 
@@ -3012,7 +2993,3 @@ INFO.surplus=['Gap and assignments','<p>Gap = received income minus recorded liv
 INFO.savings=['Assigned cash','<p>Net transfers into savings, goals, sinking funds, tax reserves and investments, less withdrawals or spending from funds. Extra debt is shown separately. A tax reserve is an obligation, and a sinking fund is planned future spending; neither is investment growth.</p>'];
 INFO.balance=['Checking estimate','<p>Starts with your current available checking balance. New checking transactions change it; card purchases do not. Paying a card reduces checking. Reconcile after backdated entries or changes to records already included in a balance. Physical cash is assumed covered by the checking figure; adjust for withdrawals so cash is not counted twice.</p>'];
 INFO.available=['Protected room until payday','<p>Checking estimate minus unpaid bills, planned transfers, essential spending, sinking-fund set-asides, protective buffer, unsettled card-purchase reserve and the estimated tax-reserve shortfall. Expected income is excluded until received. Review overdue obligations, pending charges and the card reserve today before using this estimate.</p><p>Do not treat it as permission to spend. Unknown obligations or incomplete records can make it too high. Only allocate within the protected amount. Extra debt payments must also fit the lender’s rules.</p>'];
-
-// Coming back from Streak with the back button restores this page from the
-// back/forward cache without reloading; pick up Streak's latest summary.
-addEventListener('pageshow',e=>{if(e.persisted){importStreak();render();}});

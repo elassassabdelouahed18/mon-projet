@@ -7,16 +7,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%20width='64'%20height='64'%3E%3Crect%20width='64'%20height='64'%20rx='14.080'%20fill='%23063F2E'/%3E%3Cg%20transform='translate(30.9654%2033.5654)%20scale(0.180239)'%3E%3Cpath%20d='M78.4085%20-19.3315%20A80.7565%2080.7565%200%201%201%20-22.5574%20-77.5420'%20fill='none'%20stroke='%23E8D1BA'%20stroke-width='38.4871'%20stroke-linecap='butt'/%3E%3Ccircle%20cx='88.2900'%20cy='-94.1800'%20r='23.1900'%20fill='%23EDA335'/%3E%3C/g%3E%3C/svg%3E" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-<link rel="manifest" href="../manifest.webmanifest">
+<link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#021A13">
 <meta name="description" content="BeFree Gap shows what is available until your next payday and helps you widen the gap between what comes in and what goes out.">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="BeFree Gap">
+<meta name="apple-mobile-web-app-title" content="Gap">
 <meta name="color-scheme" content="light dark">
 <meta name="mobile-web-app-capable" content="yes">
-<title>BeFree Gap</title>
-<script>(function(){try{var p=JSON.parse(localStorage.getItem('befree.theme'));if(p!=='light'&&p!=='dark')p=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=p}catch(e){}try{var l=JSON.parse(localStorage.getItem('befree.applock.v1'));if(l&&l.on&&l.hash)document.documentElement.setAttribute('data-applock','1')}catch(e){}})()</script>
+<title>Gap</title>
+<script>(function(){try{var p=JSON.parse(localStorage.getItem('befree.gap.theme'));if(p==null)p=JSON.parse(localStorage.getItem('befree.theme'));if(p!=='light'&&p!=='dark')p=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=p}catch(e){}try{var l=JSON.parse(localStorage.getItem('befree.gap.applock.v2'));if(l==null)l=JSON.parse(localStorage.getItem('befree.applock.v1'));if(l&&l.on&&l.hash)document.documentElement.setAttribute('data-applock','1')}catch(e){}})()</script>
 <style>
 @font-face{font-family:'Fraunces';font-style:normal;font-weight:400;font-display:swap;src:url(data:font/woff2;base64,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) format('woff2')}
 @font-face{font-family:'Fraunces';font-style:normal;font-weight:600;font-display:swap;src:url(data:font/woff2;base64,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) format('woff2')}
@@ -946,7 +946,6 @@ svg [data-tip].kf{stroke:var(--tx);stroke-width:2px}
   </svg>
   <div class="brand">BeFree <i>Gap</i></div>
   <div class="sp"></div>
-  <a class="sib" id="sibLink" href="../streak/index.html" title="Open BeFree Streak"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg><span class="sibt">Streak</span></a>
   <button class="ib" id="installBtn" title="Add to your home screen" aria-label="Add to home screen" style="display:none">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 3v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>
   </button>
@@ -1085,6 +1084,18 @@ svg [data-tip].kf{stroke:var(--tx);stroke-width:2px}
   </div>
 </section>
 
+<!-- ══════════ PLAN ══════════ -->
+<section class="page" id="p-plan" role="tabpanel" aria-labelledby="tab-plan">
+  <div class="bento">
+    <div class="card c3" id="plPay"></div>
+    <div class="card c3" id="plExtra"></div>
+    <div class="card c6" id="plCal"></div>
+    <div class="card c3" id="plTax"></div>
+    <div class="card c3" id="plMatch"></div>
+    <div class="card c6" id="plMiles"></div>
+  </div>
+</section>
+
 <!-- ══════════ LEDGER ══════════ -->
 <section class="page" id="p-ledger" role="tabpanel" aria-labelledby="tab-ledger">
   <div class="bento">
@@ -1093,7 +1104,7 @@ svg [data-tip].kf{stroke:var(--tx);stroke-width:2px}
       <div id="sched" class="upl"></div>
     </div>
     <div class="card c6">
-      <div class="ch"><h2 class="eb">Completed</h2><div class="eb mono" id="txN">0</div></div>
+      <div class="ch"><h2 class="eb">Completed</h2><button class="lnk" id="bankImpL" style="margin-left:auto">Import a bank file</button><div class="eb mono" id="txN">0</div></div>
       <div class="pnav" style="margin:-4px 0 6px">
         <button id="lPrev" aria-label="Previous month"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18 9 12l6-6"/></svg></button>
         <div class="plbl mono" id="lLbl">-</div>
@@ -1186,6 +1197,7 @@ svg [data-tip].kf{stroke:var(--tx);stroke-width:2px}
       <svg id="orderSvg" viewBox="0 0 340 80" role="img" aria-label="When each debt is cleared on the current plan"></svg>
       <p class="foot">Each bar runs from today to the month that debt reaches zero, with the extra amount set in the simulator.</p>
     </div>
+    <div class="card c6" id="creditCard"></div>
     <div class="card c6">
       <div class="ch"><h2 class="eb">Owed to you</h2></div>
       <div id="rList"></div>
@@ -1293,6 +1305,7 @@ svg [data-tip].kf{stroke:var(--tx);stroke-width:2px}
   <div class="seg" id="dSeg" role="group" aria-label="Kind of debt">
     <button data-k="card" aria-pressed="true">Credit card</button>
     <button data-k="loan" aria-pressed="false">Loan</button>
+    <button data-k="bnpl" aria-pressed="false">Pay later</button>
     <button data-k="due" aria-pressed="false">Owed to me</button>
   </div>
   <p class="foot" id="dKindNote" style="margin:-4px 0 12px"></p>
@@ -1303,7 +1316,19 @@ svg [data-tip].kf{stroke:var(--tx);stroke-width:2px}
   </div>
   <div class="two" id="dTerms">
     <div class="fld"><label for="dApr">APR %</label><input id="dApr" type="number" inputmode="decimal" min="0" step="0.1" placeholder="24.9"></div>
-    <div class="fld"><label for="dMin">Minimum payment</label><input id="dMin" type="number" inputmode="decimal" min="0" placeholder="65"></div>
+    <div class="fld"><label for="dMin" id="dMinLab">Minimum payment</label><input id="dMin" type="number" inputmode="decimal" min="0" placeholder="65"></div>
+  </div>
+  <div class="two" id="dCardX" style="display:none">
+    <div class="fld"><label for="dLimit">Credit limit <span class="opt">optional</span></label><input id="dLimit" type="number" inputmode="decimal" min="0" placeholder="3000"></div>
+    <div class="fld"><label for="dClose">Statement closes on day <span class="opt">optional</span></label><input id="dClose" type="number" inputmode="numeric" min="1" max="31" placeholder="22"></div>
+  </div>
+  <div id="dBnplX" style="display:none">
+    <div class="fld"><label for="dProv">Provider</label><select id="dProv"><option>Afterpay</option><option>Klarna</option><option>Affirm</option><option>PayPal Pay in 4</option><option>Zip</option><option>Sezzle</option><option>Other</option></select></div>
+    <div class="two">
+      <div class="fld"><label for="dNext">Next payment</label><input id="dNext" type="date"></div>
+      <div class="fld"><label for="dLeft">Payments left</label><input id="dLeft" type="number" inputmode="numeric" min="1" max="60" placeholder="3"></div>
+    </div>
+    <div class="fld"><span class="lab" id="dEveryLab">How often</span><div class="seg" id="dEvery" role="group" aria-labelledby="dEveryLab"><button data-e="biweekly" aria-pressed="true">Every 2 weeks</button><button data-e="monthly" aria-pressed="false">Monthly</button></div></div>
   </div>
   <p class="foot" id="dBalNote"></p>
   <button class="save" id="dSave">Save</button>
@@ -1480,9 +1505,6 @@ svg [data-tip].kf{stroke:var(--tx);stroke-width:2px}
     <div class="rm" id="remindDesc">Off</div></div>
     <button class="sw" id="swRemind" role="switch" aria-checked="false" aria-label="Daily reminder to log"></button></div>
 
-  <div class="shsec">BeFree Streak</div>
-  <div id="conn"></div>
-
   <div class="shsec">Privacy</div>
   <div class="rowp"><div>
     <div class="rn">Require a PIN to open</div>
@@ -1490,7 +1512,7 @@ svg [data-tip].kf{stroke:var(--tx);stroke-width:2px}
     <button class="sw" id="swLock" role="switch" aria-checked="false" aria-label="Require a PIN to open"></button></div>
   <div class="rowp" id="lockChangeRow" style="display:none"><div>
     <div class="rn">Change your PIN</div>
-    <div class="rm">One PIN protects both BeFree apps on this device</div></div>
+    <div class="rm">Protects Gap on this device</div></div>
     <button class="lnk" id="lockChangeBtn">Change</button></div>
 
   <div class="shsec">Your data</div>
@@ -1499,7 +1521,10 @@ svg [data-tip].kf{stroke:var(--tx);stroke-width:2px}
     <button class="ghost" id="impBtn">Restore from a backup</button>
     <button class="ghost" id="expCsv">Spreadsheet (CSV)</button>
     <button class="ghost" id="prtBtn">Print this month</button>
+    <button class="ghost" id="expLock">Encrypted backup</button>
+    <button class="ghost" id="bankImp">Import a bank file</button>
   </div>
+  <p class="foot" style="margin:6px 0 10px">An encrypted backup needs a passphrase to open. Nobody can recover it for you, so keep the passphrase somewhere safe.</p>
   <div class="rowp" id="swRow" style="display:none"><div>
     <div class="rn">Make it work with no signal</div>
     <div class="rm">Save the small helper file and put it beside this page on your host</div></div>
@@ -1589,7 +1614,7 @@ svg [data-tip].kf{stroke:var(--tx);stroke-width:2px}
   <div class="privbody">
     <p><b>Nothing is collected.</b> BeFree Gap has no server, no account and no login. Every amount, category, goal and debt you enter is written to your own browser storage on this device and stays there.</p>
     <p><b>Nothing is sent anywhere.</b> The app makes no network calls once it has loaded. There is no analytics, no tracking, no advertising, no bank connection and no third party of any kind. Even the fonts are built into the file, which is why it works with the internet switched off.</p>
-    <p><b>BeFree Streak, on this device only.</b> When both apps are opened from the same site in the same browser, they share that browser's storage. Gap leaves a short summary there (days you logged or reviewed, paydays, bill dates) so Streak can count your habits without retyping. Nothing travels between devices.</p>
+    <p><b>Gap works on its own.</b> It does not share your records with BeFree Streak or any other app, and nothing travels between devices.</p>
     <p><b>Nobody can see it, including us.</b> BeFree has no way to read your figures, because they never leave your device. If you clear your browser data, the entries are gone and cannot be recovered by anyone, so save a backup from Settings now and then and keep it somewhere you trust.</p>
     <p><b>You can erase everything.</b> The reset button in Settings deletes every entry on this device permanently.</p>
     <p><b>Children.</b> This app is intended for adults and is not directed at children under 13.</p>
@@ -1601,7 +1626,7 @@ svg [data-tip].kf{stroke:var(--tx);stroke-width:2px}
 <!-- optional PIN lock: set up or change -->
 <div class="sheet" id="shLockPin" role="dialog" aria-modal="true" aria-labelledby="lockPinTitle">
   <div class="handle"></div><div class="stitle" id="lockPinTitle">Set a PIN</div>
-  <div class="ssub" id="lockPinSub">Choose 4 to 6 digits. You&rsquo;ll need it to open BeFree on this device.</div>
+  <div class="ssub" id="lockPinSub">Choose 4 to 6 digits. You&rsquo;ll need it to open Gap on this device.</div>
   <div class="fld"><label for="lockPinA" id="lockPinLbl">PIN</label>
     <input id="lockPinA" type="password" inputmode="numeric" pattern="[0-9]*" autocomplete="off" maxlength="6" placeholder="&bull;&bull;&bull;&bull;"></div>
   <div id="lockPinErr" class="hint" style="color:var(--neg);min-height:18px" aria-live="polite"></div>
@@ -1626,8 +1651,7 @@ svg [data-tip].kf{stroke:var(--tx);stroke-width:2px}
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script data-befree-bundle="../finance-core.js">
-/* BeFree financial rules, revision 5. Pure functions shared by the app and tests. */
+<script data-befree-bundle="../finance-core.js">/* BeFree financial rules, revision 5. Pure functions shared by the app and tests. */
 (function(root,factory){const api=factory();if(typeof module==='object')module.exports=api;else root.BeFreeFinance=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
  'use strict';
  const round=n=>Math.round((n+Number.EPSILON)*100)/100;
@@ -1650,7 +1674,7 @@ svg [data-tip].kf{stroke:var(--tx);stroke-width:2px}
  function debtEffect(d,t){if(!done(t))return 0;
   if(t.payFrom==='card'&&t.card===d.id&&spend(t))return amount(t);
   if(t.debt!==d.id)return 0;
-  if(d.kind==='card'||d.kind==='due')return -(+t.amt||0);
+  if(d.kind==='card'||d.kind==='due'||d.kind==='bnpl')return -(+t.amt||0);
   return Number.isFinite(t.principal)?-Math.max(0,Math.min(t.principal,+t.amt||0)):0;}
  function debtBalance(d,list){let b=+d.bal0||0;const base=d.ledgerBaseline;
   if(base){const current={};list.forEach(t=>{current[t.id]=debtEffect(d,t);});new Set([...Object.keys(base),...Object.keys(current)]).forEach(id=>{b+=(current[id]||0)-(base[id]||0);});}
@@ -1669,7 +1693,222 @@ svg [data-tip].kf{stroke:var(--tx);stroke-width:2px}
   if(h.link==='save'){const ref=h.ref||{},key=ref.goal?'goal:'+ref.goal:ref.fund?'fund:'+ref.fund:null;const n=key?(ev.saveRefs||{})[key]:ev.save;return n?{k:'save',txt:key?'you moved money to this specific goal or fund':'you moved money to savings'}:null;}return null;}
  return{round,done,spend,cash,totals,debtEffect,debtBalance,allocation,fi,evidence};
 });
+</script>
+<script data-befree-bundle="../plus-core.js">/* BeFree additions: pure helpers shared by Gap, Streak and tests.
+   Nothing here touches the page or storage. Dates are local YYYY-MM-DD strings. */
+(function(root,factory){const api=factory();if(typeof module==='object')module.exports=api;else root.BeFreePlus=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
+ 'use strict';
+ const pad=n=>String(n).padStart(2,'0');
+ const iso=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+ const D=s=>new Date(s+'T00:00:00');
+ const addD=(s,n)=>{const d=D(s);d.setDate(d.getDate()+n);return iso(d)};
+ const round=n=>Math.round((n+Number.EPSILON)*100)/100;
 
+ /* ── bank files ──────────────────────────────────────────────
+    US banks export CSV (Chase, Bank of America, Wells Fargo, Capital One,
+    Citi, Discover, Amex…) or OFX/QFX. Both are read here on the device;
+    nothing is uploaded. Amounts come back signed: + money in, − money out. */
+ function csvRows(text){
+  text=String(text||'').replace(/^\uFEFF/,'');
+  const first=text.split(/\r?\n/).find(l=>l.trim())||'';
+  const cnt=c=>(first.match(new RegExp('\\'+c,'g'))||[]).length;
+  const delim=[',',';','\t'].sort((a,b)=>cnt(b)-cnt(a))[0];
+  const rows=[];let row=[],cell='',q=false;
+  for(let i=0;i<text.length;i++){const c=text[i];
+   if(q){if(c==='"'){if(text[i+1]==='"'){cell+='"';i++}else q=false}else cell+=c;continue}
+   if(c==='"'){q=true;continue}
+   if(c===delim){row.push(cell);cell='';continue}
+   if(c==='\n'||c==='\r'){if(c==='\r'&&text[i+1]==='\n')i++;row.push(cell);rows.push(row);row=[];cell='';continue}
+   cell+=c}
+  if(cell!==''||row.length){row.push(cell);rows.push(row)}
+  return rows.map(r=>r.map(x=>x.trim())).filter(r=>r.some(x=>x!==''))}
+ function parseAmount(v){
+  if(v==null)return null;let s=String(v).trim();if(!s)return null;
+  let neg=false;
+  if(/^\(.*\)$/.test(s)){neg=true;s=s.slice(1,-1)}
+  if(/-$/.test(s)){neg=true;s=s.slice(0,-1)}
+  if(/\s*CR$/i.test(s))s=s.replace(/\s*CR$/i,'');
+  else if(/\s*DR$/i.test(s)){neg=true;s=s.replace(/\s*DR$/i,'')}
+  s=s.replace(/[$,\s]/g,'');
+  if(s.startsWith('-')){neg=!neg;s=s.slice(1)}else if(s.startsWith('+'))s=s.slice(1);
+  if(!/^\d*\.?\d+$/.test(s))return null;
+  const n=parseFloat(s);return neg?-n:n}
+ function parseDate(v){
+  const s=String(v||'').trim();let m;
+  if((m=s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/)))return ok(+m[1],+m[2],+m[3]);
+  if((m=s.match(/^(\d{4})(\d{2})(\d{2})/)))return ok(+m[1],+m[2],+m[3]);
+  if((m=s.match(/^(\d{1,2})[\/\-.](\d{1,2})[\/\-.](\d{2,4})/))){let y=+m[3];if(y<100)y+=2000;return ok(y,+m[1],+m[2])}
+  return null;
+  function ok(y,mo,d){if(mo<1||mo>12||d<1||d>31||y<1990||y>2100)return null;const x=new Date(y,mo-1,d);return x.getMonth()===mo-1?iso(x):null}}
+ const H={
+  date:[/^(transaction|trans\.?)\s*date$/i,/^date$/i,/^(posting|posted|post)\s*date$/i,/^date posted$/i,/date/i],
+  desc:[/^description$/i,/^(payee|merchant|merchant name)$/i,/^name$/i,/^(transaction )?description/i,/^memo$/i,/^details$/i],
+  amount:[/^(transaction )?amount$/i,/^amount \(usd\)$/i,/amount/i],
+  debit:[/^debit(s)?$/i,/^withdrawal(s)?$/i,/^(money out|charges?|debit amount)$/i],
+  credit:[/^credit(s)?$/i,/^deposit(s)?$/i,/^(money in|payments?|credit amount)$/i],
+  ref:[/^(reference|ref(erence)? ?(no|number|#)?|transaction id|check or slip #|check number)$/i]};
+ function pick(hdr,list,skip){for(const re of list){const i=hdr.findIndex((h,k)=>!(skip||[]).includes(k)&&re.test(h)&&!/balance/i.test(h));if(i>=0)return i}return -1}
+ function fromCSV(text){
+  const rows=csvRows(text);if(!rows.length)return{rows:[],error:'The file is empty.'};
+  let hi=-1,map=null;
+  for(let i=0;i<Math.min(rows.length,20);i++){const h=rows[i];
+   const d=pick(h,H.date),a=pick(h,H.amount),db=pick(h,H.debit),cr=pick(h,H.credit);
+   if(d>=0&&(a>=0||db>=0||cr>=0)&&!parseDate(h[d])){hi=i;map={d,a,db,cr,desc:pick(h,H.desc,[d,a,db,cr]),ref:pick(h,H.ref)};break}}
+  if(!map){ /* no header (Wells Fargo): find the date, amount and text columns from the data */
+   const body=rows.filter(r=>r.length>=2),n=Math.max(...body.map(r=>r.length));const score=f=>[...Array(n).keys()].map(c=>body.filter(r=>f(r[c])).length);
+   const ds=score(x=>!!parseDate(x)),as=score(x=>parseAmount(x)!==null&&!parseDate(x)),ts=[...Array(n).keys()].map(c=>body.reduce((s,r)=>s+((r[c]||'').replace(/[\d\s.,$*-]/g,'').length),0));
+   const d=ds.indexOf(Math.max(...ds)),a=as.indexOf(Math.max(...as.map((v,i)=>i===d?-1:v))),desc=ts.indexOf(Math.max(...ts));
+   if(ds[d]<body.length*0.6||as[a]<body.length*0.6)return{rows:[],error:'Could not find the date and amount columns in this file.'};
+   map={d,a,db:-1,cr:-1,desc,ref:-1};hi=-1}
+  const out=[];let bad=0;
+  rows.slice(hi+1).forEach(r=>{const date=parseDate(r[map.d]);let amt=null;
+   if(map.a>=0)amt=parseAmount(r[map.a]);
+   else{const db=parseAmount(r[map.db]),cr=parseAmount(r[map.cr]);if(db!==null||cr!==null)amt=(cr?Math.abs(cr):0)-(db?Math.abs(db):0)}
+   if(!date||amt===null){if(r.some(x=>x))bad++;return}
+   const desc=(map.desc>=0?r[map.desc]:'')||'';
+   out.push({date,amt:round(amt),desc:desc.replace(/\s+/g,' ').trim(),ref:map.ref>=0?r[map.ref]||'':''})});
+  return{rows:out,skipped:bad,format:'csv'}}
+ function fromOFX(text){
+  const out=[];const blocks=String(text).split(/<STMTTRN>/i).slice(1);
+  const tag=(b,t)=>{const m=b.match(new RegExp('<'+t+'>([^<\\r\\n]*)','i'));return m?m[1].trim():''};
+  blocks.forEach(b=>{const date=parseDate(tag(b,'DTPOSTED')||tag(b,'DTUSER')),amt=parseAmount(tag(b,'TRNAMT'));
+   if(!date||amt===null)return;
+   const name=tag(b,'NAME'),memo=tag(b,'MEMO');
+   out.push({date,amt:round(amt),desc:(name&&memo&&!memo.includes(name)?name+' '+memo:name||memo).replace(/&amp;/g,'&').replace(/\s+/g,' ').trim(),ref:tag(b,'FITID')})});
+  return{rows:out,skipped:0,format:'ofx'}}
+ function readBankFile(text,name){
+  const t=String(text||'');
+  if(/<OFX>|OFXHEADER|<STMTTRN>/i.test(t)||/\.(ofx|qfx|qbo)$/i.test(name||''))return fromOFX(t);
+  return fromCSV(t)}
+
+ /* best guess only; every imported row can be changed before and after import */
+ const RULES=[
+  [/\b(atm|cash) ?(withdrawal|w\/d|wd)\b|\batm\b/i,{type:'variable',cat:'Other',skip:'Cash withdrawal: log what the cash paid for instead, so it is not counted twice.'}],
+  [/afterpay|klarna|affirm|sezzle|zip\.co|quadpay|pay ?in ?4/i,{type:'fixed',cat:'Debt minimum',bnpl:true}],
+  [/credit ?card|card ?(pmt|payment)|payment to .*card|card ending|crd ?(pmt|epay)|cc ?(pmt|payment)|chase credit|capital one.*(pmt|payment|mobile pymt)|amex|american express|discover.*(pmt|payment)|citi.*(pmt|payment|autopay)|synchrony|barclaycard|bank of america.*(pmt|payment)/i,{type:'transfer',cat:'Card payment',review:true}],
+  [/irs\b|usataxpymt|dept of revenue|franchise tax|tax ?pymt/i,{type:'fixed',cat:'Estimated income tax'}],
+  [/student ?loan|navient|nelnet|sallie ?mae|mohela|aidvantage|great lakes|mortgage|mr\.? ?cooper|rocket mortgage|lendingclub|upstart|sofi loan|personal loan/i,{type:'fixed',cat:'Loan payment',review:true}],
+  [/auto ?loan|car ?payment|toyota (motor )?(fin|credit)|honda fin|ally auto|gm financial|ford credit|santander consumer|capital one auto|westlake|credit acceptance/i,{type:'fixed',cat:'Car payment'}],
+  [/\brent\b|apartment|property mgmt|property management|leasing office|realty/i,{type:'fixed',cat:'Rent'}],
+  [/electric|energy|\bpower\b|water|sewer|trash|waste mgmt|pg&e|con ?ed|duke energy|xcel|comed|dominion|georgia power|fpl|utility|utilities|national grid|socalgas|peoples gas/i,{type:'fixed',cat:'Utilities'}],
+  [/verizon|at&t|\batt\b|t-?mobile|sprint|cricket|metro ?by|metropcs|mint mobile|visible|boost mobile|straight talk|us cellular|google fi/i,{type:'fixed',cat:'Phone'}],
+  [/comcast|xfinity|spectrum|charter comm|cox comm|centurylink|frontier comm|optimum|google fiber|starlink|brightspeed|earthlink/i,{type:'fixed',cat:'Internet'}],
+  [/geico|progressive|state ?farm|allstate|liberty mutual|insurance|usaa ins|farmers ins|nationwide|lemonade|root ins/i,{type:'fixed',cat:'Insurance'}],
+  [/daycare|day care|child ?care|kindercare|bright horizons|preschool/i,{type:'fixed',cat:'Child care'}],
+  [/netflix|spotify|hulu|disney ?(\+|plus)|hbo|\bmax\.com|apple\.com\/bill|itunes|youtube ?premium|youtube ?tv|amazon prime|prime video|paramount|peacock|audible|sirius|icloud|google ?storage|microsoft ?365|adobe|dropbox|chatgpt|openai|patreon|planet fitness|la fitness|gym/i,{type:'fixed',cat:'Subscriptions'}],
+  [/acorns|stash|betterment|wealthfront|robinhood|fidelity|vanguard|schwab|e\*?trade|webull|m1 finance|coinbase/i,{type:'transfer',cat:'Investing'}],
+  [/to sav(ings)?|savings transfer|transfer to .*sav|ally bank|marcus|capital one 360|sofi sav|discover sav|amex sav|chime sav/i,{type:'transfer',cat:'Savings'}],
+  [/instacart|kroger|safeway|whole ?foods|trader ?joe|aldi|publix|wegmans|h-e-b|\bheb\b|food lion|giant eagle|stop ?& ?shop|albertsons|vons|ralphs|meijer|winco|sprouts|fry'?s food|harris teeter|hy-?vee|piggly|smart ?& ?final|grocery|market basket|save a lot|food 4 less|shoprite|costco|sam'?s club|bj'?s wholesale|food ?city|ingles|jewel|king soopers|shaw'?s|hannaford|foodmaxx|99 ranch|h ?mart|fresh market/i,{type:'variable',cat:'Groceries'}],
+  [/shell|chevron|exxon|mobil\b|\bbp\b|speedway|sunoco|marathon|valero|citgo|circle ?k|wawa|sheetz|quiktrip|\bqt\b|racetrac|love'?s|pilot|flying j|casey'?s|7-?eleven|arco|\b76\b|phillips ?66|conoco|kum ?& ?go|murphy (usa|oil)|gas station|\bfuel\b|holiday stationstores/i,{type:'variable',cat:'Gas'}],
+  [/doordash|uber ?eats|grubhub|postmates|mcdonald|starbucks|chipotle|subway|wendy|burger king|taco bell|chick-?fil-?a|domino|pizza|dunkin|panera|kfc|popeyes|sonic drive|arby|five guys|panda express|jack in the box|whataburger|in-n-out|culver|dairy queen|ihop|denny|applebee|olive garden|chili'?s|buffalo wild|restaurant|\bcafe\b|coffee|\bgrill\b|diner|sushi|taqueria|bakery|bar ?& ?grill|\btst\*|\bsq \*/i,{type:'variable',cat:'Dining out'}],
+  [/cvs|walgreens|rite ?aid|pharmacy|medical|clinic|hospital|dental|dentist|doctor|urgent ?care|optometr|vision center|labcorp|quest diag|kaiser|copay/i,{type:'variable',cat:'Health'}],
+  [/autozone|o'?reilly|advance auto|napa auto|jiffy lube|valvoline|firestone|pep boys|midas|meineke|discount tire|tire|car ?wash|\bdmv\b|auto repair|mechanic/i,{type:'variable',cat:'Car maintenance'}],
+  [/amc |regal|cinemark|ticketmaster|stubhub|seatgeek|steam(games|powered)?|playstation|xbox|nintendo|fandango|bowling|topgolf|dave ?& ?buster|live nation/i,{type:'variable',cat:'Entertainment'}],
+  [/overdraft|\bnsf\b|service (fee|charge)|monthly (maintenance )?fee|maintenance fee|atm fee|late fee|interest charge|finance charge|annual fee|foreign transaction|returned item/i,{type:'variable',cat:'Interest and fees'}],
+  [/hallmark|1-800-flowers|gift ?card|edible arrangements/i,{type:'variable',cat:'Gifts'}],
+  [/amazon|amzn|walmart|wal-mart|target|best ?buy|home ?depot|lowe'?s|ikea|etsy|ebay|tj ?maxx|marshalls|\bross\b|kohl'?s|macy'?s|nordstrom|old navy|shein|temu|dollar tree|dollar general|family dollar|five below|wayfair|apple store|nike|burlington|big lots|michaels|hobby lobby|petsmart|petco|chewy/i,{type:'variable',cat:'Shopping'}],
+  [/zelle|venmo|cash ?app|paypal|apple cash/i,{type:'variable',cat:'Other',review:true}],
+  [/transfer|xfer/i,{type:'transfer',cat:'Between accounts',review:true}]];
+ const IN_RULES=[
+  [/payroll|direct ?dep|dir ?dep|salary|\bpay ?check|\badp\b|gusto|paychex|intuit ?payroll|trinet|workday|paylocity|justworks|rippling|employer/i,{type:'income',cat:'Paycheck'}],
+  [/doordash|uber|lyft|instacart|grubhub|shipt|amazon flex|spark driver|upwork|fiverr|etsy|ebay|stripe|square|shopify/i,{type:'income',cat:'Side income'}],
+  [/ssa|social security|unemployment|\bui\b benefit|snap|ebt|va benefit|treas 310|dept of labor/i,{type:'income',cat:'Benefits'}],
+  [/irs treas|tax ref|state of .* tax|tax refund/i,{type:'income',cat:'Other',note:'Tax refund'}],
+  [/refund|return|reversal|credit adj/i,{type:'variable',cat:'Other',refund:true}],
+  [/interest (paid|earned|payment)|dividend/i,{type:'income',cat:'Other'}],
+  [/transfer from|from sav|xfer from|online transfer|zelle|venmo|cash ?app|paypal/i,{type:'transfer',cat:'Between accounts',dir:'in',review:true}]];
+ function guess(desc,amt,account){
+  const d=String(desc||'');
+  if(account==='card'){
+   if(amt>0){if(/payment|autopay|thank ?you|pymt|epay/i.test(d))return{type:'transfer',cat:'Card payment',skip:'A payment to this card. Record card payments from your checking file instead.'};
+    return{type:'variable',cat:'Other',refund:true}}
+   for(const [re,g] of RULES){if(re.test(d)&&g.type!=='transfer'&&!g.skip)return Object.assign({},g)}
+   return{type:'variable',cat:'Other'}}
+  if(amt>0){for(const [re,g] of IN_RULES)if(re.test(d))return Object.assign({},g);return{type:'income',cat:'Other'}}
+  for(const [re,g] of RULES)if(re.test(d))return Object.assign({},g);
+  return{type:'variable',cat:'Other'}}
+ /* a row that matches an entry already in the ledger: same amount, within two days */
+ function isDuplicate(row,existing){const a=Math.abs(row.amt);
+  return existing.some(t=>(row.ref&&t.ext===row.ref)||(Math.abs((+t.amt||0)-a)<0.005&&Math.abs((D(t.date)-D(row.date))/864e5)<=2))}
+
+ /* ── paychecks ─────────────────────────────────────────────── */
+ /* months holding more paydays than usual: 3 for every-two-weeks pay, 5 for weekly */
+ function extraPayMonths(dates,freq){const base=freq==='weekly'?4:freq==='biweekly'?2:null;if(!base)return[];
+  const by={};dates.forEach(d=>{(by[d.slice(0,7)]=by[d.slice(0,7)]||[]).push(d)});
+  return Object.keys(by).sort().filter(m=>by[m].length>base).map(m=>({month:m,dates:by[m].sort(),extra:by[m].sort().slice(base)}))}
+
+ /* ── estimated tax (Form 1040-ES) ───────────────────────────
+    Four payment periods; a due date on a weekend or a DC legal holiday
+    moves to the next business day. Always confirm at irs.gov. */
+ function nthWeekday(y,m,wd,n){const d=new Date(y,m,1);const off=(wd-d.getDay()+7)%7;return iso(new Date(y,m,1+off+7*(n-1)))}
+ function holidays(y){const h=new Set();
+  const obs=(s)=>{const d=D(s),w=d.getDay();return w===6?addD(s,-1):w===0?addD(s,1):s};
+  h.add(obs(`${y}-01-01`));h.add(nthWeekday(y,0,1,3));h.add(obs(`${y}-04-16`));h.add(obs(`${y}-06-19`));h.add(obs(`${y}-07-04`));h.add(nthWeekday(y,8,1,1));
+  return h}
+ function businessDay(s){const y=+s.slice(0,4);let hs=holidays(y);let d=s;
+  for(let i=0;i<10;i++){const w=D(d).getDay();if(w!==0&&w!==6&&!hs.has(d))return d;d=addD(d,1);if(+d.slice(0,4)!==y)hs=holidays(+d.slice(0,4))}return d}
+ function quarterlyDue(y){
+  return[{q:1,from:`${y}-01-01`,to:`${y}-03-31`,due:businessDay(`${y}-04-15`)},{q:2,from:`${y}-04-01`,to:`${y}-05-31`,due:businessDay(`${y}-06-15`)},
+   {q:3,from:`${y}-06-01`,to:`${y}-08-31`,due:businessDay(`${y}-09-15`)},{q:4,from:`${y}-09-01`,to:`${y}-12-31`,due:businessDay(`${y+1}-01-15`)}]}
+
+ /* ── employer retirement match ───────────────────────────────
+    tiers: [{rate:100,upTo:3},{rate:50,upTo:2}] = 100% of the first 3% of pay,
+    then 50% of the next 2%. */
+ function match401k({salary,pct,tiers}){
+  salary=Math.max(0,+salary||0);pct=Math.max(0,+pct||0);tiers=(tiers||[]).filter(t=>+t.rate>0&&+t.upTo>0);
+  let cum=0,now=0,max=0;
+  tiers.forEach(t=>{const band=+t.upTo;now+=(+t.rate/100)*Math.min(Math.max(pct-cum,0),band)*salary/100;max+=(+t.rate/100)*band*salary/100;cum+=band});
+  return{employer:round(now),max:round(max),missing:round(Math.max(max-now,0)),needPct:round(cum),yours:round(pct*salary/100)}}
+
+ /* ── credit use ─────────────────────────────────────────────── */
+ function utilization(bal,limit){bal=Math.max(0,+bal||0);limit=+limit||0;if(limit<=0)return null;const p=bal/limit*100;
+  return{pct:round(p),band:p<10?'low':p<30?'moderate':'high'}}
+
+ /* ── buy now, pay later ─────────────────────────────────────── */
+ function installmentDates(first,freq,n){const out=[];n=Math.max(0,Math.floor(+n||0));
+  for(let i=0;i<n;i++){if(freq==='monthly'){const d=D(first);const day=d.getDate();const x=new Date(d.getFullYear(),d.getMonth()+i,1);x.setDate(Math.min(day,new Date(x.getFullYear(),x.getMonth()+1,0).getDate()));out.push(iso(x))}
+   else out.push(addD(first,(freq==='weekly'?7:14)*i))}
+  return out}
+
+ /* ── calendar file (RFC 5545), all-day events ─────────────── */
+ function icsText(s){return String(s||'').replace(/\\/g,'\\\\').replace(/;/g,'\\;').replace(/,/g,'\\,').replace(/\r?\n/g,'\\n')}
+ function icsFold(line){const out=[];let cur='',len=0;
+  for(const ch of line){const b=new TextEncoder().encode(ch).length;if(len+b>(out.length?74:75)){out.push(cur);cur='';len=0}cur+=ch;len+=b}
+  out.push(cur);return out.join('\r\n ')}
+ function buildICS(events,opt){opt=opt||{};const stamp=(opt.now||new Date()).toISOString().replace(/[-:]/g,'').replace(/\.\d+Z$/,'Z');
+  const L=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//BeFree//Gap//EN','CALSCALE:GREGORIAN','METHOD:PUBLISH','X-WR-CALNAME:'+icsText(opt.name||'BeFree Gap')];
+  events.forEach(e=>{const d=e.date.replace(/-/g,''),n=addD(e.date,1).replace(/-/g,'');
+   L.push('BEGIN:VEVENT','UID:'+icsText(e.uid),'DTSTAMP:'+stamp,'DTSTART;VALUE=DATE:'+d,'DTEND;VALUE=DATE:'+n,'SUMMARY:'+icsText(e.title),'TRANSP:TRANSPARENT');
+   if(e.desc)L.push('DESCRIPTION:'+icsText(e.desc));
+   if(e.alarm)L.push('BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:'+icsText(e.title),'TRIGGER:-P'+(+e.alarm)+'D','END:VALARM');
+   L.push('END:VEVENT')});
+  L.push('END:VCALENDAR');return L.map(icsFold).join('\r\n')+'\r\n'}
+
+ /* ── encrypted backups ──────────────────────────────────────
+    PBKDF2-SHA-256 (600,000 rounds) derives an AES-256-GCM key from the
+    passphrase. The passphrase is never stored; without it the file cannot
+    be opened by anyone, including us. */
+ const ITER=600000;
+ const b64=u=>{let s='';for(let i=0;i<u.length;i+=0x8000)s+=String.fromCharCode.apply(null,u.subarray(i,i+0x8000));return btoa(s)};
+ const unb64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+ const subtle=()=>{const c=globalThis.crypto;if(!c||!c.subtle)throw new Error('Encryption is not available in this browser.');return c.subtle};
+ async function keyFrom(pass,salt,iter){const s=subtle();
+  const base=await s.importKey('raw',new TextEncoder().encode(pass),'PBKDF2',false,['deriveKey']);
+  return s.deriveKey({name:'PBKDF2',salt,iterations:iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['encrypt','decrypt'])}
+ async function encryptBackup(plain,pass,app,opt){
+  if(String(pass||'').length<8)throw new Error('Use a passphrase of at least 8 characters.');
+  const iter=(opt&&opt.iter)||ITER,salt=globalThis.crypto.getRandomValues(new Uint8Array(16)),iv=globalThis.crypto.getRandomValues(new Uint8Array(12));
+  const ct=new Uint8Array(await subtle().encrypt({name:'AES-GCM',iv},await keyFrom(pass,salt,iter),new TextEncoder().encode(plain)));
+  return JSON.stringify({befree:'encrypted-backup',v:1,app,created:new Date().toISOString(),kdf:'PBKDF2-SHA256',iter,cipher:'AES-256-GCM',salt:b64(salt),iv:b64(iv),data:b64(ct)})}
+ function isEncrypted(o){return !!(o&&typeof o==='object'&&o.befree==='encrypted-backup'&&o.data&&o.salt&&o.iv)}
+ async function decryptBackup(o,pass){
+  if(typeof o==='string')o=JSON.parse(o);
+  if(!isEncrypted(o))throw new Error('This is not an encrypted BeFree backup.');
+  try{const pt=await subtle().decrypt({name:'AES-GCM',iv:unb64(o.iv)},await keyFrom(pass,unb64(o.salt),+o.iter||ITER),unb64(o.data));return new TextDecoder().decode(pt)}
+  catch(e){throw new Error('That passphrase does not open this file.')}}
+
+ return{csvRows,parseAmount,parseDate,readBankFile,guess,isDuplicate,extraPayMonths,quarterlyDue,businessDay,holidays,match401k,utilization,installmentDates,buildICS,encryptBackup,decryptBackup,isEncrypted,ITER};
+});
 </script>
 <script data-befree-bundle="app.js">
 /* ══════════ storage ══════════ */
@@ -1942,7 +2181,7 @@ let S=loadState();
     if(!already)await navigator.storage.persist();
   }
 }catch(e){}})();
-const save=()=>{mcReset();DB.s(KEY,S);try{publishBridge()}catch(e){}};
+const save=()=>{mcReset();DB.s(KEY,S)};
 
 /* ══════════ view state ══════════ */
 const V={page:'overview',range:'month',off:0,q:'',type:'all',size:'all',sort:'date',cat:null,
@@ -2117,7 +2356,7 @@ function cycle(){
 
 /* ══════════ nav ══════════ */
 const PAGES=[['overview','Overview','M4 19V11M10 19V5M16 19v-6M22 19H2'],['guide','Guide','M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3zM9.5 20h5'],
- ['ledger','Ledger','M5 4h14v16H5zM9 9h6M9 13h6M9 17h3'],['goals','Goals','M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zm0-5a4 4 0 1 0 0-8 4 4 0 0 0 0 8z'],
+ ['plan','Plan','M4 6h16v14H4zM4 10h16M8 3v4M16 3v4'],['ledger','Ledger','M5 4h14v16H5zM9 9h6M9 13h6M9 17h3'],['goals','Goals','M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zm0-5a4 4 0 1 0 0-8 4 4 0 0 0 0 8z'],
  ['debts','Debts','M3 7h18v10H3zM3 11h18M7 15h3']];
 $('#nav').innerHTML=PAGES.map(([k,l,d])=>`<button type="button" id="tab-${k}" data-p="${k}" role="tab" aria-controls="p-${k}" aria-selected="${k==='overview'}" tabindex="${k==='overview'?0:-1}"><svg class="nvi" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg><span>${l}</span></button>`).join('');
 function go(p,keep){V.page=p;
@@ -2513,15 +2752,13 @@ function moves(){
 const U_L={3:'Urgent',2:'Soon',1:'When you can'},F_L={3:'Easy',2:'Some effort',1:'Takes time'};
 function moveHTML(m,i,lead){
  const meta=F_L[m.feas]+(m.yr&&m.imp>=1?` · worth about ${money(m.imp)} a year`:'');
- const sent=m.habit&&inboxHas(m.habit);
  return `<div class="move${lead?' lead':''}">
   <div class="mi" aria-hidden="true">${ico(m.icon,17)}</div>
   <div class="mb"><div class="mtag"><span class="pill ${m.u===3?'neg':m.u===2?'warn':''}">${U_L[m.u]}</span><span class="pill">${m.tag}</span></div>
    <h3 class="mh">${m.head}</h3>
    <div class="mm">${m.math}</div><p class="mmeta">${meta}</p>
    <div class="macts">${(m.ctas||[]).map((c,k)=>`<button type="button" class="${k?'btn2':'mc'}" data-act="${esc(c.a)}">${c.l}${k?'':' <span aria-hidden="true">→</span>'}</button>`).join('')}
-   ${m.todo?(()=>{const ts=todoSent(m.todo);return `<button type="button" class="btn2" data-todo='${esc(JSON.stringify(m.todo))}' ${ts?'aria-disabled="true"':''}>${ts?'To-do in Streak ✓':'Add as a to-do in Streak'}</button>`})():''}
-   ${m.habit?`<button type="button" class="btn2" data-habit='${esc(JSON.stringify(m.habit))}' ${sent?'aria-disabled="true"':''}>${sent?'Sent to Streak ✓':'Track as a habit in Streak'}</button>`:''}</div>
+</div>
   </div></div>`}
 const empty=(icon,title,sub,act)=>`<div class="empty"><div class="em">${ico(icon,20)}</div>
  <b>${title}</b><span class="es">${sub}</span>${act?`<button type="button" class="ea" data-act="${act[1]}">${act[0]}</button>`:''}</div>`;
@@ -2539,10 +2776,6 @@ function drawMoves(){
 }
 function bindActs(root){
  (root||document).querySelectorAll('[data-act]').forEach(b=>b.onclick=()=>doAct(b.dataset.act));
- (root||document).querySelectorAll('[data-habit]').forEach(b=>b.onclick=()=>{if(b.getAttribute('aria-disabled')==='true')return;
-  try{sendHabit(JSON.parse(b.dataset.habit))}catch(e){}});
- (root||document).querySelectorAll('[data-todo]').forEach(b=>b.onclick=()=>{if(b.getAttribute('aria-disabled')==='true')return;
-  try{sendTodo(JSON.parse(b.dataset.todo))}catch(e){}});
 }
 function doAct(a){
  const i=a.indexOf(':'),k=i<0?a:a.slice(0,i),val=i<0?'':a.slice(i+1);
@@ -2618,16 +2851,16 @@ function skipPlanned(p){
 function addTx(o){const t=Object.assign({id:uid(),ts:Date.now(),src:'manual',status:'done'},o);
  Object.keys(t).forEach(k=>t[k]===undefined&&delete t[k]);delete S.reviewed[t.date.slice(0,7)];if(S.checks[t.date]&&isSpend(t))delete S.checks[t.date];S.tx.push(t);return t}
 
-/* ══════════ today's money check: the event Streak trusts ══════════ */
+/* ══════════ today's money check ══════════ */
 function todayManual(){const t=today();
  return S.tx.filter(x=>isDone(x)&&['manual','schedule','route'].includes(x.src)&&iso(new Date(x.ts||0))===t)}
 function drawCheck(){
  const t=today(),c=S.checks[t],ml=todayManual(),spentToday=ml.some(x=>isSpend(x)&&!x.refund);
  let h=`<p class="chkd">${ml.length?`You've logged <b>${plural(ml.length,'entry','entries')}</b> today.`:'Nothing logged today yet.'}</p>`;
- if(c){h+=`<div class="status on" style="margin-top:10px"><span class="dotc"></span><div><b>${c.t==='nospend'?'No-spend day, reviewed':'Reviewed today'}</b><br>${c.src==='streak'?'Recorded in BeFree Streak.':'Counts in BeFree Streak for habits linked to reviews.'}</div></div>
+ if(c){h+=`<div class="status on" style="margin-top:10px"><span class="dotc"></span><div><b>${c.t==='nospend'?'No-spend day, reviewed':'Reviewed today'}</b><br>${c.src==='streak'?'Recorded earlier from BeFree Streak.':'Saved to your daily record.'}</div></div>
   <button class="tlink" id="ckUndo" style="margin-top:10px">Undo</button>`}
  else h+=`<div class="chk-row" style="margin-top:12px"><button class="btn2" id="ckRev">I reviewed today</button>${spentToday?'':'<button class="btn2" id="ckNo">No spending today</button>'}</div>
-  <p class="foot" style="margin-top:10px">A quick look at today's spending. Streak counts this, not automatic entries.</p>`;
+  <p class="foot" style="margin-top:10px">A quick look at today's spending. Reviewed days make your spending estimates more reliable.</p>`;
  $('#checkBox').innerHTML=h;
  const rv=$('#ckRev');if(rv)rv.onclick=()=>{S.checks[t]={t:'review',ts:Date.now(),src:'gap'};save();drawCheck();toast('Reviewed. Nice.')};
  const no=$('#ckNo');if(no)no.onclick=()=>{S.checks[t]={t:'nospend',ts:Date.now(),src:'gap'};save();drawCheck();toast('Recorded: reviewed, no spending today')};
@@ -2980,6 +3213,11 @@ function simulate(extra){
  const left=sum(ds,d=>Math.max(d.b,0)),ok=left<=.5;
  return{m:ok?m:null,int:I,ok,left,path,budget,i0,short:Math.max(i0-budget,0),months:m,clr,ds}}
 const SIM_ASSUME=`<b>How this is worked out:</b> interest is charged monthly at each APR you entered and doesn't change; payments stay at today's minimums (real card minimums usually shrink as the balance falls, which makes a minimums-only payoff slower than shown); no new charges; extra money goes to one debt at a time in the order above, and each cleared debt's payment rolls to the next. It stops at 50 years. Balances come from what you entered plus payments logged since; interest charged since then isn't added, so update balances from your statements now and then.`;
+function debtExtra(d,bal){
+ if(d.kind==='bnpl'){const l=bnplLeft(d);return `<span class="dmeta" style="display:block">${l.length?`${plural(l.length,'payment')} left · next ${fmtD(l[0])}`:'No payments scheduled'}</span>`}
+ if(d.kind==='card'&&+d.limit>0){const u=BeFreePlus.utilization(bal,d.limit);
+  return `<span class="dmeta" style="display:block"><span class="${u.band==='high'?'neg':''}">${Math.round(u.pct)}% of ${money(+d.limit)} limit</span>${+d.close?` · statement closes on the ${ord(d.close)}`:''}</span>`}
+ return ''}
 function drawDebts(){
  const ds=S.debts.filter(d=>d.kind!=='due'),rs=S.debts.filter(d=>d.kind==='due');
  const ord2=ordered(liveDebts());
@@ -2987,8 +3225,8 @@ function drawDebts(){
  $('#dList').innerHTML=ds.length?ds.map(d=>{const bal=debtBal(d),tot0=+d.total||0,p=tot0?Math.min(Math.max(1-bal/tot0,0),1):0;
   const tgt=ord2[0]&&ord2[0].id===d.id,mi=bal*(+d.apr||0)/1200,warn=bal>0&&mi>.5&&(+d.min||0)<=mi;
   return `<button type="button" class="dcard ${tgt?'tgt':''}" data-id="${d.id}">
-   <span class="dtop"><span><span class="dname">${esc(d.name)} ${tgt?'<span class="badge">next target</span>':''}<span class="pill">${d.kind==='card'?'Card':'Loan'}</span></span>
-    <span class="dmeta mono" style="display:block">${(+d.apr||0).toFixed(1)}% APR · payment ${money(+d.min||0)}</span></span>
+   <span class="dtop"><span><span class="dname">${esc(d.name)} ${tgt?'<span class="badge">next target</span>':''}<span class="pill">${d.kind==='card'?'Card':d.kind==='bnpl'?'Pay later':'Loan'}</span></span>
+    <span class="dmeta mono" style="display:block">${(+d.apr||0).toFixed(1)}% APR · payment ${money(+d.min||0)}</span>${debtExtra(d,bal)}</span>
     <span><span class="dbal mono" style="display:block">${money(bal)}</span>
     <span class="dmeta mono" style="display:block;text-align:right">${tot0?Math.round(p*100)+'% paid':''}</span></span></span>
    <span class="dtrack" style="display:block"><span class="dfill" data-w="${(p*100).toFixed(1)}" style="display:block"></span></span>
@@ -3249,13 +3487,13 @@ function drawTable(){
 }
 /* ══════════ connection card ══════════ */
 function drawStreak(){
- const s=streakFromApp(),box=$('#streakBox');
- const sent=(S.inbox||[]).length,added=s&&s.handled?(S.inbox||[]).filter(x=>s.handled.includes(x.id)).length:0;
- box.innerHTML=`<div class="ch"><h2 class="eb">BeFree Streak</h2><a class="lnk" href="../streak/index.html">Open Streak</a></div>
-  <div class="status${s?' on':''}"><span class="dotc"></span><div>${s?`<b>Connected on this device.</b> Streak was last opened ${relTime(s.updated)}.${typeof s.streak==='number'?` Current run: <b>${plural(s.streak,'day')}</b>, best ${plural(s.best||0,'day')}.`:''}`
-   :'<b>Not connected yet.</b> Open BeFree Streak once, in this browser, from the same site as Gap.'}</div></div>
-  ${s&&s.todos?`<p class="foot" style="margin-top:10px">Money to-dos in Streak: <b>${s.todos.open} open</b>${s.todos.late?`, ${s.todos.late} overdue`:''}${s.todos.doneYear?`; ${plural(s.todos.doneYear,'done','done')} this year${s.todos.worthYear?`, worth about ${money(s.todos.worthYear)} a year`:''}`:''}.</p>`:''}
-  <p class="foot" style="margin-top:10px">${sent?`${plural(sent,'suggestion')} sent${s?`, ${added} added in Streak`:''}. `:''}Streak counts habits from your reviews and the entries you log yourself, never from automatic ones. It works only on this device and browser; nothing syncs between devices.</p>`;
+ const box=$('#streakBox');if(!box)return;
+ const t=today(),ev=gapEvents(),hit=d=>!!(ev[d]&&(ev[d].log||ev[d].review));
+ let run=0;for(let i=hit(t)?0:1;i<400&&hit(addD(t,-i));i++)run++;
+ let n30=0;for(let i=0;i<30;i++)if(hit(addD(t,-i)))n30++;
+ box.innerHTML=`<div class="ch"><h2 class="eb">Your check-in record</h2></div>
+  <div class="status${run?' on':''}"><span class="dotc"></span><div>${run?`<b>${plural(run,'day')} in a row</b> with an entry you logged or a review.`:'<b>No run yet.</b> Log an entry or review today to start one.'}</div></div>
+  <p class="foot" style="margin-top:10px">Last 30 days: <b>${n30} of 30</b> days checked in. Only entries you log yourself and your reviews count, never automatic ones.</p>`;
 }
 const relTime=ts=>{const m=Math.round((Date.now()-ts)/6e4);if(m<2)return 'just now';if(m<60)return m+' minutes ago';const h=Math.round(m/60);if(h<24)return plural(h,'hour')+' ago';return plural(Math.round(h/24),'day')+' ago'};
 
@@ -3281,7 +3519,8 @@ function render(){
   drawCats();drawEss();drawSplit();drawIncome();drawHeat();drawMovers();drawDow();drawTable()}
  if(V.page==='guide'){drawMoves();drawUpcoming();drawCheck();drawStreak()}
  if(V.page==='ledger'){drawSched();drawTx();drawReps()}
- if(V.page==='debts')drawDebts();
+ if(V.page==='plan'&&typeof drawPlan==='function')drawPlan();
+ if(V.page==='debts'){drawDebts();if(typeof drawCreditUse==='function')drawCreditUse()}
  if(V.page==='goals')drawGoals();
  fitAllType();kbdCharts($('#p-'+V.page));
  bindOpen($('#p-'+V.page));
@@ -3566,8 +3805,8 @@ function syncRep(){
  if(RP.kind==='transfer'){lo=optVal('','Savings (general)',!RP.goal&&!RP.fund&&!RP.debt);
   S.goals.forEach(g=>lo+=optVal('goal:'+g.id,'Goal: '+g.name,RP.goal===g.id));S.funds.forEach(x=>lo+=optVal('fund:'+x.id,'Fund: '+x.name,RP.fund===x.id));
   S.debts.filter(d=>d.kind==='card').forEach(d=>lo+=optVal('debt:'+d.id,'Card payment: '+d.name,RP.debt===d.id))}
- else if(RP.kind==='fixed'){lo=optVal('','Nothing',!RP.debt);S.debts.filter(d=>d.kind==='loan').forEach(d=>lo+=optVal('debt:'+d.id,'Payment on: '+d.name,RP.debt===d.id))}
- $('#repLinkW').style.display=lo&&(RP.kind==='transfer'||S.debts.some(d=>d.kind==='loan'))?'flex':'none';$('#repLink').innerHTML=lo}
+ else if(RP.kind==='fixed'){lo=optVal('','Nothing',!RP.debt);S.debts.filter(d=>d.kind==='loan'||d.kind==='bnpl').forEach(d=>lo+=optVal('debt:'+d.id,'Payment on: '+d.name,RP.debt===d.id))}
+ $('#repLinkW').style.display=lo&&(RP.kind==='transfer'||S.debts.some(d=>d.kind==='loan'||d.kind==='bnpl'))?'flex':'none';$('#repLink').innerHTML=lo}
 $('#repSeg').onclick=e=>{const b=e.target.closest('button');if(!b)return;RP.kind=b.dataset.k;delete RP.goal;delete RP.fund;delete RP.debt;syncRep()};
 $('#repFreq').onclick=e=>{const b=e.target.closest('button');if(!b)return;RP.freq=b.dataset.f;syncRep()};
 $('#repCat').onchange=e=>RP.cat=e.target.value;
@@ -3595,33 +3834,65 @@ $('#addRep').onclick=()=>openRep(null);
 
 /* ── debt sheet ── */
 let DT={};
+function bnplRec(d){return S.rec.find(r=>r.bnpl===d.id)||null}
+/* payments still to come on a pay-later plan: scheduled and not yet confirmed */
+function bnplLeft(d){const r=bnplRec(d);if(!r||!r.end)return[];return occ(r,today(),r.end).filter(x=>!matched(r,x))}
+/* each installment is a scheduled bill linked to the plan, so "available
+   until payday" keeps room for it and confirming one lowers the balance */
+function bnplSchedule(d){const dates=BeFreePlus.installmentDates(d.next,d.every,d.left),mo=d.every==='monthly';
+ const o={kind:'fixed',cat:'Debt minimum',note:(d.prov&&d.prov!=='Other'?d.prov+': ':'')+d.name,amt:+d.min||0,freq:mo?'monthly':'biweekly',wk:'same',on:true,
+  day:+d.next.slice(8,10),day2:31,start:d.next,end:dates[dates.length-1],debt:d.id,bnpl:d.id};
+ if(!mo)o.anchor=d.next;
+ const r=bnplRec(d);if(r){delete r.anchor;Object.assign(r,o)}else S.rec.push(Object.assign({id:uid()},o))}
 function openDebt(d){DT=d?{...d,edit:true}:{kind:'card',name:'',total:'',bal0:'',apr:'',min:'',edit:false};
+ if(!DT.every)DT.every='biweekly';
  $('#dTitle').textContent=DT.edit?'Edit '+DT.name:'Add a debt';$('#dDel').style.display=DT.edit?'block':'none';$('#dPay').style.display=DT.edit?'block':'none';
  $('#dName').value=DT.name;$('#dTotal').value=DT.total;$('#dBal').value=DT.edit?r2(debtBal(DT)):'';
- $('#dApr').value=DT.apr;$('#dMin').value=DT.min;syncDebt();show('#shDebt')}
+ $('#dApr').value=DT.apr;$('#dMin').value=DT.min;
+ $('#dLimit').value=DT.limit||'';$('#dClose').value=DT.close||'';$('#dProv').value=DT.prov||'Afterpay';
+ const bl=DT.edit&&DT.kind==='bnpl'?bnplLeft(DT):[];$('#dNext').value=bl[0]||DT.next||'';$('#dLeft').value=DT.edit&&DT.kind==='bnpl'?bl.length:'';
+ syncDebt();show('#shDebt')}
+$('#dEvery').onclick=e=>{const b=e.target.closest('button');if(!b)return;DT.every=b.dataset.e;syncDebt()};
 $('#dSeg').onclick=e=>{const b=e.target.closest('button');if(!b)return;DT.kind=b.dataset.k;syncDebt()};
 function syncDebt(){segSet('#dSeg','k',DT.kind);
  $('#dTerms').style.display=DT.kind==='due'?'none':'grid';
- $('#dTotalLab').textContent=DT.kind==='due'?'Amount lent':'Original amount';
- $('#dKindNote').textContent=DT.kind==='card'?'Separate settlement of recorded purchases, minimum old-debt payments and extra old-debt payments. Split mixed payments into separate entries.':DT.kind==='loan'?'Minimum payments are recurring bills; extra principal is a transfer. Enter principal from the statement; interest is not principal.':'Money someone owes you. Repayments come back as transfers, not income.';
+ $('#dTotalLab').textContent=DT.kind==='due'?'Amount lent':DT.kind==='bnpl'?'Purchase amount':'Original amount';
+ $('#dMinLab').textContent=DT.kind==='bnpl'?'Each payment':'Minimum payment';
+ const ph=DT.kind==='bnpl'?['Sneakers, Afterpay','200','0','50']:DT.kind==='loan'?['Car loan','18000','7.9','385']:DT.kind==='due'?['Loan to Sam','300','','']:['Blue card','2400','24.9','65'];
+ $('#dName').placeholder=ph[0];$('#dTotal').placeholder=ph[1];$('#dApr').placeholder=ph[2];$('#dMin').placeholder=ph[3];$('#dBal').placeholder=DT.kind==='bnpl'?'150':'1490';
+ $('#dCardX').style.display=DT.kind==='card'?'grid':'none';
+ $('#dBnplX').style.display=DT.kind==='bnpl'?'block':'none';
+ segSet('#dEvery','e',DT.every||'biweekly');
+ $('#dKindNote').textContent=DT.kind==='card'?'Separate settlement of recorded purchases, minimum old-debt payments and extra old-debt payments. Split mixed payments into separate entries.':DT.kind==='loan'?'Minimum payments are recurring bills; extra principal is a transfer. Enter principal from the statement; interest is not principal.':DT.kind==='bnpl'?'Afterpay, Klarna, Affirm and similar. Each payment is scheduled as a bill, so "available until payday" keeps room for it. Log the payments, not the original purchase, so it is not counted twice.':'Money someone owes you. Repayments come back as transfers, not income.';
  $('#dPay').textContent=DT.kind==='due'?'Log money received':'Log a payment';
  $('#dBalNote').textContent=DT.edit?`Balance shown includes payments logged since you last updated it${DT.ts?' on '+fmtD(iso(new Date(DT.ts))):''}. Only confirmed principal reduces loans. Enter card interest/fees as card expenses. Reconcile from each statement; balances are estimates between statements.`:'Use the balance from your latest statement.'}
 $('#dSave').onclick=()=>{
  const bal=$('#dBal').value===''?null:+$('#dBal').value;
  if(['#dBal','#dTotal','#dApr','#dMin'].some(k=>$(k).value!==''&&(!Number.isFinite(+$(k).value)||+$(k).value<0))){toast('Use a valid amount of zero or more.');return;}
  const o={kind:DT.kind,name:$('#dName').value.trim()||'Untitled',total:+$('#dTotal').value||0,apr:+$('#dApr').value||0,min:+$('#dMin').value||0};
- if(DT.edit){const x=S.debts.find(y=>y.id===DT.id);Object.assign(x,o);
-  if(bal!=null){x.bal0=bal;x.ts=Date.now();x.ledgerBaseline=Object.fromEntries(S.tx.map(t=>[t.id,BeFreeFinance.debtEffect(x,t)]));}}
- else S.debts.push(Object.assign({id:uid(),bal0:bal!=null?bal:o.total,ts:Date.now()},o,{total:o.total||bal||0}));
- save();closeAll();render();checkWins();toast(DT.edit?'Updated':'Added')};
+ let nb=bal;
+ if(o.kind==='card'){o.limit=Math.max(0,+$('#dLimit').value||0);o.close=Math.max(0,Math.min(31,Math.round(+$('#dClose').value||0)))}
+ if(o.kind==='bnpl'){const nx=$('#dNext').value,left=Math.round(+$('#dLeft').value||0);
+  if(!(o.min>0)){toast('Enter the amount of each payment');$('#dMin').focus();return}
+  if(!nx){toast('Pick the date of the next payment');$('#dNext').focus();return}
+  if(!(left>=1&&left<=60)){toast('Enter how many payments are left, from 1 to 60');$('#dLeft').focus();return}
+  Object.assign(o,{prov:$('#dProv').value,every:DT.every==='monthly'?'monthly':'biweekly',next:nx,left});
+  if(nb==null&&!DT.edit)nb=r2(o.min*left)}
+ let x;
+ if(DT.edit){x=S.debts.find(y=>y.id===DT.id);Object.assign(x,o);
+  if(nb!=null){x.bal0=nb;x.ts=Date.now();x.ledgerBaseline=Object.fromEntries(S.tx.map(t=>[t.id,BeFreeFinance.debtEffect(x,t)]));}}
+ else{x=Object.assign({id:uid(),bal0:nb!=null?nb:o.total,ts:Date.now()},o,{total:o.total||nb||0});S.debts.push(x)}
+ if(x.kind==='bnpl')bnplSchedule(x);else S.rec=S.rec.filter(r=>r.bnpl!==x.id);
+ save();closeAll();render();checkWins();toast(DT.edit?'Updated':x.kind==='bnpl'?'Added. Its payments are now scheduled bills.':'Added')};
 $('#dPay').onclick=()=>{const d=S.debts.find(x=>x.id===DT.id);if(!d)return;closeAll(true);
  const preset=d.kind==='card'?{type:'transfer',cat:'Card payment',debt:d.id,debtRole:'',dir:'out',amt:d.min||'',note:d.name}
+  :d.kind==='bnpl'?{type:'fixed',cat:'Debt minimum',debt:d.id,debtRole:'minimum',amt:d.min||'',note:d.name}
   :d.kind==='loan'?{type:'fixed',cat:'Loan payment',debt:d.id,debtRole:'minimum',amt:d.min||'',note:d.name}
   :{type:'transfer',cat:'Between accounts',debt:d.id,dir:'in',amt:'',note:d.name};
  openTx(null,{preset})};
 $('#dDel').onclick=async()=>{const id=DT.id;
  if(!await ask('Delete this debt?','Payments already logged stay in the ledger but will no longer be linked.','Delete',true))return;
- S.debts=S.debts.filter(x=>x.id!==id);S.tx.forEach(t=>{if(t.debt===id)delete t.debt});save();closeAll();render();toast('Removed')};
+ S.debts=S.debts.filter(x=>x.id!==id);S.rec=S.rec.filter(r=>r.bnpl!==id);S.tx.forEach(t=>{if(t.debt===id)delete t.debt});save();closeAll();render();toast('Removed')};
 
 /* ── goal sheet ── */
 let G={};
@@ -3810,7 +4081,7 @@ $('#fab').setAttribute('aria-label','Add an entry');
 
 /* ══════════ settings ══════════ */
 function syncSet(){
- segSet('#thSeg','th',DB.g('befree.theme')||'system');
+ segSet('#thSeg','th',themePref());
  const p=primary();
  $('#setPay').textContent=p?`${money(p.amt)} ${FREQ_L[p.freq]}${p.vary?', varies':''} · next ${fmtD(nextPay(p,today()),{month:'short',day:'numeric'})}`:'Not set';
  $('#setCyc').textContent=[S.bal?`balance ${money(S.bal.amt)} on ${fmtD(S.bal.asOf)}`:'no balance',S.cyc.buf!=null?`buffer ${money(S.cyc.buf)}`:'no buffer',S.cyc.ess!=null?`essentials ${money(S.cyc.ess)}/week`:''].filter(Boolean).join(' · ');
@@ -3821,9 +4092,6 @@ function syncSet(){
  $$('#taxCats input').forEach(i=>i.onchange=()=>{S.tax.cats=$$('#taxCats input').filter(x=>x.checked).map(x=>x.dataset.tc);save();render()});
  $('#swRoute').setAttribute('aria-checked',!!S.prefs.askRoute);
  $('#swMonth').setAttribute('aria-checked',!!S.prefs.monthNudge);
- const s=streakFromApp();
- $('#conn').innerHTML=`<div class="status${s?' on':''}"><span class="dotc"></span><div>${s?`<b>Connected on this device.</b> Streak last opened ${relTime(s.updated)}.`:'<b>Not connected.</b> Open BeFree Streak in this browser, from the same site.'}
-  <br><span style="font-size:13.5px">Shared locally: days you logged or reviewed, paydays, bill dates, and whether this pay cycle has room. Streak never changes your entries. Nothing syncs between devices or browsers.</span></div></div>`;
 }
 $('#setBtn').onclick=()=>{syncSet();show('#shSet')};
 $('#setClose').onclick=()=>closeAll();
@@ -3865,8 +4133,9 @@ $('#expCsv').onclick=()=>{
  toast('Spreadsheet saved')};
 $('#impBtn').onclick=()=>$('#impFile').click();
 $('#impFile').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();
- r.onload=async()=>{let d;
-  try{d=JSON.parse(r.result);if(!d||typeof d!=='object'||!Array.isArray(d.tx))throw 0;if(d.v&&d.v>5)throw 1}
+ r.onload=async()=>{let d,txt=r.result;
+  try{const o=JSON.parse(txt);if(BeFreePlus.isEncrypted(o)){txt=typeof plusUnlock==='function'?await plusUnlock(o):null;if(txt==null)return}}catch(x){}
+  try{d=JSON.parse(txt);if(!d||typeof d!=='object'||!Array.isArray(d.tx))throw 0;if(d.v&&d.v>5)throw 1}
   catch(x){toast(x===1?'That backup is from a newer version of Gap':'That file is not a BeFree Gap backup');return}
   const onSetup=$('#setup').classList.contains('on');
   if(!onSetup&&S.tx.length&&!await ask('Restore this backup?',`It replaces the ${plural(S.tx.length,'entry','entries')} on this device now with the ${plural(d.tx.length,'entry','entries')} in the file. A copy of the current record is kept on this device.`,'Restore'))return;
@@ -3878,7 +4147,7 @@ $('#impFile').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new Fi
  r.readAsText(f);e.target.value=''};
 async function doWipeEverything(){
  if(!await ask('Clear everything?','This erases every entry, schedule, goal, fund and debt on this device, including older saved copies. Save a backup first if you might want it. There is no undo.','Erase everything',true))return false;
- ['befree.v5','befree.v5.before-restore','befree.v4','befree.v3','befree.v2','befree.v3.pre-v4','befree.v4.before-restore',BR_GAP1,BR_GAP2,'befree.applock.v1'].forEach(k=>DB.d(k));
+ ['befree.v5','befree.v5.before-restore','befree.v4','befree.v3','befree.v2','befree.v3.pre-v4','befree.v4.before-restore','befree.bridge.gap.v1','befree.bridge.gap.v2','befree.bridge.inbox.v1'].forEach(k=>DB.d(k));alSet(null);
  S=blankState();closeAll();$('#notices').innerHTML='';startSetup();toast('Cleared');
  return true}
 $('#wipeBtn').onclick=doWipeEverything;
@@ -3912,13 +4181,10 @@ function closeWin(){$('#win').classList.remove('on');document.body.classList.rem
  render();checkWins();if(lastFocus&&lastFocus.focus)try{lastFocus.focus()}catch(e){}}
 $('#winBtn').onclick=closeWin;
 
-/* ══════════ bridge: BeFree Gap  <->  BeFree Streak ══════════
-   Same site, same browser: the two apps share localStorage and nothing
-   travels. Gap publishes a small summary of *events a person performed*:
-   entries they logged themselves, bills they confirmed, money they moved,
-   and daily reviews. Automatic entries are never evidence of a habit.
-   Streak reads it; Gap reads Streak's summary and its habit list. */
-const BR_GAP1='befree.bridge.gap.v1',BR_GAP2='befree.bridge.gap.v2',BR_STREAK1='befree.bridge.streak.v1',BR_STREAK2='befree.bridge.streak.v2',BR_INBOX='befree.bridge.inbox.v1';
+/* ══════════ check-in events ══════════
+   Entries a person logged themselves, bills they confirmed, money they moved
+   and daily reviews, by day. Automatic entries never count. Gap runs on its
+   own: nothing is shared with Streak or any other app. */
 function gapEvents(){
  const ev={},from=addD(today(),-120);
  S.tx.forEach(t=>{if(!isDone(t)||!['manual','schedule','route'].includes(t.src))return;
@@ -3930,56 +4196,6 @@ function gapEvents(){
  if(S.balanceReviewed){const e=ev[S.balanceReviewed]=ev[S.balanceReviewed]||{};e.balance=1;}return ev;
 }
 
-function publishBridge(){
- try{
-  const ev=gapEvents(),pay=primary(),t=today();
-  const days=Object.keys(ev).filter(d=>ev[d].log||ev[d].review).sort();
-  localStorage.setItem(BR_GAP1,JSON.stringify({v:1,app:'gap',loggedDays:days.slice(-90),lastLog:days[days.length-1]||null,
-   gapThisMonth:Math.round(monthTot(0).gap||0),updated:Date.now()}));
-  let cyc={status:'unknown'};
-  try{const C=cycle();if(!C.need.length){const ed=C.ed.v*7;
-   cyc={status:C.avail<0?'short':C.avail<Math.max(50,ed)?'tight':'ok',avail:Math.round(C.avail),next:C.next,perDay:Math.round(C.perDay)}}
-   else cyc={status:'unknown',need:C.need}}catch(e){}
-  localStorage.setItem(BR_GAP2,JSON.stringify({v:2,app:'gap',updated:Date.now(),ev,
-   pay:pay?{freq:pay.freq,anchor:pay.anchor||null,day:pay.day||null,day2:pay.day2||null,wk:pay.wk||'same'}:null,
-   paydays:pay?paydays(pay,addD(t,-45),addD(t,120)):[],
-   bills:S.rec.filter(r=>r.on!==false&&r.kind!=='income').map(r=>({rid:r.id,name:r.note||r.cat,cat:r.cat,amt:r.amt,freq:r.freq,
-    next:occ(r,addD(t,-45),addD(t,120),{all:true})})),
-   cycle:cyc,goals:S.goals.map(g=>({id:g.id,name:g.name,emerg:!!g.emerg})),funds:S.funds.map(f=>({id:f.id,name:f.name,due:f.due}))}));
- }catch(e){}
-}
-function streakFromApp(){
- try{const r2=JSON.parse(localStorage.getItem(BR_STREAK2)||'null');
-  if(r2&&r2.v===2&&Date.now()-r2.updated<1000*60*60*24*1)return r2;
-  const r=JSON.parse(localStorage.getItem(BR_STREAK1)||'null');
-  if(r&&r.v===1&&Date.now()-r.updated<1000*60*60*24*1)return r}catch(e){}
- return null}
-/* no-spend days recorded in Streak show up here too, without retyping */
-function importStreak(){const s=streakFromApp();if(!s||!Array.isArray(s.nospend))return;
- s.nospend.forEach(d=>{if(!S.checks[d])S.checks[d]={t:'nospend',src:'streak',ts:Date.now()}})}
-function readInbox(){try{const a=JSON.parse(localStorage.getItem(BR_INBOX)||'[]');return Array.isArray(a)?a:[]}catch(e){return[]}}
-const hKey=h=>h.kind==='todo'?'todo|'+h.key:h.tpl+'|'+JSON.stringify(h.ref||{});
-function inboxHas(h){return (S.inbox||[]).some(x=>hKey(x)===hKey(h))}
-function sendHabit(h){
- if(inboxHas(h)){toast('Already sent to Streak');return}
- const item={id:uid(),ts:Date.now(),tpl:h.tpl,ref:h.ref||null,from:'gap'};
- const q=readInbox();q.push(item);
- try{localStorage.setItem(BR_INBOX,JSON.stringify(q.slice(-30)))}catch(e){toast('This browser is not saving, so Streak cannot receive it');return}
- S.inbox.push(item);save();render();
- toast(streakFromApp()?'Sent. Open Streak to add it.':'Saved for Streak. It appears when you open Streak in this browser.')}
-/* one-time to-dos travel the same way; Streak reports back the keys it holds */
-function todoSent(td){const s=streakFromApp();
- return (S.inbox||[]).some(x=>x.kind==='todo'&&x.key===td.key)||!!(s&&Array.isArray(s.todoKeys)&&s.todoKeys.includes(td.key))}
-function sendTodo(td){
- if(todoSent(td)){toast('Already on your Streak to-do list');return}
- const item={id:uid(),ts:Date.now(),kind:'todo',key:td.key,title:td.title,note:td.note||'',worth:td.worth?Math.round(td.worth):null,due:td.due||null,from:'gap'};
- const q=readInbox();q.push(item);
- try{localStorage.setItem(BR_INBOX,JSON.stringify(q.slice(-30)))}catch(e){toast('This browser is not saving, so Streak cannot receive it');return}
- S.inbox.push(item);save();render();
- toast(streakFromApp()?'Sent. Open Streak to add it to your to-dos.':'Saved for Streak. It appears when you open Streak in this browser.')}
-function pruneInbox(){const s=streakFromApp();if(!s||!Array.isArray(s.handled))return;
- const q=readInbox().filter(x=>!s.handled.includes(x.id));try{localStorage.setItem(BR_INBOX,JSON.stringify(q))}catch(e){}}
-addEventListener('storage',e=>{if(e.key===BR_STREAK2||e.key===BR_STREAK1){importStreak();if(V.page==='guide')drawStreak()}});
 
 /* ══════════ notices ══════════ */
 function banner(o){
@@ -4121,17 +4337,17 @@ $('#suDemo').onclick=()=>{S=demoState();save();
  render();memWarn();toast('Sample numbers loaded. Clear them any time in Settings.')};
 $('#suRestore').onclick=()=>$('#impFile').click();
 
-/* ══════════ theme: match device, light or dark — shared with Streak ══════════ */
+/* ══════════ theme: match device, light or dark ══════════ */
 const SUN='M12 3v2M12 19v2M5 12H3M21 12h-2M6 6 4.6 4.6M19.4 19.4 18 18M6 18l-1.4 1.4M19.4 4.6 18 6M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z';
 const MOON='M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z';
 const mqDark=matchMedia('(prefers-color-scheme: dark)');
-function themePref(){const p=DB.g('befree.theme');return p==='light'||p==='dark'||p==='system'?p:'system'}
+function themePref(){let p=DB.g('befree.gap.theme');if(p==null)p=DB.g('befree.theme');return p==='light'||p==='dark'||p==='system'?p:'system'}
 function applyTheme(){const p=themePref(),n=p==='system'?(mqDark.matches?'dark':'light'):p;
  document.documentElement.dataset.theme=n;
  $('#thI').setAttribute('d',n==='dark'?MOON:SUN);
  $('#thBtn').setAttribute('aria-label',n==='dark'?'Switch to light theme':'Switch to dark theme');
  document.querySelector('meta[name=theme-color]').setAttribute('content',n==='dark'?'#021A13':'#EAF0E5')}
-function setThemePref(p){DB.s('befree.theme',p);applyTheme();setTimeout(render,60)}
+function setThemePref(p){DB.s('befree.gap.theme',p);applyTheme();setTimeout(render,60)}
 mqDark.addEventListener&&mqDark.addEventListener('change',()=>{if(themePref()==='system'){applyTheme();render()}});
 $('#privBtn').onclick=()=>show('#shPriv',true);
 $('#privClose').onclick=()=>{syncSet();show('#shSet',true)};
@@ -4156,7 +4372,7 @@ function iconURL(size,mask){
  throw 0;
 }catch(e){
  try{
-  const mf={name:'BeFree Gap',short_name:'BeFree Gap',start_url:'.',scope:'.',display:'standalone',
+  const mf={name:'Gap',short_name:'Gap',start_url:'.',scope:'.',display:'standalone',
    orientation:'portrait',background_color:'#021A13',theme_color:'#021A13',
    description:'See what is available until payday, and widen the gap between what comes in and what goes out.',
    icons:[{src:iconURL(192),sizes:'192x192',type:'image/png',purpose:'any'},
@@ -4228,7 +4444,7 @@ self.addEventListener('fetch', e => {
    that check happens in the page itself, which is the reliable part. */
 self.addEventListener('periodicsync', e => {
   if (e.tag !== 'befree-daily-reminder') return;
-  e.waitUntil(self.registration.showNotification('BeFree Gap', {
+  e.waitUntil(self.registration.showNotification('Gap', {
     body: 'A quick minute keeps today’s numbers accurate.',
     icon: './icons/icon-192.png', badge: './icons/icon-192.png',
     tag: 'befree-daily-reminder'
@@ -4281,7 +4497,6 @@ if(!S.setup.done&&!S.tx.length){startSetup()}
 else{
  S.setup.done=true;
  seedGlyphs();
- importStreak();pruneInbox();
  save();
  render();
  const shown=migrNotice()||monthNotice();
@@ -4339,7 +4554,7 @@ else{
    + 'style="vertical-align:-3px" fill="currentColor"><circle cx="5" cy="12" r="2.1"/>'
    + '<circle cx="12" cy="12" r="2.1"/><circle cx="19" cy="12" r="2.1"/></svg>';
 
- var LEAD = '<p>A few taps and BeFree sits on your ' + DEV + ' like any other app \u2014 no '
+ var LEAD = '<p>A few taps and Gap sits on your ' + DEV + ' like any other app \u2014 no '
    + 'app store, no account. It opens in its own window, works with the internet off, '
    + 'and your figures stay for good.</p>';
 
@@ -4418,9 +4633,9 @@ else{
    el = document.createElement('section');
    el.className = 'instcard' + (late ? ' float' : '');
    el.setAttribute('role', 'region');
-   el.setAttribute('aria-label', 'Add BeFree to your ' + DEV);
+   el.setAttribute('aria-label', 'Add Gap to your ' + DEV);
    el.innerHTML =
-     '<div class="ic-h"><b>Keep BeFree on your ' + DEV + '</b>'
+     '<div class="ic-h"><b>Keep Gap on your ' + DEV + '</b>'
    + '<button type="button" class="ic-x">Later</button></div>'
    + '<div class="ic-b"></div>'
    + '<button type="button" class="ic-save" id="icSave">Or save a backup file first</button>';
@@ -4466,18 +4681,23 @@ else{
 
 
 /* ══════════ optional PIN lock, shared by both apps ══════════
-   One PIN protects both BeFree apps on this device: the config lives in
+   Each app has its own PIN: the config lives in
    its own localStorage key (not inside either app's own record, so it
    never gets caught up in an export, a restore, or a version migration),
    and it is checked before either app ever paints on screen — the
    data-applock attribute is set pre-paint by the inline head script, so
    there is nothing to flash while this file loads. The PIN itself is
    never stored: only a salted hash. */
-const AL_KEY='befree.applock.v1';
+/* each app keeps its own PIN. Older builds shared befree.applock.v1 with
+   Streak; that value is copied once, and turning the PIN off here stores
+   {on:false} so the shared copy can't switch it back on. */
+const AL_KEY='befree.gap.applock.v2',AL_OLD='befree.applock.v1';
 const AL_SUPPORTED=!!(window.crypto&&crypto.subtle&&crypto.subtle.digest&&crypto.getRandomValues);
 
-function alGet(){try{const v=JSON.parse(localStorage.getItem(AL_KEY));return v&&v.on&&v.hash&&v.salt?v:null}catch(e){return null}}
-function alSet(v){try{if(v)localStorage.setItem(AL_KEY,JSON.stringify(v));else localStorage.removeItem(AL_KEY)}catch(e){}}
+function alGet(){try{let v=JSON.parse(localStorage.getItem(AL_KEY));
+  if(v==null){v=JSON.parse(localStorage.getItem(AL_OLD));if(v&&v.on&&v.hash&&v.salt)localStorage.setItem(AL_KEY,JSON.stringify(v))}
+  return v&&v.on&&v.hash&&v.salt?v:null}catch(e){return null}}
+function alSet(v){try{localStorage.setItem(AL_KEY,JSON.stringify(v||{on:false}))}catch(e){}}
 function alRandSalt(){const a=new Uint8Array(16);crypto.getRandomValues(a);return[...a].map(b=>b.toString(16).padStart(2,'0')).join('')}
 async function alHash(pin,salt){
  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode('befree.pin:'+salt+':'+pin));
@@ -4530,7 +4750,7 @@ let alStep1=null;
 function alResetSheet(){
  alStep1=null;
  $('#lockPinTitle').textContent='Set a PIN';
- $('#lockPinSub').textContent='Choose 4 to 6 digits. You’ll need it to open BeFree on this device.';
+ $('#lockPinSub').textContent='Choose 4 to 6 digits. You’ll need it to open Gap on this device.';
  $('#lockPinLbl').textContent='PIN';
  $('#lockPinA').value='';$('#lockPinErr').textContent='';$('#lockPinGo').textContent='Continue';
 }
@@ -4538,7 +4758,7 @@ function alOpenSet(){if(!AL_SUPPORTED)return;alResetSheet();show('#shLockPin')}
 if($('#swLock'))$('#swLock').onclick=async()=>{
  if(!AL_SUPPORTED)return;
  if(alGet()){
-  if(!await ask('Turn off the PIN?','Anyone who opens BeFree on this device will see your data.','Turn off',true))return;
+  if(!await ask('Turn off the PIN?','Anyone who opens Gap on this device will see your data.','Turn off',true))return;
   alSet(null);alRefreshRow();toast('PIN turned off');return;
  }
  alOpenSet();
@@ -4553,12 +4773,12 @@ if($('#lockPinGo'))$('#lockPinGo').onclick=async()=>{
   $('#lockPinA').focus();return;
  }
  if(v!==alStep1){alStep1=null;$('#lockPinA').value='';
-  $('#lockPinSub').textContent='Choose 4 to 6 digits. You’ll need it to open BeFree on this device.';
+  $('#lockPinSub').textContent='Choose 4 to 6 digits. You’ll need it to open Gap on this device.';
   $('#lockPinLbl').textContent='PIN';$('#lockPinErr').textContent='Those don’t match. Try again.';
   $('#lockPinA').focus();return}
  const salt=alRandSalt(),hash=await alHash(v,salt);
  alSet({on:true,hash,salt});
- closeAll();alRefreshRow();toast('PIN set. It protects both BeFree apps on this device.');
+ closeAll();alRefreshRow();toast('PIN set. It protects Gap on this device.');
 };
 alRefreshRow();
 
@@ -4685,10 +4905,289 @@ INFO.surplus=['Gap and assignments','<p>Gap = received income minus recorded liv
 INFO.savings=['Assigned cash','<p>Net transfers into savings, goals, sinking funds, tax reserves and investments, less withdrawals or spending from funds. Extra debt is shown separately. A tax reserve is an obligation, and a sinking fund is planned future spending; neither is investment growth.</p>'];
 INFO.balance=['Checking estimate','<p>Starts with your current available checking balance. New checking transactions change it; card purchases do not. Paying a card reduces checking. Reconcile after backdated entries or changes to records already included in a balance. Physical cash is assumed covered by the checking figure; adjust for withdrawals so cash is not counted twice.</p>'];
 INFO.available=['Protected room until payday','<p>Checking estimate minus unpaid bills, planned transfers, essential spending, sinking-fund set-asides, protective buffer, unsettled card-purchase reserve and the estimated tax-reserve shortfall. Expected income is excluded until received. Review overdue obligations, pending charges and the card reserve today before using this estimate.</p><p>Do not treat it as permission to spend. Unknown obligations or incomplete records can make it too high. Only allocate within the protected amount. Extra debt payments must also fit the lender’s rules.</p>'];
+</script>
+<script data-befree-bundle="extras.js">/* ══════════ Gap additions ══════════
+   The Plan page (paychecks ahead, extra paychecks, bill calendar, estimated
+   taxes, employer match, mileage), bank file import, credit card use and
+   encrypted backups. Runs after app.js and uses its state and helpers.
+   Pure calculations live in plus-core.js (BeFreePlus). */
+(function(){
+const P=BeFreePlus;
+/* opened from its own icon: let the install page show it as installed */
+try{if(matchMedia('(display-mode: standalone)').matches||navigator.standalone===true)localStorage.setItem('befree.installed.gap','1')}catch(e){}
+const plus=()=>{if(!S.plus||typeof S.plus!=='object')S.plus={};return S.plus};
+const miles=()=>{if(!Array.isArray(S.miles))S.miles=[];return S.miles};
+const mon=(m,o)=>new Date(+m.slice(0,4),+m.slice(5,7)-1,1).toLocaleDateString('en-US',o||{month:'long',year:'numeric'});
 
-// Coming back from Streak with the back button restores this page from the
-// back/forward cache without reloading; pick up Streak's latest summary.
-addEventListener('pageshow',e=>{if(e.persisted){importStreak();render();}});
+const css=document.createElement('style');
+css.textContent=`
+.pxl{display:flex;flex-direction:column}
+.pxr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;padding:10px 0;border-bottom:1px solid var(--hair2);font-size:14px}
+.pxr:last-child{border-bottom:0}.pxr .k{font-weight:600;color:var(--tx)}.pxr .s{grid-column:1/-1;color:var(--tx3);font-size:13px;line-height:1.5}
+.pxr .v{text-align:right;font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.pxcal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;margin:6px 0 10px}
+.pxcal .h{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--tx3);text-align:center;padding:2px 0}
+.pxcal button{min-height:52px;border:1px solid var(--hair2);border-radius:10px;padding:5px 4px;text-align:left;display:flex;flex-direction:column;gap:3px;color:var(--tx2);font-size:12px;background:transparent}
+.pxcal button[aria-pressed=true]{border-color:var(--acc);background:var(--inset)}
+.pxcal button.today .n{color:var(--acc-text);font-weight:700}
+.pxcal .n{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px}
+.pxcal .dots{display:flex;gap:3px;flex-wrap:wrap}.pxcal .dots i{width:7px;height:7px;border-radius:50%;background:var(--warn)}.pxcal .dots i.in{background:var(--acc2)}.pxcal .dots i.tax{background:var(--neg)}
+.pxcal .blank{border:0}
+.pxleg{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--tx3);margin-bottom:8px}.pxleg i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;background:var(--warn)}.pxleg i.in{background:var(--acc2)}.pxleg i.tax{background:var(--neg)}
+.pxrow{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.pxbar{height:8px;border-radius:99px;background:var(--inset);border:1px solid var(--hair2);overflow:hidden;margin:6px 0 2px}.pxbar i{display:block;height:100%;background:var(--acc2)}.pxbar i.high{background:var(--neg)}.pxbar i.moderate{background:var(--warn)}
+.pxform{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.pxform .fld{margin:0}.pxform .wide{grid-column:1/-1}
+@media(min-width:760px){.pxform.four{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.pxbank{max-height:46dvh;overflow:auto;border:1px solid var(--hair2);border-radius:var(--rs);margin:10px 0}
+.pxbank label{display:grid;grid-template-columns:24px minmax(0,1fr) auto;gap:4px 10px;align-items:center;padding:10px 12px;border-bottom:1px solid var(--hair2);font-size:13.5px}
+.pxbank label:last-child{border-bottom:0}.pxbank input[type=checkbox]{width:20px;height:20px;accent-color:var(--acc)}
+.pxbank .d{color:var(--tx3);font-size:12.5px}.pxbank .a{font-family:'IBM Plex Mono',ui-monospace,monospace;text-align:right}.pxbank .a.in{color:var(--acc2)}
+.pxbank select{grid-column:2/-1;border:1px solid var(--hair3);border-radius:8px;padding:6px 8px;background:var(--card);color:var(--tx);font-size:13px;min-height:36px}
+.pxbank .why{grid-column:2/-1;color:var(--warn);font-size:12.5px}
+dialog.pxd{border:1px solid var(--hair);border-radius:var(--rx);background:var(--sheet);color:var(--tx);padding:22px 20px;width:min(440px,calc(100vw - 32px));box-shadow:var(--sh)}
+dialog.pxd::backdrop{background:rgba(3,12,8,.62);backdrop-filter:blur(4px)}
+dialog.pxd h2{font-size:17px;margin:0 0 6px;text-align:center}dialog.pxd p{font-size:14px;color:var(--tx2);line-height:1.55;margin:0 0 12px;text-align:center}
+dialog.pxd .err{color:var(--neg);font-size:13.5px;min-height:1.4em;text-align:center;margin:0 0 8px}
+dialog.pxd .save{width:100%}dialog.pxd .ghost{width:100%;margin-top:8px}`;
+document.head.appendChild(css);
+
+/* ── passphrase dialog: top layer, so it also works over the first-run screen ── */
+function passDialog({title,body,confirm,ok,run}){return new Promise(res=>{
+ const d=document.createElement('dialog');d.className='pxd';d.setAttribute('aria-labelledby','pxdT');
+ d.innerHTML=`<h2 id="pxdT">${esc(title)}</h2><p>${esc(body)}</p>
+  <div class="fld"><label for="pxP1">Passphrase</label><input id="pxP1" type="password" autocomplete="${confirm?'new-password':'current-password'}" minlength="8"></div>
+  ${confirm?'<div class="fld"><label for="pxP2">Type it again</label><input id="pxP2" type="password" autocomplete="new-password"></div>':''}
+  <div class="err" id="pxErr" role="alert"></div><button type="button" class="save" id="pxOk">${esc(ok)}</button><button type="button" class="ghost" id="pxNo">Cancel</button>`;
+ document.body.appendChild(d);let done=false;
+ const end=v=>{if(done)return;done=true;try{d.close()}catch(e){}d.remove();res(v)};
+ const err=m=>{d.querySelector('#pxErr').textContent=m};
+ d.addEventListener('cancel',e=>{e.preventDefault();end(null)});
+ d.querySelector('#pxNo').onclick=()=>end(null);
+ const go=async()=>{const a=d.querySelector('#pxP1').value,b=confirm?d.querySelector('#pxP2').value:a;
+  if(a.length<8){err('Use at least 8 characters.');return}
+  if(a!==b){err('The two entries do not match.');return}
+  const btn=d.querySelector('#pxOk');btn.disabled=true;const was=btn.textContent;btn.textContent='Working…';
+  try{end(await run(a))}
+  catch(e){err(e.message||'Something went wrong.');btn.disabled=false;btn.textContent=was}};
+ d.querySelector('#pxOk').onclick=go;
+ d.querySelectorAll('input').forEach(i=>i.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();go()}}));
+ d.showModal();setTimeout(()=>d.querySelector('#pxP1').focus(),30)})}
+const askPass=(o,run)=>passDialog(Object.assign({run},o));
+
+function backupText(){return JSON.stringify(Object.assign({app:'befree-gap',exported:new Date().toISOString()},S),null,1)}
+async function exportLocked(){
+ const ok=await askPass({title:'Encrypted backup',body:'Choose a passphrase. You will need it to restore this file, and nobody can recover it for you.',confirm:true,ok:'Save encrypted backup'},
+  async pass=>{const txt=await P.encryptBackup(backupText(),pass,'gap');S.lastExport=today();DB.s(KEY,S);
+   dl(`befree-gap-${today()}-encrypted.json`,txt,'application/json');return true});
+ if(ok){closeAll();toast('Encrypted backup saved. Keep the passphrase somewhere safe.')}}
+/* called by the restore handler in app.js for an encrypted file */
+window.plusUnlock=o=>askPass({title:'Open encrypted backup',body:o.created?`Saved ${new Date(o.created).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}. Enter its passphrase.`:'Enter its passphrase.',ok:'Open'},pass=>P.decryptBackup(o,pass));
+
+/* ══════════ Plan page ══════════ */
+function paycheckCard(){
+ const box=$('#plPay'),p=primary(),t=today();
+ if(!p){box.innerHTML=`<div class="ch"><h2 class="eb">Paychecks ahead</h2></div>${empty('money','No pay schedule yet','Add your paycheck to see which bills each one has to cover.')}<div class="pxrow"><button class="btn2" id="plPaySet">Set my pay schedule</button></div>`;
+  $('#plPaySet').onclick=()=>openPay();return}
+ const est=recEst(p),start=lastPay(p,t)||t,list=paydays(p,start,addD(t,130)).slice(0,5);
+ const rows=list.map((d,i)=>{const to=list[i+1]?addD(list[i+1],-1):addD(d,p.freq==='weekly'?6:13);
+  const bills=planned(d<t?t:d,to).filter(x=>x.flow<0),out=sum(bills,x=>x.amt),left=est.amt-out;
+  const names=bills.slice(0,3).map(x=>esc(x.name)).join(', ')+(bills.length>3?` +${bills.length-3}`:'');
+  return `<div class="pxr"><span class="k">${d<=t&&d===start?'This paycheck':fmtD(d,{weekday:'short',month:'short',day:'numeric'})}</span>
+   <span class="v ${left<0?'neg':''}">${money(left)} left</span>
+   <span class="s">${money(est.amt)}${est.est?' (planning amount)':''} in · ${bills.length?`${money(out)} scheduled out: ${names}`:'nothing scheduled before the next one'}</span></div>`}).join('');
+ box.innerHTML=`<div class="ch"><h2 class="eb">Paychecks ahead</h2><div class="eb mono">${FREQ_L[p.freq]}</div></div><div class="pxl">${rows}</div>
+  <p class="foot">Each paycheck covers the scheduled bills due before the next one. ${est.est?`Pay that changes uses ${esc(est.basis)}.`:''} Spending you haven't planned still needs room.</p>`}
+
+function extraCard(){
+ const box=$('#plExtra'),p=primary();
+ const head=`<div class="ch"><h2 class="eb">Extra paychecks</h2></div>`;
+ if(!p){box.innerHTML=head+`<p class="foot">Once your pay schedule is set, this shows the months with an extra paycheck.</p>`;return}
+ if(p.freq!=='weekly'&&p.freq!=='biweekly'){box.innerHTML=head+`<p class="foot">You're paid ${FREQ_L[p.freq]}, so every month has the same number of paychecks. Paid every two weeks, two months a year bring a third one.</p>`;return}
+ const t=today(),from=t.slice(0,8)+'01',ms=P.extraPayMonths(paydays(p,from,addD(from,395)),p.freq).filter(m=>m.month<=addD(from,364).slice(0,7));
+ const amt=recEst(p).amt;
+ box.innerHTML=head+(ms.length?`<div class="pxl">${ms.map(m=>`<div class="pxr"><span class="k">${mon(m.month)}</span><span class="v">+${money(amt*m.extra.length)}</span>
+  <span class="s">${m.dates.length} paydays; the extra one lands ${m.extra.map(d=>fmtD(d,{weekday:'short',month:'short',day:'numeric'})).join(' and ')}</span></div>`).join('')}</div>
+  <p class="foot">Most budgets are built on ${p.freq==='weekly'?'four':'two'} paychecks a month, so an extra one is free to plan. Decide now where it goes: your buffer, a debt, or a sinking fund.</p>`
+  :`<p class="foot">No extra paychecks in the next 12 months.</p>`)}
+
+/* ── bill calendar ── */
+function monthItems(from,to){const out=[];
+ S.rec.filter(r=>r.on!==false).forEach(r=>occ(r,from,to,{all:true}).forEach(d=>{if(r.start&&d<r.start)return;
+  out.push({date:d,name:r.note||r.cat,amt:+r.amt||0,kind:r.kind==='income'?'in':'out',paid:matched(r,d),uid:r.id+'-'+d})}));
+ S.tx.filter(t=>t.status==='planned'&&t.date>=from&&t.date<=to).forEach(t=>out.push({date:t.date,name:t.note||t.cat,amt:+t.amt||0,kind:t.type==='income'?'in':'out',uid:t.id}));
+ if(S.tax.on){[+from.slice(0,4)-1,+from.slice(0,4)].forEach(y=>P.quarterlyDue(y).forEach(q=>{if(q.due>=from&&q.due<=to)out.push({date:q.due,name:`Estimated tax, Q${q.q} ${y}`,amt:null,kind:'tax',uid:`tax-${y}-${q.q}`})}))}
+ return out.sort((a,b)=>a.date.localeCompare(b.date)||(a.kind==='in'?-1:1))}
+let calOff=0,calSel=null;
+function calCard(){
+ const box=$('#plCal'),n=new Date();const m0=new Date(n.getFullYear(),n.getMonth()+calOff,1);
+ const from=iso(m0),to=iso(new Date(m0.getFullYear(),m0.getMonth()+1,0)),t=today();
+ const items=monthItems(from,to),by={};items.forEach(x=>(by[x.date]=by[x.date]||[]).push(x));
+ if(!calSel||calSel<from||calSel>to)calSel=t>=from&&t<=to?t:from;
+ let cells=DN_S.map(d=>`<div class="h" aria-hidden="true">${d}</div>`).join('')+'<div class="blank"></div>'.repeat(m0.getDay());
+ for(let d=from;d<=to;d=addD(d,1)){const l=by[d]||[];
+  cells+=`<button type="button" data-d="${d}" aria-pressed="${d===calSel}" class="${d===t?'today':''}" aria-label="${fmtD(d,{weekday:'long',month:'long',day:'numeric'})}: ${l.length?l.map(x=>x.name).join(', '):'nothing scheduled'}">
+   <span class="n">${+d.slice(8)}</span><span class="dots">${l.slice(0,4).map(x=>`<i class="${x.kind}"></i>`).join('')}</span></button>`}
+ const sel=by[calSel]||[],outM=sum(items.filter(x=>x.kind==='out'),x=>x.amt),inM=sum(items.filter(x=>x.kind==='in'),x=>x.amt);
+ box.innerHTML=`<div class="ch"><h2 class="eb">Bill calendar</h2>
+   <div class="pnav" style="margin:0"><button id="calPrev" aria-label="Previous month">‹</button><div class="plbl mono">${mon(from,{month:'short',year:'numeric'})}</div><button id="calNext" aria-label="Next month">›</button></div></div>
+  <div class="pxleg"><span><i></i>Bill or transfer</span><span><i class="in"></i>Payday</span>${S.tax.on?'<span><i class="tax"></i>Estimated tax due</span>':''}</div>
+  <div class="pxcal">${cells}</div>
+  <div class="pxl" aria-live="polite"><div class="pxr"><span class="k">${fmtD(calSel,{weekday:'long',month:'long',day:'numeric'})}</span><span class="v"></span>
+   <span class="s">${sel.length?sel.map(x=>`${esc(x.name)}${x.amt!=null?` · ${money(x.amt)}`:''}${x.paid?' · done':''}`).join('<br>'):'Nothing scheduled.'}</span></div></div>
+  <p class="foot">This month: ${money(inM)} scheduled in, ${money(outM)} scheduled out.</p>
+  <div class="pxrow"><label class="chk" style="padding:0"><input type="checkbox" id="icsAmt" ${plus().icsAmt?'checked':''}><span>Include amounts</span></label>
+   <button class="btn2" id="icsGo">Add the next 12 months to my calendar</button></div>
+  <p class="foot">Downloads a calendar file (.ics) that Apple Calendar, Google Calendar and Outlook can import, with a reminder the day before each bill. Calendars sync to their own cloud, so amounts are left out unless you include them.</p>`;
+ $('#calPrev').onclick=()=>{calOff--;calCard()};$('#calNext').onclick=()=>{calOff++;calCard()};
+ $$('#plCal .pxcal button').forEach(b=>b.onclick=()=>{calSel=b.dataset.d;calCard();const f=$(`#plCal [data-d="${calSel}"]`);f&&f.focus()});
+ $('#icsAmt').onchange=e=>{plus().icsAmt=e.target.checked;save()};
+ $('#icsGo').onclick=exportICS}
+const DN_S=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+function exportICS(){const t=today(),inc=!!plus().icsAmt;
+ const ev=monthItems(t,addD(t,365)).filter(x=>!x.paid).map(x=>({uid:x.uid+'@befree-gap',date:x.date,
+  title:x.kind==='in'?`Payday: ${x.name}${inc&&x.amt?` (${money(x.amt)})`:''}`:x.kind==='tax'?x.name:`Due: ${x.name}${inc&&x.amt?` (${money(x.amt)})`:''}`,
+  desc:x.kind==='tax'?'Federal estimated tax payment (Form 1040-ES). Confirm the date and your state\'s schedule at irs.gov.':'From BeFree Gap.',alarm:x.kind==='in'?0:1}));
+ if(!ev.length){toast('Nothing scheduled in the next 12 months yet');return}
+ dl(`befree-gap-bills-${t}.ics`,P.buildICS(ev,{name:'BeFree Gap bills'}),'text/calendar');toast(`${plural(ev.length,'date')} saved to a calendar file`)}
+
+/* ── estimated taxes (1040-ES) ── */
+function taxCard(){
+ const box=$('#plTax'),t=today(),y=+t.slice(0,4);
+ const head=`<div class="ch"><h2 class="eb">Estimated taxes</h2><div class="eb mono">1040-ES</div></div>`;
+ if(!S.tax.on){box.innerHTML=head+`<p class="foot" style="margin-top:0">Freelance, gig or other 1099 income has no tax withheld, and the IRS expects payments four times a year. Turn on the tax reserve to see each deadline and what to set aside.</p>
+  <div class="pxrow"><button class="btn2" id="taxOn">Turn on the tax reserve</button></div>`;
+  $('#taxOn').onclick=()=>{S.tax.on=true;save();render();toast('Tax reserve is on. Check the rate and income types in Settings.')};return}
+ const qs=P.quarterlyDue(y-1).filter(q=>q.q===4&&q.due>=addD(t,-20)).map(q=>Object.assign({y:y-1},q)).concat(P.quarterlyDue(y).map(q=>Object.assign({y},q)));
+ const next=qs.find(q=>q.due>=t);
+ box.innerHTML=head+`<div class="pxl">${qs.map(q=>{const e=taxEst(S.tx.filter(x=>x.date>=q.from&&x.date<=q.to));
+  const st=q.due<t?'past':q===next?'next':'';
+  return `<div class="pxr"><span class="k">${st==='next'?'<span class="pill warn">Next</span> ':''}Q${q.q} ${q.y}: due ${fmtD(q.due,{month:'short',day:'numeric',year:+q.due.slice(0,4)!==y?'numeric':undefined})}</span>
+   <span class="v">${money(e.need)}</span><span class="s">Income ${fmtD(q.from)} to ${fmtD(q.to)}${st==='past'?' · date has passed':''}${q.to>t&&q.from<=t?' · so far':''}</span></div>`}).join('')}</div>
+  <p class="foot">Amounts use your reserve rate of ${S.tax.rate}% on income with no withholding, so they are estimates, not a tax bill. A due date on a weekend or DC holiday moves to the next business day. States have their own schedules. Confirm at irs.gov/payments.</p>`}
+
+/* ── employer 401(k) match ── */
+const MATCH=[['100-3-50-2','100% of the first 3%, then 50% of the next 2%',[{rate:100,upTo:3},{rate:50,upTo:2}]],['50-6','50% of the first 6%',[{rate:50,upTo:6}]],
+ ['100-4','100% of the first 4%',[{rate:100,upTo:4}]],['100-6','100% of the first 6%',[{rate:100,upTo:6}]],['custom','Something else',null]];
+function matchCard(){
+ const box=$('#plMatch'),k=plus().k401||{},p=primary();
+ const guess=p?Math.round(recEst(p).amt*(PER_MONTH[p.freq]||1)*12):'';
+ const f=MATCH.find(x=>x[0]===k.formula)||MATCH[0],tiers=f[2]||[{rate:+k.r1||0,upTo:+k.u1||0},{rate:+k.r2||0,upTo:+k.u2||0}];
+ const salary=+k.salary||0,res=P.match401k({salary,pct:+k.pct||0,tiers});
+ const per=p?res.missing/((PER_MONTH[p.freq]||1)*12):null;
+ box.innerHTML=`<div class="ch"><h2 class="eb">Employer 401(k) match</h2></div>
+  <div class="pxform">
+   <div class="fld"><label for="kSal">Pay per year, before tax</label><input id="kSal" type="number" inputmode="decimal" min="0" value="${k.salary||''}" placeholder="${guess?guess:'52000'}"></div>
+   <div class="fld"><label for="kPct">You put in, %</label><input id="kPct" type="number" inputmode="decimal" min="0" max="100" step="0.5" value="${k.pct??''}" placeholder="0"></div>
+   <div class="fld wide"><label for="kF">Your employer matches</label><select id="kF">${MATCH.map(x=>optVal(x[0],x[1],x===f)).join('')}</select></div>
+   ${f[0]==='custom'?`<div class="fld"><label for="kR1">Match %</label><input id="kR1" type="number" min="0" value="${k.r1||''}" placeholder="100"></div><div class="fld"><label for="kU1">Of the first %</label><input id="kU1" type="number" min="0" value="${k.u1||''}" placeholder="4"></div>
+    <div class="fld"><label for="kR2">Then match %</label><input id="kR2" type="number" min="0" value="${k.r2||''}" placeholder="0"></div><div class="fld"><label for="kU2">Of the next %</label><input id="kU2" type="number" min="0" value="${k.u2||''}" placeholder="0"></div>`:''}
+  </div>
+  <div class="status ${salary&&res.missing<1?'on':''}" style="margin-top:12px"><span class="dotc"></span><div>${!salary?'Enter your yearly pay to see what the match is worth.'
+   :res.max<1?'Enter the match your employer offers.'
+   :res.missing<1?`<b>You get the full match:</b> about ${money(res.employer)} a year from your employer.`
+   :`Your employer adds about <b>${money(res.employer)}</b> a year. The most they offer is ${money(res.max)}, so about <b>${money(res.missing)}</b> a year${per?` (${money(per)} a paycheck)`:''} is left on the table. Putting in ${res.needPct}% gets all of it.`}</div></div>
+  <p class="foot">Before-tax contributions lower take-home pay by less than the amount put in. Check your plan's vesting schedule and contribution limits with HR or your plan documents.</p>`;
+ const upd=()=>{const o=plus().k401=plus().k401||{};o.salary=+$('#kSal').value||0;o.pct=$('#kPct').value===''?null:Math.max(0,Math.min(100,+$('#kPct').value||0));o.formula=$('#kF').value;
+  ['r1','u1','r2','u2'].forEach(x=>{const e=$('#k'+x.toUpperCase());if(e)o[x]=+e.value||0});save();matchCard()};
+ ['#kSal','#kPct','#kR1','#kU1','#kR2','#kU2'].forEach(s=>{const e=$(s);if(e)e.onchange=upd});$('#kF').onchange=upd}
+
+/* ── mileage log ── */
+function milesCard(){
+ const box=$('#plMiles'),y=today().slice(0,4),L=miles().slice().sort((a,b)=>b.date.localeCompare(a.date));
+ const ytd=sum(L.filter(m=>m.date.startsWith(y)),m=>+m.miles||0),rate=+plus().mileRate||0;
+ box.innerHTML=`<div class="ch"><h2 class="eb">Mileage log</h2><div class="eb mono">${y}: ${ytd.toLocaleString('en-US',{maximumFractionDigits:1})} mi</div></div>
+  <p class="foot" style="margin-top:0">For gig driving, deliveries or other work trips. The IRS asks for the date, miles, destination and business purpose of each trip, written down at the time.</p>
+  <div class="pxform four" style="margin-top:10px">
+   <div class="fld"><label for="mDate">Date</label><input id="mDate" type="date" value="${today()}"></div>
+   <div class="fld"><label for="mMi">Miles</label><input id="mMi" type="number" inputmode="decimal" min="0" step="0.1" placeholder="12.4"></div>
+   <div class="fld"><label for="mTo">Destination</label><input id="mTo" autocomplete="off" placeholder="Client office"></div>
+   <div class="fld"><label for="mWhy">Business purpose</label><input id="mWhy" autocomplete="off" placeholder="Deliveries"></div>
+  </div>
+  <div class="pxrow"><button class="btn2" id="mAdd">Add trip</button>${L.length?'<button class="btn2" id="mCsv">Download the log (CSV)</button>':''}</div>
+  ${L.length?`<div class="pxl" style="margin-top:8px">${L.slice(0,8).map(m=>`<div class="pxr"><span class="k">${fmtD(m.date,{month:'short',day:'numeric',year:'numeric'})} · ${esc(m.place||'Trip')}</span>
+   <span class="v">${(+m.miles).toLocaleString('en-US',{maximumFractionDigits:1})} mi <button class="tlink" data-mdel="${m.id}" aria-label="Delete this trip">Delete</button></span><span class="s">${esc(m.purpose||'')}</span></div>`).join('')}</div>
+   ${L.length>8?`<p class="foot">${L.length-8} older trips are in the CSV.</p>`:''}`:''}
+  <div class="pxform" style="margin-top:12px"><div class="fld"><label for="mRate">Rate per mile</label><input id="mRate" type="number" inputmode="decimal" min="0" step="0.005" value="${rate||''}" placeholder="0.70"></div>
+   <div class="fld"><span class="lab">Deduction estimate, ${y}</span><div class="mono" style="font-size:20px;padding-top:6px">${rate?money2(ytd*rate):'—'}</div></div></div>
+  <p class="foot">Use the IRS standard mileage rate for the tax year; it changes, so check irs.gov. Standard mileage and actual car expenses are two different methods, and a tax professional can say which fits.</p>`;
+ $('#mAdd').onclick=()=>{const mi=+$('#mMi').value,d=$('#mDate').value;
+  if(!d){toast('Pick the date of the trip');return}if(!(mi>0)){toast('Enter the miles driven');$('#mMi').focus();return}
+  miles().push({id:uid(),date:d,miles:r2(mi),place:$('#mTo').value.trim().slice(0,60),purpose:$('#mWhy').value.trim().slice(0,80)});save();milesCard();toast('Trip added');$('#mMi').focus()};
+ $('#mRate').onchange=e=>{plus().mileRate=Math.max(0,+e.target.value||0);save();milesCard()};
+ $$('#plMiles [data-mdel]').forEach(b=>b.onclick=async()=>{if(!await ask('Delete this trip?','It is removed from the log.','Delete',true))return;S.miles=miles().filter(m=>m.id!==b.dataset.mdel);save();milesCard()});
+ const c=$('#mCsv');if(c)c.onclick=()=>{const q=s=>{let v=String(s==null?'':s);if(/^[=+\-@\t\r]/.test(v))v="'"+v;return '"'+v.replace(/"/g,'""')+'"'};
+  const rows=[['Date','Miles','Destination','Business purpose'].join(',')].concat(L.slice().reverse().map(m=>[q(m.date),(+m.miles).toFixed(1),q(m.place),q(m.purpose)].join(',')));
+  dl(`befree-mileage-${today()}.csv`,'﻿'+rows.join('\r\n'),'text/csv;charset=utf-8');toast('Mileage log saved')}}
+
+window.drawPlan=function(){paycheckCard();extraCard();calCard();taxCard();matchCard();milesCard()};
+
+/* ══════════ credit card use ══════════ */
+window.drawCreditUse=function(){
+ const box=$('#creditCard');if(!box)return;const cards=S.debts.filter(d=>d.kind==='card');
+ if(!cards.length){box.style.display='none';return}box.style.display='';
+ const lim=cards.filter(d=>+d.limit>0),bal=sum(lim,d=>debtBal(d)),L=sum(lim,d=>+d.limit),u=P.utilization(bal,L);
+ box.innerHTML=`<div class="ch"><h2 class="eb">Credit card use</h2>${u?`<div class="eb mono">${Math.round(u.pct)}% overall</div>`:''}</div>
+  ${lim.length?lim.map(d=>{const x=P.utilization(debtBal(d),d.limit);return `<div class="pxr" style="display:block"><div style="display:flex;justify-content:space-between;gap:10px"><span class="k">${esc(d.name)}</span><span class="mono">${money(debtBal(d))} of ${money(+d.limit)}</span></div>
+   <div class="pxbar" role="img" aria-label="${Math.round(x.pct)}% of the limit used"><i class="${x.band}" style="width:${Math.min(x.pct,100)}%"></i></div>
+   <div class="s" style="color:var(--tx3);font-size:13px">${Math.round(x.pct)}% used${+d.close?` · pay before the ${ord(d.close)} to lower the balance on the statement`:''}</div></div>`}).join('')
+   :'<p class="foot" style="margin-top:0">Add each card\'s credit limit (tap the card above) to see how much of your available credit you\'re using.</p>'}
+  <p class="foot">Credit scores usually look at the balance on each statement compared with the limit. Keeping it under 30%, and lower if you can, generally helps. This is general information, not a score prediction.</p>`};
+
+/* ══════════ bank file import ══════════ */
+const sh=document.createElement('div');sh.className='sheet';sh.id='shBank';sh.setAttribute('role','dialog');sh.setAttribute('aria-modal','true');sh.setAttribute('aria-labelledby','bkT');
+sh.innerHTML=`<div class="handle"></div><div class="stitle" id="bkT">Import a bank file</div>
+ <div class="ssub">Download transactions from your bank's website as CSV, QFX or OFX. The file is read on this device; nothing is uploaded.</div>
+ <div class="seg" id="bkAcct" role="group" aria-label="Account"><button data-a="checking" aria-pressed="true">Checking or savings</button><button data-a="card" aria-pressed="false">Credit card</button></div>
+ <div class="fld" id="bkCardW" style="display:none"><label for="bkCard">Which card</label><select id="bkCard"></select></div>
+ <input type="file" id="bkFile" accept=".csv,.ofx,.qfx,.qbo,.txt,text/csv" hidden>
+ <button class="btn2" id="bkPick" style="width:100%">Choose the file</button>
+ <div id="bkOut"></div>
+ <button class="save" id="bkGo" style="display:none">Add entries</button>`;
+document.body.appendChild(sh);sheets.push('#shBank');sh.setAttribute('aria-hidden','true');
+let BK={acct:'checking',rows:[],name:''};
+function catOptions(sel){return ['income','fixed','variable','transfer'].map(t=>`<optgroup label="${{income:'Income',fixed:'Fixed spending',variable:'Variable spending',transfer:'Transfer'}[t]}">${allCats(t).map(c=>optVal(t+'|'+c,c,sel===t+'|'+c)).join('')}</optgroup>`).join('')}
+function openBank(){BK={acct:BK.acct,rows:[],name:''};$('#bkOut').innerHTML='';$('#bkGo').style.display='none';syncBank();show('#shBank')}
+function syncBank(){segSet('#bkAcct','a',BK.acct);const cards=S.debts.filter(d=>d.kind==='card');
+ $('#bkCardW').style.display=BK.acct==='card'&&cards.length?'flex':'none';
+ $('#bkCard').innerHTML=optVal('','Not linked to a card')+cards.map(d=>optVal(d.id,d.name)).join('')}
+$('#bkAcct').onclick=e=>{const b=e.target.closest('button');if(!b)return;BK.acct=b.dataset.a;syncBank();if(BK.text)readBank()};
+$('#bkPick').onclick=()=>$('#bkFile').click();
+$('#bkFile').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{BK.text=String(r.result);BK.name=f.name;readBank()};r.readAsText(f);e.target.value=''};
+function readBank(){
+ const res=P.readBankFile(BK.text,BK.name);
+ if(res.error||!res.rows.length){$('#bkOut').innerHTML=`<div class="status" style="margin-top:12px"><span class="dotc"></span><div>${esc(res.error||'No transactions found in this file.')} Try the CSV download from your bank's activity page.</div></div>`;$('#bkGo').style.display='none';return}
+ BK.rows=res.rows.map((r,i)=>{const g=P.guess(r.desc,r.amt,BK.acct);let type=g.type,cat=g.cat;
+  if(!allCats(type).includes(cat))cat=type==='transfer'?'Between accounts':'Other';
+  if(!allCats(type).includes(cat))cat=allCats(type)[0];
+  const dup=P.isDuplicate(r,S.tx),why=dup?'Looks like an entry already in Gap.':g.skip||'';
+  return{i,date:r.date,amt:r.amt,desc:r.desc||'(no description)',ref:r.ref||'',sel:type+'|'+cat,refund:!!g.refund,dir:g.dir||(r.amt>0?'in':'out'),review:!!g.review,on:!why,why}});
+ BK.rows.sort((a,b)=>b.date.localeCompare(a.date));
+ const bal=S.bal&&S.bal.asOf;
+ $('#bkOut').innerHTML=`<p class="foot" style="margin-top:12px"><b>${plural(BK.rows.length,'transaction')}</b> found${res.skipped?`, ${res.skipped} lines skipped`:''}. Categories are a best guess; change any before adding.${bal?` Entries dated on or before ${fmtD(bal)} are treated as already in your checking balance.`:''}</p>
+  <div class="pxbank">${BK.rows.map(r=>`<label><input type="checkbox" data-bi="${r.i}" ${r.on?'checked':''} aria-label="Include ${esc(r.desc)}">
+   <span><span style="display:block;overflow-wrap:anywhere">${esc(r.desc)}</span><span class="d">${fmtD(r.date,{month:'short',day:'numeric',year:'numeric'})}</span></span>
+   <span class="a ${r.amt>0?'in':''}">${r.amt>0?'+':'−'}${money2(Math.abs(r.amt)).replace('−','')}</span>
+   <select data-bs="${r.i}" aria-label="Category for ${esc(r.desc)}">${catOptions(r.sel)}</select>${r.why?`<span class="why">${esc(r.why)}</span>`:''}</label>`).join('')}</div>`;
+ $$('#bkOut [data-bi]').forEach(c=>c.onchange=()=>{BK.rows.find(r=>r.i===+c.dataset.bi).on=c.checked;countBank()});
+ $$('#bkOut [data-bs]').forEach(s=>s.onchange=()=>{BK.rows.find(r=>r.i===+s.dataset.bs).sel=s.value});
+ countBank()}
+function countBank(){const n=BK.rows.filter(r=>r.on).length;$('#bkGo').style.display=n?'block':'none';$('#bkGo').textContent=`Add ${plural(n,'entry','entries')}`}
+$('#bkGo').onclick=()=>{
+ const card=BK.acct==='card'?$('#bkCard').value:'',bal=S.bal,now=Date.now();let n=0;
+ BK.rows.filter(r=>r.on).forEach(r=>{const [type,cat]=r.sel.split('|');
+  const t={id:uid(),ts:bal&&r.date<=bal.asOf?Math.max(0,(bal.ts||0)-1):now,src:'import',status:'done',date:r.date,amt:r2(Math.abs(r.amt)),type,cat,note:r.desc.slice(0,60)};
+  if(r.ref)t.ext=r.ref;
+  if(type==='transfer'){t.dir=r.amt>0?'in':'out';if(cat==='Card payment'||r.review)t.needsReview=true}
+  if((type==='fixed'||type==='variable')&&r.amt>0)t.refund=true;
+  if(BK.acct==='card'&&(type==='fixed'||type==='variable')){t.payFrom='card';if(card)t.card=card}
+  S.tx.push(t);n++});
+ save();closeAll();render();toast(`${plural(n,'entry','entries')} added from ${BK.name||'the file'}`)};
+$('#bankImp').onclick=openBank;$('#bankImpL').onclick=openBank;
+$('#expLock').onclick=exportLocked;
+
+/* the Plan page may already be open when this file loads */
+if(V.page==='plan'||V.page==='debts')render();
+})();
 </script>
 </body>
 </html>

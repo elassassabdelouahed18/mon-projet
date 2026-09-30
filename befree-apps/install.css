@@ -69,3 +69,5 @@ footer a,.back{color:var(--tx2)}
 .chips span{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:99px;background:var(--card);border:1px solid var(--line);font-size:13px;font-weight:500;color:var(--tx2)}
 .chips svg{color:var(--ok)}
 .appicon.streak{box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}
+.ihead .stepof{margin:4px 0 -6px;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--goldT)}
+.btn[hidden]{display:none}

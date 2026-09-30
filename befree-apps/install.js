@@ -62,8 +62,9 @@ function one(){
  const menuHelp=()=>edge?`If the button doesn't respond: open the <b>…</b> menu, then <b>Apps</b>, then <b>Install this site as an app</b>.`
   :/Android/.test(ua)?`If the button doesn't respond: open the <b>⋮</b> menu and tap <b>Install app</b> or <b>Add to Home screen</b>, then <b>Install</b>.`
   :`If the button doesn't respond: click the install icon at the right of the address bar, or open the <b>⋮</b> menu, then <b>Cast, save, and share</b>, then <b>Install page as app</b>.`;
- setTimeout(()=>{if(deferred)return;go.textContent=flag(app)?`${name} may already be installed`:`Install from the browser menu`;
-  alt.innerHTML=menuHelp()+(flag(app)?'':' ')+`<br><button class="btn ghost" id="did" type="button" style="margin-top:12px">I've installed ${name}</button>`;
+ setTimeout(()=>{if(deferred)return;box.querySelector('p').textContent=flag(app)?`${name} may already be installed on this device. If not, use your browser's menu:`:`Your browser installs apps from its menu:`;
+  go.hidden=true;alt.classList.remove('note');
+  alt.innerHTML=menuHelp().replace("If the button doesn't respond: ",'')+`<br><button class="btn ghost" id="did" type="button" style="margin-top:14px">I've installed ${name}</button>`;
   const d=$('#did');if(d)d.onclick=success},3000)}
 
 if(document.body.dataset.page==='hub')hub();else one();

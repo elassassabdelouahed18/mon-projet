@@ -1,0 +1,14 @@
+const {chromium}=require(process.env.PW||'playwright');const path=require('path');
+(async()=>{const b=await chromium.launch();const p=await b.newPage({viewport:{width:576,height:864}});
+await p.goto('file://'+path.resolve(__dirname,'book.html'));await p.evaluate(()=>document.fonts.ready);
+await p.evaluate(()=>Promise.all([...document.images].map(i=>i.complete?1:new Promise(r=>{i.onload=i.onerror=r}))));
+const r=await p.evaluate(()=>{const fonts=['900 20px Fraunces','400 12px Lora','italic 400 12px Lora','600 12px Lora','600 12px Poppins'].map(f=>document.fonts.check(f));
+ const over=[];document.querySelectorAll('.pg').forEach((pg,i)=>{if(pg.classList.contains('cover')||pg.classList.contains('back'))return;
+  const pn=pg.querySelector('.pn');const limit=(pn?pn.getBoundingClientRect().top:pg.getBoundingClientRect().bottom)-6;
+  let maxB=0;[...pg.children].forEach(c=>{if(c.classList.contains('pn'))return;maxB=Math.max(maxB,c.getBoundingClientRect().bottom)});
+  const free=Math.round(limit-maxB);over.push([i+1,free])});
+ const broken=[...document.images].filter(i=>!i.naturalWidth).map(i=>i.src);
+ return {fonts,over,broken,pages:document.querySelectorAll('.pg').length}});
+console.log(JSON.stringify(r));
+await p.pdf({path:path.resolve(__dirname,'Start-Here-The-BeFree-System.pdf'),width:'6in',height:'9in',printBackground:true,preferCSSPageSize:true});
+await b.close()})();

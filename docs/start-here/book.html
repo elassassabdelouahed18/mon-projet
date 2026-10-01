@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<title>Start Here: The BeFree System</title>
+<link rel="stylesheet" href="../install-guide/fonts.css">
+<link rel="stylesheet" href="lora-local.css">
+<style>
+@page{size:6in 9in;margin:0}
+:root{--bg:#FAFAF6;--tx:#2A2B25;--tx2:#4B4D45;--green:#1E4A3A;--deep:#0B3A2C;--gold:#B9761A;--brown:#6E4310;--box:#ECEFE8;--line:#E3E1D8;--rule:#C9A25B}
+*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+html,body{margin:0;background:#777}
+.pg{width:6in;height:9in;background:var(--bg);position:relative;overflow:hidden;padding:.5in .6in .62in;page-break-after:always;break-after:page;color:var(--tx);font:400 9.4pt/1.47 Lora,Georgia,serif;hyphens:auto}
+.pg:last-child{page-break-after:auto}
+.pn{position:absolute;bottom:.3in;left:0;right:0;text-align:center;font:500 8.5pt Poppins,sans-serif;color:#5a5c55}
+.eb{font:600 6.9pt/1.3 Poppins,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--brown);margin:0 0 6px}
+h1{font:900 23pt/1.06 Fraunces,serif;color:var(--green);margin:0 0 12px;letter-spacing:-.005em}
+h2{font:900 13pt/1.2 Fraunces,serif;color:var(--green);margin:14px 0 6px}
+p{margin:0 0 8px;text-align:justify}
+.lede{border-left:2.5px solid var(--gold);padding:1px 0 1px 12px;margin:0 0 11px;font-style:italic;font-size:10.2pt;line-height:1.42;color:#3a3b35;text-align:left}
+b,strong{font-weight:600}
+.ui{font-style:italic}
+.cap{font:italic 8.1pt/1.38 Lora,serif;color:#4d4f48;text-align:center;margin:5px 4px 10px}
+.fig{margin:8px auto 0;background:#E9ECE6;border-radius:11px;padding:5px;width:fit-content}
+.fig img{display:block;border-radius:8px;width:2.55in}
+.fig.w{}
+.fig.w img{width:3.4in}
+.fig.s img{width:2.2in}
+.fig.xs img{width:1.9in}
+.box{background:var(--box);padding:11px 13px 9px;margin:10px 0}
+.box.top{border-top:2px solid var(--deep)}
+.box.warm{border-top:2px solid var(--gold)}
+.box .eb{margin-bottom:5px}
+.box p{font-size:8.9pt;line-height:1.45;margin-bottom:5px;text-align:left}
+.box p:last-child{margin-bottom:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:10px 0}
+.two .box{margin:0}
+.steps{margin:4px 0 6px;padding:0;list-style:none;counter-reset:s}
+.steps li{display:grid;grid-template-columns:24px 1fr;margin:0 0 7px}
+.steps li::before{counter-increment:s;content:counter(s,decimal-leading-zero);font:600 8.4pt Poppins,sans-serif;color:var(--gold);padding-top:1px}
+.steps b.t{display:block;font:600 8.6pt/1.35 Poppins,sans-serif;color:var(--green)}
+.steps span{display:block;font-size:9pt;line-height:1.42}
+.defs{margin:6px 0 8px;border-collapse:collapse;width:100%}
+.defs td{vertical-align:top;padding:6px 0;border-bottom:1px solid var(--line);font-size:8.9pt;line-height:1.42}
+.defs tr:last-child td{border-bottom:0}
+.defs td:first-child{width:1.45in;padding-right:10px;font:600 8.1pt/1.35 Poppins,sans-serif;color:var(--green)}
+.defs td:first-child small{display:block;font:italic 400 8pt Lora,serif;color:var(--tx2)}
+table.t{width:100%;border-collapse:collapse;margin:6px 0 8px}
+table.t th{font:600 6.6pt/1.3 Poppins,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--green);text-align:left;padding:0 6px 6px 0;border-bottom:1.5px solid var(--rule);vertical-align:bottom}
+table.t td{font-size:8.6pt;line-height:1.38;padding:6px 6px 6px 0;border-bottom:1px solid var(--line);vertical-align:top}
+table.t tr:last-child td{border-bottom:0}
+table.t td.k{font-weight:600}
+.toc{margin-top:4px}
+.toc .sec{font:600 6.9pt Poppins,sans-serif;letter-spacing:.16em;color:var(--brown);margin:13px 0 4px;text-transform:uppercase}
+.toc a{display:flex;justify-content:space-between;color:var(--tx);text-decoration:none;font-size:9.4pt;padding:4px 0;border-bottom:1px solid var(--line)}
+.toc a span:last-child{font:500 8.4pt Poppins,sans-serif}
+.drop::first-letter{float:left;font:900 34pt/.82 Fraunces,serif;color:var(--green);margin:4px 6px 0 0}
+.bul{margin:4px 0 8px;padding:0;list-style:none}
+.bul li{padding-left:12px;position:relative;margin:2px 0;font-size:9.2pt}
+.bul li::before{content:"•";position:absolute;left:0;color:var(--gold)}
+.grid6{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.grid6 .box{margin:0}
+.url{font:600 13pt Poppins,sans-serif;color:var(--deep);margin:2px 0 3px}
+.cover{padding:0;background:#efe6d6}
+.cover img{width:100%;height:100%;object-fit:cover;display:block}
+.back{background:radial-gradient(120% 90% at 50% 40%,#0E4232 0%,#0A3528 60%,#072A20 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#E9E4D6}
+.back .q{font:italic 13pt/1.3 Lora,serif}
+.back hr{width:.55in;border:0;border-top:2px solid var(--gold);margin:14px auto}
+.back p{font-size:9pt;color:#BFD0C6;text-align:center;max-width:3.6in}
+.back .site{margin-top:18px;font:600 8pt Poppins,sans-serif;letter-spacing:.14em;color:#D9B26B}
+.side{display:grid;grid-template-columns:2.2in 1fr;gap:14px;align-items:start}
+.side .fig{margin:0}
+.side p{text-align:left}
+#money table.t td{padding:4.5px 6px 4.5px 0}
+</style>
+</head>
+<body>
+
+<!-- 1 -->
+<section class="pg cover"><img src="cover-src.png" alt="Start Here: The BeFree System. Your quick start guide. The ebook, Gap, Streak."></section>
+
+<!-- 2 contents -->
+<section class="pg">
+  <div class="eb">Inside</div>
+  <h1>Contents</h1>
+  <div class="toc">
+    <div class="sec">Begin</div>
+    <a href="#three"><span>Three pieces, one job</span><span></span></a>
+    <a href="#number"><span>The gap is a number, not a character flaw</span><span></span></a>
+    <a href="#setup"><span>Your first setup</span><span></span></a>
+    <a href="#live"><span>Your figures live in one place only</span><span></span></a>
+    <div class="sec">BeFree Gap</div>
+    <a href="#money"><span>Money and transfers</span><span></span></a>
+    <a href="#reading"><span>Reading your gap</span><span></span></a>
+    <a href="#logging"><span>Logging a spend</span><span></span></a>
+    <a href="#planning"><span>Planning money the moment it arrives</span><span></span></a>
+    <a href="#bills"><span>Bills that enter themselves</span><span></span></a>
+    <a href="#next"><span>What to do next</span><span></span></a>
+    <a href="#ahead"><span>Seeing the next paychecks coming</span><span></span></a>
+    <a href="#varies"><span>When the paycheck is never the same</span><span></span></a>
+    <div class="sec">BeFree Streak</div>
+    <a href="#habit"><span>The habit that keeps it alive</span><span></span></a>
+    <a href="#todos"><span>One-off jobs, and where they live</span><span></span></a>
+    <a href="#rhythm"><span>The weekly rhythm</span><span></span></a>
+    <div class="sec">Reference</div>
+    <a href="#lie"><span>Six ways to make the app lie to you</span><span></span></a>
+    <a href="#wrong"><span>When something looks wrong</span><span></span></a>
+    <a href="#situation"><span>Find your situation</span><span></span></a>
+    <a href="#six"><span>Six things worth knowing</span><span></span></a>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="pg" id="three">
+  <div class="eb">What you have</div>
+  <h1>Three pieces, one job</h1>
+  <p class="lede">The book explains the decisions. Gap keeps the financial record. Streak supports the habits if you find it useful; the financial system can also work with Gap and a calendar.</p>
+  <table class="defs">
+    <tr><td>The book<small>The Anti-Paycheck Trap</small></td><td>Why the gap closes on people who work hard, and what to do about it in order. You read it once, then keep it for reference.</td></tr>
+    <tr><td>The tracker<small>BeFree Gap</small></td><td>Records income, living costs and transfers, shows what is safe to spend until payday, and plans the paychecks ahead. Its suggestions are prompts to check against your own circumstances.</td></tr>
+    <tr><td>The habit<small>BeFree Streak</small></td><td>Supports small daily actions and coming back after a missed day. It is optional; a habit tick does not certify complete financial records.</td></tr>
+  </table>
+  <p>The book sets the target. Gap shows the real number and what is eating it. Streak makes the daily entry a thing you do without deciding.</p>
+  <p>Gap and Streak are two separate apps, each with its own icon on your phone or computer. They do not share data or pass anything between them: Gap holds the money record, Streak holds your habits. Another device, browser or profile keeps its own separate copy of each.</p>
+  <div class="box top">
+    <div class="eb">One responsibility</div>
+    <p>Your records stay on this device unless you export them. Nothing is sent to us, and there is no account to lose. Save a dated backup from each app every week and after setup or major changes. <b>Encrypted backup</b> in Settings locks the file with a passphrase that nobody can recover for you.</p>
+  </div>
+  <div class="pn">3</div>
+</section>
+
+<!-- 4 -->
+<section class="pg" id="number">
+  <div class="eb">Before any screen</div>
+  <h1>The gap is a number,<br>not a character flaw</h1>
+  <p class="lede">The gap is received income less living costs and required debt payments. Savings and extra debt payments assign that gap. A negative result is information, not a personal failing.</p>
+  <p class="drop">Most people never learn their number. They know roughly what they earn and roughly what rent costs, and the space between those two facts stays a feeling instead of a figure. A feeling cannot be widened. A figure can.</p>
+  <h2>The four moves</h2>
+  <p>These four moves describe the work. The next priority depends on your income, necessities, debts and available cash.</p>
+  <table class="defs">
+    <tr><td>01 · Defense<small>Stop the money that leaves without asking</small></td><td>Review avoidable fees, unused subscriptions and costly debt. Savings last only while the change remains in place.</td></tr>
+    <tr><td>02 · Offense<small>Raise the top line</small></td><td>Compare a raise, shift change or bounded income experiment, after costs and time requirements.</td></tr>
+    <tr><td>03 · The gap<small>Protect the space you made</small></td><td>A wider gap spent by the 28th was never a gap. This is exactly what BeFree Gap is built to make visible.</td></tr>
+    <tr><td>04 · Feed it<small>Point the gap somewhere that compounds</small></td><td>A buffer first, then the highest-rate debt, then accounts that grow on their own. Money with no destination gets spent.</td></tr>
+  </table>
+  <div class="box top">
+    <div class="eb">If your gap is negative right now</div>
+    <p>Nothing has gone wrong. You have just finished the hardest part, which is looking. The book has a short section written for exactly this, called <i>When the Math Doesn’t Close</i>, and it comes before everything else.</p>
+  </div>
+  <div class="pn">4</div>
+</section>
+
+<!-- 5 -->
+<section class="pg" id="setup">
+  <div class="eb">Do this tonight</div>
+  <h1>Your first setup</h1>
+  <p class="lede">Work straight down the list. Do not read the book first. The book lands harder once you have seen your own number on a screen.</p>
+  <ol class="steps">
+    <li><div><b class="t">Install Gap and Streak</b><span>Open <b>app.befreeacademy.site</b> on your phone and install Gap, then Streak, from the same page. The installation sheet shows every device.</span></div></li>
+    <li><div><b class="t">Complete Gap’s setup screens</b><span>One paycheck, how often it arrives, and the bills that come whether you like it or not. Guess where you have to. Every figure can be corrected later.</span></div></li>
+    <li><div><b class="t">Look at the number it gives you</b><span><i>Safe to spend</i> sits at the top of the Today screen. It is a starting estimate until all costs are recorded.</span></div></li>
+    <li><div><b class="t">Log one thing you spent today</b><span>Tap <i>Log a purchase</i>. A coffee, gas, groceries. The habit is what matters, not the amount.</span></div></li>
+    <li><div><b class="t">Open Streak and start one habit</b><span>Choose one useful habit if you want support. Mark a day complete only after checking all of its purchases, not after one entry.</span></div></li>
+    <li><div><b class="t">Save a backup from each app</b><span>Settings, then <i>Save a backup file</i>, once in Gap and once in Streak.</span></div></li>
+    <li><div><b class="t">Now open the book</b><span>Start at chapter one. You will recognize your own numbers in it.</span></div></li>
+  </ol>
+  <div class="eb" style="margin-top:10px">What it costs you</div>
+  <table class="t">
+    <tr><th>Task</th><th style="text-align:right">Time</th></tr>
+    <tr><td>Setup, once</td><td style="text-align:right" class="k">about 15 min</td></tr>
+    <tr><td>Logging a spend</td><td style="text-align:right" class="k">under 30 sec</td></tr>
+    <tr><td>Ticking a habit</td><td style="text-align:right" class="k">a few seconds</td></tr>
+    <tr><td>The Sunday review</td><td style="text-align:right" class="k">10 min</td></tr>
+  </table>
+  <div class="pn">5</div>
+</section>
+
+<!-- 6 -->
+<section class="pg">
+  <div class="fig s"><img src="fig/gap-today-hero.png" alt=""></div>
+  <p class="cap">The first thing Gap shows: what is safe to spend until your next payday.</p>
+  <h2 style="margin-top:6px">What good looks like after setup</h2>
+  <ul class="bul">
+    <li>Gap and Streak each have their own icon</li>
+    <li>Gap shows a real number, not a sample one</li>
+    <li>Recurring bills appear under <i>Coming up</i>, waiting to be confirmed</li>
+    <li>One spend is logged</li>
+    <li>One optional habit has a relevant, honest tick</li>
+    <li>Two backup files, one from each app, are saved somewhere safe</li>
+  </ul>
+  <div class="fig w" style="margin-top:2px"><img src="fig/gap-nav.png" alt=""></div>
+  <p class="cap">Four places: Today, Plan, Money (ledger, goals and debts) and Insights.</p>
+  <div class="two">
+    <div class="box"><div class="eb">If you loaded the sample numbers</div><p>The first setup screen offers to <i>show you around with sample numbers</i>. Clear them from Settings with <i>Clear everything and start over</i> before you enter anything real. Sample entries mixed with your own make every average and every suggestion worthless.</p></div>
+    <div class="box"><div class="eb">The mistake almost everyone makes</div><p>Starting too big. Begin with one useful habit and one affordable goal. Add more only when the routine is manageable. Missed days call for a smaller next action, not an invented record.</p></div>
+  </div>
+  <div class="pn">6</div>
+</section>
+
+<!-- 8 -->
+<section class="pg" id="live">
+  <div class="eb">Set up</div>
+  <h1>Your figures live in<br>one place only</h1>
+  <p class="lede">Install Gap and Streak from the installation sheet. Enter real data from the icon you intend to keep using, not a browser tab. Then check your backups.</p>
+  <div class="box top">
+    <div class="eb">Where they live</div>
+    <p>Both apps install from one page, on the phone or computer you will actually use:</p>
+    <div class="url">app.befreeacademy.site</div>
+    <p>The installation sheet in this bundle shows the steps for iPhone, Android, Windows and Mac.</p>
+  </div>
+  <h2>The one rule that protects everything</h2>
+  <p>Each app keeps its record on this device, inside the installed app. Another browser, profile or device has its own separate storage, and the apps do not sync. Keep dated backups. <i>Require a PIN to open</i> hides the screen; it does not encrypt the record.</p>
+  <div class="two">
+    <div class="box"><div class="eb">When data can be lost</div><p>Clearing site data, private browsing, device loss or storage cleanup can remove records. A browser tab can show a separate, empty record. Check the installed app and your backups before clearing anything.</p></div>
+    <div class="box"><div class="eb">Back up every week</div><p>In each app: Settings, <i>Save a backup file</i>. Keep private, dated copies. Restore a Gap file in Gap and a Streak file in Streak. Save the current record first: restoring replaces it.</p></div>
+  </div>
+  <p style="font-size:8.9pt">Open each app once while online, then test opening it with no signal. Updates arrive over the network the next time you are online.</p>
+  <div class="pn">8</div>
+</section>
+
+<!-- 9 -->
+<section class="pg" id="money">
+  <div class="eb">The idea under every screen</div>
+  <h1>Money and transfers</h1>
+  <p class="lede">Get this one distinction right and every screen in Gap reads itself. Get it wrong and the app will quietly give you the wrong advice for months.</p>
+  <table class="t">
+    <tr><th></th><th>Income</th><th>Fixed</th><th>Variable</th></tr>
+    <tr><td class="k">What it is</td><td>Money arriving</td><td>Recurring bills</td><td>Other spending</td></tr>
+    <tr><td class="k">Examples</td><td>Paycheck, tips, freelance receipts</td><td>Rent, phone, insurance, the car payment, card minimums</td><td>Groceries, gas, takeout, that thing on the way home</td></tr>
+    <tr><td class="k">Behavior</td><td>Anything that lands in your hands</td><td>Recurring; the amount may change</td><td>Can be essential or optional</td></tr>
+  </table>
+  <p>Gap = received income − living costs − required debt payments. A <b>transfer</b> moves or assigns money: savings, tax reserves, funds and extra debt. Paying off a card does not count a recorded purchase twice.</p>
+  <div class="two">
+    <div class="box"><div class="eb">Fixed means recurring</div><p>A utility bill may change amount and still belong under Fixed. Groceries are usually Variable. Essential versus optional is a separate decision.</p></div>
+    <div class="box"><div class="eb">A second axis, and it is not the same one</div><p>Gap also asks whether a category is <i>essential</i> or <i>optional</i>. Groceries vary but are essential; a streaming plan is fixed but optional. The until-payday figure and the suggestions run on that second answer.</p></div>
+  </div>
+  <div class="eb" style="margin-top:0">Which is which</div>
+  <table class="t">
+    <tr><td>Rent, mortgage</td><td class="k">Fixed</td><td>Extra card payment</td><td class="k">Transfer</td></tr>
+    <tr><td>Groceries</td><td class="k">Variable</td><td>Money set aside for tax</td><td class="k">Transfer</td></tr>
+    <tr><td>Electric bill</td><td class="k">Fixed</td><td>Gas for the car</td><td class="k">Variable</td></tr>
+    <tr><td>Card minimum</td><td class="k">Fixed</td><td>Savings contribution</td><td class="k">Transfer</td></tr>
+  </table>
+  <div class="box warm">
+    <div class="eb">Savings and tax reserves are transfers</div>
+    <p>These transfers assign the gap; they do not reduce income or create another expense. Protect assigned money before choosing what remains available to spend.</p>
+  </div>
+  <div class="pn">9</div>
+</section>
+
+<!-- 11 -->
+<section class="pg" id="reading">
+  <div class="eb">The screen you will see most</div>
+  <h1>Reading your gap</h1>
+  <p class="lede">Everything else in Gap is a way of explaining this one number.</p>
+  <div class="side">
+    <div class="fig xs" style="margin:0"><img src="fig/gap-where-you-stand.png" alt=""></div>
+    <div>
+      <p>Open <b>Insights</b>. <i>Where you stand</i> sits at the top. The green bar is everything that came in. The bar below it is everything that went out: gold for fixed bills, orange for variable spending. What is left over, in olive, is your surplus, and that is your gap.</p>
+      <p>Both bars are drawn to the same scale, so the picture is honest. When money out passes money in, the shortfall shows hatched and the number turns red. Beneath the number sits the change against last month.</p>
+    </div>
+  </div>
+  <p style="margin-top:10px">The chips underneath change what every card on the screen is counting: this month, the last 30 days, the last 90, the last 12 months, all time. Read the gap in <i>This month</i> during the month, because that is the number you can still change. Read it in <i>Last 90 days</i> on a Sunday, because that is the one that says whether anything is improving.</p>
+  <div class="pn">11</div>
+</section>
+
+<!-- 12 -->
+<section class="pg">
+  <div class="fig w"><img src="fig/gap-tiles.png" alt=""></div>
+  <p class="cap">Money in, fixed and variable, each with its share of income and how much of it is essential.</p>
+  <p>The tiles summarize recorded income and spending. An essential-cost share is context, not a universal pass/fail threshold. High housing, childcare or health costs may require income, benefits or major-cost changes. Check actual obligations before deciding what can be reduced. Historical charts show recorded amounts even when a month is incomplete; forecasts use reviewed months.</p>
+  <h2>Pace check, and what it answers</h2>
+  <div class="fig"><img src="fig/gap-pace.png" alt=""></div>
+  <p class="cap">This month’s variable spending against a typical month, with where this pace lands.</p>
+  <div class="pn">12</div>
+</section>
+
+<!-- 13 -->
+<section class="pg">
+  <p>One question: is your variable spending running faster than the month itself? The solid line is what you have spent so far. The dashed line is a typical month. If you are under the dashed line you are winning. The dotted line projects where the month lands if nothing changes, and it arrives on the 12th rather than the 30th, which is the whole point of it.</p>
+  <div class="box">
+    <div class="eb">Where typical comes from</div>
+    <p>Typical uses complete months you have reviewed. Historical charts still show unreviewed records and may be incomplete. No entries does not mean zero spending.</p>
+  </div>
+  <div class="fig"><img src="fig/gap-available.png" alt=""></div>
+  <p class="cap">Available until payday protects recorded bills, essentials, buffer, funds, card purchases and tax needs. Update checking and review missing obligations first.</p>
+  <div class="pn">13</div>
+</section>
+
+<!-- 14 -->
+<section class="pg" id="logging">
+  <div class="eb">Record what happened</div>
+  <h1>Logging a spend</h1>
+  <p class="lede">The round + button, or <i>Log a purchase</i> on Today, is the whole app. Everything else is decoration on top of what you put through it.</p>
+  <div class="side">
+    <div class="fig xs" style="margin:0"><img src="fig/gap-log-sheet.png" alt=""></div>
+    <ol class="steps" style="margin:0">
+      <li><div><b class="t">Tap the amount</b><span>The keypad is built into the sheet. It skips the system keyboard, and decimals only if you want them.</span></div></li>
+      <li><div><b class="t">Pick a category</b><span>Your most used ones come first. <i>All categories</i> shows the rest.</span></div></li>
+      <li><div><b class="t">Add it</b><span>Today’s numbers redraw behind you. Logged the wrong thing? Tap <i>Undo</i> in the bar that appears.</span></div></li>
+      <li><div><b class="t">Need more?</b><span><i>More options</i> sets the type, date, note and payment source. Pick the card for card purchases; paying the card later is a separate transfer.</span></div></li>
+    </ol>
+  </div>
+  <div class="two">
+    <div class="box"><div class="eb">Log it the day it happens</div><p>Not the day it clears your bank. A card swipe on Friday that posts on Monday belongs to Friday, because Friday is the day the decision was made.</p></div>
+    <div class="box"><div class="eb">Fixing a guess</div><p>Tap an entry in Money, Ledger to edit it. After a correction to an old month, update checking and debt again and review that month. Saved figures must agree with statements.</p></div>
+  </div>
+  <div class="pn">14</div>
+</section>
+
+<!-- 15 -->
+<section class="pg">
+  <div class="box top" style="margin-top:0">
+    <div class="eb">Two things on that sheet worth knowing</div>
+    <p><b>This is a refund.</b> Money back on something you bought. It lowers spending in that category instead of counting as income, which keeps your income line honest.</p>
+    <p><b>Planned, not done.</b> An entry you have not confirmed yet waits under <i>Coming up</i>. Gap treats it as still owed until you say it happened.</p>
+  </div>
+  <div class="box">
+    <div class="eb">Bank files, when you fall behind</div>
+    <p>Money, Ledger, <i>Import a bank file</i> reads the CSV or OFX/QFX file your bank lets you download (Chase, Bank of America, Wells Fargo, Capital One and most others). Gap suggests a category for each line and skips entries you have already logged. Nothing connects to your bank: you download the file, and it never leaves your device.</p>
+  </div>
+  <div class="fig s"><img src="fig/gap-coming-up.png" alt=""></div>
+  <p class="cap">Coming up on Today: planned bills and paychecks wait here until you confirm or skip them.</p>
+  <div class="pn">15</div>
+</section>
+
+<!-- 16 -->
+<section class="pg" id="planning">
+  <div class="eb">The most important screen in the app</div>
+  <h1>Planning money the<br>moment it arrives</h1>
+  <p class="lede">The split asks where the protected available amount should go. Confirm a current checking balance and the obligations before payday; do not automatically divide the whole deposit.</p>
+  <div class="side">
+    <div class="fig xs" style="margin:0"><img src="fig/gap-split.png" alt=""></div>
+    <div>
+      <p>Where is this money going? Not next week, when it has already gone somewhere. Now, in the eleven seconds after it arrived.</p>
+      <p>When you confirm a paycheck and you have a goal or a debt, Gap offers this split. Drag the two marks; the bar and the three rows update as you move them. If Gap is missing today’s balance or your bills, it asks for those first.</p>
+    </div>
+  </div>
+  <table class="defs" style="margin-top:10px">
+    <tr><td>Into a goal or fund</td><td>Choose a goal or fund. A planned transfer counts as saved only after you confirm it happened.</td></tr>
+    <tr><td>Extra on a debt</td><td>The list is already ordered by whichever payoff method you chose, so the top option is the one costing you most.</td></tr>
+    <tr><td>Unassigned choice</td><td>An optional amount left unassigned. Choose zero when necessities or urgent obligations need it.</td></tr>
+  </table>
+  <div class="pn">16</div>
+</section>
+
+<!-- 17 -->
+<section class="pg">
+  <div class="two" style="margin-top:0">
+    <div class="box"><div class="eb">Planned until you say otherwise</div><p>Leave <i>I’ve already moved this money</i> unticked and the shares wait under <i>Coming up</i> until you confirm them. Tick it once the transfers are actually done. The app records what happened; your bank decides what happens.</p></div>
+    <div class="box"><div class="eb">Your split is remembered</div><p>The percentages are editable examples, not requirements. Review them when income or obligations change. Protect essentials and urgent bills first.</p></div>
+  </div>
+  <div class="box warm">
+    <div class="eb">Leave it switched on</div>
+    <p>The split is optional. Keep transfers planned until money moves, then confirm the existing entry. Do not add a second completed copy of the same transfer.</p>
+  </div>
+  <div class="eb" style="margin-top:12px">Avalanche or snowball</div>
+  <p>Money, Debts asks you once to pick <i>Highest rate first</i> (costs least) or <i>Smallest first</i> (closes an account sooner), and every screen follows it, including this one. The debt list is ordered the same way. The worst choice is spreading spare money evenly across all of them.</p>
+  <div class="box top">
+    <div class="eb">The order that works</div>
+    <p>Protect necessities and urgent payments. Build an affordable starter cushion. Review employer match, vesting and affordability alongside costly debt. Then expand reserves and long-term investing as circumstances allow.</p>
+  </div>
+  <div class="pn">17</div>
+</section>
+
+<!-- 18 -->
+<section class="pg" id="bills">
+  <div class="eb">Plan, then confirm</div>
+  <h1>Bills that enter<br>themselves</h1>
+  <p class="lede">A repeat is a planned bill or paycheck. It appears on the expected date, but it does not enter completed totals until you confirm the amount and that it happened.</p>
+  <div class="side">
+    <div class="fig xs" style="margin:0"><img src="fig/gap-repeats.png" alt=""></div>
+    <div>
+      <p>Without repeats your gap looks enormous on the 2nd and terrible on the 15th, because rent has not been typed in yet, and neither figure has ever been true.</p>
+      <p>Setup builds these from the bills you filled in. Anything you missed is added in Money, Ledger, under <i>Paychecks and bills that repeat</i>. Each line shows the day, the amount and a switch. Tap a line to edit it.</p>
+      <p>On the Today screen each one waits under <i>Coming up</i> with <i>Paid</i> and <i>Skip</i>.</p>
+    </div>
+  </div>
+  <p style="margin-top:10px">If an amount moves a little each month, put in the typical figure and correct the entry when the real bill arrives. A repeat that is twenty dollars off beats a bill that is missing entirely. Switching a repeat off stops future entries without deleting the history.</p>
+  <div class="pn">18</div>
+</section>
+
+<!-- 19 -->
+<section class="pg">
+  <div class="box warm" style="margin-top:0">
+    <div class="eb">Careful here</div>
+    <p>A repeat records a bill. It does not pay one. Nothing in either app moves money. Set the autopay at your bank, then confirm it here.</p>
+  </div>
+  <div class="eb" style="margin-top:12px">Sinking funds, for the bills that are not monthly</div>
+  <p>For a predictable bill that is not monthly, create a sinking fund in Money, Goals with its target, current balance and due date. Gap works out the set-aside per paycheck. Confirm real transfers with <i>Set aside</i> and record withdrawals with <i>Pay from it</i>; a plan does not prove the money is already there.</p>
+  <div class="fig"><img src="fig/gap-funds.png" alt=""></div>
+  <p class="cap">A fund knows its own due date, so it can tell you when it is behind.</p>
+  <div class="pn">19</div>
+</section>
+
+<!-- 20 -->
+<section class="pg" id="next">
+  <div class="eb">The screen that does the thinking</div>
+  <h1>What to do next</h1>
+  <p class="lede">Your next best step organizes prompts from the figures you enter. Read the assumptions and compare them with your current situation. Missing records can change the suggestion.</p>
+  <div class="side">
+    <div class="fig xs" style="margin:0"><img src="fig/gap-next-step.png" alt=""></div>
+    <div>
+      <p>It sits on the Today screen: one suggestion at a time, with the arithmetic behind it and a button that acts on it.</p>
+      <p>The order is deliberate: what is <i>urgent</i> first, then what the move is <i>worth over a year</i>, then how <i>hard</i> it is. Ten pieces of advice at once is the same as none, so the card shows one and keeps the rest behind <i>more</i>.</p>
+    </div>
+  </div>
+  <p style="margin-top:10px">Prompts can flag debt interest, changing spending, estimated tax-reserve shortfalls, funds and buffer coverage. A reserve estimate is not a tax bill. Verify the underlying records and the practical consequences before acting.</p>
+  <div class="fig w"><img src="fig/gap-money-check.png" alt=""></div>
+  <p class="cap">Today’s money check: the two-minute version, for a day when you are not reading anything.</p>
+  <div class="box top">
+    <div class="eb">Turn advice into a to-do</div>
+    <p>A call you meant to make lives better on a list with a due date than in your head. When a suggestion means a one-off job, such as calling about a rate, add it to <i>Money to-dos</i> in Streak. It takes ten seconds and the two apps stay separate.</p>
+  </div>
+  <div class="pn">20</div>
+</section>
+
+<!-- 22 -->
+<section class="pg" id="ahead">
+  <div class="eb">The Plan tab</div>
+  <h1>Seeing the next<br>paychecks coming</h1>
+  <p class="lede">Most money trouble is a timing problem. Plan lays out the next few paychecks and which bills each one has to cover.</p>
+  <div class="side">
+    <div class="fig xs" style="margin:0"><img src="fig/gap-plan-pay.png" alt=""></div>
+    <div>
+      <p><b>Paychecks ahead.</b> Each paycheck, the scheduled bills due before the next one, and what is left. A short line here is a warning weeks in advance, not on the morning rent is due.</p>
+      <p><b>Extra paychecks.</b> Paid every two weeks? Two months a year bring a third paycheck. Plan names them, so the extra money gets a job before it arrives.</p>
+    </div>
+  </div>
+  <p style="margin-top:10px"><b>Bill calendar.</b> Every bill and payday on a month grid. <i>Add the next 12 months to my calendar</i> saves a calendar file that Apple Calendar, Google Calendar and Outlook can import, with a reminder the day before each bill. Amounts are left out unless you choose to include them.</p>
+  <div class="pn">22</div>
+</section>
+
+<!-- 23 -->
+<section class="pg">
+  <table class="defs">
+    <tr><td>Estimated taxes<small>Form 1040-ES</small></td><td>For freelance, gig or other income with no tax withheld. Turn on the tax reserve to see each quarterly due date, moved to the next business day when it falls on a weekend or holiday, and what to set aside.</td></tr>
+    <tr><td>Employer 401(k) match</td><td>Enter your pay, what you put in and your employer’s formula. Plan shows the match you get and any you leave on the table each year.</td></tr>
+    <tr><td>Mileage log</td><td>For gig driving, deliveries or other work trips: date, miles, destination and business purpose, the details the IRS asks for, with a spreadsheet export.</td></tr>
+    <tr><td>Pay later plans</td><td>In Money, Debts, a <i>Pay later</i> purchase records each installment as a scheduled bill, so four small payments stop hiding inside one checkout.</td></tr>
+    <tr><td>Credit card use</td><td>Add each card’s limit and statement day to see how much of your available credit you are using. General information, not a score prediction.</td></tr>
+  </table>
+  <div class="side" style="grid-template-columns:1.75in 1fr;margin-top:8px">
+    <div class="fig xs" style="margin:0"><img src="fig/gap-plan-cal.png" alt="" style="width:1.65in"></div>
+    <div><p class="cap" style="text-align:left;margin-top:0">The bill calendar: dots mark bills and paydays; tap a day to see what is due.</p>
+  <div class="box" style="margin-top:6px">
+    <div class="eb">Check the rules each year</div>
+    <p>Due dates, mileage rates and plan limits change. Confirm current figures at irs.gov and with your plan administrator. Estimates are not tax or investment advice.</p>
+  </div></div></div>
+  <div class="pn">23</div>
+</section>
+
+<!-- 24 -->
+<section class="pg" id="varies">
+  <div class="eb">For tips, gigs and shifts</div>
+  <h1>When the paycheck<br>is never the same</h1>
+  <p class="lede">Standard budgeting assumes a number that arrives on the same day for the same amount. If your income moves week to week, that advice does not fail you slowly. It fails you immediately.</p>
+  <p>In Gap, open Settings, <i>Pay schedule</i>, and tick <i>My paycheck amount changes</i>. From then on every forecast is built from your lowest recent paycheck rather than the average, and an <i>Income that varies</i> panel appears on Insights. If you told setup your pay moves, it is already on.</p>
+  <table class="defs">
+    <tr><td>Your baseline week</td><td>Annual essential costs divided by 52. Include required payments and predictable non-monthly costs. Compare with a lean month of actual receipts. If receipts are below essentials, seek income or support rather than calling the shortfall a spending allowance.</td></tr>
+    <tr><td>This week runs on last week</td><td>Spend the money you earned two weeks ago, not the money you are earning now. Getting one week ahead is the hardest part, and it changes everything after.</td></tr>
+    <tr><td>The tax reserve</td><td>Log side receipts and business costs separately. Set a tax-reserve rate in Plan, Estimated taxes; 25% is an example. Transfers reserve cash. Paying tax from it needs a transfer back plus an <i>Estimated income tax</i> expense.</td></tr>
+  </table>
+  <div class="box warm">
+    <div class="eb">The trap this exists to break</div>
+    <p>A good week feels like a raise, so it gets spent like one. A bad week feels like a crisis, so it gets covered with a card. Over a year the weeks roughly cancel out, but the spending and the interest do not.</p>
+  </div>
+  <p class="cap" style="text-align:left;margin-top:4px">BeFree Academy does not provide tax advice, and an accountant will give you a better number than any app can.</p>
+  <div class="pn">24</div>
+</section>
+
+<!-- 26 -->
+<section class="pg" id="habit">
+  <div class="eb">The quiet one</div>
+  <h1>The habit that keeps it<br>alive</h1>
+  <p class="lede">A workable routine helps you return to the record. Financial shortfalls can also come from inadequate income, illness or unavoidable costs. Streak supports habits; it cannot remove those constraints.</p>
+  <p class="drop">BeFree Gap is only as good as the entries in it, and the entries only exist if you keep making them on days when nothing feels urgent. That is a habit problem, not a money problem, and it needs its own tool.</p>
+  <p>Streak puts <i>did I do the thing</i> on a screen every day and makes the unbroken run visible enough to be worth protecting. It opens with a library of money habits rather than a blank page: <i>Log today’s spending</i> sits at the top, because every chart in Gap is downstream of whether you logged yesterday. Start that one.</p>
+  <div class="box top">
+    <div class="eb">Name a habit as an action</div>
+    <p><i>Log today’s spending</i> works because you either did or you did not. <i>Be better with money</i> cannot be ticked, which means it cannot be a habit.</p>
+  </div>
+  <div class="side">
+    <div class="fig xs" style="margin:0"><img src="fig/streak-today.png" alt=""></div>
+    <div>
+      <p class="cap" style="text-align:left;margin-top:0">The date, the run, and one row per habit due today.</p>
+      <p>A small version supports continuity: <i>I did the small version</i> keeps the day without pretending it was a full one. It does not certify that all spending is recorded; mark a day complete only after checking the whole day.</p>
+      <p>A day you mark as no-spend ticks <i>Log today’s spending</i> by itself. Streak does not read Gap, so everything else you tick yourself.</p>
+    </div>
+  </div>
+
+  <div class="pn">26</div>
+</section>
+
+<!-- 27 -->
+<section class="pg">
+  <div class="eb" style="margin-top:0">The three rules that govern a run</div>
+  <table class="defs">
+    <tr><td>All of it, or none of it</td><td>The all-habits streak counts a day when every due habit is done. The 30-day rate also shows partial progress.</td></tr>
+    <tr><td>A rest day is invisible</td><td>A day with nothing scheduled is skipped entirely. A habit set to weekdays keeps its run alive across every weekend.</td></tr>
+    <tr><td>Today stays open</td><td>An unfinished today never breaks the run. The day is judged only once it has passed.</td></tr>
+  </table>
+  <div class="two">
+    <div class="box"><div class="eb">One habit. Not five.</div><p>Five habits means five chances to break the day, and a broken day breaks the run. Start with one, add a second only after a month of clean days, and never run more than four. A low completion rate is rarely a discipline problem. It is a design problem, and the fix is fewer habits.</p></div>
+    <div class="box"><div class="eb">When you break it</div><p>You will lose a run. Check the month grid in Progress first, because sometimes you did the thing and forgot to tick it, and backfilling is honest. Then look at <i>Coming back</i>, and start again today rather than on Monday. A run of 1 beats a plan to begin later.</p></div>
+  </div>
+  <div class="eb" style="margin-top:14px">Challenges, when you want a push</div>
+  <div class="side" style="grid-template-columns:2.3in 1fr">
+    <div class="fig xs" style="margin:0"><img src="fig/streak-challenges.png" alt="" style="width:2.2in"></div>
+    <p>The Challenges tab offers short, dated runs: a 30-day money reset any time, and seasonal ones such as a New Year reset, tax season, back-to-school and No-Spend November. Joining one adds its habits for that window only. <i>Share</i> on the Today card makes an image of your run, with no money figures in it.</p>
+  </div>
+  <div class="pn">27</div>
+</section>
+
+<!-- 29 -->
+<section class="pg" id="todos">
+  <div class="eb">The other list</div>
+  <h1>One-off jobs, and where<br>they live</h1>
+  <p class="lede">Not everything is a habit. Some money jobs are done once and then gone.</p>
+  <p>Cancel a subscription. Call about a rate. Set up an autopay. Ask for the self-pay discount on a bill. These have no rhythm, so putting them among your habits would only break a run you were keeping honestly.</p>
+  <p>Streak keeps them apart, under <i>Money to-dos</i>. A to-do can have no date, a date, or <i>Before payday</i>. And it has a field most to-do lists never think to ask for: <b>what it is worth per year</b>.</p>
+  <div class="fig"><img src="fig/streak-todos.png" alt=""></div>
+  <p class="cap">One-time jobs, with ready-made ideas to start from.</p>
+  <div class="box">
+    <div class="eb">Why the yearly figure matters</div>
+    <p>A $16 monthly subscription suggests $192 a year if the cancellation lasts. Done to-dos add up their yearly figures. A completed task is not proof of that saving: confirm the actual cost change in Gap and review the result later.</p>
+  </div>
+  <div class="pn">29</div>
+</section>
+
+<!-- 30 -->
+<section class="pg" id="rhythm">
+  <div class="eb">Running it</div>
+  <h1>The weekly rhythm</h1>
+  <p class="lede">Daily logging, weekly review and monthly reconciliation all take time. Start with a routine you can maintain and adjust it as your needs change.</p>
+  <table class="t">
+    <tr><th>Every day · 30 sec</th><th>Every Sunday · 10 min</th><th>First of the month · 5 min</th></tr>
+    <tr><td>Log what you spent, as it happens</td><td>Read Pace check</td><td>Check the repeats that posted</td></tr>
+    <tr><td>Plan any money that arrived</td><td>Read the suggestion and act on one</td><td>Close last month in Insights</td></tr>
+    <tr><td>Tick the habit in Streak</td><td>Glance at the 12-week bars</td><td>Save a backup from each app</td></tr>
+  </table>
+  <div class="fig"><img src="fig/streak-12weeks.png" alt=""></div>
+  <p class="cap">Twelve weeks of completion rate, in Streak’s Progress tab. This is the chart that tells you the truth.</p>
+  <p>Tall bars with one short one in the middle is a person with a system and a bad week. A slow slide down the right-hand side is a system quietly dying, visible weeks before you would have noticed. Two missed days in a month is a 93% completion rate, which is a working system with a normal life attached to it.</p>
+  <div class="pn">30</div>
+</section>
+
+<!-- 31 -->
+<section class="pg">
+  <div class="eb">The ten-minute Sunday, in order</div>
+  <ol class="steps">
+    <li><div><b class="t">Set the range to Last 90 days</b><span>In Insights. You are looking for the shape of your life, not the last four days of it. One month is weather.</span></div></li>
+    <li><div><b class="t">Read the gap and the direction</b><span>Wider or narrower than last month? That single comparison is the score.</span></div></li>
+    <li><div><b class="t">Read Pace check</b><span>If this month is running above the typical line you have days to correct it. On the 30th you would have none.</span></div></li>
+    <li><div><b class="t">Read the suggestion, then choose exactly one</b><span>Cancel one subscription. Move $50 to the target debt. Hold one category for a week. One.</span></div></li>
+    <li><div><b class="t">Do it now, not later</b><span>The suggestion has a button on it for a reason. Nothing that gets deferred to Wednesday happens on Wednesday.</span></div></li>
+    <li><div><b class="t">Answer the three questions in Streak</b><span><i>Do this week’s review</i>: what worked, what got in the way, one adjustment. Two minutes is plenty.</span></div></li>
+    <li><div><b class="t">Read the 12-week bars</b><span>Rising, flat or sliding. If it is sliding, cut a habit rather than promising yourself more effort.</span></div></li>
+  </ol>
+  <div class="box">
+    <div class="eb">What the whole thing costs</div>
+    <p>Ten minutes a week is about 8.7 hours a year. Daily logging, monthly reconciliation and occasional corrections take additional time.</p>
+  </div>
+  <div class="pn">31</div>
+</section>
+
+<!-- 32 -->
+<section class="pg">
+  <h2 style="margin-top:0">What the first ninety days feel like</h2>
+  <table class="defs">
+    <tr><td>Month one</td><td><b>Log everything. Judge nothing.</b> You are taking a baseline, and you cannot improve a number you have not measured once. Pace check and the projections stay quiet until they have a reviewed month behind them.</td></tr>
+    <tr><td>Month two</td><td><b>One change, held.</b> Suggestions start naming your actual categories. This is the month most people quit, and also the month the tool becomes worth having.</td></tr>
+    <tr><td>Month three</td><td><b>Now the trends mean something.</b> Typical runs on your reviewed months, so typical becomes yours. Set a real goal with a date and point your split at it.</td></tr>
+  </table>
+  <div class="box top">
+    <div class="eb">If week six feels like a chore</div>
+    <p>After missed weeks, update current balances, unpaid bills and the next payday first. Keep earlier records and leave missing months unreviewed. Reconstruct a bounded period from a bank file when needed; do not invent entries to repair a streak.</p>
+  </div>
+  <div class="pn">32</div>
+</section>
+
+<!-- 33 -->
+<section class="pg" id="lie">
+  <div class="eb">Read this twice</div>
+  <h1>Six ways to make<br>the app lie to you</h1>
+  <p class="lede">Gap is only ever as accurate as what you feed it. Every one of these produces a number that looks perfectly plausible and is completely wrong.</p>
+  <div class="grid6">
+    <div class="box"><div class="eb">Logging transfers as income</div><p>Moving $200 from savings to checking is not income. Log it as a transfer, and only count money entering your household from outside it.</p></div>
+    <div class="box"><div class="eb">Skipping the small ones</div><p>A $4 coffee feels beneath recording. Forty of them is $160, which is most of a utility bill.</p></div>
+    <div class="box"><div class="eb">Confusing fixed with constant</div><p>A recurring utility bill can be Fixed even when its amount changes. Update the planned amount, confirm the real payment and mark whether it is essential.</p></div>
+    <div class="box"><div class="eb">Logging the day it cleared</div><p>Use the date the money was spent. Otherwise your charts describe your bank’s processing schedule.</p></div>
+    <div class="box"><div class="eb">Judging a category from one month</div><p>One dentist visit does not mean you have a healthcare problem. Switch to <i>Last 90 days</i> before you conclude anything.</p></div>
+    <div class="box"><div class="eb">Never setting up repeats</div><p>The most common of all, and the single biggest source of a misleading gap. The app raises it as a suggestion on its own.</p></div>
+  </div>
+  <div class="pn">33</div>
+</section>
+
+<!-- 34 -->
+<section class="pg" id="wrong">
+  <div class="eb">Reference</div>
+  <h1>When something looks<br>wrong</h1>
+  <table class="t">
+    <tr><th>What you are seeing</th><th>Why</th><th>The fix</th></tr>
+    <tr><td>Everything is gone</td><td>Site data was cleared, or you opened the app somewhere else</td><td>Check the installed app on the original device first. Then restore a dated backup.</td></tr>
+    <tr><td>Entries vanish when I close the tab</td><td>You are in private mode, which keeps nothing</td><td>Open the installed app from your home screen instead</td></tr>
+    <tr><td>The gap looks far too big early in the month</td><td>Bills that have not been entered yet</td><td>Set up repeats in Money, Ledger</td></tr>
+    <tr><td>The gap looks far too small</td><td>A transfer logged as spending, or one large purchase</td><td>In Money, Ledger, sort by <i>Largest</i> and check the top few lines</td></tr>
+    <tr><td>My run reset and I did not miss a day</td><td>One habit due that day was not ticked</td><td>Backfill it in the month grid, then run fewer habits</td></tr>
+    <tr><td>Two devices show different numbers</td><td>There is no sync. Each device keeps its own record</td><td>Pick one device as the real one and restore a backup onto it</td></tr>
+    <tr><td>A habit did not tick itself</td><td>Streak does not read Gap; only a no-spend day ticks <i>Log today’s spending</i></td><td>Tick it yourself in Streak. It takes a second.</td></tr>
+  </table>
+  <div class="pn">34</div>
+</section>
+
+<!-- 35 -->
+<section class="pg" id="situation">
+  <div class="eb">Where to go next</div>
+  <h1>Find your situation</h1>
+  <p class="lede">The apps tell you what is happening. The book tells you why, and what the sequence out of it looks like. Find the row that sounds like you.</p>
+  <table class="t">
+    <tr><th style="width:50%">In the apps</th><th>What the book takes further</th></tr>
+    <tr><td><b>A recurring gap is negative.</b> Check essentials, income, timing and required payments before choosing the next action.</td><td>When the Math Doesn’t Close, then defense before offense, and how to attack a fixed bill that feels immovable.</td></tr>
+    <tr><td><b>Income moves week to week.</b> Tick <i>My paycheck amount changes</i>. Learn your baseline week and get one week ahead.</td><td>Appendix B, written for variable income, and why standard advice fails you.</td></tr>
+    <tr><td><b>Interest is eating the progress.</b> Money, Debts. Run the simulator at $50 and $100, then point your split at the target.</td><td>Where debt sits in the order of operations, what to attack first, and the minimum payment that does not cover its own interest.</td></tr>
+    <tr><td><b>You keep money and then it disappears.</b> Name a goal and let the split credit it the moment income arrives.</td><td>Why unnamed money gets spent, and the buffer that comes before everything.</td></tr>
+    <tr><td><b>Money comes in with no tax withheld.</b> Plan, Estimated taxes. Turn on the reserve and set your rate.</td><td>Self-employment income in the United States, and the credits people miss.</td></tr>
+    <tr><td><b>The gap is healthy and doing nothing.</b> Plan, Employer 401(k) match, then Money, Goals.</td><td>Employer matches, retirement accounts, and the order that compounds.</td></tr>
+  </table>
+  <div class="pn">35</div>
+</section>
+
+<!-- 36 -->
+<section class="pg" id="six">
+  <div class="eb">The rest of the app</div>
+  <h1>Six things worth<br>knowing</h1>
+  <p class="lede">Everything in the first pages is the daily loop. These six are the parts you will meet later, once the record has something in it.</p>
+  <div class="grid6">
+    <div class="box"><div class="eb">Guides on a category</div><p>In Insights, <i>Where it goes</i> prints a monthly guide beside groceries, dining out, gas, shopping and entertainment, and flags one running hot before the month ends. Guides are common starting points, not verdicts.</p></div>
+    <div class="box"><div class="eb">Owed to you</div><p>Money you lent is not spending and it is not a debt. It sits at the foot of Money, Debts, outside the gap, so it stops making your month look worse and you stop forgetting it exists.</p></div>
+    <div class="box"><div class="eb">Saved over time</div><p>The chart at the top of Money, Goals shows net transfers and withdrawals for goals and funds. Money held for future bills is not an investment. Goal dates use each goal’s own transfers in reviewed months.</p></div>
+    <div class="box"><div class="eb">Biggest movers</div><p>In Insights, the categories that changed most against the month before, largest first. Read it on a Sunday: it names the thing to look at without you hunting through twenty lines.</p></div>
+    <div class="box"><div class="eb">Export and print</div><p>Settings holds a backup file that restores everything, an encrypted version of it, a spreadsheet (CSV) for an accountant, and <i>Print this month</i>. The backup is the one that matters. Use it.</p></div>
+    <div class="box"><div class="eb">The colors in the bar</div><p>In <i>Where you stand</i>, money out is split where the fixed bills end and the variable spending begins. One you change with a phone call. The other you change a hundred small times.</p></div>
+  </div>
+  <div class="pn">36</div>
+</section>
+
+<!-- back -->
+<section class="pg back">
+  <div class="q">The gap is a number,<br>not a character flaw.</div>
+  <hr>
+  <p>Nothing here needs to be memorized. Keep this file on your phone and come back to the page you need.</p>
+  <div class="site">APP.BEFREEACADEMY.SITE</div>
+</section>
+
+<script>
+/* page numbers in the contents come from the actual page each section starts on */
+const pages=[...document.querySelectorAll('.pg')];
+document.querySelectorAll('.toc a').forEach(a=>{const s=document.querySelector(a.getAttribute('href'));if(s)a.lastElementChild.textContent=pages.indexOf(s)+1});
+pages.forEach((p,i)=>{const n=p.querySelector('.pn');if(n)n.textContent=i+1});
+</script>
+</body>
+</html>

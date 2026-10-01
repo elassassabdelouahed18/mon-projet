@@ -1,6 +1,6 @@
 THE ANTI-PAYCHECK TRAP · revised third edition
 
-  The-Anti-Paycheck-Trap.pdf   the finished book, 185 pages
+  The-Anti-Paycheck-Trap.pdf   the finished book, 189 pages
 
 HOW IT IS BUILT
   src/original.html   the third-edition source as supplied, never edited
@@ -9,9 +9,11 @@ HOW IT IS BUILT
                       for amounts, a colour-blind-checked data palette, recap
                       cards, "In the app" panels
   src/ed_*.py         every text and figure change, as named steps that each
-                      must match exactly once (a stale edit stops the build)
+                      must match exactly once (a stale edit stops the build);
+                      ed_widen.py holds the widening stage (Chapter 16)
   src/model/          the Marcus and Maya model behind every persona figure
-                      (node financial-model.cjs; MONTHS=48 runs it on)
+                      (node financial-model.cjs; MONTHS=48 runs it on), and
+                      widening-levers.py, the arithmetic behind Chapter 16
   src/shots.cjs       the three Gap screens taken for this book; the rest come
                       from ../start-here/fig
 

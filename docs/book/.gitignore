@@ -1,0 +1,6 @@
+# build products (python3 src/build.py regenerates them)
+src/book.html
+src/The-Anti-Paycheck-Trap.pdf
+src/cover3e.jpg
+src/shots/*.jpg
+src/__pycache__/

@@ -1,0 +1,208 @@
+/* ==========================================================================
+   BeFree — design system, measured from the Second Edition
+   Legibility floor: no type below 7.6pt, no contrast below 7.8:1
+   ========================================================================== */
+@font-face{font-family:Fraunces;src:url(fonts/fraunces-latin-900-normal.woff2) format("woff2");font-weight:900}
+@font-face{font-family:Lora;src:url(fonts/lora-latin-400-normal.woff2) format("woff2");font-weight:400;font-style:normal}
+@font-face{font-family:Lora;src:url(fonts/lora-latin-400-italic.woff2) format("woff2");font-weight:400;font-style:italic}
+@font-face{font-family:Lora;src:url(fonts/lora-latin-600-normal.woff2) format("woff2");font-weight:600}
+@font-face{font-family:Lora;src:url(fonts/lora-latin-700-normal.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Lora;src:url(fonts/lora-latin-700-italic.woff2) format("woff2");font-weight:700;font-style:italic}
+@font-face{font-family:Poppins;src:url(fonts/poppins-latin-600-normal.woff2) format("woff2");font-weight:600}
+@font-face{font-family:Poppins;src:url(fonts/poppins-latin-500-normal.woff2) format("woff2");font-weight:500}
+@font-face{font-family:"DM Serif Display";src:url(fonts/dm-serif-display-latin-400-normal.woff2) format("woff2")}
+
+:root{
+  /* Surfaces, hues and inks are BeFree Gap and BeFree Streak's own tokens.
+     Anything that carries type is the app hue walked to print contrast:
+     the floor here is 7.8:1, well above the 4.5:1 a screen has to clear. */
+  --paper:#FBFCF7; --panel:#EAF0E5; --hair:#D6DFD4; --calm:#DCE7D9; --grey:#F1F5EC;
+  --ink:#2E2910; --ink2:#46412A; --folio:#46412A; --forest:#25493A;
+  --goldlab:#603900; --gilt:#B7770A; --goldlt:#EDA335; --champagne:#F3C57F;
+  --cream:#FBF6EE; --mist:#CBD8C6; --garnet:#A34E00; --garnetlab:#6B3300;
+  --plate:#123A2C;
+  --c1:#25493A; --c2:#4E7A63; --c3:#B7770A; --c4:#EDA335;
+  --sage:#8AA795; --sage2:#5A8370; --sage3:#2F5C49; --terra:#A34E00; --slab:#CFD8CB;
+}
+@page{ size:432pt 648pt; margin:54pt 50.2pt 46pt 50.2pt; background:var(--paper);
+  @bottom-center{ content:counter(page); font-family:Poppins; font-weight:500; font-size:9.5pt;
+                  letter-spacing:.06em; color:var(--folio); padding-top:12pt; } }
+@page plate{ margin:0; background:var(--plate); @bottom-center{content:none} }
+@page blank{ @bottom-center{content:none} }
+.noflo{page:blank}
+
+html{font-family:Lora;font-size:9.7pt;line-height:13.6pt;color:var(--ink);}
+body{margin:0;background:var(--paper);}
+p{margin:0 0 8pt 0;text-align:justify;hyphens:auto;hyphenate-character:"\002D";}
+strong{font-weight:600}
+a{color:inherit;text-decoration:none;border-bottom:.4pt solid var(--gilt);}
+section{break-before:page}
+
+/* ---------- chapter opener ---------- */
+.chap-eyebrow{font-family:Poppins;font-weight:600;font-size:8pt;letter-spacing:.17em;
+  text-transform:uppercase;color:var(--goldlab);margin:0 0 14pt 0;}
+.chap-eyebrow i{font-family:Lora;font-style:italic;font-weight:700;font-size:9.6pt;
+  letter-spacing:0;text-transform:none;color:var(--forest);margin-left:14pt;}
+h1,h2,h3,figcaption,.deck,.chap-eyebrow,.box .lab,.box p.big,.toc a,.titlepg .sub{hyphens:none}
+h1{font-family:Fraunces;font-weight:900;font-size:27pt;line-height:1.06;color:var(--forest);
+  margin:0 0 13pt 0;letter-spacing:-.005em;bookmark-level:1;bookmark-state:open;}
+h1.sm{font-size:21pt}
+.deck{font-family:Lora;font-style:italic;font-size:11pt;line-height:15.4pt;color:var(--ink2);
+  border-left:1.6pt solid var(--gilt);padding-left:11pt;margin:0 0 15pt 0;}
+p.open{text-indent:0;min-height:30pt}
+span.dcap{font-family:Fraunces;font-weight:900;font-size:35pt;line-height:1;height:29pt;
+  color:var(--forest);float:left;padding:4pt 7pt 0 0;}
+h2{font-family:Fraunces;font-weight:900;font-size:12.6pt;line-height:1.25;color:var(--forest);
+  margin:14pt 0 6pt 0;break-after:avoid;bookmark-level:2;}
+h2+p,h2+figure,h2+table,h2+.box,h2+ol,h2+ul{break-before:avoid}
+h3{font-family:Poppins;font-weight:600;font-size:8.4pt;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--goldlab);margin:12pt 0 5pt 0;break-after:avoid}
+
+/* ---------- boxes ---------- */
+.box{background:var(--panel);padding:11pt 14pt;margin:11pt 0;break-inside:avoid;}
+.box .lab{font-family:Poppins;font-weight:600;font-size:7.6pt;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--goldlab);margin:0 0 7pt 0;}
+.box p{font-size:9.4pt;line-height:13.2pt;margin:0 0 6pt 0;text-align:left;}
+.box p:last-child{margin-bottom:0}
+.box.forest{background:var(--plate)}
+.box.forest .lab{color:var(--champagne)}
+.box.forest p{color:var(--cream)}
+.box.forest p.big{font-family:Fraunces;font-weight:900;font-size:12.5pt;line-height:1.32;hyphens:none}
+.box.act{border-top:1.6pt solid var(--forest)} .box.act .lab{color:var(--forest)}
+.box.caut{border-top:1.6pt solid var(--garnet)} .box.caut .lab{color:var(--garnetlab)}
+.box.case{background:var(--calm);border-left:2.4pt solid var(--forest)} .box.case .lab{color:var(--forest)}
+.box.learn{background:var(--grey);border-top:1.6pt solid var(--gilt)}
+.box.learn .lab{color:var(--goldlab)}
+.box.learn p.src{font-family:Lora;font-style:italic;font-size:8.2pt;line-height:1.4;color:var(--ink2);margin-top:4pt}
+.box.learn a{border-bottom:.4pt solid var(--gilt);word-break:break-all}
+.box p.ifthen{font-style:italic;color:var(--ink2);font-size:8.8pt;margin:2pt 0 7pt 11pt}
+/* one action stands alone; everything else is ranked below a rule */
+.box.act p.laterlab{font-family:Poppins;font-weight:600;font-size:7.2pt;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink2);margin:6pt 0 3pt 0;padding-top:5pt;
+  border-top:.5pt solid var(--hair)}
+.box ol.laterlist{margin:0 0 0 12pt;padding:0;font-size:8.4pt;line-height:11.3pt;color:var(--ink2)}
+.box ol.laterlist li{margin:0 0 2.6pt 0;text-align:left}
+.box ol.laterlist li:last-child{margin-bottom:0}
+.pull{margin:13pt 0;padding-left:12pt;border-left:2.4pt solid var(--gilt);break-inside:avoid}
+.pull p{font-family:Fraunces;font-weight:900;font-size:13.5pt;line-height:1.3;color:var(--forest);
+  margin:0;text-align:left;hyphens:none}
+
+/* ---------- tables ---------- */
+table{width:100%;border-collapse:collapse;margin:10pt 0;font-size:8.6pt;line-height:12pt;break-inside:avoid}
+thead th{font-family:Poppins;font-weight:600;font-size:7.6pt;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--forest);text-align:left;padding:0 7pt 5pt 0;border-bottom:1.2pt solid var(--gilt)}
+tbody td{padding:5pt 7pt 5pt 0;border-bottom:.5pt solid var(--hair);vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+ol,ul{margin:8pt 0 8pt 14pt;padding:0} li{margin:0 0 5pt 0;text-align:left}
+
+/* ---------- figures ---------- */
+figure{margin:14pt 0;break-inside:avoid;text-align:center}
+figure svg{display:block;margin:0 auto}
+figcaption{font-family:Poppins;font-weight:600;font-size:7.8pt;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--forest);margin-top:9pt;line-height:1.45}
+.srcline{font-family:Lora;font-style:italic;font-size:8.2pt;line-height:1.42;color:var(--ink2);margin-top:5pt}
+
+/* ---------- plates: cover, part openers, closing, back ---------- */
+.plate{page:plate;background:var(--plate);color:var(--cream);width:432pt;height:648pt;
+  box-sizing:border-box;position:relative;overflow:hidden}
+.plate .tex{position:absolute;inset:0;background-image:url(texture.png);background-size:cover;
+  background-position:center;opacity:.55}
+.plate .inner{position:relative;text-align:center}
+.plate p,.plate h1,.plate div{text-align:center}
+.titlepg p,.titlepg h1{text-align:center}
+.mark{font-family:Fraunces;font-weight:900;font-size:13pt;letter-spacing:.02em;color:var(--cream)}
+.mark .dot{color:var(--goldlt)}
+.rule-g{width:34pt;height:1.4pt;background:var(--gilt);margin:14pt auto}
+
+/* Cover artwork, full bleed — no margins, no texture overlay */
+.plate.coverart{background:#0A2B23 url(cover3e.png) no-repeat center center;
+  background-size:432pt 648pt;width:432pt;height:648pt;margin:0;padding:0;overflow:hidden}
+
+.cover .the{font-family:Fraunces;font-weight:900;font-size:27pt;letter-spacing:.06em;color:var(--cream);margin:40pt 0 0}
+.cover .anti{font-family:Fraunces;font-weight:900;font-size:47pt;line-height:.93;color:var(--champagne);margin:2pt 0 0}
+.cover .pt{font-family:Fraunces;font-weight:900;font-size:47pt;line-height:.93;color:var(--cream);margin:0}
+.cover .sub{font-family:Lora;font-size:11.4pt;line-height:1.5;color:var(--mist)}
+.cover .ed{font-family:Poppins;font-weight:600;font-size:8pt;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--champagne);margin-top:16pt}
+
+.opener .inner{padding:150pt 52pt 0 52pt}
+.opener .lab{font-family:Poppins;font-weight:600;font-size:7.6pt;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--champagne);margin:0 0 10pt}
+.opener .num{font-family:"DM Serif Display";font-size:62pt;line-height:.9;color:var(--champagne);margin:0}
+.opener h1{font-family:Fraunces;font-weight:900;font-size:29pt;color:var(--cream);margin:16pt 0 0;line-height:1.08}
+.opener .epi{font-family:Lora;font-style:italic;font-size:10.6pt;line-height:15.4pt;color:var(--cream);
+  margin:18pt auto 0;max-width:262pt;text-align:center}
+.opener .epic{font-family:Poppins;font-weight:600;font-size:7.2pt;letter-spacing:.17em;
+  text-transform:uppercase;color:var(--champagne);margin:9pt 0 0}
+.opener .deck{font-family:Lora;font-style:italic;font-size:10.4pt;line-height:15pt;color:var(--mist);
+  border:none;padding:0;margin:16pt auto 0;max-width:250pt;text-align:center}
+
+.closing .inner{padding:274pt 52pt 0 52pt}
+.closing .say{font-family:Lora;font-style:italic;font-size:13pt;color:var(--cream);margin:0}
+.back .inner{padding:186pt 44pt 0 44pt}
+.back .foot{position:absolute;left:0;right:0;bottom:52pt;text-align:center}
+.back .q{font-family:Fraunces;font-weight:900;font-size:16pt;line-height:1.38;color:var(--cream);margin:0}
+.back .t{font-family:Lora;font-style:italic;font-size:9.6pt;line-height:1.55;color:var(--mist);margin:26pt 0 0}
+.back .f{font-family:Poppins;font-weight:600;font-size:7.6pt;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--champagne);line-height:2}
+
+/* ---------- front & back matter ---------- */
+.titlepg{padding-top:150pt;text-align:center}
+.titlepg .frame{border:.8pt solid var(--hair);padding:56pt 34pt}
+.titlepg h1{font-size:23pt;margin-bottom:14pt}
+.titlepg .sub{font-family:Lora;font-style:italic;font-size:10.4pt;color:var(--ink2);line-height:1.5}
+.titlepg .ed{font-family:Poppins;font-weight:600;font-size:7.6pt;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--goldlab);margin-top:22pt}
+.copy{font-size:8.6pt;line-height:12.6pt;color:var(--ink2)}
+.copy p{text-align:left;margin-bottom:7pt}
+.copy .lab{font-family:Poppins;font-weight:600;font-size:7.6pt;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--goldlab);margin:13pt 0 5pt}
+.toc a{display:block;border:none;padding:4.4pt 0;font-size:9.4pt;border-bottom:.4pt dotted var(--hair)}
+.toc .part{font-family:Poppins;font-weight:600;font-size:7.8pt;letter-spacing:.17em;text-transform:uppercase;
+  color:var(--goldlab);margin:15pt 0 5pt}
+.toc .cn{font-family:Poppins;font-weight:600;font-size:8.2pt;color:var(--forest);display:inline-block;width:18pt}
+.toc .n{float:right;font-family:Poppins;font-weight:500;font-size:8.6pt;color:var(--folio)}
+.gloss dt{font-family:Fraunces;font-weight:900;font-size:9.6pt;color:var(--forest);margin-top:10pt}
+.gloss dd{margin:2pt 0 0;font-size:9pt;line-height:12.6pt}
+.src{font-size:7.8pt;line-height:10pt}
+.dense table.src{font-size:7.8pt;line-height:10pt}
+.src td,.dense .src td{padding:2.8pt 5pt 2.8pt 0}
+.src td{padding:4pt 6pt 4pt 0}
+.fill{font-family:"DejaVu Sans Mono",monospace;letter-spacing:.02em;color:var(--ink)}
+
+/* ---------- plate detail ---------- */
+.cover .inner{padding:46pt 46pt 0 46pt}
+.cover .emb{margin:26pt 0 0}
+.cover .sub{margin:26pt 0 0}
+.cover .ed{margin-top:14pt}
+.opener .foot{position:absolute;left:0;right:0;bottom:46pt;text-align:center}
+.back .bmark{position:absolute;top:40pt;right:40pt}
+.mark{display:inline-block;font-family:Fraunces;font-weight:900;letter-spacing:.01em;white-space:nowrap}
+.mark svg{vertical-align:-.16em}
+.titlepg .frame h1{color:var(--forest)}
+
+/* ---------- reference matter runs a touch denser, as in the Second Edition ---------- */
+.dense{font-size:9.2pt;line-height:12.9pt}
+.dense p{margin-bottom:6.6pt}
+.dense h2{margin:12pt 0 5pt 0}
+.dense table{margin:9pt 0;font-size:8.4pt;line-height:11.4pt}
+.dense tbody td{padding:4pt 6pt 4pt 0}
+.dense .box{padding:10pt 13pt;margin:10pt 0}
+.gloss dt{margin-top:8pt}
+.gloss dd{line-height:12.2pt}
+
+/* ---------- fillable fields ---------- */
+input.fld{appearance:auto;-webkit-appearance:auto;display:inline-block;box-sizing:border-box;
+  border:none;border-bottom:.6pt solid var(--hair);background:transparent;
+  font-family:Lora;font-size:8.8pt;line-height:10pt;color:var(--ink);
+  height:10.5pt;padding:0 2pt;margin:0;vertical-align:-1.5pt}
+input.cbx{appearance:auto;-webkit-appearance:auto;display:inline-block;box-sizing:border-box;
+  width:9pt;height:9pt;border:.7pt solid var(--gilt);background:transparent;
+  margin:0 6pt 0 0;padding:0;vertical-align:-.5pt}
+td input.fld{border-bottom:.5pt solid var(--hair);height:10pt}
+.box input.fld{margin-bottom:1pt}
+.dense tbody td{padding:3pt 5pt 3pt 0}
+.dense .box p{margin-bottom:5pt}
+
+.wks{break-inside:avoid}
+.wks h2{margin-top:0}

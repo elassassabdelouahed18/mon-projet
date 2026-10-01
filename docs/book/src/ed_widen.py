@@ -238,16 +238,19 @@ def apply(html):
                 'The debt is going and the fund is filling. Now comes the part almost nobody does on '
                 'purpose: making the gap as wide as your life allows.', 'ch16 deck')
 
-    # the promise on the cover and the title page
+    # The cover artwork now reads "The 5-Part System"; the title page, the
+    # metadata and the cover's alt text follow it word for word.
     html = once(html, 'The 4-Part System to Break the Paycheck-to-Paycheck Cycle. BeFree Academy.',
-                'The 5-Part System to Break the Paycheck-to-Paycheck Cycle and Widen the Gap to Freedom. '
-                'BeFree Academy.', 'meta description')
-    # The cover art is a rendered image, so its own subtitle line can only change
-    # when the artwork is regenerated; the title page and the metadata are text.
+                'The 5-Part System to Break the Paycheck-to-Paycheck Cycle. BeFree Academy.',
+                'meta description')
     html = once(html, 'The 4-Part System to Break the<br>Paycheck-to-Paycheck Cycle',
-                'The 5-Part System to Break the<br>Paycheck-to-Paycheck Cycle<br>and Widen the Gap to Freedom',
-                'title page subtitle')
-
+                'The 5-Part System to Break the<br>Paycheck-to-Paycheck Cycle', 'title page subtitle')
+    html = once(html, 'The Anti-Paycheck Trap. The System to Break the Paycheck-to-Paycheck Cycle. BeFree. '
+                'A deep green cover with the title in cream foil and the BeFree broken-ring mark in gold and '
+                'malachite, three points escaping upward.',
+                'The Anti-Paycheck Trap. The 5-Part System to Break the Paycheck-to-Paycheck Cycle. BeFree '
+                'System: ebook plus toolkits. A deep green leather cover with the title in cream and gold '
+                'foil and the BeFree broken-ring mark below it, three points escaping upward.', 'cover alt')
 
     # appendix H carries the arithmetic behind chapter 16
     i = html.index('<p class="lab">Careful here</p><p>Every figure in both models is in today')

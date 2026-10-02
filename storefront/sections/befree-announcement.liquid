@@ -1,0 +1,309 @@
+{% if section.settings.message != blank or section.settings.highlight != blank %}
+  <befree-announcement id="BeFreeAnnouncement-{{ section.id }}" class="bf-announcement" data-motion="{{ section.settings.animate }}" data-font="{{ section.settings.font_style }}" style="--bfa-bg:{{ section.settings.background }};--bfa-edge:{{ section.settings.background_edge }};--bfa-ink:{{ section.settings.text_color }};--bfa-gold:{{ section.settings.accent_color }};--bfa-size:{{ section.settings.font_size }}px;--bfa-mobile-size:{{ section.settings.mobile_font_size }}px;--bfa-height:{{ section.settings.min_height }}px;--bfa-space:{{ section.settings.vertical_padding }}px;--bfa-duration:{{ section.settings.duration }}ms;--bfa-width:{{ section.settings.content_width }}px;--bfa-icon:{{ section.settings.icon_size }}px;">
+    {% if section.settings.link != blank %}<a class="bf-announcement__content" href="{{ section.settings.link | escape }}">{% else %}<div class="bf-announcement__content">{% endif %}
+      {% if section.settings.show_icon %}
+        <span class="bf-announcement__mark" aria-hidden="true">
+          {% if section.settings.icon != blank %}
+            {{ section.settings.icon | image_url: width: 96 | image_tag: widths: '48, 96', sizes: '24px', loading: 'eager', alt: '' }}
+          {% else %}
+            <svg class="bf-announcement__symbol" viewBox="0 0 40 40" fill="none" focusable="false"><path class="bf-announcement__arc" d="M14.4 7.8A13.9 13.9 0 1 0 33.6 18.2" stroke="currentColor" stroke-width="6.8"/><circle class="bf-announcement__dot" cx="31" cy="7" r="4.4"/></svg>
+          {% endif %}
+        </span>
+      {% endif %}
+      <span class="bf-announcement__sentence" dir="auto"><span class="bf-announcement__message">{{ section.settings.message | escape }}</span>{% if section.settings.highlight != blank %} <span class="bf-announcement__ending"><span class="bf-announcement__highlight">{{ section.settings.highlight | escape }}</span>{% if section.settings.show_arrow %}<svg class="bf-announcement__arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>{% endif %}</span>{% endif %}</span>
+    {% if section.settings.link != blank %}</a>{% else %}</div>{% endif %}
+  </befree-announcement>
+{% endif %}
+{% stylesheet %}
+.bf-announcement{display:block;position:relative;isolation:isolate;width:100%;margin:0;padding:0;color:var(--bfa-ink,#f6f4eb);background:radial-gradient(ellipse at 50% 0%,color-mix(in srgb,var(--bfa-gold) 5%,transparent),transparent 72%),linear-gradient(100deg,var(--bfa-bg),var(--bfa-edge) 50%,var(--bfa-bg));font-family:var(--font-body-family,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif);font-size:var(--bfa-size,14px);font-weight:500;line-height:1.6;letter-spacing:.015em;-webkit-font-smoothing:antialiased;text-align:center;box-sizing:border-box}
+.bf-announcement[data-font="system"]{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.bf-announcement::after{content:"";position:absolute;inset:auto 0 0;height:1px;pointer-events:none;background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--bfa-gold) 36%,transparent) 30%,color-mix(in srgb,var(--bfa-gold) 36%,transparent) 70%,transparent)}
+.bf-announcement .bf-announcement__content{display:flex;align-items:center;justify-content:center;direction:ltr;gap:12px;box-sizing:border-box;width:100%;max-width:var(--bfa-width,1280px);min-height:var(--bfa-height,46px);margin:0 auto;padding:var(--bfa-space,10px) 24px;color:inherit;background:transparent;border:0;border-radius:0;box-shadow:none;text-align:center;text-decoration:none;font:inherit;line-height:inherit;letter-spacing:inherit}
+.bf-announcement a.bf-announcement__content{cursor:pointer;touch-action:manipulation}
+.bf-announcement a.bf-announcement__content:focus-visible{outline:2px solid var(--bfa-gold);outline-offset:-5px;border-radius:3px}
+.bf-announcement .bf-announcement__mark{display:inline-flex;flex:0 0 var(--bfa-icon,22px);align-items:center;justify-content:center;width:var(--bfa-icon,22px);height:var(--bfa-icon,22px);color:var(--bfa-ink);transform-origin:center}
+.bf-announcement .bf-announcement__mark img,.bf-announcement .bf-announcement__symbol{display:block;width:100%;height:100%;object-fit:contain}
+.bf-announcement .bf-announcement__dot{fill:var(--bfa-gold);transform-box:fill-box;transform-origin:center}
+.bf-announcement .bf-announcement__sentence{display:flex;align-items:center;gap:6px;min-width:0;max-width:100%;overflow:hidden;text-align:left;padding:3px 0;margin:-3px 0;direction:ltr}
+.bf-announcement .bf-announcement__message{display:block;flex:0 1 auto;min-width:0;overflow-wrap:anywhere}
+.bf-announcement .bf-announcement__ending{display:inline-flex;flex:0 0 auto;gap:7px;align-items:center;vertical-align:baseline;white-space:nowrap;color:var(--bfa-gold);font-weight:600;line-height:inherit}
+.bf-announcement .bf-announcement__highlight{position:relative;display:inline-block}
+.bf-announcement a .bf-announcement__highlight::after{content:"";position:absolute;left:0;right:0;bottom:1px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform 240ms cubic-bezier(.2,.8,.2,1)}
+.bf-announcement .bf-announcement__arrow{display:block;flex:0 0 18px;width:18px;height:18px;transform:translateX(0);transition:transform 240ms cubic-bezier(.2,.8,.2,1)}
+.bf-announcement a.bf-announcement__content:hover .bf-announcement__arrow,.bf-announcement a.bf-announcement__content:focus-visible .bf-announcement__arrow{transform:none}
+.bf-announcement a.bf-announcement__content:hover .bf-announcement__highlight::after,.bf-announcement a.bf-announcement__content:focus-visible .bf-announcement__highlight::after{transform:scaleX(1)}
+@media(max-width:600px){.bf-announcement{font-size:var(--bfa-mobile-size,13px);letter-spacing:0;line-height:1.55}.bf-announcement .bf-announcement__content{padding:max(9px,var(--bfa-space,10px)) 10px;gap:10px;align-items:flex-end;min-height:max(48px,var(--bfa-height,46px))}.bf-announcement .bf-announcement__mark{flex-basis:18px;width:18px;height:18px;margin-bottom:1px}.bf-announcement .bf-announcement__sentence{flex:1;flex-direction:column;align-items:center;gap:2px;text-align:center}.bf-announcement .bf-announcement__message{width:100%;text-align:center}.bf-announcement .bf-announcement__ending{gap:5px}.bf-announcement .bf-announcement__arrow{width:16px;height:16px;flex-basis:16px}}
+@media(prefers-reduced-motion:reduce){.bf-announcement *{animation:none!important;transition:none!important}.bf-announcement a.bf-announcement__content:hover .bf-announcement__arrow,.bf-announcement a.bf-announcement__content:focus-visible .bf-announcement__arrow{transform:none}}
+.bf-announcement[data-motion="false"] *{animation:none!important;transition:none!important}
+.bf-announcement[data-motion="false"] a.bf-announcement__content:hover .bf-announcement__arrow,.bf-announcement[data-motion="false"] a.bf-announcement__content:focus-visible .bf-announcement__arrow{transform:none}
+@media(forced-colors:active){.bf-announcement{background:Canvas;color:CanvasText;border-bottom:1px solid CanvasText}.bf-announcement .bf-announcement__ending{color:LinkText}.bf-announcement .bf-announcement__dot{fill:CanvasText}}
+{% endstylesheet %}
+{% javascript %}
+if (!customElements.get('befree-announcement')) {
+  customElements.define('befree-announcement', class extends HTMLElement {
+    static get observedAttributes() { return ['data-motion']; }
+    connectedCallback() {
+      this.effects = [];
+      this.run = 0;
+      this.reduced = matchMedia('(prefers-reduced-motion: reduce)');
+      this.onReduced = () => this.finish();
+      this.onFocus = () => this.finish();
+      this.reduced.addEventListener('change', this.onReduced);
+      this.addEventListener('focusin', this.onFocus);
+      this.lastWidth = this.getBoundingClientRect().width;
+      this.resizeObserver = new ResizeObserver(entries => {
+        const width = entries[0].contentRect.width;
+        if (Math.abs(width - this.lastWidth) > 1) this.finish();
+        this.lastWidth = width;
+      });
+      this.resizeObserver.observe(this);
+      this.frame = requestAnimationFrame(() => this.play());
+    }
+    disconnectedCallback() {
+      cancelAnimationFrame(this.frame);
+      this.finish();
+      this.resizeObserver?.disconnect();
+      this.reduced?.removeEventListener('change', this.onReduced);
+      this.removeEventListener('focusin', this.onFocus);
+    }
+    attributeChangedCallback(name, oldValue, value) {
+      if (oldValue !== value && this.isConnected && this.effects) this.finish();
+    }
+    finish() {
+      this.run = (this.run || 0) + 1;
+      for (const effect of this.effects || []) effect.cancel();
+      this.effects = [];
+      this.dataset.state = 'settled';
+    }
+    play() {
+      this.finish();
+      if (!this.isConnected || this.dataset.motion !== 'true' || this.reduced.matches) return;
+      const sentence = this.querySelector('.bf-announcement__sentence');
+      const message = this.querySelector('.bf-announcement__message');
+      const ending = this.querySelector('.bf-announcement__ending');
+      const mark = this.querySelector('.bf-announcement__mark');
+      if (!sentence || !message || !ending || !message.textContent.trim() || !ending.textContent.trim() || !ending.animate) return;
+      const s = sentence.getBoundingClientRect();
+      const m = message.getBoundingClientRect();
+      const e = ending.getBoundingClientRect();
+      const distance = e.right - s.left;
+      if (distance <= 0 || m.width <= 0) return;
+      const gap = Math.max(0, e.left - m.right);
+      const lead = Math.min(.95, (e.width + gap) / distance);
+      const duration = Math.max(1800, Math.min(4200, parseFloat(getComputedStyle(this).getPropertyValue('--bfa-duration')) || 3000));
+      const delay = 650;
+      const token = this.run;
+      this.dataset.state = 'running';
+      if (mark && getComputedStyle(mark).display !== 'none') this.effects.push(mark.animate([
+        { opacity: 0, transform: 'scale(.88)' },
+        { opacity: 1, transform: 'scale(1)' }
+      ], { duration: 480, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'both' }));
+      this.effects.push(ending.animate([
+        { transform: 'translateX(' + (-distance) + 'px)' },
+        { transform: 'translateX(0px)' }
+      ], { duration, delay, easing: 'linear', fill: 'both' }));
+      this.effects.push(message.animate([
+        { clipPath: 'inset(0 100% 0 0)', offset: 0 },
+        { clipPath: 'inset(0 100% 0 0)', offset: lead },
+        { clipPath: 'inset(0 0% 0 0)', offset: 1 }
+      ], { duration, delay, easing: 'linear', fill: 'both' }));
+      Promise.all(this.effects.map(effect => effect.finished)).then(() => {
+        if (this.run === token) this.finish();
+      }).catch(() => {});
+    }
+  });
+}
+
+{% endjavascript %}
+{% schema %}
+{
+  "name": "BeFree · Announcement",
+  "tag": "div",
+  "class": "befree-announcement-section",
+  "limit": 1,
+  "enabled_on": {
+    "groups": [
+      "header"
+    ],
+    "templates": [
+      "*"
+    ]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Message and destination"
+    },
+    {
+      "type": "text",
+      "id": "message",
+      "label": "Message",
+      "default": "Your next step toward a better financial future"
+    },
+    {
+      "type": "text",
+      "id": "highlight",
+      "label": "Highlighted ending",
+      "default": "starts here."
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Destination",
+      "info": "Select a page or enter the destination anchor when the full site is assembled. Leave blank for a non-clickable announcement."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrow",
+      "label": "Show arrow",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Brand and color"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_icon",
+      "label": "Show brand symbol",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "icon",
+      "label": "Custom symbol",
+      "info": "Optional. The built-in BeFree symbol is used when this is empty."
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background edges",
+      "default": "#0C3028"
+    },
+    {
+      "type": "color",
+      "id": "background_edge",
+      "label": "Background center",
+      "default": "#164A3C"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Message color",
+      "default": "#F6F4EB"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent and focus color",
+      "default": "#DEC17E"
+    },
+    {
+      "type": "header",
+      "content": "Typography and spacing"
+    },
+    {
+      "type": "select",
+      "id": "font_style",
+      "label": "Typeface",
+      "options": [
+        {
+          "value": "system",
+          "label": "Clean system font"
+        },
+        {
+          "value": "theme",
+          "label": "Inherit theme body font"
+        }
+      ],
+      "default": "system"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Desktop text size",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "mobile_font_size",
+      "label": "Mobile text size",
+      "min": 12,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "label": "Minimum height",
+      "min": 44,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "default": 46
+    },
+    {
+      "type": "range",
+      "id": "vertical_padding",
+      "label": "Vertical padding",
+      "min": 8,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Desktop symbol size",
+      "min": 18,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Content maximum width",
+      "min": 800,
+      "max": 1600,
+      "step": 40,
+      "unit": "px",
+      "default": 1280
+    },
+    {
+      "type": "header",
+      "content": "Motion"
+    },
+    {
+      "type": "checkbox",
+      "id": "animate",
+      "label": "Enable entrance and interaction motion",
+      "default": true,
+      "info": "Plays once on load. Visitor reduced-motion preferences are always respected."
+    },
+    {
+      "type": "range",
+      "id": "duration",
+      "label": "Horizontal reveal duration",
+      "min": 1800,
+      "max": 4200,
+      "step": 200,
+      "unit": "ms",
+      "default": 3000
+    }
+  ],
+  "presets": [
+    {
+      "name": "BeFree · Announcement"
+    }
+  ]
+}
+{% endschema %}

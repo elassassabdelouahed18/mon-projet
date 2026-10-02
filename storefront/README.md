@@ -93,6 +93,7 @@ needs the token pass first; its colours are still the draft's.
     python3 tools/make-preview.py page-cart 2              # two items
     PW=$(npm root -g)/playwright node tools/shoot.cjs      # shots/ + geometry
     PW=$(npm root -g)/playwright node tools/audit.cjs      # contrast, type, targets
+    PW=$(npm root -g)/playwright node tools/contact-sheet.cjs   # shots/mobile-sheet.png
 
 `make-preview.py` renders the Liquid to static HTML using the schema defaults,
 so the previews cannot drift from what the section will ship.

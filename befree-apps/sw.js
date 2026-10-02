@@ -3,7 +3,7 @@
    For anyone who installed the older shared window, this worker also clears
    its cache. Only the root files below are handled here; everything else is
    left to the network or to the app's own worker. */
-const CACHE = 'befree-root-v5';
+const CACHE = 'befree-root-v6';
 const FILES = ['./', 'index.html', 'install.css', 'install.js', 'logo.svg', 'extra-paychecks.html', 'extra-paychecks.js', 'plus-core.js',
   'fonts/fraunces-600.woff2', 'fonts/fraunces-900.woff2', 'fonts/poppins-400.woff2', 'fonts/poppins-500.woff2', 'fonts/poppins-600.woff2',
   'shots/gap-today.jpg', 'shots/streak-today.jpg'];

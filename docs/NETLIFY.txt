@@ -1,0 +1,24 @@
+DEPLOYING THE TWO APPS
+
+  befree-apps/        the site, exactly as it is served
+  docs/BeFree-Netlify.zip   the same folder zipped, ready to drag onto Netlify
+
+Drag the zip onto app.netlify.com/drop, or point a Netlify site at this
+repository with the publish directory set to befree-apps and no build command.
+The files sit at the root of the zip, which is what Netlify expects.
+
+WHAT IS IN IT
+  index.html          the install page the QR code and app.befreeacademy.site point to
+  gap/, streak/       the two apps, each with its own scope, manifest and service worker
+  shots/              the two screens the install page shows
+  fonts/              Fraunces and Poppins, self-hosted
+  _headers            the security headers Netlify applies
+  robots.txt, sw.js   the root service worker only caches the install page
+
+AFTER CHANGING ANY APP FILE
+  python3 tools/sync-bundles.py     re-pins the inline scripts in each page's
+                                    Content-Security-Policy; without it the
+                                    browser refuses to run them
+  bump the cache name in sw.js, gap/sw.js and streak/sw.js, or returning
+  visitors keep the old copy
+  node verification/test-*.cjs      four suites, all must pass

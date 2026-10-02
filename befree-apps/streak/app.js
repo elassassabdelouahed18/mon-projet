@@ -782,7 +782,7 @@ function themePref(){let p=DB.g('befree.streak.theme.v2');if(p==null)p=DB.g('bef
 function applyTheme(){const p=themePref(),n=p==='system'?(mqDark.matches?'dark':'light'):p;
  document.documentElement.dataset.theme=n;$('#thI').setAttribute('d',n==='dark'?MOON:SUN);
  $('#thBtn').setAttribute('aria-label',n==='dark'?'Switch to light theme':'Switch to dark theme');
- const tc=document.querySelector('meta[name=theme-color]');if(tc)tc.setAttribute('content',n==='dark'?'#021A13':'#EAF0E5')}
+ const tc=document.querySelector('meta[name=theme-color]');if(tc)tc.setAttribute('content',n==='dark'?'#011B08':'#E6F1E8')}
 function setThemePref(p){DB.s('befree.streak.theme.v2',p);applyTheme();setTimeout(render,60)}
 mqDark.addEventListener&&mqDark.addEventListener('change',()=>{if(themePref()==='system'){applyTheme();render()}});
 $('#thBtn').onclick=()=>setThemePref(document.documentElement.dataset.theme==='dark'?'light':'dark');
@@ -793,7 +793,7 @@ addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'
 function iconURL(size,mask){
  const c=document.createElement('canvas');c.width=c.height=size;const x=c.getContext('2d');
  /* Streak's identity: Gap's ring on cream, with a check inside */
- const BG='#F2DDB0',CR='#0B3B2C',GD='#C9790C';
+ const BG='#F2DDB0',CR='#113C1E',GD='#C9790C';
  x.fillStyle=BG;x.fillRect(0,0,size,size);
  {const s=size/64*(mask?0.322/0.42:1);x.save();x.translate(size/2,size/2);x.strokeStyle=CR;x.lineWidth=4.4*s;x.lineCap='round';x.lineJoin='round';
   x.beginPath();x.moveTo(-7.5*s,1.5*s);x.lineTo(-2*s,7*s);x.lineTo(8*s,-4*s);x.stroke();x.restore()}
@@ -811,7 +811,7 @@ if(LIVE)(async()=>{ try{
  throw 0;
 }catch(e){ try{
  const mf={name:'Streak',short_name:'Streak',start_url:'.',scope:'.',display:'standalone',
-  orientation:'portrait',background_color:'#021A13',theme_color:'#021A13',
+  orientation:'portrait',background_color:'#011B08',theme_color:'#011B08',
   description:'Small, repeatable money habits. Records are stored in this browser.',
   icons:[{src:iconURL(192),sizes:'192x192',type:'image/png',purpose:'any'},
          {src:iconURL(512),sizes:'512x512',type:'image/png',purpose:'any'},

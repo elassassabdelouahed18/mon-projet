@@ -1,0 +1,270 @@
+{
+ "anchor": "#01401A",
+ "hue": 150.4,
+ "map": {
+  "#021A13": {
+   "new": "#011B08",
+   "role": "app darkest background",
+   "L": 0.196,
+   "contrast_cream_before": 16.83,
+   "contrast_cream_after": 16.8,
+   "shift": 2.2
+  },
+  "#03291D": {
+   "new": "#0A2913",
+   "role": "app second background / sheets",
+   "L": 0.251,
+   "contrast_cream_before": 14.58,
+   "contrast_cream_after": 14.57,
+   "shift": 1.7
+  },
+  "#063F2E": {
+   "new": "#133F20",
+   "role": "app card, install-page brand, logo plate",
+   "L": 0.328,
+   "contrast_cream_before": 11.1,
+   "contrast_cream_after": 11.09,
+   "shift": 2.2
+  },
+  "#07533C": {
+   "new": "#22522F",
+   "role": "app card 2",
+   "L": 0.394,
+   "contrast_cream_before": 8.44,
+   "contrast_cream_after": 8.43,
+   "shift": 2.2
+  },
+  "#075B41": {
+   "new": "#265934",
+   "role": "app card 3",
+   "L": 0.419,
+   "contrast_cream_before": 7.56,
+   "contrast_cream_after": 7.62,
+   "shift": 2.2
+  },
+  "#0B3B2C": {
+   "new": "#113C1E",
+   "role": "app hero background",
+   "L": 0.316,
+   "contrast_cream_before": 11.64,
+   "contrast_cream_after": 11.56,
+   "shift": 2.4
+  },
+  "#081F16": {
+   "new": "#04200C",
+   "role": "app inset",
+   "L": 0.217,
+   "contrast_cream_before": 16.03,
+   "contrast_cream_after": 16.04,
+   "shift": 2.1
+  },
+  "#0C2419": {
+   "new": "#072510",
+   "role": "app surface B",
+   "L": 0.237,
+   "contrast_cream_before": 15.23,
+   "contrast_cream_after": 15.24,
+   "shift": 1.9
+  },
+  "#16382A": {
+   "new": "#133A1E",
+   "role": "app surface A",
+   "L": 0.31,
+   "contrast_cream_before": 11.95,
+   "contrast_cream_after": 11.82,
+   "shift": 2.3
+  },
+  "#0B2A1F": {
+   "new": "#092B14",
+   "role": "install guide deep green",
+   "L": 0.258,
+   "contrast_cream_before": 14.3,
+   "contrast_cream_after": 14.28,
+   "shift": 2.1
+  },
+  "#123E2E": {
+   "new": "#153F21",
+   "role": "install guide green 2",
+   "L": 0.328,
+   "contrast_cream_before": 11.13,
+   "contrast_cream_after": 11.06,
+   "shift": 2.2
+  },
+  "#0B3A2C": {
+   "new": "#103B1D",
+   "role": "Start Here deep",
+   "L": 0.313,
+   "contrast_cream_before": 11.79,
+   "contrast_cream_after": 11.72,
+   "shift": 2.5
+  },
+  "#1E4A3A": {
+   "new": "#1C4C2A",
+   "role": "Start Here green",
+   "L": 0.373,
+   "contrast_cream_before": 9.31,
+   "contrast_cream_after": 9.22,
+   "shift": 2.9
+  },
+  "#123A2C": {
+   "new": "#123B1F",
+   "role": "book plate",
+   "L": 0.315,
+   "contrast_cream_before": 11.71,
+   "contrast_cream_after": 11.68,
+   "shift": 2.3
+  },
+  "#25493A": {
+   "new": "#1C4C2A",
+   "role": "book forest: headings, figures",
+   "L": 0.373,
+   "contrast_cream_before": 9.33,
+   "contrast_cream_after": 9.22,
+   "shift": 3.2
+  },
+  "#2C5745": {
+   "new": "#255A34",
+   "role": "install page / app mid green, buttons",
+   "L": 0.42,
+   "contrast_cream_before": 7.64,
+   "contrast_cream_after": 7.53,
+   "shift": 3.2
+  },
+  "#2F5C49": {
+   "new": "#2A5E38",
+   "role": "book sage 3",
+   "L": 0.436,
+   "contrast_cream_before": 7.1,
+   "contrast_cream_after": 7.08,
+   "shift": 3.0
+  },
+  "#4E7A63": {
+   "new": "#447E52",
+   "role": "book c2: figure mid green",
+   "L": 0.54,
+   "contrast_cream_before": 4.55,
+   "contrast_cream_after": 4.49,
+   "shift": 3.4
+  },
+  "#5A8370": {
+   "new": "#4F885C",
+   "role": "book sage 2",
+   "L": 0.574,
+   "contrast_cream_before": 3.97,
+   "contrast_cream_after": 3.9,
+   "shift": 4.0
+  },
+  "#8AA795": {
+   "new": "#87A98D",
+   "role": "book sage",
+   "L": 0.701,
+   "contrast_cream_before": 2.43,
+   "contrast_cream_after": 2.41,
+   "shift": 1.5
+  },
+  "#1F8A5E": {
+   "new": "#36894F",
+   "role": "book chart green (data)",
+   "L": 0.564,
+   "contrast_cream_before": 4.02,
+   "contrast_cream_after": 4.03,
+   "shift": 2.1
+  },
+  "#EAF0E5": {
+   "new": "#E6F1E8",
+   "role": "panel / app light bg, book panel",
+   "L": 0.948,
+   "contrast_cream_before": 12.56,
+   "contrast_cream_after": 12.57,
+   "shift": 0.6
+  },
+  "#DCE7D9": {
+   "new": "#DAE7DC",
+   "role": "calm / app bg2",
+   "L": 0.916,
+   "contrast_cream_before": 11.43,
+   "contrast_cream_after": 11.41,
+   "shift": 0.5
+  },
+  "#CBD8C6": {
+   "new": "#C8D9CB",
+   "role": "book mist",
+   "L": 0.867,
+   "contrast_cream_before": 9.84,
+   "contrast_cream_after": 9.89,
+   "shift": 0.7
+  },
+  "#CFD8CB": {
+   "new": "#CBD9CD",
+   "role": "book slab",
+   "L": 0.872,
+   "contrast_cream_before": 9.95,
+   "contrast_cream_after": 9.96,
+   "shift": 0.6
+  },
+  "#F1F5EC": {
+   "new": "#EEF6EF",
+   "role": "grey / app card3",
+   "L": 0.965,
+   "contrast_cream_before": 13.2,
+   "contrast_cream_after": 13.23,
+   "shift": 0.5
+  },
+  "#D6DFD4": {
+   "new": "#D5DFD6",
+   "role": "hair / rules",
+   "L": 0.894,
+   "contrast_cream_before": 10.66,
+   "contrast_cream_after": 10.66,
+   "shift": 0.3
+  },
+  "#E3EADF": {
+   "new": "#E0EBE2",
+   "role": "install guide chip",
+   "L": 0.929,
+   "contrast_cream_before": 11.87,
+   "contrast_cream_after": 11.9,
+   "shift": 0.5
+  },
+  "#E8EFE9": {
+   "new": "#E7F0E8",
+   "role": "install guide chip 2",
+   "L": 0.945,
+   "contrast_cream_before": 12.46,
+   "contrast_cream_after": 12.51,
+   "shift": 0.4
+  },
+  "#F6FBF2": {
+   "new": "#F4FBF5",
+   "role": "app surfA light",
+   "L": 0.982,
+   "contrast_cream_before": 13.88,
+   "contrast_cream_after": 13.86,
+   "shift": 0.5
+  },
+  "#E3EEE0": {
+   "new": "#E2EEE4",
+   "role": "app surfB light",
+   "L": 0.937,
+   "contrast_cream_before": 12.2,
+   "contrast_cream_after": 12.2,
+   "shift": 0.5
+  },
+  "#EEF3E9": {
+   "new": "#EBF4EC",
+   "role": "app inset light",
+   "L": 0.958,
+   "contrast_cream_before": 12.93,
+   "contrast_cream_after": 12.97,
+   "shift": 0.5
+  },
+  "#FBFCF7": {
+   "new": "#F9FDF9",
+   "role": "paper",
+   "L": 0.989,
+   "contrast_cream_before": 14.14,
+   "contrast_cream_after": 14.19,
+   "shift": 0.4
+  }
+ }
+}

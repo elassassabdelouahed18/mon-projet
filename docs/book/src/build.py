@@ -28,6 +28,30 @@ def jpeg(src, out, quality):
         Image.open(a).convert('RGB').save(b, 'JPEG', quality=quality, optimize=True)
 
 
+def brand_green(html):
+    """Move the greens drawn into the source figures onto the cover's hue.
+
+    original.html is never edited, so the colours its SVGs hard-code are
+    remapped here instead, from the same table the rest of the package uses
+    (tools/brand-green.json). Each one keeps its lightness, so the figures
+    keep the contrast they were drawn with.
+    """
+    import json
+    table = os.path.join(HERE, '..', '..', '..', 'tools', 'brand-green.json')
+    m = {k.upper(): v['new'] for k, v in json.load(open(table, encoding='utf-8'))['map'].items()}
+    seen = [0]
+
+    def one(mo):
+        k = '#' + mo.group(1).upper()
+        if k in m:
+            seen[0] += 1
+            return m[k]
+        return mo.group(0)
+    html = re.sub(r'#([0-9A-Fa-f]{6})(?![0-9A-Fa-f])', one, html)
+    print('brand green: recoloured', seen[0], 'values in the figures')
+    return html
+
+
 def main():
     jpeg('cover3e.png', 'cover3e.jpg', 90)
     html = open(os.path.join(HERE, 'original.html'), encoding='utf-8').read()
@@ -37,6 +61,7 @@ def main():
     for mod in ('ed_front', 'ed_mid', 'ed_end', 'ed_figures', 'ed_recaps', 'ed_widen', 'ed_tables'):
         if os.path.exists(os.path.join(HERE, mod + '.py')):
             html = importlib.import_module(mod).apply(html)
+    html = brand_green(html)
     open(os.path.join(HERE, 'book.html'), 'w', encoding='utf-8').write(html)
     if '--html' in sys.argv:
         return

@@ -2436,7 +2436,7 @@ function applyTheme(){const p=themePref(),n=p==='system'?(mqDark.matches?'dark':
  document.documentElement.dataset.theme=n;
  $('#thI').setAttribute('d',n==='dark'?MOON:SUN);
  $('#thBtn').setAttribute('aria-label',n==='dark'?'Switch to light theme':'Switch to dark theme');
- document.querySelector('meta[name=theme-color]').setAttribute('content',n==='dark'?'#021A13':'#EAF0E5')}
+ document.querySelector('meta[name=theme-color]').setAttribute('content',n==='dark'?'#011B08':'#E6F1E8')}
 function setThemePref(p){DB.s('befree.gap.theme',p);applyTheme();setTimeout(render,60)}
 mqDark.addEventListener&&mqDark.addEventListener('change',()=>{if(themePref()==='system'){applyTheme();render()}});
 $('#privBtn').onclick=()=>show('#shPriv',true);
@@ -2446,7 +2446,7 @@ $('#thBtn').onclick=()=>setThemePref(document.documentElement.dataset.theme==='d
 /* ══════════ install and offline ══════════ */
 function iconURL(size,mask){
  const c=document.createElement('canvas');c.width=c.height=size;const x=c.getContext('2d');
- const BG='#2C5745',CR='#F3E9DA',GD='#EDA335';
+ const BG='#255A34',CR='#F3E9DA',GD='#EDA335';
  x.fillStyle=BG;x.fillRect(0,0,size,size);
  const k=(mask?0.322:0.42)*size/142.03, cx=size/2-5.74*k, cy=size/2+8.68*k;
  x.save();x.translate(cx,cy);x.scale(k,k);
@@ -2463,7 +2463,7 @@ function iconURL(size,mask){
 }catch(e){
  try{
   const mf={name:'Gap',short_name:'Gap',start_url:'.',scope:'.',display:'standalone',
-   orientation:'portrait',background_color:'#021A13',theme_color:'#021A13',
+   orientation:'portrait',background_color:'#011B08',theme_color:'#011B08',
    description:'See what is available until payday, and widen the gap between what comes in and what goes out.',
    icons:[{src:iconURL(192),sizes:'192x192',type:'image/png',purpose:'any'},
           {src:iconURL(512),sizes:'512x512',type:'image/png',purpose:'any'},

@@ -16,10 +16,10 @@ from ed import after
 HERE = os.path.dirname(os.path.abspath(__file__))
 MODEL = json.load(open(os.path.join(HERE, 'model', 'financial-model.json'), encoding='utf-8'))
 
-FOREST, GILT, INK, INK2 = '#25493A', '#B7770A', '#2E2910', '#46412A'
-PANEL, HAIR, PAPER = '#EAF0E5', '#D6DFD4', '#FBFCF7'
-D_IN, D_FIX, D_VAR, D_INV = '#1F8A5E', '#E3A72A', '#C4462E', '#3A84C4'
-CHAMP, SAGE, CREAM = '#F3C57F', '#8AA795', '#FBF6EE'
+FOREST, GILT, INK, INK2 = '#1C4C2A', '#B7770A', '#2E2910', '#46412A'
+PANEL, HAIR, PAPER = '#E6F1E8', '#D5DFD6', '#F9FDF9'
+D_IN, D_FIX, D_VAR, D_INV = '#36894F', '#E3A72A', '#C4462E', '#3A84C4'
+CHAMP, SAGE, CREAM = '#F3C57F', '#87A98D', '#FBF6EE'
 
 STYLE = ('<defs><style>'
          '.hl{font-family:Poppins;font-weight:600;font-size:7.4px;letter-spacing:1px;fill:%s}'
@@ -87,7 +87,7 @@ def part_map(k):
             b.append(f'<circle cx="{x}" cy="24" r="9" fill="none" stroke="{CHAMP}" stroke-width=".8" opacity=".6"/>'
                      f'<circle cx="{x}" cy="24" r="5.5" fill="{CHAMP}"/>')
         else:
-            b.append(f'<circle cx="{x}" cy="24" r="4.5" fill="#123A2C" stroke="{SAGE}" stroke-width="1"/>')
+            b.append(f'<circle cx="{x}" cy="24" r="4.5" fill="#123B1F" stroke="{SAGE}" stroke-width="1"/>')
         col = CHAMP if i == k else SAGE
         b.append(f'<text x="{x}" y="9" text-anchor="middle" style="font-family:Poppins;font-weight:600;'
                  f'font-size:6.6px;letter-spacing:1px;fill:{col}">{num}</text>')

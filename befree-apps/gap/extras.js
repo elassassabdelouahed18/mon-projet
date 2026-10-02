@@ -86,7 +86,7 @@ body[data-page=guide] .fab{display:none!important}
 body.locked .toast{opacity:0!important}
 @media(min-width:641px){.toast{bottom:28px!important}}
 .instcard.float{position:static;box-shadow:none;animation:none;margin:0 0 14px;width:auto}
-:root{--hero-bg:#0B3B2C}html[data-theme=dark]{--hero-bg:#0A4A36}
+:root{--hero-bg:#113C1E}html[data-theme=dark]{--hero-bg:#0A4A36}
 @media(prefers-reduced-motion:reduce){.snack{transition:none}}`;
 document.head.appendChild(css);
 

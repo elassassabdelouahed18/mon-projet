@@ -25,8 +25,8 @@ The two findings that change what the book says:
 from build import once
 from ed import apply_list
 
-FOREST, INK, INK2, HAIR, PANEL = '#25493A', '#2E2910', '#46412A', '#D6DFD4', '#EAF0E5'
-D_IN, D_FIX, D_VAR = '#1F8A5E', '#E3A72A', '#C4462E'
+FOREST, INK, INK2, HAIR, PANEL = '#1C4C2A', '#2E2910', '#46412A', '#D5DFD6', '#E6F1E8'
+D_IN, D_FIX, D_VAR = '#36894F', '#E3A72A', '#C4462E'
 
 
 def levers_figure():

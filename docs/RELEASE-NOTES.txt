@@ -1,3 +1,24 @@
+One green, from the cover
+
+The book cover sets the brand green. Its leather reads #01401A, hue 150.4 in
+OKLCH, and every green in the package now sits on that hue: the two apps in
+both themes, the install page and its logo, both app icon sets, the install
+guide, the Start Here booklet and the book, down to the near-neutral green
+tints. Each colour keeps the lightness its role needs, so no contrast ratio
+moved by more than 0.12 and nothing that passed before fails now.
+
+tools/brand-green.json holds the mapping with the contrast before and after
+for all 33 colours; tools/apply-brand-green.py rewrites the sources from it,
+and the book remaps the greens drawn into its figures at build time so its
+source stays untouched. Run tools/sync-bundles.py after either, because the
+apps pin their inline scripts in a Content-Security-Policy by hash.
+
+The new cover also replaces the one with the ragged edges, and the Streak
+icon drops the tick that read as a verification badge: Streak is now Gap's
+mark inverted, a dark ring on sand. Icons are rendered from each app's
+favicon.svg by tools/make-icons.cjs. App screenshots in the booklet and the
+book were re-shot, and all three PDFs rebuilt.
+
 BeFree redesign for phones
 
 Gap opens on Today: "Safe to spend" until payday as one large number, the days and daily amount beside it, and a "Log a purchase" button in thumb reach. When inputs are missing the number is still shown, marked Estimate, with the next step that makes it exact; without a pay schedule or a checking balance it asks for those instead. Four tabs replace six: Today, Plan, Money (Ledger, Goals and Debts under one segmented control, the last one remembered) and Insights (the charts). Logging opens a quick mode (amount, your six most-used categories, save) with every other field under "More options", and an Undo bar replaces confirmation. The install card never floats over content, messages sit above the tab bar and hide while a sheet is open, and the add button is hidden where the page has its own.

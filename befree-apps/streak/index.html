@@ -2,13 +2,13 @@
 <html lang="en-US" data-theme="dark">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-4TFfnQTOqRP/UGhk94a/iOaqiq1Vj0Bd3gWmJBEvuKA=' 'sha256-MdnlgQtPATxRUx/87ZtGkMRdSA6GJ6LBnssmTgmvrSo=' 'sha256-23+ybjAFCSiptDWSjbwqJwYeF1JkxOUEjEscyqL5LPk=' 'sha256-VPKjG1/xw6zSZnb66bLgmYdVDiSOuaY3Snm/I2TlN2k=' 'sha256-Am7j14Y1GsJZ3XMMEEjJnySRMWEbTlwSHIxIdnYLRlk='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; manifest-src 'self' blob: data:; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-4TFfnQTOqRP/UGhk94a/iOaqiq1Vj0Bd3gWmJBEvuKA=' 'sha256-MdnlgQtPATxRUx/87ZtGkMRdSA6GJ6LBnssmTgmvrSo=' 'sha256-23+ybjAFCSiptDWSjbwqJwYeF1JkxOUEjEscyqL5LPk=' 'sha256-Q8vR8bStqOViNm9vIxT3nvR2FlLtHE1U5y9NaiWCY3k=' 'sha256-huQvNrhz3S/H8CnsyHUtnWXgK64o7h7RC1XUkMANBB8='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; manifest-src 'self' blob: data:; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#021A13">
+<meta name="theme-color" content="#011B08">
 <meta name="description" content="Small, repeatable money habits: spending checks, bills, paydays and a weekly review. Records are stored in this browser.">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -46,12 +46,12 @@
   --tr-micro:.11em;
   --tap:44px;
 }
-/* Palette: Brunswick Green #2C5745 · Celadon #9DD0B6 · Gamboge #EDA335 ·
+/* Palette: Brunswick Green #255A34 · Celadon #9DD0B6 · Gamboge #EDA335 ·
    Tangerine #EB7D00 · Vanilla #EBE3A7 · Dun #E8D1BA · Drab Dark Brown #2E2910.
    Light-theme chart colors are deeper shades of the same hues, so every mark
    keeps at least 3:1 against the card and every text role at least 4.5:1. */
 [data-theme=dark]{
-  --bg:#021A13; --bg2:#03291D; --sheet:#03291D; --card:#063F2E; --card2:#07533C; --card3:#075B41;
+  --bg:#011B08; --bg2:#0A2913; --sheet:#0A2913; --card:#133F20; --card2:#22522F; --card3:#265934;
   --hair:rgba(232,209,186,.17); --hair2:rgba(232,209,186,.09); --hair3:rgba(232,209,186,.28);
   --tx:#F6EEE2; --tx2:#D6E6DA; --tx3:#A6D8BE;
   --acc:#EDA335; --acc-text:#F2B85E; --acc2:#A6D8BE; --neg:#F9B06A; --pos:#A6D8BE; --warn:#F2B85E;
@@ -63,23 +63,23 @@
   --k0:#A9AA8E; --k1:#EDA335; --k2:#A6D8BE; --k3:#EB7D00; --k4:#EBE3A7; --k5:#6DB392;
   /* semantic money roles */
   --c-in:#A6D8BE; --c-fix:#EDA335; --c-var:#EB7D00; --c-keep:#EBE3A7; --c-over:#EB7D00; --c-plan:#E8D1BA; --c-ess:#EDA335; --c-opt:#EB7D00;
-  --surfA:#16382A; --surfB:#0C2419; --inset:#081F16;
+  --surfA:#133A1E; --surfB:#072510; --inset:#04200C;
   --hl:rgba(246,238,226,.06); --hl2:rgba(246,238,226,.035);
   --sh1:0 22px 56px -26px rgba(3,20,13,.85);
   --sh2:0 8px 22px -16px rgba(3,20,13,.65);
 }
 [data-theme=light]{
-  --bg:#EAF0E5; --bg2:#DCE7D9; --sheet:#FBFCF7; --card:#FFFEF9; --card2:#FFFFFF; --card3:#F1F5EC;
+  --bg:#E6F1E8; --bg2:#DAE7DC; --sheet:#F9FDF9; --card:#FFFEF9; --card2:#FFFFFF; --card3:#EEF6EF;
   --hair:rgba(44,87,69,.17); --hair2:rgba(44,87,69,.09); --hair3:rgba(44,87,69,.28);
   --tx:#2E2910; --tx2:#4B4528; --tx3:#5C5738;
-  --acc:#B7770A; --acc-text:#8A5200; --acc2:#2C5745; --neg:#A34E00; --pos:#2C5745; --warn:#8A5200;
-  --btn:#2C5745; --btnT:#FBF6EE;
+  --acc:#B7770A; --acc-text:#8A5200; --acc2:#255A34; --neg:#A34E00; --pos:#255A34; --warn:#8A5200;
+  --btn:#255A34; --btnT:#FBF6EE;
   --grid:rgba(44,87,69,.1); --glow:rgba(44,87,69,.12);
   --sh:0 18px 46px -24px rgba(22,52,40,.28);
   --lift:0 0 0 1px rgba(44,87,69,.07), 0 1px 2px -1px rgba(22,52,40,.08), 0 8px 22px -14px rgba(22,52,40,.25);
-  --k0:#7A7560; --k1:#B7770A; --k2:#2C5745; --k3:#C96400; --k4:#8C8430; --k5:#3F8F6C;
-  --c-in:#2C5745; --c-fix:#B7770A; --c-var:#C96400; --c-keep:#8C8430; --c-over:#C96400; --c-plan:#5C5738; --c-ess:#B7770A; --c-opt:#C96400;
-  --surfA:#F6FBF2; --surfB:#E3EEE0; --inset:#EEF3E9;
+  --k0:#7A7560; --k1:#B7770A; --k2:#255A34; --k3:#C96400; --k4:#8C8430; --k5:#3F8F6C;
+  --c-in:#255A34; --c-fix:#B7770A; --c-var:#C96400; --c-keep:#8C8430; --c-over:#C96400; --c-plan:#5C5738; --c-ess:#B7770A; --c-opt:#C96400;
+  --surfA:#F4FBF5; --surfB:#E2EEE4; --inset:#EBF4EC;
   --hl:rgba(255,255,255,.85); --hl2:rgba(255,255,255,.55);
   --sh1:0 20px 42px -24px rgba(22,52,40,.26);
   --sh2:0 6px 16px -12px rgba(22,52,40,.2);
@@ -1904,7 +1904,7 @@ function themePref(){let p=DB.g('befree.streak.theme.v2');if(p==null)p=DB.g('bef
 function applyTheme(){const p=themePref(),n=p==='system'?(mqDark.matches?'dark':'light'):p;
  document.documentElement.dataset.theme=n;$('#thI').setAttribute('d',n==='dark'?MOON:SUN);
  $('#thBtn').setAttribute('aria-label',n==='dark'?'Switch to light theme':'Switch to dark theme');
- const tc=document.querySelector('meta[name=theme-color]');if(tc)tc.setAttribute('content',n==='dark'?'#021A13':'#EAF0E5')}
+ const tc=document.querySelector('meta[name=theme-color]');if(tc)tc.setAttribute('content',n==='dark'?'#011B08':'#E6F1E8')}
 function setThemePref(p){DB.s('befree.streak.theme.v2',p);applyTheme();setTimeout(render,60)}
 mqDark.addEventListener&&mqDark.addEventListener('change',()=>{if(themePref()==='system'){applyTheme();render()}});
 $('#thBtn').onclick=()=>setThemePref(document.documentElement.dataset.theme==='dark'?'light':'dark');
@@ -1915,7 +1915,7 @@ addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'
 function iconURL(size,mask){
  const c=document.createElement('canvas');c.width=c.height=size;const x=c.getContext('2d');
  /* Streak's identity: Gap's ring on cream, with a check inside */
- const BG='#F2DDB0',CR='#0B3B2C',GD='#C9790C';
+ const BG='#F2DDB0',CR='#113C1E',GD='#C9790C';
  x.fillStyle=BG;x.fillRect(0,0,size,size);
  {const s=size/64*(mask?0.322/0.42:1);x.save();x.translate(size/2,size/2);x.strokeStyle=CR;x.lineWidth=4.4*s;x.lineCap='round';x.lineJoin='round';
   x.beginPath();x.moveTo(-7.5*s,1.5*s);x.lineTo(-2*s,7*s);x.lineTo(8*s,-4*s);x.stroke();x.restore()}
@@ -1933,7 +1933,7 @@ if(LIVE)(async()=>{ try{
  throw 0;
 }catch(e){ try{
  const mf={name:'Streak',short_name:'Streak',start_url:'.',scope:'.',display:'standalone',
-  orientation:'portrait',background_color:'#021A13',theme_color:'#021A13',
+  orientation:'portrait',background_color:'#011B08',theme_color:'#011B08',
   description:'Small, repeatable money habits. Records are stored in this browser.',
   icons:[{src:iconURL(192),sizes:'192x192',type:'image/png',purpose:'any'},
          {src:iconURL(512),sizes:'512x512',type:'image/png',purpose:'any'},
@@ -2408,7 +2408,7 @@ window.drawChal=function(){
 async function drawShare(o){
  const W=1080,H=1350,c=document.createElement('canvas');c.width=W;c.height=H;const x=c.getContext('2d');
  try{await Promise.all(['900 150px Fraunces','600 44px Poppins','500 34px Poppins'].map(f=>document.fonts.load(f)))}catch(e){}
- const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#07533C');g.addColorStop(1,'#021A13');x.fillStyle=g;x.fillRect(0,0,W,H);
+ const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#22522F');g.addColorStop(1,'#011B08');x.fillStyle=g;x.fillRect(0,0,W,H);
  await new Promise(r=>{const im=new Image();im.onload=()=>{x.drawImage(im,90,90,150,150);r()};im.onerror=r;im.src=iconURL(300)});
  x.fillStyle='#E8D1BA';x.font='600 40px Poppins, sans-serif';x.fillText('BeFree Streak',270,180);
  x.fillStyle='#EDA335';x.font='900 300px Fraunces, Georgia, serif';x.fillText(o.big,90,640);

@@ -22,7 +22,7 @@ PAGE = """<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; manifest-src 'self'; worker-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
-<meta name="theme-color" content="#063F2E">
+<meta name="theme-color" content="#133F20">
 <meta name="color-scheme" content="light dark">
 <meta name="description" content="Install BeFree Gap and BeFree Streak: two private money apps with no account and no bank login.">
 <link rel="manifest" href="manifest.webmanifest">
@@ -97,10 +97,10 @@ ROOT_PAGE = """<!doctype html>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <meta http-equiv="refresh" content="0; url=gap/install.html">
-<meta name="theme-color" content="#063F2E">
+<meta name="theme-color" content="#133F20">
 <link rel="icon" href="logo.svg" type="image/svg+xml">
 <title>BeFree · Install Gap and Streak</title>
-<style>body{margin:0;padding:48px 16px;background:#F3EEE3;color:#16261E;font:16px/1.6 system-ui,sans-serif;text-align:center}a{color:#2C5745;font-weight:600}</style>
+<style>body{margin:0;padding:48px 16px;background:#F3EEE3;color:#16261E;font:16px/1.6 system-ui,sans-serif;text-align:center}a{color:#255A34;font-weight:600}</style>
 </head>
 <body><p><a href="gap/install.html">Install Gap and Streak</a></p></body>
 </html>

@@ -83,7 +83,7 @@ window.drawChal=function(){
 async function drawShare(o){
  const W=1080,H=1350,c=document.createElement('canvas');c.width=W;c.height=H;const x=c.getContext('2d');
  try{await Promise.all(['900 150px Fraunces','600 44px Poppins','500 34px Poppins'].map(f=>document.fonts.load(f)))}catch(e){}
- const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#07533C');g.addColorStop(1,'#021A13');x.fillStyle=g;x.fillRect(0,0,W,H);
+ const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#22522F');g.addColorStop(1,'#011B08');x.fillStyle=g;x.fillRect(0,0,W,H);
  await new Promise(r=>{const im=new Image();im.onload=()=>{x.drawImage(im,90,90,150,150);r()};im.onerror=r;im.src=iconURL(300)});
  x.fillStyle='#E8D1BA';x.font='600 40px Poppins, sans-serif';x.fillText('BeFree Streak',270,180);
  x.fillStyle='#EDA335';x.font='900 300px Fraunces, Georgia, serif';x.fillText(o.big,90,640);

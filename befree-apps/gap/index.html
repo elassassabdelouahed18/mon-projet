@@ -2,13 +2,13 @@
 <html lang="en-US" data-theme="dark">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-QFTH8PoB8nB8U2SgL24n5U2uYs2wjNvjKUrdwGpBrJI=' 'sha256-MdnlgQtPATxRUx/87ZtGkMRdSA6GJ6LBnssmTgmvrSo=' 'sha256-23+ybjAFCSiptDWSjbwqJwYeF1JkxOUEjEscyqL5LPk=' 'sha256-X9HZ7hgh+UP9icVlGTSq8uT3n+uHifNQBLdXEWFnd/s=' 'sha256-0syPYhi8wy5OAGq+ABwkqvPbWy2YPVXNGO0Anni55xg='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; manifest-src 'self' blob: data:; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-QFTH8PoB8nB8U2SgL24n5U2uYs2wjNvjKUrdwGpBrJI=' 'sha256-MdnlgQtPATxRUx/87ZtGkMRdSA6GJ6LBnssmTgmvrSo=' 'sha256-23+ybjAFCSiptDWSjbwqJwYeF1JkxOUEjEscyqL5LPk=' 'sha256-6x7vkXaPDhAyLZu5ObzCCOEg96iCyWL70dRQGgbysLY=' 'sha256-WvZq21bELi3JkvMSHu6D0zZbxjXQshS7tF0wg0rVFAA='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; manifest-src 'self' blob: data:; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%20width='64'%20height='64'%3E%3Crect%20width='64'%20height='64'%20rx='14.080'%20fill='%23063F2E'/%3E%3Cg%20transform='translate(30.9654%2033.5654)%20scale(0.180239)'%3E%3Cpath%20d='M78.4085%20-19.3315%20A80.7565%2080.7565%200%201%201%20-22.5574%20-77.5420'%20fill='none'%20stroke='%23E8D1BA'%20stroke-width='38.4871'%20stroke-linecap='butt'/%3E%3Ccircle%20cx='88.2900'%20cy='-94.1800'%20r='23.1900'%20fill='%23EDA335'/%3E%3C/g%3E%3C/svg%3E" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#021A13">
+<meta name="theme-color" content="#011B08">
 <meta name="description" content="BeFree Gap shows what is available until your next payday and helps you widen the gap between what comes in and what goes out.">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -46,12 +46,12 @@
   --tr-micro:.11em;
   --tap:44px;
 }
-/* Palette: Brunswick Green #2C5745 · Celadon #9DD0B6 · Gamboge #EDA335 ·
+/* Palette: Brunswick Green #255A34 · Celadon #9DD0B6 · Gamboge #EDA335 ·
    Tangerine #EB7D00 · Vanilla #EBE3A7 · Dun #E8D1BA · Drab Dark Brown #2E2910.
    Light-theme chart colors are deeper shades of the same hues, so every mark
    keeps at least 3:1 against the card and every text role at least 4.5:1. */
 [data-theme=dark]{
-  --bg:#021A13; --bg2:#03291D; --sheet:#03291D; --card:#063F2E; --card2:#07533C; --card3:#075B41;
+  --bg:#011B08; --bg2:#0A2913; --sheet:#0A2913; --card:#133F20; --card2:#22522F; --card3:#265934;
   --hair:rgba(232,209,186,.17); --hair2:rgba(232,209,186,.09); --hair3:rgba(232,209,186,.28);
   --tx:#F6EEE2; --tx2:#D6E6DA; --tx3:#A6D8BE;
   --acc:#EDA335; --acc-text:#F2B85E; --acc2:#A6D8BE; --neg:#F9B06A; --pos:#A6D8BE; --warn:#F2B85E;
@@ -63,23 +63,23 @@
   --k0:#A9AA8E; --k1:#EDA335; --k2:#A6D8BE; --k3:#EB7D00; --k4:#EBE3A7; --k5:#6DB392;
   /* semantic money roles */
   --c-in:#A6D8BE; --c-fix:#EDA335; --c-var:#EB7D00; --c-keep:#EBE3A7; --c-over:#EB7D00; --c-plan:#E8D1BA; --c-ess:#EDA335; --c-opt:#EB7D00;
-  --surfA:#16382A; --surfB:#0C2419; --inset:#081F16;
+  --surfA:#133A1E; --surfB:#072510; --inset:#04200C;
   --hl:rgba(246,238,226,.06); --hl2:rgba(246,238,226,.035);
   --sh1:0 22px 56px -26px rgba(3,20,13,.85);
   --sh2:0 8px 22px -16px rgba(3,20,13,.65);
 }
 [data-theme=light]{
-  --bg:#EAF0E5; --bg2:#DCE7D9; --sheet:#FBFCF7; --card:#FFFEF9; --card2:#FFFFFF; --card3:#F1F5EC;
+  --bg:#E6F1E8; --bg2:#DAE7DC; --sheet:#F9FDF9; --card:#FFFEF9; --card2:#FFFFFF; --card3:#EEF6EF;
   --hair:rgba(44,87,69,.17); --hair2:rgba(44,87,69,.09); --hair3:rgba(44,87,69,.28);
   --tx:#2E2910; --tx2:#4B4528; --tx3:#5C5738;
-  --acc:#B7770A; --acc-text:#8A5200; --acc2:#2C5745; --neg:#A34E00; --pos:#2C5745; --warn:#8A5200;
-  --btn:#2C5745; --btnT:#FBF6EE;
+  --acc:#B7770A; --acc-text:#8A5200; --acc2:#255A34; --neg:#A34E00; --pos:#255A34; --warn:#8A5200;
+  --btn:#255A34; --btnT:#FBF6EE;
   --grid:rgba(44,87,69,.1); --glow:rgba(44,87,69,.12);
   --sh:0 18px 46px -24px rgba(22,52,40,.28);
   --lift:0 0 0 1px rgba(44,87,69,.07), 0 1px 2px -1px rgba(22,52,40,.08), 0 8px 22px -14px rgba(22,52,40,.25);
-  --k0:#7A7560; --k1:#B7770A; --k2:#2C5745; --k3:#C96400; --k4:#8C8430; --k5:#3F8F6C;
-  --c-in:#2C5745; --c-fix:#B7770A; --c-var:#C96400; --c-keep:#8C8430; --c-over:#C96400; --c-plan:#5C5738; --c-ess:#B7770A; --c-opt:#C96400;
-  --surfA:#F6FBF2; --surfB:#E3EEE0; --inset:#EEF3E9;
+  --k0:#7A7560; --k1:#B7770A; --k2:#255A34; --k3:#C96400; --k4:#8C8430; --k5:#3F8F6C;
+  --c-in:#255A34; --c-fix:#B7770A; --c-var:#C96400; --c-keep:#8C8430; --c-over:#C96400; --c-plan:#5C5738; --c-ess:#B7770A; --c-opt:#C96400;
+  --surfA:#F4FBF5; --surfB:#E2EEE4; --inset:#EBF4EC;
   --hl:rgba(255,255,255,.85); --hl2:rgba(255,255,255,.55);
   --sh1:0 20px 42px -24px rgba(22,52,40,.26);
   --sh2:0 6px 16px -12px rgba(22,52,40,.2);
@@ -4347,7 +4347,7 @@ function applyTheme(){const p=themePref(),n=p==='system'?(mqDark.matches?'dark':
  document.documentElement.dataset.theme=n;
  $('#thI').setAttribute('d',n==='dark'?MOON:SUN);
  $('#thBtn').setAttribute('aria-label',n==='dark'?'Switch to light theme':'Switch to dark theme');
- document.querySelector('meta[name=theme-color]').setAttribute('content',n==='dark'?'#021A13':'#EAF0E5')}
+ document.querySelector('meta[name=theme-color]').setAttribute('content',n==='dark'?'#011B08':'#E6F1E8')}
 function setThemePref(p){DB.s('befree.gap.theme',p);applyTheme();setTimeout(render,60)}
 mqDark.addEventListener&&mqDark.addEventListener('change',()=>{if(themePref()==='system'){applyTheme();render()}});
 $('#privBtn').onclick=()=>show('#shPriv',true);
@@ -4357,7 +4357,7 @@ $('#thBtn').onclick=()=>setThemePref(document.documentElement.dataset.theme==='d
 /* ══════════ install and offline ══════════ */
 function iconURL(size,mask){
  const c=document.createElement('canvas');c.width=c.height=size;const x=c.getContext('2d');
- const BG='#2C5745',CR='#F3E9DA',GD='#EDA335';
+ const BG='#255A34',CR='#F3E9DA',GD='#EDA335';
  x.fillStyle=BG;x.fillRect(0,0,size,size);
  const k=(mask?0.322:0.42)*size/142.03, cx=size/2-5.74*k, cy=size/2+8.68*k;
  x.save();x.translate(cx,cy);x.scale(k,k);
@@ -4374,7 +4374,7 @@ function iconURL(size,mask){
 }catch(e){
  try{
   const mf={name:'Gap',short_name:'Gap',start_url:'.',scope:'.',display:'standalone',
-   orientation:'portrait',background_color:'#021A13',theme_color:'#021A13',
+   orientation:'portrait',background_color:'#011B08',theme_color:'#011B08',
    description:'See what is available until payday, and widen the gap between what comes in and what goes out.',
    icons:[{src:iconURL(192),sizes:'192x192',type:'image/png',purpose:'any'},
           {src:iconURL(512),sizes:'512x512',type:'image/png',purpose:'any'},
@@ -4925,7 +4925,7 @@ body[data-page=guide] .fab{display:none!important}
 body.locked .toast{opacity:0!important}
 @media(min-width:641px){.toast{bottom:28px!important}}
 .instcard.float{position:static;box-shadow:none;animation:none;margin:0 0 14px;width:auto}
-:root{--hero-bg:#0B3B2C}html[data-theme=dark]{--hero-bg:#0A4A36}
+:root{--hero-bg:#113C1E}html[data-theme=dark]{--hero-bg:#0A4A36}
 @media(prefers-reduced-motion:reduce){.snack{transition:none}}`;
 document.head.appendChild(css);
 

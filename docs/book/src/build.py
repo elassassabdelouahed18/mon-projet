@@ -53,7 +53,9 @@ def brand_green(html):
 
 
 def main():
-    jpeg('cover3e.png', 'cover3e.jpg', 90)
+    # the print-resolution rebuild (tools/cover-rebuild.py): 1800x2700, with
+    # the bottom line set as real type rather than upscaled pixels
+    jpeg('cover3e-print.png', 'cover3e.jpg', 88)
     html = open(os.path.join(HERE, 'original.html'), encoding='utf-8').read()
     html = once(html, '<link rel="stylesheet" href="sys.css">',
                 '<link rel="stylesheet" href="sys.css"><link rel="stylesheet" href="sys2.css">', 'stylesheet')

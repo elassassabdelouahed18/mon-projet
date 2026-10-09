@@ -1,0 +1,18 @@
+{
+  "source": "Federal Reserve Bank of Atlanta, Wage Growth Tracker",
+  "file": "https://www.atlantafed.org/-/media/Project/Atlanta/FRBA/Documents/datafiles/chcs/wage-growth-tracker/wage-growth-data.xlsx",
+  "sheet": "Job Switcher",
+  "read_on": "2026-10-09",
+  "latest": {
+    "period": "2026-09-01 00:00:00",
+    "stayer": 3.5,
+    "switcher": 4.4
+  },
+  "median_last_12": {
+    "stayer": 3.7,
+    "switcher": 4.4,
+    "gap": 0.7
+  },
+  "months_switcher_above_stayer": 325,
+  "months_total": 356
+}

@@ -455,3 +455,45 @@ normal vision, against floors of 8 and 15.
 
 Pages 190 → 192.
 
+### C2, C4, C5 — the offense chapters
+
+**C4.** A Chapter 12 chart of what each Engine Zero move adds in a year, built
+from three sources rather than estimates: BLS OEWS May 2025 Columbus medians,
+the Atlanta Fed's Wage Growth Tracker release file, and 26 U.S.C. §127.
+
+| move | a year | from |
+|---|---|---|
+| Change employers | **$378** | switchers 4.4% against stayers 3.5%, applied to his $42,003 |
+| Claim a differential | $2,470 | $1.25 an hour on 1,976 hours |
+| Take the certification | $5,250 | the tuition-assistance exclusion |
+| Move up one band inside the building | **$21,060** | supervisor $62,260 against material mover $41,200 |
+
+The chart turned out sharper than the brief expected. The book's own best
+source **contradicts** the sentence it was supporting: changing employers is
+worth about $378 in the first year to this reader, and moving up one band
+inside the same building is worth **fifty-six times that**. Which is the
+chapter's argument — Engine Zero first — now carried by a public number instead
+of an assertion. The caption is explicit that the last bar is a step and the
+first is a rate.
+
+I pulled the Atlanta Fed figures from their release file
+(`sources/atlanta-fed-switchers.json`): job switchers have been above job
+stayers in **325 of the 356 months** measured since 1997, which is the honest
+form of the claim, and it now replaces the vaguer "for most of the past decade".
+
+**C2.** Two sentences in Chapter 12 on why Marcus overruled the ranking, run
+through the book's own four questions: a second shift leaves him no hours inside
+a client's working day, and a product sells while he is on the floor. Plus where
+his buyers came from (the warehouse forums he already read — audience before
+product) and that his $200 is above the median, not below it.
+
+**C5.** Half a sentence in Chapter 13: he runs nearer 40/40/20 than the 50/25/25
+default because Card A charges 26.9%, which is a guaranteed 26.9% return.
+
+**Two bugs of my own, repaired.** The D2 edit in the previous commit left "The
+ceiling. Modest and certain." printed twice, and left "not staying" stranded
+behind an inserted clause. Both fixed at the source of the edit rather than
+patched downstream.
+
+Pages 192 → 193.
+

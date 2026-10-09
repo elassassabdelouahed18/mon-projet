@@ -149,7 +149,7 @@ EDITS = [
      'What it is. Before you sell anything to anyone, look at the income you already have. Many '
      'workers have never asked about the differentials their employer already publishes. '
      'Differentials, certifications, internal postings, the band above the one you were hired '
-     'into. The ceiling. Modest and certain.'),
+     'into.'),
 
     # the 20-to-60% range traces to no publisher
     ('rep', 'If you carry medical debt, read this before you do anything with it.',

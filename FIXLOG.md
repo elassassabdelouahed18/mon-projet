@@ -631,3 +631,37 @@ prose-against-prose duplication in this book worth deleting.
 up during this pass, not down: C1 added Model four and its chart, C3 added the
 Saver's Credit section, C4 and B5 added charts, and B1 added the phase map.
 
+
+### Section E — the guide and the install sheet
+
+The guide is `docs/start-here/book.html`, 32 pages, rendered by Chromium.
+`render.cjs` reports `over` as **free space left on the page** (`limit - maxB`);
+a negative number means the page overflows. Baseline before these edits:
+no page overflowed, tightest page was 8 with 20px to spare.
+
+| ID | what changed | where |
+|---|---|---|
+| E1 | the migration note ("Coming from the older one-window version…", 323 chars) is gone | install sheet |
+| E2 | step 05 now reads "Choose one useful habit."; the audit instruction is gone from both places | guide p.5, p.22 |
+| E3 | one caution added to ONE RESPONSIBILITY on p.3, eight deleted across pp.3–25 | guide |
+| E4 | "It is optional;" gone from the p.3 table; p.6 reads "One habit, honestly ticked" | guide |
+| E5 | "The four moves" replaced by the eight phases of Appendix A, each with its gate | guide p.4 |
+| E6 | the two variable-income pages merged into one half-page under REFERENCE, "If your pay changes", carrying the 1040-ES and mileage rows; the FOR TIPS, GIGS AND SHIFTS label removed; contents updated | guide pp.20–21 |
+| E7 | the weekly beat is named "the ten-minute Sunday review" in the cost table too; the quarterly (30 min) and annual (60 min) beats, missing from the guide, added verbatim from J3 | guide p.5, p.30 |
+| E8 | "Daily logging, monthly reconciliation and occasional corrections take additional time." deleted | guide p.26 |
+
+**One regression, mine, and how it was closed.** The eight-phase table is taller
+than the four-move table it replaced: page 4 went from fitting to 170px of
+overflow. Two edits closed it, both deletions, no paraphrase:
+
+1. the table states each gate once instead of twice (name · gate, one row);
+2. the lede's third sentence, "A negative result is information, not a personal
+   failing", was cut — the headline above it already says *not a character
+   flaw*, and the box at the foot of the same page says *Nothing has gone
+   wrong*. Three statements of one idea on one page; B4 allows the cut.
+
+Page 4 now has **1px** of free space. That is a fit, and the renderer is
+deterministic, but it leaves no room: any later edit to page 4 must be a
+deletion, or the page needs a second column of the table moved off it.
+
+After E: no page overflows, 32 pages, 3,197 KB, `check-stylesheet.py` 0 failures.

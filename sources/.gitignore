@@ -1,0 +1,3 @@
+# the fetched pages are evidence, not sources of the build: keep the index,
+# keep the text, but never let a half-finished fetch in
+*.part

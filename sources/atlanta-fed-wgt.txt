@@ -1,0 +1,249 @@
+# requested: https://www.atlantafed.org/chcs/wage-growth-tracker
+# final:     https://www.atlantafed.org/research-and-data/data/wage-growth-tracker
+# http:      200
+# read on:   2026-10-09
+
+Wage Growth Tracker - Federal Reserve Bank of Atlanta 
+ Skip to Content 
+ Who We Are
+ Toggle sub menu 
+ Annual Reports
+ Business Continuity
+ Careers
+ History
+ Holidays
+ People
+ Procurement
+ Sustainability
+ Transparency
+ Visit
+ What We Study
+ Toggle sub menu 
+ Banking
+ Employment
+ Everyone's Economy
+ Financial Markets
+ Housing and Real Estate
+ Inflation
+ Macroeconomy
+ Monetary Policy
+ Payments
+ Regional Economy
+ Workforce Development
+ What We Do
+ Toggle sub menu 
+ Banking Supervision and Lending
+ Community and Economic Development
+ Economic Education
+ Economic Research
+ Financial Services
+ Research & Data
+ Toggle sub menu 
+ Data
+ Publications
+ Surveys
+ News & Events
+ Toggle sub menu 
+ Events
+ Podcasts
+ Press Room
+ Speeches
+ Search the Atlanta Fed 
+ Search 
+ Toggle visibility of search bar 
+ Home 
+ Research and Data 
+ Data 
+ Wage Growth Tracker
+ Wage Growth Tracker 
+ The Atlanta Fed's Wage Growth Tracker is a measure of the nominal wage growth of individuals. It is constructed using microdata from the Current Population Survey (CPS), and is the median percent change in the hourly wage of individuals observed 12 months apart. Our measure is based on methodology developed by colleagues at the San Francisco Fed. 
+ Subscribe to Email Updates
+ Subscribe to Email Updates 
+ Close 
+ Enter your information 
+ First name * 
+ Last name * 
+ Email * 
+ Message * 
+ * Required field 
+ Success! :-) 
+ Failure :-( 
+ 3.9%
+ Wage Growth Tracker (3-month overall unweighted, September 2026) 
+ October 2026 
+ The Atlanta Fed’s Wage Growth Tracker edged down to 3.9 percent in September from 4.1 percent the prior month. Both Tracker measures for those not changing jobs and those changing jobs edged down as well. Those not changing jobs went from 3.6 percent to 3.4 percent, and those changing jobs went from 5.0 percent to 4.7 percent. 
+ Updated: October 08, 2026 
+ Downloads
+ Download the data 
+ Interactive Chart
+ Methodology
+ Data Distribution
+ Related Links
+ Show Filters 
+ Filters 
+ Moving Average 
+ 3-Month 12-Month 
+ Job Characteristic 
+ Stayer/Switcher 
+ Industry 
+ Full-Time 
+ Hourly/Weekly Basis 
+ Wage Distribution 
+ Demographics 
+ Age 
+ Gender 
+ Education Level 
+ Race 
+ Census Division 
+ MSA 
+ Date 
+ From: 
+ January
+ February
+ March
+ April
+ May
+ June
+ July
+ August
+ September
+ October
+ November
+ December
+ To: 
+ January
+ February
+ March
+ April
+ May
+ June
+ July
+ August
+ September
+ October
+ November
+ December
+ Download Data 
+ Reset 
+Notes: (1) The size of the sample used to create the Wage Growth Tracker was 10 percent lower in November and December 2025 relative to September 2025, likely due to the decline in the response rate for the Current Population Survey . The smaller sample size implies that the confidence interval for the point estimates for both months is wider than it had been. (2) The three-month moving average calculations for December 2025 include September 2025, November 2025, and December 2025 observations because the October 2025 observation is not available, due to the missing month of data resulting from the federal government shutdown. The three-month moving average calculations for November 2025 include August 2025, September 2025, and November 2025. (3) Minor adjustments to methodology have been implemented to historical data from 2023 to 2025 with minimal impact to tracker measures.
+ About the Wage Growth Tracker 
+ The interactive chart displays the Wage Growth Tracker along with versions of the tracker for select work and demographic characteristics (shown as either 3-month or 12-month moving averages). See the downloadable spreadsheet for variable definitions.
+ The Atlanta Fed's Wage Growth Tracker is a measure of the nominal wage growth of individuals. It is constructed using microdata from the Current Population Survey (CPS), and is the median percent change in the hourly wage of individuals observed 12 months apart. Our measure is based on methodology developed by colleagues at the San Francisco Fed.
+ The Wage Growth Tracker is updated once the Atlanta Fed's CPS dataset is constructed (see the "Explore the Data" tab above). This is usually by the second Friday of the month. The exact timing depends on when the Bureau of the Census publishes the micro data from the CPS.
+ Data source 
+ The data we use to compute the Atlanta Fed's Wage Growth Tracker are from the monthly Current Population Survey (CPS), administered by the U.S. Census Bureau for the Bureau of Labor Statistics. (You can find an overview of the CPS on the Census website .) The survey features a rotating panel of households. Surveyed households are in the CPS sample four consecutive months, not interviewed for next eight months, and then in the survey again four consecutive months. Each month, one-eighth of the households are in the sample for the first time, one-eighth for the second time, and so forth. Respondents answer questions about the wage and salary earnings of household members in the fourth and the last month they are surveyed. We use the information in these two interviews, spaced 12 months apart, to compute our wage growth statistic. 
+ US Census Bureau topcoding rule changes and the Wage Growth Tracker 
+Following the release of the April 2024 Wage Growth Tracker, changes to topcoding rules affected the Wage Growth Tracker. To thoroughly understand the impact of these changes on the data tool, we temporarily paused releases, resuming updates of the Wage Growth Tracker in July 2024. A Policy Hub: Macroblog post discusses  changes in the underlying data and the implications for the Wage Growth Tracker.
+ Calculating hourly earnings 
+ The methodology is broadly similar to that used by Daly, Hobijn, and Wiles (2012 ). The earnings data are for wage and salary earners, and refer to an individual's main job (earnings data are not collected for self-employed people). Earnings are pretax and before other deductions. The Census Bureau reports earnings on either a per-hour or a per-week basis. We convert weekly earnings to hourly by dividing usual weekly earnings by usual weekly hours or actual hours if usual hours is missing. 
+ We further restrict the sample by excluding the following: 
+ Individuals whose earnings are top-coded. The top-code is such that the product of usual hours times usual hourly wage does not exceed an annualized wage of $100,000 before 2003 and $150,000 in the years 2003 forward. We exclude wages of top-coded individuals because top-coded earnings will show up as having zero wage growth, which is unlikely to be accurate. 
+ Individuals with earnings information that has been imputed by the BLS because of missing earnings data. 
+ Individuals whose hourly pay is below the current federal minimum wage for tip-based workers ($2.13). 
+ Individuals employed in agricultural occupations (such as farm workers). 
+ These restrictions yield an average of 9,300 earnings observations each month. 
+ Constructing the wage growth tracker statistic 
+ Once we have constructed the individual hourly earnings data, we match the hourly earnings of individuals observed in both the current month and 12 months earlier. The matching algorithm results in about 2,000 individual wage growth observations per month. We then compute the median of the distribution of individual 12-month wage changes for each month. 
+ The final step is to smooth the data using a three-month moving average. That is, we average the current month median wage growth with the medians for the prior two months. The chart below shows the unsmoothed and three-month average versions of the median wage growth series. 
+ Note that our matched dataset has a slightly greater share of older, more educated workers in professional jobs than does the sample of all wage and salary earners. This is primarily due to the requirement that the individual has earnings in both the current and prior year. Older, more educated workers are more likely to be continuously employed than other wage and salary earners. 
+ Wage Growth Tracker by select employment and demographic characteristics 
+ We also report Wage Growth Tracker measures for several job and demographic characteristics listed below (unless otherwise noted, the definitions refer to the individual’s status in the current month): 
+ Occupation 
+ High-skill: Managers, Professionals, Technicians 
+ Middle-skill: Office and Administration, Operators, Production, Sales 
+ Low-skill: Food Preparation and Serving, Cleaning, individual Care Services, Protective Services 
+ Industry 
+ Construction and mining 
+ Education and health 
+ Finance and business services: Finance, Information, Professional and business services 
+ Leisure and hospitality: Leisure, Hospitality, Other services 
+ Manufacturing 
+ Public Administration 
+ Trade and transportation: Trade, Transportation, Warehousing, Utilities 
+ Service Sector 
+ In an industry other than construction, mining, or manufacturing 
+ Full-time 
+ Usually works 35 hours per week or more 
+ Job-Switcher 
+ In a different occupation or industry than a year ago or has changed employers or job duties in the past three months. 
+ Note: Because the Current Population Survey is a survey of addresses, if a person moves to a new address they will be missing from the data. Therefore, job switching is defined only in a geographically local sense. 
+ Paid Hourly 
+ Paid at an hourly rate in both the current month and a year ago 
+ Not paid at an hourly rate in the current month and a year ago 
+ Average Wage Level 
+ Ranking based on the distribution of average hourly wage in the current month and a year ago. Those in the lowest 25 percent of average wages are in the 1st quartile and those in the highest 25 percent of average wages are in the 4th quartile. 
+ Age 
+ 16-24 
+ 25-54 
+ 55+ 
+ Race 
+ White 
+ Nonwhite 
+ Education 
+ High school or less 
+ Associates degree 
+ Bachelor degree or higher 
+ College Degree 
+ Has an Associate degree or higher 
+ MSA 
+ Metropolitan Statistical Area (MSA) as defined by the U.S. Office of Management and Budget 
+ Excludes those whose MSA status is not identified 
+ Census Division 
+ New England: Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, Vermont 
+ Mid-Atlantic: New Jersey, New York, Pennsylvania 
+ East North Central: Illinois, Indiana, Michigan, Ohio, Wisconsin 
+ West North Central: Iowa, Kansas, Minnesota, Missouri, Nebraska, North Dakota, South Dakota 
+ South Atlantic: Delaware, Florida, Georgia, Maryland, North Carolina, South Carolina, Virginia, District of Columbia, West Virginia 
+ East South Central: Alabama, Kentucky, Mississippi, Tennessee 
+ West South Central: Arkansas, Louisiana, Oklahoma, Texas 
+ Mountain: Arizona, Colorado, Idaho, Montana, Nevada, New Mexico, Utah, Wyoming 
+ Pacific: Alaska, California, Hawaii, Oregon, Washington 
+ Puerto Rico and other U.S. territories are not part of any census division 
+ Weighting Series 
+ Unless otherwise noted, all the series are based on an unweighted sample. The weighted series is constructed after weighting the sample to be representative of each month's population of wage and salary earners in terms of sex, age, education, industry, and occupation groups (irrespective of whether the person was also employed a year earlier). The weighted 1997 series is constructed after weighting the sample to be representative of the 1997 population of wage and salary earners in terms of sex, and age, education, industry, and occupation groups. These weighted series are described in two macroblog posts here and here . 
+ The Wage Growth Tracker is the time series of the median wage growth of matched individuals. This is not the same as growth in the median wage . Growth in the median wage represents the experience of a worker whose wage is in the middle of the wage distribution in the current month, relative to a worker in the middle of the wage distribution 12 months earlier. These would almost certainly include different workers in each period. 
+ Chart 1 plots the time series of the median, along with the mean, and the 75th and 25th percentiles of the individual wage growth distribution (all shown as three-month moving averages). The mean wage growth measure displays more variability over time than does the median. The mean wage growth uniformly lies above the median because the distribution of individual wage growth is asymmetric. The asymmetry can be seen by noting that the gap between the 75th percentile wage growth and the median wage growth is about 10 percentage points, whereas the gap between the 25th percentile and the median is only about 5 percentage points. Also note that the 75th and 25th percentiles have generally moved in line with the median over time, so that the interquartile range (a measure of dispersion) has remained relatively stable. 
+ One particularly interesting feature of the wage growth distribution is the proportion of individuals who experience no wage growth. Chart 2 shows the percentage of zero wage changes in our data (specifically the percent of individual wage growth falling in the range of +0.5 percent and -0.5 percent). For reference, also plotted is the median individual wage growth. 
+ Notice that the proportion of zero wage changes increased during both of the last two recessions. During the Great Recession, wage freezes became especially prevalent and have persisted at a high rate through much of the recovery. Only in the last year have we seen any notable decline in the percent of individuals experiencing zero wage change. For more information on this and its relation to models of nominal wage rigidity, see the work by our colleagues at the Federal Reserve Bank of San Francisco (Daly, Hobijn, and Wiles 2012 and Daly and Hobijn 2014 ). The distribution of individual wage growth is broadly similar to that shown on the Federal Reserve Bank of San Francisco website , although the methodology underlying the construction of the individual wage growth distribution differs somewhat. 
+ Wage Growth Tracker on Policy Hub: Macroblog 
+-->
+ Questions: 
+ Ask a question 
+ Research used to construct data: 
+ Dissecting Aggregate Real Wage Fluctuations: Individual Wage Growth and the Composition Effect, Daly, Hobijn and Wiles (2012) 
+ Downward Nominal Wage Rigidities Bend the Philips Curve (2014) 
+ Match Bias in Wage Gap Estimates Due to Earnings Imputation (2001) 
+ Wage Rigidity Meter at the San Francisco Fed 
+ Data: 
+ CPS Data Application from CADRE 
+ Current Population Survey 
+ The Atlanta Fed's Wage Growth Tracker is a measure of the nominal wage growth of individuals. It is constructed using microdata from the Current Population Survey (CPS), and is the median percent change in the hourly wage of individuals observed 12 months apart. Our measure is based on methodology developed by colleagues at the San Francisco Fed . 
+ The Wage Growth Tracker is updated once the Atlanta Fed's CPS dataset is constructed. This is usually by the second Friday of the month. The exact timing depends on when the Bureau of the Census publishes the micro data from the CPS. 
+ Subscribe to the Newsletter 
+ Get the inside scoop on our latest events, speeches, research, and more. 
+ Subscribe 
+ Quick Links 
+ Careers
+ Data
+ Events
+ General Information
+ People
+ Podcasts
+ Press Room
+ Visit
+ Connect 
+ LinkedIn 
+ Threads 
+ Instagram 
+ Facebook 
+ X (Twitter) 
+ YouTube 
+ Email Subscriptions 
+ RSS Feeds 
+ Copyright © 2026 Federal Reserve Bank of Atlanta. All Rights Reserved. 
+ Accessibility Statement
+ Data Privacy
+ Terms of Use
+ Sitemap
+ We use cookies on our website to give you the best online experience. Please know that if you continue to browse on our site, you agree to this use. You can always block or disable cookies using your browser settings. To find out more, please review our privacy policy. 
+ Proceed

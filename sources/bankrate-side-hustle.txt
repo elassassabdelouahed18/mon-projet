@@ -1,0 +1,452 @@
+# requested: https://www.bankrate.com/finance/credit-cards/side-hustles-survey/
+# final:     https://www.bankrate.com/finance/credit-cards/side-hustles-survey/
+# http:      404
+# read on:   2026-10-09
+
+Bankrate.com - Compare mortgage, refinance, insurance, CD rates 
+ Skip to Main Content 
+ {closeNav(); $refs.siteNavMenuButton.focus();}">
+Mortgages 
+ All
+ Mortgages 
+Purchase 
+Refinance 
+HELOC 
+Home equity loans 
+Explore all mortgages resources
+ Mortgages 
+ Compare rates 
+Mortgage rates 
+30-year mortgage rates 
+15-year mortgage rates 
+VA loan rates 
+ Get guidance 
+Mortgage calculator 
+Amortization calculator 
+Mortgage rate news 
+Read lender reviews 
+Best mortgage lenders 
+ How to get a mortgage 
+ 8 min read 
+ First-time homebuyer programs 
+ 6 min read 
+ Compare rates 
+Refinance rates 
+Cash-out refinance rates 
+30-year refinance rates 
+15-year refinance rates 
+ Get guidance 
+Mortgage refinance calculator 
+Best refinance lenders 
+Best cash-out refinance lenders 
+Mortgage refinance resources 
+ How to refinance your mortgage 
+ 6 min read 
+ Cash-out refinancing guide 
+ 6 min read 
+ HELOC 
+ A HELOC is a variable-rate line of credit that lets you borrow funds for a set period and repay them later. 
+HELOC rates 
+ Get guidance 
+What is home equity? 
+What is a HELOC? 
+Pros and cons of HELOCs 
+Home equity lender reviews 
+Home equity loan resources 
+ Best HELOC lenders 
+ HELOC calculator 
+ Home equity loans 
+ Home equity loans let you borrow a lump sum at a fixed rate, based on how much of the home you own outright. 
+Home equity loan rates 
+ Get guidance 
+What is a home equity loan? 
+Home equity loan pros and cons 
+Home equity loan requirements 
+HELOC vs. home equity loan 
+How to build home equity 
+ Best home equity loan lenders 
+ Home equity calculator 
+Explore all mortgages resources
+ Log in or sign up 
+Home
+My profile
+Account settings
+Log out
+Home
+My profile
+Account settings
+Log out
+ Log in or sign up 
+Home
+My profile
+Account settings
+Log out
+Home
+My profile
+Account settings
+Log out
+Banking 
+ All
+ Banking 
+Checking & savings 
+CDs 
+Money market 
+Banks 
+Explore all banking resources
+ Banking 
+ Compare accounts 
+Best high-yield savings accounts 
+Best checking accounts 
+Best free checking accounts 
+ Get guidance 
+Savings calculator 
+All savings calculators 
+Savings rate trends 
+Savings resources 
+ Savings basics 
+ 4 min read 
+ How to start saving 
+ 3 min read 
+ Compare accounts 
+Best CD rates 
+Best 6-month CD rates 
+Best 1-year CD rates 
+Best 5-year CD rates 
+ Get guidance 
+CD calculator 
+CD ladder calculator 
+CD resources 
+ CD basics 
+ 3 min read 
+ How to invest with CDs 
+ 7 min read 
+ Money market accounts 
+ Money market accounts are similar to savings accounts, but offer some checking features as well. 
+View MMA rates 
+ Get guidance 
+Money market basics 
+Money market vs savings accounts 
+How to open an MMA 
+MMA resources 
+ Banking 
+ Unlock financial rewards by signing up for a savings or checking account with a bonus offer. 
+Best bank bonuses 
+ Get guidance 
+Best online banks 
+Best credit unions 
+Bank reviews 
+Federal Reserve news 
+ Capital One review 
+ Read our expert's take 
+ Marcus review 
+ Read our expert's take 
+Explore all banking resources
+ Log in or sign up 
+Home
+My profile
+Account settings
+Log out
+Home
+My profile
+Account settings
+Log out
+ Log in or sign up 
+Home
+My profile
+Account settings
+Log out
+Home
+My profile
+Account settings
+Log out
+Credit cards 
+ All
+ Credit cards 
+Cards by category 
+Cards by credit 
+Tools & reviews 
+Guides & resources 
+Explore all credit cards resources
+ Credit cards 
+ Compare cards 
+Best cards of 2026 
+Best cash back cards 
+Best balance transfer cards 
+Best 0% APR cards 
+Best travel cards 
+Best rewards cards 
+Best business cards 
+Best sign up bonus cards 
+ Find my matches 
+ CardMatch™ 
+ Get personalized card recommendations 
+ Card comparison tool 
+ Compare credit cards side-by-side 
+ See your card matches 
+ Answer a few quick questions and we’ll show you your top credit card options. 
+Find my matches 
+ Compare cards 
+Excellent credit 
+Good credit 
+Fair credit 
+Bad credit 
+ Best cards for building credit 
+ Find out which credit cards could help 
+ See what the experts say 
+ Read in-depth credit card reviews to find out which cards have the best perks and more. 
+Read card reviews 
+ Get guidance 
+Credit card payoff calculator 
+Balance transfer calculator 
+Credit utilization calculator 
+Points and miles calculator 
+All credit card calculators 
+ Spender type tool 
+ Find cards that fit your needs 
+ Get advice 
+Credit cards 101 
+Balance transfer advice 
+Zero interest credit cards 
+Rewards credit card advice 
+Cash back credit card advice 
+Travel credit card advice 
+Business credit card advice 
+ Build credit 
+Advice for bad credit 
+Rebuilding credit score 
+Explore all credit cards resources
+ Log in or sign up 
+Home
+My profile
+Account settings
+Log out
+Home
+My profile
+Account settings
+Log out
+ Log in or sign up 
+Home
+My profile
+Account settings
+Log out
+Home
+My profile
+Account settings
+Log out
+Loans 
+ All
+ Loans 
+Personal loans 
+Auto loans 
+Student loans 
+Small business loans 
+Explore all loans resources
+ Loans 
+ Compare lenders 
+Best personal loans 
+Best personal loans for bad credit 
+Best debt consolidation loans 
+Best home improvement loans 
+ Get guidance 
+Personal loan resources 
+Personal loan lender reviews 
+Personal loans calculator 
+Average personal loan rates 
+ Personal loan basics 
+ 6 min read 
+ How to get a personal loan 
+ 4 min read 
+ Compare lenders 
+Best auto loans 
+Best auto loan refinance rates 
+Best car loans for bad credit 
+ Get guidance 
+Auto loan resources 
+Auto loan lender reviews 
+Auto loan calculator 
+Auto loan refinancing guide 
+ How to get the best auto loan rate 
+ 5 min read 
+ Auto loan basics 
+ 5 min read 
+ Compare lenders 
+Student loan rates 
+Student loan refinancing rates 
+Best bad credit student loans 
+ Get guidance 
+Student loan resources 
+Student loan lender reviews 
+Student loan calculator 
+Student loan refinance calculator 
+ Private student loan basics 
+ 5 min read 
+ How to get a student loan 
+ 7 min read 
+ Compare lenders 
+Best small business loans 
+Bad credit small business loans 
+Business lines of credit 
+Small business loan banks 
+ Get guidance 
+Small business loans resources 
+Small business loan reviews 
+Small business loan calculator 
+ How small business loans work 
+ 5 min read 
+ How to get a business loan 
+ 5 min read 
+Explore all loans resources
+ Log in or sign up 
+Home
+My profile
+Account settings
+Log out
+Home
+My profile
+Account settings
+Log out
+ Log in or sign up 
+Home
+My profile
+Account settings
+Log out
+Home
+My profile
+Account settings
+Log out
+Who we are 
+ All
+ Who we are 
+Who we are 
+Explore all who we are resources
+ Who we are 
+ Our company 
+About Bankrate 
+Our AI policy 
+Leadership 
+Contact us 
+Press room 
+Legal 
+Partner with us 
+ Why we're different 
+ How we're paid 
+ We work for you, not the banks 
+ Our founder 
+ Built on a journalist's instinct 
+Explore all who we are resources
+ Log in or sign up 
+Home
+My profile
+Account settings
+Log out
+Home
+My profile
+Account settings
+Log out
+ Log in or sign up 
+Home
+My profile
+Account settings
+Log out
+Home
+My profile
+Account settings
+Log out
+ News & Research 
+ Log in or sign up 
+Home
+My profile
+Account settings
+Log out
+Home
+My profile
+Account settings
+Log out
+ Log in 
+ Log in or sign up 
+Home
+My profile
+Account settings
+Log out
+Home
+My profile
+Account settings
+Log out
+ { closeNav(); closeSearch(); }" :class="{ 'is-active': isNavOpen || ($el.dataset.showOnSearch === '1' && isSearchOpen) }">
+ { closeNav(); closeSearch(); }" :class="{ 'is-active': isNavOpen || ($el.dataset.showOnSearch === '1' && isSearchOpen) }">
+ 0;
+ }
+ } catch (error) {
+ this.searchSuggestions = [];
+ this.showSearchAutocomplete = false;
+ }
+ }
+ }"
+data-beam-element-viewed
+data-type="drawer"
+data-location="site-nav"
+data-name="search flyout"
+data-position="top"
+data-text="open search flyout"
+data-outcome="open search flyout container"
+>
+ { $focus.within($refs.siteSearchDropdownContainer).first() }" x-on:keydown.up="() => { $focus.within($refs.siteSearchDropdownContainer).last() }" class="FormInput SiteNavSearch-input" name="q" placeholder="Search..." value="" autocomplete="off" aria-label="Search Bankrate" data-beam-field-inputted-no-pii data-label="Search Bankrate" :tabindex="isSearchOpen ? 0 : -1">
+ Submit 
+ Popular searches
+ Mortgage rates 
+ Balance transfer credit cards 
+ Tools
+ Mortgage calculator 
+ Loan calculator 
+ CD calculator 
+Error 404 
+Looks like this page doesn’t exist. Our bad! Try our homepage or search for another topic. 
+ Go to homepage 
+Explore topics
+ Credit cards 
+ Personal loans 
+ Home equity 
+ Investing 
+ Home purchase 
+ Home refinance 
+ High-yield savings 
+ CD rates 
+Our latest & greatest
+Mortgages 
+Mortgage rates jump to three-year high, blow past 7.5% 
+Banking 
+What is a checking account? 
+Personal Finance 
+Current credit card interest rates 
+ Bankrate logo 
+Bankrate, LLC NMLS ID# 1427381 | NMLS Consumer Access 
+BR Tech Services, Inc. NMLS ID #1743443 | NMLS Consumer Access 
+ Browse 
+Mortgages
+Banking
+Credit cards
+Loans
+Bankrate’s Data Center
+ Help 
+How we’re paid
+Site map
+Careers
+Contact us
+Partner with us
+ Legal 
+Legal
+Privacy policy
+Cookie settings
+Do Not Sell or Share My Personal Information
+Terms of use
+© 2026 Bankrate, LLC. A Red Ventures company. All Rights Reserved.
+How likely are you to recommend Bankrate to a friend or colleague? 
+ Not at all likely 
+ Extremely likely 
+Anything else you'd like us to know? (optional) 
+ /200
+Submit
+Cancel
+ We appreciate your feedback 
+ Thank you for taking the time to share your experience. 
+ = 0">

@@ -1,0 +1,49 @@
+{
+  "source": "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics",
+  "release": "May 2025",
+  "file": "https://www.bls.gov/oes/special-requests/oesm25ma.zip",
+  "member": "oesm25ma/MSA_M2025_dl.xlsx",
+  "read_on": "2026-10-09",
+  "rows": [
+    {
+      "area": "Columbus, OH",
+      "soc": "00-0000",
+      "title": "All Occupations",
+      "emp": 1105580,
+      "h_mean": 32.34,
+      "a_mean": 67270,
+      "h_median": 24.69,
+      "a_median": 51340
+    },
+    {
+      "area": "Columbus, OH",
+      "soc": "53-1047",
+      "title": "First-Line Supervisors of Transportation and Material Moving Workers, Except Aircraft Cargo Handling Supervisors",
+      "emp": 5570,
+      "h_mean": 31.45,
+      "a_mean": 65420,
+      "h_median": 29.93,
+      "a_median": 62260
+    },
+    {
+      "area": "Columbus, OH",
+      "soc": "53-7062",
+      "title": "Laborers and Freight, Stock, and Material Movers, Hand",
+      "emp": 25800,
+      "h_mean": 20.26,
+      "a_mean": 42130,
+      "h_median": 19.81,
+      "a_median": 41200
+    },
+    {
+      "area": "Columbus, OH",
+      "soc": "53-7065",
+      "title": "Stockers and Order Fillers",
+      "emp": 30130,
+      "h_mean": 19.74,
+      "a_mean": 41060,
+      "h_median": 18.77,
+      "a_median": 39040
+    }
+  ]
+}

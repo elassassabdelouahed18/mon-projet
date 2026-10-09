@@ -15,8 +15,10 @@ and the session proxy instead.
 import html, os, re, subprocess, sys, datetime
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'sources')
-UA = ('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) '
-      'Chrome/141.0.0.0 Safari/537.36')
+# BLS serves a 403 to a generic browser user-agent and asks instead for one
+# carrying a contact address, so that is what this sends everywhere.
+UA = os.environ.get('SOURCE_UA', 'BeFreeAcademy/1.0 (+https://befreeacademy.site; '
+                                 'elassassabdelouahed18@gmail.com)')
 
 
 def get(url):

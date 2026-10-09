@@ -216,3 +216,40 @@ said "gig drivers".
 14 = 62 tests), and both apps were loaded in Chromium to confirm the scripts
 actually run: `scripts-ran=true, pageerrors=0, csp-blocks=0` for each.
 
+### C1 / C4 — the BLS wage, read from the primary file
+
+BLS serves a 403 to a browser user-agent and asks instead for one carrying a
+contact address. `tools/fetch-source.py` now sends that, and the official
+release file downloaded straight away:
+
+    https://www.bls.gov/oes/special-requests/oesm25ma.zip
+    member oesm25ma/MSA_M2025_dl.xlsx, OEWS May 2025, read 2026-10-09
+    saved as sources/bls-oews-columbus-may2025.json
+
+Columbus, OH metropolitan area, median annual wage:
+
+| SOC | occupation | employment | hourly median | annual median |
+|---|---|---|---|---|
+| 53-1047 | First-Line Supervisors of Transportation and Material Moving Workers | 5,570 | $29.93 | $62,260 |
+| 53-7062 | Laborers and Freight, Stock, and Material Movers, Hand | 25,800 | $19.81 | $41,200 |
+| 53-7065 | Stockers and Order Fillers | 30,130 | $18.77 | $39,040 |
+| 00-0000 | All occupations | 1,105,580 | $24.69 | $51,340 |
+
+Two things fall out of this, and both are better than what the review assumed.
+
+**Marcus is exactly at his occupation's local median.** $19.50 an hour against
+a Columbus median of $19.81 for 53-7062. He is not underpaid and he is not
+unlucky. That is the chapter's whole point made with a public number: the trap
+is not his salary.
+
+**The promotion is the largest number in his file.** $29.93 − $19.50 = $10.43
+an hour, $20,610 a year gross on 1,976 hours, **about $15,478 net, $1,290 a
+month** at his 24.9% marginal rate. His current gap is $299 a month. One
+promotion is four times his entire gap, and it is the thing Engine Zero exists
+to chase.
+
+> I am going to write scenario 2 on the **median**, not the mean ($65,420).
+> The mean is pulled up by trucking and rail supervisors inside the same SOC;
+> the median is the honest figure for a warehouse shift lead, and the book's
+> rule is to take the conservative end of a range.
+

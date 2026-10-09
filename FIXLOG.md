@@ -162,3 +162,57 @@ Blocked until the environment's network policy allows those hosts:
 **D4** (a documented hourly-worker case), **D5** (a replacement course),
 **A19** (re-verifying the duplicated Appendix G dates).
 
+### Section J — the shared rules
+
+`STYLESHEET.md` at the repository root is now the contract: one wording per
+idea, the glossary, and the shared numbers. `tools/check-stylesheet.py` checks
+the book, the guide, the install sheet and both apps against it and exits 1 on
+any failure, which is acceptance test K5. It currently reports **0 failures**.
+
+**J1.** The two sentences always travel together: *"The small version keeps your
+run. It does not complete the day's record."* Twice in the book (Chapter 6's
+Streak paragraph and the Chapter 17 box), once in the guide, once in Streak
+under *Smallest version for a hard day*, where it follows the existing "Doing
+the small version still counts. That's the point of it."
+
+**J2.** `loadNote()` in `gap/app.js` measured `T.f / T.i` — all fixed costs over
+income — with thresholds 50/65/80. Fixed is not the same as essential: a gym
+membership is fixed and optional, rent is fixed and not. It now sums the
+categories tagged essential plus every debt minimum, over income, at 60/85,
+with the book's verdicts. Checked against Appendix D: Marcus's month 0 is
+$2,522 on $2,769 = **91%**, "move a big cost or raise income" — the same figure
+and the same verdict the book's Chapter 3 gauge prints (J2 accept ✓). The
+Chapter 18 scorecard row is renamed, and the guide's hedge is replaced by the
+unified sentence.
+
+**J3.** Chapter 17's table is the source. The weekly row is now SUNDAY, the alt
+text says "the ten-minute Sunday review", and the guide's *First of the month ·
+5 min* is **15 min**. Streak's habit keeps the short title "Weekly money
+review" with its Sunday evening schedule and its ten minutes.
+
+> One judgement call, flag it if you disagree: the review says Streak's habit
+> "uses the same name and time". I read that as one rhythm, not one string —
+> the beat is called *the ten-minute Sunday review* in prose, and the habit
+> keeps a short title in a list of habits. Both are Sunday, both are ten
+> minutes. Renaming the habit to the full phrase would make the habit list
+> read badly.
+
+**J4.** *Closed* is for months, *reviewed* is for days: 3 changes in the book,
+6 in the guide, 2 in Gap.
+
+**J6.** Checked by script: every product spells it **BeFree**, with no variants.
+
+**J7.** Streak is part of the system. Gone: "It is optional; a habit tick…",
+"Streak supports the habits if you find it useful; the financial system can also
+work with Gap and a calendar", "One optional habit has a relevant, honest tick".
+In their place: *"Streak keeps the logging alive."*
+
+**J8.** Appendix B's subtitle is now "For everyone whose paycheck changes from
+one pay period to the next", and the About page says "hourly workers" where it
+said "gig drivers".
+
+**Apps rebuilt properly:** `tools/sync-bundles.py` re-pinned the CSP hashes,
+`gap/sw.js` and `streak/sw.js` went to v17, all four suites pass (20 + 11 + 17 +
+14 = 62 tests), and both apps were loaded in Chromium to confirm the scripts
+actually run: `scripts-ran=true, pageerrors=0, csp-blocks=0` for each.
+

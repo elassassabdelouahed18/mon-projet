@@ -1072,7 +1072,7 @@ function drawTrend(){
     data-tip="${money(p.g)} surplus${p.i?` · ${Math.round(p.g/p.i*100)}% of income`:''}|${p.l}${p.cur?' (so far)':''}" style="transform-origin:${cx.toFixed(1)}px ${z.toFixed(1)}px"/>`;
   o+=`<text class="v" x="${cx.toFixed(1)}" y="${(pos?top-6:top+hh+14).toFixed(1)}" text-anchor="middle" font-size="11.5" font-weight="600" fill="${pos?'var(--tx)':'var(--neg)'}" font-family="'IBM Plex Mono',monospace">${fmt(p.v)}</text>`});
  $('#trend').innerHTML=o;
- $('#trendNote').textContent=(pct?'Surplus ÷ income each month. ':'')+(pts.some(p=>p.v===null)?'Months with no entries are marked, not counted as zero. ':'')+'Recorded amounts; unreviewed months may be incomplete. * month so far.';
+ $('#trendNote').textContent=(pct?'Surplus ÷ income each month. ':'')+(pts.some(p=>p.v===null)?'Months with no entries are marked, not counted as zero. ':'')+'Recorded amounts; months you have not closed may be incomplete. * month so far.';
 }
 $$('#trMode button').forEach(b=>b.onclick=()=>{V.trMode=b.dataset.m;drawTrend();fitType($('#trend'))});
 /* ══════════ income sources ══════════ */
@@ -1156,13 +1156,20 @@ function drawCats(){
  $$('#cats .cr').forEach(r=>r.onclick=()=>{V.cat=V.cat===r.dataset.c?null:r.dataset.c;go('ledger')});
  $('#clrCat').style.display=V.cat?'':'none';
 }
+/* Essentials as a share of take-home: the one line the book, the guide and
+   this app all say the same way (STYLESHEET.md, rule J2). Essentials are the
+   categories tagged essential in Settings plus every debt minimum, which is
+   what Chapter 3 means by the word. Fixed costs were the old measure and are
+   not the same thing: a gym membership is fixed and optional, rent is fixed
+   and not. Thresholds 60 and 85; the verdicts are the book's. */
 function loadNote(T){
- const load=Math.round(T.f/T.i*100);
- const verdict=load<=50?'That leaves real room to move.'
-  :load<=65?'Workable, though a thin month gets tight fast.'
-  :load<=80?'Most of your income is committed before you choose anything.'
-  :'Almost everything is spoken for. The fixed side, or income, is where the next win is.';
- return `Fixed costs take <b class="mono" style="color:var(--tx)">${load}%</b> of what came in. ${verdict}`;
+ const ess=sum(pTx().filter(t=>isDone(t)&&(t.type==='fixed'||t.type==='variable')
+   &&(t.debtRole==='minimum'||isEss(t.cat,t.type))),spendAmt);
+ const load=Math.round(ess/T.i*100);
+ const verdict=load<=60?'Under 60%, cutting and earning both work.'
+  :load<=85?'Past 60%, earning beats cutting.'
+  :'Past 85%, move a big cost or raise income.';
+ return `Essentials take <b class="mono" style="color:var(--tx)">${load}%</b> of what came in. ${verdict}`;
 }
 /* ══════════ where income went ══════════
    Surplus is what was left after spending; actual savings is the part of it
@@ -1425,7 +1432,7 @@ function drawGoalBars(){
 }
 function drawGoals(){
  const sa=surplusAvg(),EM=essMonthly();
- $('#gRate').textContent='Dates use actual net transfers to each specific goal in reviewed months. They assume that pace continues; the same surplus is never assigned to every goal.';
+ $('#gRate').textContent='Dates use actual net transfers to each specific goal in closed months. They assume that pace continues; the same surplus is never assigned to every goal.';
  let cum=0,prevName='';
  $('#gList').innerHTML=S.goals.length?S.goals.map(g=>{
   const b=goalBal(g),p=Math.min(1,Math.max(b.saved,0)/(g.target||1)),C=2*Math.PI*22,left=Math.max(g.target-b.saved,0);

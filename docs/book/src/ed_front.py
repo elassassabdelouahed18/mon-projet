@@ -153,7 +153,7 @@ EDITS = [
      'destination: a buffer, a debt payoff, a moving deposit, a trip.'),
     ('rep', 'Each goal shows a progress ring',
      'Each goal shows a progress ring and something better than a ring: a date, worked out from what you '
-     'have actually moved into that goal in the months you have reviewed. Not a guess and not a promise: '
+     'have actually moved into that goal in the months you have closed. Not a guess and not a promise: '
      'your own arithmetic, done for you. If debt is part of your picture, Money, Debts is waiting; '
      'we&rsquo;ll use it properly in Part Four.'),
     ('rep', 'The last screen is the one most people never expect',
@@ -216,7 +216,7 @@ EDITS = [
     ('rep', 'Open Goals and create one called Buffer.',
      'Open Money, then Goals, and create one called Buffer. Set your Rung 1 target, a number that feels '
      'ambitious but reachable in a few months; $500 to $1,500 is typical, and smaller is fine. Let your '
-     'automatic transfer feed it every payday. Once you have recorded transfers and reviewed a full month, '
+     'automatic transfer feed it every payday. Once you have recorded transfers and closed a full month, '
      'Gap puts a date on the goal from its own pace. That date moves earlier every time a closed leak '
      'actually reaches the goal, which is the most motivating number in the whole system.'),
     ('rep', 'Marcus sets his Rung 1 target at $500.',
@@ -233,7 +233,7 @@ EDITS = [
      'month he hit $500, is the one where the system proves itself.'),
     ('rep', 'In Goals, create one named Buffer',
      'In Money, Goals, create one named Buffer and set a starter target you can realistically reach in a '
-     'few months. The date appears once a reviewed month shows its pace.'),
+     'few months. The date appears once a closed month shows its pace.'),
 
     # ---------------------------------------------------------------- chapter 9
     ('rep', 'The only guaranteed 100% return in personal finance',

@@ -114,11 +114,11 @@ table.t td.k{font-weight:600}
 <section class="pg" id="three">
   <div class="eb">What you have</div>
   <h1>Three pieces, one job</h1>
-  <p class="lede">The book explains the decisions. Gap keeps the financial record. Streak supports the habits if you find it useful; the financial system can also work with Gap and a calendar.</p>
+  <p class="lede">The book explains the decisions. Gap keeps the financial record. Streak keeps the logging alive.</p>
   <table class="defs">
     <tr><td>The book<small>The Anti-Paycheck Trap</small></td><td>Why the gap closes on people who work hard, and what to do about it in order. You read it once, then keep it for reference.</td></tr>
     <tr><td>The tracker<small>BeFree Gap</small></td><td>Records income, living costs and transfers, shows what is safe to spend until payday, and plans the paychecks ahead. Its suggestions are prompts to check against your own circumstances.</td></tr>
-    <tr><td>The habit<small>BeFree Streak</small></td><td>Supports small daily actions and coming back after a missed day. It is optional; a habit tick does not certify complete financial records.</td></tr>
+    <tr><td>The habit<small>BeFree Streak</small></td><td>Supports small daily actions and coming back after a missed day. A habit tick does not certify complete financial records.</td></tr>
   </table>
   <p>The book sets the target. Gap shows the real number and what is eating it. Streak makes the daily entry a thing you do without deciding.</p>
   <p>Gap and Streak are two separate apps, each with its own icon on your phone or computer. They do not share data or pass anything between them: Gap holds the money record, Streak holds your habits. Another device, browser or profile keeps its own separate copy of each.</p>
@@ -160,7 +160,7 @@ table.t td.k{font-weight:600}
     <li><div><b class="t">Complete Gap’s setup screens</b><span>One paycheck, how often it arrives, and the bills that come whether you like it or not. Guess where you have to. Every figure can be corrected later.</span></div></li>
     <li><div><b class="t">Look at the number it gives you</b><span><i>Safe to spend</i> sits at the top of the Today screen. It is a starting estimate until all costs are recorded.</span></div></li>
     <li><div><b class="t">Log one thing you spent today</b><span>Tap <i>Log a purchase</i>. A coffee, gas, groceries. The habit is what matters, not the amount.</span></div></li>
-    <li><div><b class="t">Open Streak and start one habit</b><span>Choose one useful habit if you want support. Mark a day complete only after checking all of its purchases, not after one entry.</span></div></li>
+    <li><div><b class="t">Open Streak and start one habit</b><span>Choose one useful habit.</span></div></li>
     <li><div><b class="t">Save a backup from each app</b><span>Settings, then <i>Save a backup file</i>, once in Gap and once in Streak.</span></div></li>
     <li><div><b class="t">Now open the book</b><span>Start at chapter one. You will recognize your own numbers in it.</span></div></li>
   </ol>
@@ -185,7 +185,7 @@ table.t td.k{font-weight:600}
     <li>Gap shows a real number, not a sample one</li>
     <li>Recurring bills appear under <i>Coming up</i>, waiting to be confirmed</li>
     <li>One spend is logged</li>
-    <li>One optional habit has a relevant, honest tick</li>
+    <li>One habit, honestly ticked</li>
     <li>Two backup files, one from each app, are saved somewhere safe</li>
   </ul>
   <div class="fig w" style="margin-top:2px"><img src="fig/gap-nav.png" alt=""></div>
@@ -268,7 +268,7 @@ table.t td.k{font-weight:600}
 <section class="pg">
   <div class="fig w"><img src="fig/gap-tiles.png" alt=""></div>
   <p class="cap">Money in, fixed and variable, each with its share of income and how much of it is essential.</p>
-  <p>The tiles summarize recorded income and spending. An essential-cost share is context, not a universal pass/fail threshold. High housing, childcare or health costs may require income, benefits or major-cost changes. Check actual obligations before deciding what can be reduced. Historical charts show recorded amounts even when a month is incomplete; forecasts use reviewed months.</p>
+  <p>The tiles summarize recorded income and spending. Essentials as a share of take-home. Past 60%, earning beats cutting. Past 85%, move a big cost or raise income. High housing, childcare or health costs may require income, benefits or major-cost changes. Check actual obligations before deciding what can be reduced. Historical charts show recorded amounts even when a month is incomplete; forecasts use closed months.</p>
   <h2>Pace check, and what it answers</h2>
   <div class="fig"><img src="fig/gap-pace.png" alt=""></div>
   <p class="cap">This month’s variable spending against a typical month, with where this pace lands.</p>
@@ -280,7 +280,7 @@ table.t td.k{font-weight:600}
   <p>One question: is your variable spending running faster than the month itself? The solid line is what you have spent so far. The dashed line is a typical month. If you are under the dashed line you are winning. The dotted line projects where the month lands if nothing changes, and it arrives on the 12th rather than the 30th, which is the whole point of it.</p>
   <div class="box">
     <div class="eb">Where typical comes from</div>
-    <p>Typical uses complete months you have reviewed. Historical charts still show unreviewed records and may be incomplete. No entries does not mean zero spending.</p>
+    <p>Typical uses the months you have closed. Historical charts still show records from open months and may be incomplete. No entries does not mean zero spending.</p>
   </div>
   <div class="fig"><img src="fig/gap-available.png" alt=""></div>
   <p class="cap">Available until payday protects recorded bills, essentials, buffer, funds, card purchases and tax needs. Update checking and review missing obligations first.</p>
@@ -484,7 +484,7 @@ table.t td.k{font-weight:600}
     <div class="fig xs" style="margin:0"><img src="fig/streak-today.png" alt=""></div>
     <div>
       <p class="cap" style="text-align:left;margin-top:0">The date, the run, and one row per habit due today.</p>
-      <p>A small version supports continuity: <i>I did the small version</i> keeps the day without pretending it was a full one. It does not certify that all spending is recorded; mark a day complete only after checking the whole day.</p>
+      <p>A small version supports continuity: <i>I did the small version</i> keeps the day without pretending it was a full one. The small version keeps your run. It does not complete the day&rsquo;s record.</p>
       <p>A day you mark as no-spend ticks <i>Log today’s spending</i> by itself. Streak does not read Gap, so everything else you tick yourself.</p>
     </div>
   </div>
@@ -534,7 +534,7 @@ table.t td.k{font-weight:600}
   <h1>The weekly rhythm</h1>
   <p class="lede">Daily logging, weekly review and monthly reconciliation all take time. Start with a routine you can maintain and adjust it as your needs change.</p>
   <table class="t">
-    <tr><th>Every day · 30 sec</th><th>Every Sunday · 10 min</th><th>First of the month · 5 min</th></tr>
+    <tr><th>Every day · 30 sec</th><th>The ten-minute Sunday review</th><th>First of the month · 15 min</th></tr>
     <tr><td>Log what you spent, as it happens</td><td>Read Pace check</td><td>Check the repeats that posted</td></tr>
     <tr><td>Plan any money that arrived</td><td>Read the suggestion and act on one</td><td>Close last month in Insights</td></tr>
     <tr><td>Tick the habit in Streak</td><td>Glance at the 12-week bars</td><td>Save a backup from each app</td></tr>
@@ -570,11 +570,11 @@ table.t td.k{font-weight:600}
   <table class="defs">
     <tr><td>Month one</td><td><b>Log everything. Judge nothing.</b> You are taking a baseline, and you cannot improve a number you have not measured once. Pace check and the projections stay quiet until they have a reviewed month behind them.</td></tr>
     <tr><td>Month two</td><td><b>One change, held.</b> Suggestions start naming your actual categories. This is the month most people quit, and also the month the tool becomes worth having.</td></tr>
-    <tr><td>Month three</td><td><b>Now the trends mean something.</b> Typical runs on your reviewed months, so typical becomes yours. Set a real goal with a date and point your split at it.</td></tr>
+    <tr><td>Month three</td><td><b>Now the trends mean something.</b> Typical runs on your closed months, so typical becomes yours. Set a real goal with a date and point your split at it.</td></tr>
   </table>
   <div class="box top">
     <div class="eb">If week six feels like a chore</div>
-    <p>After missed weeks, update current balances, unpaid bills and the next payday first. Keep earlier records and leave missing months unreviewed. Reconstruct a bounded period from a bank file when needed; do not invent entries to repair a streak.</p>
+    <p>After missed weeks, update current balances, unpaid bills and the next payday first. Keep earlier records and leave missing months open. Reconstruct a bounded period from a bank file when needed; do not invent entries to repair a streak.</p>
   </div>
   <div class="pn">32</div>
 </section>
@@ -637,7 +637,7 @@ table.t td.k{font-weight:600}
   <div class="grid6">
     <div class="box"><div class="eb">Guides on a category</div><p>In Insights, <i>Where it goes</i> prints a monthly guide beside groceries, dining out, gas, shopping and entertainment, and flags one running hot before the month ends. Guides are common starting points, not verdicts.</p></div>
     <div class="box"><div class="eb">Owed to you</div><p>Money you lent is not spending and it is not a debt. It sits at the foot of Money, Debts, outside the gap, so it stops making your month look worse and you stop forgetting it exists.</p></div>
-    <div class="box"><div class="eb">Saved over time</div><p>The chart at the top of Money, Goals shows net transfers and withdrawals for goals and funds. Money held for future bills is not an investment. Goal dates use each goal’s own transfers in reviewed months.</p></div>
+    <div class="box"><div class="eb">Saved over time</div><p>The chart at the top of Money, Goals shows net transfers and withdrawals for goals and funds. Money held for future bills is not an investment. Goal dates use each goal’s own transfers in closed months.</p></div>
     <div class="box"><div class="eb">Biggest movers</div><p>In Insights, the categories that changed most against the month before, largest first. Read it on a Sunday: it names the thing to look at without you hunting through twenty lines.</p></div>
     <div class="box"><div class="eb">Export and print</div><p>Settings holds a backup file that restores everything, an encrypted version of it, a spreadsheet (CSV) for an accountant, and <i>Print this month</i>. The backup is the one that matters. Use it.</p></div>
     <div class="box"><div class="eb">The colors in the bar</div><p>In <i>Where you stand</i>, money out is split where the fixed bills end and the variable spending begins. One you change with a phone call. The other you change a hundred small times.</p></div>

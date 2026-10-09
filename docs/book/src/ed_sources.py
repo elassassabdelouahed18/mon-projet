@@ -42,6 +42,21 @@ ROWS = [
     ('2026 Saver&rsquo;s Credit income limit',
      '$40,250 single, $60,375 head of household, $80,500 joint',
      'IRS, 2026 cost-of-living adjustments'),
+    ('Derrick Morgan Jr., trademark filings on Fiverr',
+     '$180 in month one, about $10,000 in month four; business on track for nearly '
+     '$500,000 in 2025, paying him over $350,000',
+     'CNBC Make It, Megan Sauer; documents not stated'),
+    ('Emily Odio-Sutton, print-on-demand Etsy shop',
+     'at least $236,000 in 2024 to 30 September, best month $54,900, about a third '
+     'profit by her own estimate; about 10 hours a week',
+     'CNBC Make It, Megan Sauer, 30 September 2024, from documents it reviewed'),
+    ('Kelly Rocklein, user-generated content',
+     'more than $142,000 of side-hustle revenue by 2022, on about 15 hours a week '
+     'beside a six-figure marketing job',
+     'CNBC Make It, Megan Sauer, 30 June 2025, from documents it reviewed'),
+    ('Jenny Woo, Mind Brain Emotion card games on Amazon',
+     '$1.71 million on Amazon in 2023, started with about $1,000 in 2018',
+     'CNBC Make It, Megan Sauer, 21 March 2024, from documents it reviewed'),
     ('Medical debt owed in the United States',
      'at least $220 billion; 14 million adults owe over $1,000',
      'KFF, <em>The Burden of Medical Debt in the United States</em>'),
@@ -98,6 +113,18 @@ SAVER = (
 
 
 EDITS = [
+    # ------------------------------------------------------------ D3
+    # CNBC says the business "is on track to bring in nearly $500,000 this year".
+    # That is a projection, and the book was printing it as money already earned.
+    ('rep', 'The ceiling, documented. Derrick Morgan Jr.',
+     'The ceiling, documented. Derrick Morgan Jr., a licensed trademark attorney, began selling '
+     'one narrow service, '
+     'trademark filings, on Fiverr in 2020 while working at a law firm. He made $180 in his '
+     'first month and about $10,000 in his fourth. CNBC reported the business on track for '
+     'nearly $500,000 a year, paying him more than $350,000. Eryn Andrews spent $200 on a '
+     'microphone and a class in 2022 while employed at NASA, started selling voice-over work, '
+     'and said her voice-over income passed her NASA salary in the summer of 2025.'),
+
     # ------------------------------------------------------------ D2
     # KFF puts medical debt at $220 billion and 14 million adults, which is
     # large but not a ranking, and no source ranks it first.

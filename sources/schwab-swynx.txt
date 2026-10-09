@@ -1,0 +1,11 @@
+# requested: https://www.schwabassetmanagement.com/products/swynx
+# final:     https://www.schwabassetmanagement.com/products/swynx
+# http:      403
+# type:      text/html (html), read with the browser user-agent
+# read on:   2026-10-09
+
+Access Denied 
+ Access Denied 
+You don't have permission to access "http://www.schwabassetmanagement.com/products/swynx" on this server. 
+Reference #18.1b192117.1791581770.63f77bbf
+ https://errors.edgesuite.net/18.1b192117.1791581770.63f77bbf

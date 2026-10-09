@@ -359,3 +359,61 @@ Pages 188 → 190. Style-sheet check still 0 failures.
 Steph Smith, Rocklein, Graham Stephan, the Gumroad 2020 count) and the
 Chapter 20 fund fees (0.12%, 0.08%, 0.00–0.05%).
 
+### D1 / D3 — the ceiling examples
+
+The book names nine real people with real numbers in Chapter 12, and Appendix G
+carried a row for **none of them**, while promising "if a figure is not on this
+page, it is not in the book." That was the largest honesty gap in the file.
+
+Four are now read at the primary source and rowed. Appendix G: 88 → 92.
+
+| | what the source says | read |
+|---|---|---|
+| Derrick Morgan Jr. | $180 month one, ~$10,000 month four; **"on track to bring in nearly $500,000 this year"** | CNBC Make It, Megan Sauer |
+| Emily Odio-Sutton | at least $236,000 in 2024 to 30 Sept, best month $54,900, "about a third … she estimates" | CNBC Make It, 30 Sep 2024, from documents it reviewed |
+| Kelly Rocklein | more than $142,000 by 2022, ~15 h/week beside a six-figure marketing job | CNBC Make It, 30 Jun 2025, from documents it reviewed |
+| Jenny Woo | $1.71 million on Amazon in 2023, started with ~$1,000 in 2018 | CNBC Make It, 21 Mar 2024, from documents it reviewed |
+
+**One real correction.** The book said Morgan's business "now turns over roughly
+$500,000 a year". CNBC says it "is **on track to** bring in nearly $500,000 this
+year" — a projection, printed as money already earned. Fixed, and D3's missing
+credential ("a licensed trademark attorney") went in with it.
+
+Eryn Andrews's line now attributes the claim to her ("said her voice-over income
+passed her NASA salary") rather than asserting it.
+
+**BLOCKED — cnbc.com refuses this container (403 to every user-agent).** The NBC
+local syndications of the same CNBC copy are readable, which is how the four
+above were verified, but no syndication exists for these five:
+
+| figure | where it would be checked |
+|---|---|
+| Eryn Andrews, $200 start, NASA salary passed summer 2025 | cnbc.com/2026/08/06/how-nasa-engineer-built-lucrative-voiceover-acting-side-hustle.html |
+| Steph Smith, one ebook, more than $130,000 in about eight months | her own public sales page |
+| Easlo, around $50,000 a month by 2023 from Notion templates | his own public statements |
+| Graham Stephan, $5.1 million in 2020, about half advertising | his own public statements |
+| Midwest Foodie, over $500,000 gross in 2024, one quarter at $206,000 on 3.28 m pageviews | the blog's own income report |
+| Gumroad, 45,917 creators earning in 2020 | Gumroad's own post (the $70 median row exists; the creator count does not) |
+
+**What I need from you:** open the five links in your browser as you did with
+BLS and paste the relevant lines, or tell me to drop the figures. I will not
+write an Appendix G row for a number I have not read.
+
+The four self-reported ones (Smith, Easlo, Stephan, Midwest Foodie) deserve a
+label either way: unlike the four above, no outlet reviewed their documents.
+When they are verified I will mark them as self-reported in the text, which is
+what separates them from the CNBC four.
+
+### Chapter 20 fund fees — rewritten rather than sourced
+
+Fidelity's and Schwab's fund pages build themselves in JavaScript, and Chromium
+cannot reach the session proxy (`chrome-error://chromewebdata`), so 0.12% and
+0.08% could not be read. D1 allows removing a figure instead, and here that is
+the better book anyway: a 2026 expense ratio printed as fact is a number a 2028
+reader would trust wrongly. Not yet rewritten — flagged for the next pass.
+
+The fee *example* beside it is the book's own arithmetic and is exactly right:
+$100,000 at 4% for 20 years, with the fee taken off the balance each year,
+ends at $208,413 against $179,213 — the book prints $208,000, $179,000 and a
+$29,000 difference.
+

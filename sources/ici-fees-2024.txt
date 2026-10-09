@@ -1,0 +1,1833 @@
+# requested: https://www.ici.org/system/files/2025-03/per31-02.pdf
+# final:     https://www.ici.org/system/files/2025-03/per31-02.pdf
+# http:      200
+# type:      application/pdf (pdf), read with the contact user-agent
+# read on:   2026-10-09
+
+WASHINGTON, DC   //   BRUSSELS   //   LONDON  //  WWW.ICI.ORG
+ICI RESEARCH 
+PERSPECTIVE
+MARCH 2025  //  VOL. 31, NO. 2
+The Role of IRAs in US Households’ Saving for 
+Retirement, 2024
+KEY FINDINGS
+»	 Individual retirement accounts (IRAs) play an important role in US households’ 
+retirement saving. In mid-2024, 44 percent of US households owned IRAs. Traditional IRAs 
+were the most common type of IRA owned (33 percent of US households), followed by 
+Roth IRAs (26 percent) and employer-sponsored IRAs (4 percent). IRA-owning households 
+often also had employer-sponsored retirement plan accumulations or had defined benefit 
+plan coverage. 
+»	 The majority of US households have tax-advantaged retirement savings. All told, nearly 
+three-quarters of US households had retirement plans through work or IRAs; being later in 
+the life-cycle of saving, more than eight in 10 near-retiree households did. 
+»	 Rollovers from employer-sponsored retirement plans have fueled the growth in IRAs. In 
+mid-2024, 59 percent of traditional IRA–owning households indicated that their traditional 
+IRAs contained rollovers from employer-sponsored retirement plans. Among households 
+with rollovers in their traditional IRAs, 85 percent indicated that they had rolled over the 
+entire retirement account balance in their most recent rollover; 41 percent had also made 
+contributions to their traditional IRAs at some point. 
+»	 Traditional IRA–owning households with rollovers cite multiple reasons for rolling over 
+their retirement plan assets into traditional IRAs. The three most common primary reasons 
+for rolling over were not wanting to leave assets behind at the former employer, wanting 
+to consolidate assets, and wanting more investment options (23 percent, 19 percent, and 
+14 percent of traditional IRA–owning households with rollovers, respectively).
+»	 Recent years show a slight upward trend in contribution activity, although fewer than 
+one in five US households make contributions to IRAs. Across all US households, 
+16 percent contributed to traditional or Roth IRAs in tax year 2023. Looking at 
+households owning traditional or Roth IRAs in mid-2024, 37 percent made contributions 
+in tax year 2023. 
+Key findings continued »
+
+2	
+ICI RESEARCH PERSPECTIVE, VOL. 31, NO. 2  // MARCH 2025 
+What’s Inside
+Key findings continued »
+»	 Households cite economic reasons for not contributing to their IRAs. Noncontributing traditional IRA−owning 
+households cited being retired, ability to save, or meeting eligibility requirements to help explain lack of 
+contributions. More than four in 10 noncontributing traditional IRA−owning households indicated they were retired 
+and no longer saving. Nearly four in 10 indicated they either didn’t have extra money to save or their retirement 
+plans at work met their savings needs. About one-quarter were unable to meet eligibility requirements. More than 
+four in 10 noncontributing Roth IRA–owning households indicated an inability to save, two in 10 had eligibility 
+issues, and three in 10 were retired and no longer saving.  
+»	 IRA withdrawals were infrequent and mostly retirement related. Thirty-one percent of traditional IRA–owning 
+households in mid-2024 took withdrawals in tax year 2023, in line with recent prior years. 
+»	 The majority of traditional IRA withdrawals were made by retirees. Ninety percent of households that made 
+traditional IRA withdrawals were retired. Indeed, only 5 percent of traditional IRA–owning households in
+mid-2024 headed by individuals younger than 59 took withdrawals. Seventy-three percent of traditional
+IRA–owning households with withdrawals calculated the withdrawal using the RMD rule—this was the most 
+common amount withdrawn. 
+»	 Most IRA-owning households have a planned retirement strategy. In mid-2024, 69 percent of traditional 
+IRA–owning households and 65 percent of Roth IRA–owning households indicated that they have a strategy 
+for managing income and assets in retirement. Typically, these strategies have many components, including: 
+reviewing asset allocations, determining their retirement expenses, developing a retirement income plan, setting 
+aside emergency funds, and determining when to take Social Security benefits.
+Sarah Holden, ICI senior director of retirement and investor research, and Daniel Schrass, ICI economist, prepared this report.
+Suggested citation: Holden, Sarah, and Daniel Schrass. 2025. “The Role of IRAs in US Households’ Saving for Retirement, 
+2024.” ICI Research Perspective 31, no. 2 (March). Available at www.ici.org/files/2025/per31-02.pdf.
+For more information about the role of IRAs in US households’ saving for retirement, see the appendix to this paper, available 
+at www.ici.org/files/2025/per31-02-data.xls.
+	 3	 IRAs Play an Increasingly Important Role in 
+Saving for Retirement 
+	 4	 IRA Ownership Rates Increase with Household 
+Age and Income 
+	 5	 IRA Owners Tend to Be Savers 
+	 6	 Rollovers to Traditional IRAs Fuel Growth 
+	 9	 Rollovers Often Provide Consolidation 
+11	 Few Households Make Contributions to IRAs 
+12	 Roth IRA Owners Are More Likely to Contribute 
+12	 Noncontributing IRA-Owning Households Cite 
+Economic Reasons
+13	 Catch-Up Contributions
+14	 IRAs Are Held Through a Variety of 
+Financial Institutions 
+15	 IRA Withdrawals Are Infrequent, Mostly 
+Retirement Related 
+16	 Few Roth IRA–Owning Take Withdrawals
+17	 IRA Withdrawals Are Used for a Variety 
+of Purposes 
+17	 Most IRA Owners Have a Planned 
+Retirement Strategy 
+19	 Description of the Surveys 
+20	 Notes
+24	 References 
+
+ICI RESEARCH PERSPECTIVE, VOL. 31, NO. 2  // MARCH 2025 	
+3
+IRAs Play an Increasingly Important Role 
+in Saving for Retirement 
+IRAs are a significant component of US retirement 
+savings. With $16.2 trillion in assets in mid-2024, 
+individual retirement accounts (IRAs) represented 
+38 percent of US total retirement market assets, 
+compared with 24 percent two decades ago and 
+18 percent three decades ago.1 IRAs have also risen in 
+importance on household balance sheets. In mid-2024, 
+IRA assets were 13 percent of all household financial 
+assets, up from 8 percent of assets two decades 
+ago and 5 percent three decades ago.2 In mid-2024, 
+57.9 million US households, or 43.8 percent, reported 
+that they owned IRAs (Figures 1 and 2).3 Among all 
+IRA-owning households in mid-2024, nearly nine in 10 
+also had employer-sponsored retirement plans; that 
+is, they had defined contribution (DC) plan balances, 
+current defined benefit (DB) plan payments, or 
+expected future DB plan payments (Figure 1). Another 
+30 percent of US households reported employer-
+sponsored retirement plan coverage but no IRAs. All 
+told, about 98 million US households, or 74 percent, 
+had some type of formal, tax-advantaged retirement 
+savings. Being later in the life-cycle of saving, 
+84 percent of near-retiree households had retirement 
+accumulations.
+FIGURE 1
+Many US Households Have Tax-Advantaged Retirement Savings
+Percentage of US households, 2024
+Own IRA only1
+Have IRA and employer-sponsored retirement plan1, 2
+Have employer-sponsored retirement plan only2
+Do not have IRA or employer-sponsored retirement plan 
+All US households
+Near-retiree households3
+4
+45
+35
+16
+6
+38
+30
+26
+132.2 million
+17.1 million
+Ownership of IRAs or employer-sponsored retirement plan accounts
+1	IRAs include traditional IRAs, Roth IRAs, and employer-sponsored IRAs (SEP IRAs, SAR-SEP IRAs, and SIMPLE IRAs).
+2	Employer-sponsored retirement plans include DC and DB retirement plans.
+3	Near-retiree households are those with a household survey respondent aged 55 to 64 who is working or whose spouse is working.
+Sources: Investment Company Institute Annual Mutual Fund Shareholder Tracking Survey and US Census Bureau
+
+4	
+ICI RESEARCH PERSPECTIVE, VOL. 31, NO. 2  // MARCH 2025 
+Traditional IRAs are the oldest and most common 
+type of IRA. In mid-2024, 43.1 million US households, 
+or 32.6 percent, owned traditional IRAs (Figure 2).4 
+In addition to being a repository for contributions, 
+the traditional IRA is a key vehicle for rollovers from 
+employer-sponsored retirement plans. Indeed, about 
+six in 10 US households with traditional IRAs indicated 
+that their IRAs contained rollover assets.5 Roth IRAs, 
+which were first available in 1998, are the second most 
+frequently owned type of IRA, held by 34.6 million US 
+households, or 26.2 percent.6 Overall, 42.7 percent of 
+US households, or 56.4 million, owned traditional or 
+Roth IRAs (16.1 percent of US households owned both 
+traditional and Roth IRAs). In mid-2024, 4.0 percent of 
+US households owned employer-sponsored IRAs, which 
+include SEP IRAs, SAR-SEP IRAs, and SIMPLE IRAs.
+FIGURE 2
+Millions of US Households Own IRAs
+Year created
+Number of
+US households with type 
+of IRA,1 2024
+Percentage of 
+US households with type 
+of IRA,1 2024
+Traditional IRA
+1974
+(Employee Retirement Income Security Act)
+43.1 million
+32.6%
+SEP IRA2
+1978
+(Revenue Act)
+SAR-SEP IRA2
+1986
+(Tax Reform Act)
+5.3 million
+4.0%
+SIMPLE IRA2
+1996
+(Small Business Job Protection Act)
+Roth IRA
+1997
+(Taxpayer Relief Act)
+34.6 million
+26.2%
+Any IRA1
+57.9 million
+43.8%
+1	 Households may own more than one type of IRA.
+2	 SEP IRAs, SAR-SEP IRAs, and SIMPLE IRAs are employer-sponsored IRAs.
+Sources: Investment Company Institute Annual Mutual Fund Shareholder Tracking Survey and US Census Bureau
+IRA Ownership Rates Increase with 
+Household Age and Income 
+People of all ages own IRAs, but ownership is higher 
+among households aged 35 or older, particularly for 
+traditional IRAs. This reflects the life-cycle effect on 
+saving; that is, households tend to focus on retirement-
+related saving as they get older (when younger, they 
+save for other goals, such as education or buying a 
+house).7 Also, many traditional IRA owners became 
+owners as a result of rollovers from employer-sponsored 
+plans, which occur after at least some years in the 
+workforce.8 In mid-2024, 38 percent of households 
+headed by an individual aged 35 to 44 owned IRAs, 
+40 percent of households headed by an individual 
+aged 45 to 54 owned IRAs, 46 percent of households 
+headed by an individual aged 55 to 64 owned IRAs, and 
+55 percent of households headed by an individual aged 
+65 or older owned IRAs (see Figure A2). As a result, 
+69 percent of IRA-owning households were headed by 
+individuals aged 45 or older (see Figure A3). 
+
+ICI RESEARCH PERSPECTIVE, VOL. 31, NO. 2  // MARCH 2025 	
+5
+The rising IRA ownership rates by age are primarily 
+reflecting traditional IRA ownership. In mid-2024, 
+16 percent of US households younger than 35 owned 
+traditional IRAs, compared with 49 percent of US 
+households 65 or older (see Figure A2). Roth IRA 
+ownership shows a much more even, slightly declining 
+pattern across age groups. Nearly three in 10 US 
+households up to age 54 owned Roth IRAs, compared 
+with 26 percent of US households age 55 to 64 and 
+22 percent of US households 65 or older. 
+IRA ownership rates also rise across older generations. 
+In mid-2024, more than half of Baby Boom households 
+owned IRAs, compared with more than three in 10 Gen Z 
+households and more than four in 10 Gen X households 
+(see Figure A4). This pattern again reflects the lifecycle 
+of moving through a career and into retirement. In mid-
+2024, 38 percent of IRA-owning households were Baby 
+Boom households (see Figure A5). 
+IRA-owning households cover a range of incomes, 
+although IRA ownership tends to increase with household 
+income. This pattern is consistent with the fact that 
+lower-income households, which tend to be focused on 
+near-term spending needs and which receive a higher 
+replacement benefit through Social Security,9 generally 
+have a lower propensity to save for retirement.10
+In mid-2024, 55 percent of households with household 
+incomes of $50,000 or more owned IRAs, compared with 
+19 percent of households with household incomes of 
+less than $50,000 (see Figure A6). Sixty-three percent 
+of households with incomes of $100,000 or more owned 
+IRAs in mid-2024. Reflecting these ownership rates, 
+among IRA-owning households, 14 percent earned 
+less than $50,000, 27 percent had household incomes 
+between $50,000 and $99,999, and 59 percent had 
+household incomes of $100,000 or more (see Figure A7). 
+IRA Owners Tend to Be Savers 
+IRA owners build substantial financial assets. The median 
+financial assets of IRA-owning households was more 
+than 15 times the median financial assets of households 
+that did not own IRAs (Figure 3).11 Those assets included 
+DC retirement plan accounts—76 percent of households 
+that owned IRAs also owned such accounts.12 IRA 
+owners typically exhibit the characteristics that 
+correlate with a greater propensity to save: the financial 
+decisionmakers of households with IRAs are more likely 
+than households that do not own IRAs to be married, 
+employed, and have college or postgraduate degrees.13
+Like other investing households, the majority of IRA-
+owning households were willing to take some investment 
+risk for financial gain. In mid-2024, 33 percent of IRA-
+owning households were willing to take substantial 
+or above-average investment risk for similar levels 
+of financial gain (see Figure A12);14 the figure was 
+about the same (32 percent) for mutual fund–owning 
+households15 but was substantially less (24 percent) for 
+all US households. Willingness to take investment risk 
+among households owning IRAs generally decreases 
+with age.16 
+Just as 401(k) balances tend to be higher the longer 
+a worker’s job tenure,17 IRA balances tend to rise with 
+length of ownership. In mid-2024, households owning 
+traditional or Roth IRAs for less than 10 years had 
+median IRA holdings of $30,000, while households 
+owning traditional or Roth IRAs for 20 years or more 
+had median traditional and Roth IRA holdings of 
+$350,000 (see Figure A13). Across all traditional or Roth 
+IRA–owning households, median IRA traditional and 
+Roth IRA holdings were $130,000 (see Figure A14). Mean 
+traditional and Roth IRA holdings, though considerably 
+higher than the median values, display a similar pattern. 
+
+6	
+ICI RESEARCH PERSPECTIVE, VOL. 31, NO. 2  // MARCH 2025 
+Rollovers to Traditional IRAs Fuel Growth 
+From their inception, traditional IRAs have been 
+designed so that investors could accumulate retirement 
+assets either through contributions18 or by rolling over 
+balances from employer-sponsored retirement plans (to 
+help workers consolidate and preserve these assets).19, 20 
+Rollover activity, which helps many Americans preserve 
+their retirement savings, has fueled recent IRA growth. 
+The most recent available data show that households 
+transferred $670 billion from employer-sponsored 
+(DC or DB or both) retirement plans to traditional IRAs 
+in 2022.21 In mid-2024, about 25 million US households 
+(or 59 percent of all US households owning traditional 
+IRAs) had traditional IRAs that included rollover assets 
+(Figure 4).22, 23 With their most recent rollovers, the vast 
+majority of these households (85 percent) transferred 
+the entire retirement plan account balance into the 
+traditional IRA.24 More than six in 10 traditional IRA–
+owning households with rollovers made their most 
+recent rollover in 2015 or later, including 40 percent 
+whose most recent rollover was in 2020 or later. Among 
+households with rollovers in their traditional IRAs, 
+41 percent had made traditional IRA contributions in 
+addition to their rollovers.
+FIGURE 3
+IRA Owners Are Typically Middle-Aged, Married, and Employed
+Characteristics of US households by ownership of IRAs,1 2024
+Median per household
+Households 
+owning IRAs1
+Households not 
+owning IRAs
+Age of household survey respondent
+58 years
+49 years
+Household income2
+$120,000
+$58,700 
+Household financial assets3
+$375,000
+$23,000 
+Household financial assets in traditional or Roth IRAs
+$130,000
+N/A
+Share of household financial assets in traditional or Roth IRAs (percent)
+40%
+N/A
+Percentage of households 
+Household survey respondent:
+  Married or living with a partner
+72%
+58%
+  College or postgraduate degree
+59
+25
+  Employed full- or part-time
+63
+60
+  Retired from lifetime occupation
+39
+27
+Household has DC account or DB plan coverage (total)
+86
+54
+  DC retirement plan account
+76
+46
+  DB plan coverage 
+41
+21
+Household income less than $150,000
+63
+87
+Age of household sole or co-decisionmaker for saving and investing between 35 and 64
+48
+53
+Household willing to take above-average or substantial risk with financial investments
+33
+15
+1	IRAs include traditional IRAs, Roth IRAs, and employer-sponsored IRAs (SEP IRAs, SAR-SEP IRAs, and SIMPLE IRAs).
+2	Total reported is household income before taxes in 2023.
+3	Household financial assets include assets in employer-sponsored retirement plans but exclude the household’s primary residence.
+N/A = not applicable 
+Sources: Investment Company Institute Annual Mutual Fund Shareholder Tracking Survey and Investment Company Institute IRA 
+Owners Survey
+
+ICI RESEARCH PERSPECTIVE, VOL. 31, NO. 2  // MARCH 2025 	
+7
+FIGURE 4
+Rollovers Are Often a Source of Assets for Traditional IRAs
+Households with traditional IRAs that include rollovers
+Percentage of households owning traditional IRAs, 2024
+  Traditional IRA includes rollover
+59%
+  Traditional IRA does not include rollover
+41
+Traditional IRA rollover activity
+Percentage of households owning traditional IRAs that include rollovers, 2024
+Reason for traditional IRA rollover(s):*
+  Job change, layoff, or termination
+69
+  Retirement
+46
+  Other
+8
+Amount of most recent traditional IRA rollover:
+  All assets in employer-sponsored retirement plan were rolled over
+85
+  Some assets in employer-sponsored retirement plan were rolled over
+15
+Contributions to traditional IRA other than rollover:
+  Have made contribution other than rollover
+41
+  Have never made contribution in addition to rollover
+59
+Percentage of traditional IRA balance from rollovers or transfers from former employer-sponsored 
+retirement plans: 
+  Less than 25 percent
+10
+  25 to 49 percent
+11
+  50 to 74 percent
+18
+  75 percent or more
+61
+Year of most recent rollover:
+  Before 2000
+6
+  Between 2000 and 2004
+8
+  Between 2005 and 2009
+9
+  Between 2010 and 2014
+14
+  Between 2015 and 2019
+23
+  2020 or later
+40
+Median percentage of traditional IRA balance from rollovers or transfers from former 
+employer‑sponsored retirement plans (among households with rollovers)
+88
+*	 Multiple responses are included.
+Source: Investment Company Institute IRA Owners Survey
+
+8	
+ICI RESEARCH PERSPECTIVE, VOL. 31, NO. 2  // MARCH 2025 
+FIGURE 5
+Rollovers Often Consolidate Retirement Assets
+Percentage of households owning traditional IRAs that include rollovers, 2024
+Did not want to leave assets
+with the former employer
+Wanted more investment options
+Wanted to consolidate assets
+Wanted to preserve tax 
+treatment of the savings
+Wanted to keep assets with the
+same ﬁnancial services provider
+Were required to take all money
+out of the former employer's plan
+Wanted to use a diﬀerent
+ﬁnancial services provider
+Were told by a ﬁnancial adviser
+to roll over assets
+Thought it was easier to roll over
+assets to an IRA than into
+your new employer’s plan
+Wanted the same investments that
+were in the former employer’s plan
+Reason for most recent rollover1
+Primary reason for most recent rollover2
+47
+42
+29
+27
+8
+43
+56
+66
+59
+60
+4
+9
+6
+14
+11
+23
+19
+14
+(*)
+1	Multiple responses are included for all responses except for respondents who were required to take the money out of their former employer’s 
+plan. Eighty-two percent of traditional IRA–owning households with rollovers had multiple reasons for rolling over. 
+2	Figure does not include households with traditional IRAs that made their most recent or only rollover because they were required to take the 
+money out of their former employer’s plan.
+(*) = less than 0.5 percent 
+Source: Investment Company Institute IRA Owners Survey
+
+ICI RESEARCH PERSPECTIVE, VOL. 31, NO. 2  // MARCH 2025 	
+9
+FIGURE 6
+Sources of Information Consulted for Rollover Decision
+Percentage of households owning traditional IRAs that include rollovers, 2024
+Professional ﬁnancial adviser
+Financial services ﬁrms (printed or
+online materials, seminars,
+workshops, phone representative)
+Employer (printed or online materials,
+seminars, workshops)
+Spouse or partner
+IRS rules or publications
+Coworker, friend, or family member
+Other
+Source of information*
+Primary source of information
+18
+4
+27
+35
+66
+46
+37
+5
+3
+5
+5
+55
+16
+11
+*	 Multiple responses are included; 65 percent of traditional IRA–owning households with rollovers consulted multiple sources of information.
+Note: Other responses given included myself, other online information, and banks.
+Source: Investment Company Institute IRA Owners Survey 
+Rollovers Often Provide Consolidation 
+Most traditional IRA–owning households with rollovers 
+(82 percent) had multiple reasons for rolling over 
+the accumulations from their employer-sponsored 
+retirement plans to traditional IRAs (Figure 5).25 For 
+example, 66 percent did not want to leave assets 
+with their former employer, and 59 percent said they 
+wanted to consolidate assets. Sixty percent wanted 
+more investment options. Fifty-six percent said they 
+wanted to preserve the tax treatment of the savings. 
+Forty-seven percent of traditional IRA–owning 
+households with rollovers kept their assets with the 
+same financial services provider when they rolled over 
+assets, and 42 percent rolled over to change financial 
+services providers. Twenty-nine percent were told by 
+a financial adviser to roll over, and 27 percent thought 
+it was easier to roll over to an IRA than into their new 
+employer’s plan. Forty-three percent reported that they 
+were required to take all of their money out of their 
+former employer’s plan. 
+Rollovers often are primarily used to consolidate 
+retirement assets. When traditional IRA–owning 
+households that chose to roll over assets were asked 
+to identify the primary reason for the rollover, 23 percent 
+said they did not want to leave the assets with their 
+former employer, and 19 percent said they wanted to 
+consolidate assets (Figure 5).26
+
+10	
+ICI RESEARCH PERSPECTIVE, VOL. 31, NO. 2  // MARCH 2025 
+Households Research the Rollover Decision 
+Traditional IRA–owning households generally 
+researched the decision to roll over money from their 
+former employer’s retirement plan into a traditional 
+IRA. Sixty-five percent consulted multiple sources of 
+information. The most common source of information was 
+professional financial advisers, who were consulted by 
+66 percent of traditional IRA–owning households with 
+rollovers (Figure 6). Thirty-seven percent of traditional 
+IRA–owning households with rollovers relied on 
+information provided by their employers, with 29 percent 
+using printed materials from their employers as a source 
+of information and 24 percent consulting online materials 
+from their employers (see Figure A17). Forty-six percent 
+of traditional IRA–owning households with rollovers 
+relied on information provided by financial services 
+firms, with 24 percent using printed materials provided 
+by financial services firms. Twenty-seven percent 
+indicated that they used online materials from financial 
+services firms. 
+When asked to identify their primary source of 
+information on the rollover decision, 55 percent of 
+traditional IRA–owning households with rollovers 
+primarily relied on professional financial advisers 
+(Figure 6). Older households were more likely to 
+consult professional financial advisers than younger 
+households (see Figure A17). Sixteen percent of 
+traditional IRA–owning households with rollovers 
+identified their primary source of information on the 
+rollover decision as financial services firms. Eight percent 
+of traditional IRA–owning households with rollovers said 
+their primary source of information was online materials 
+from these firms, with younger households more likely to 
+rely primarily on online resources than older households. 
+Selecting the Investments
+When asked about the selection of the initial asset 
+allocation of rollover assets in traditional IRAs, 
+23 percent of traditional IRA–owning households with 
+rollovers indicated that their professional financial 
+adviser selected the investments, and 42 percent 
+indicated that they worked together with a professional 
+financial adviser to select the investments. Thirty-
+five percent of traditional IRA–owning households with 
+rollovers reported that the household selected the 
+investments without outside help. 
+Traditional IRA–owning households generally exhibit 
+an appetite for equity investing. Nearly three-quarters 
+of traditional IRA–owning households (72 percent) 
+indicated they held mutual funds in their traditional 
+IRAs, including a little over half (52 percent) holding 
+equity funds (see Figure A16).27 About half (49 percent) 
+indicated they held individual equities in their traditional 
+IRAs, and about one-third (32 percent) held exchange-
+traded funds (ETFs). 
+
+ICI RESEARCH PERSPECTIVE, VOL. 31, NO. 2  // MARCH 2025 	
+11
+Households with rollover assets in their traditional 
+IRAs tend to have higher IRA balances, compared with 
+IRAs funded purely by individual contributions. Median 
+traditional IRA holdings that include rollovers were 
+$180,000 in mid-2024, compared with median traditional 
+IRA holdings of $50,000 for balances that did not include 
+rollovers (see Figure A9).28 
+Few Households Make Contributions 
+to IRAs 
+Although IRAs can play the role of a contributory 
+savings vehicle for Americans to build their retirement 
+savings, the majority of US households do not 
+contribute to them. Nevertheless, recent years show a 
+slight upward trend in contribution activity in traditional 
+and Roth IRAs. In tax year 2023, 16 percent of all US 
+households made contributions to traditional IRAs or 
+Roth IRAs, compared with 15 percent in tax year 2022 
+and 11 percent in tax year 2017. Being retired, meeting 
+eligibility requirements, not having extra money to save, 
+or meeting retirement savings needs through employer-
+sponsored retirement plans help explain the lower 
+contribution rates to IRAs versus employer-sponsored 
+retirement plans.29 
+Among households owning IRAs, contribution rates were 
+higher: 37 percent of households owning traditional IRAs 
+or Roth IRAs in mid-2024 made contributions in tax year 
+2023 (Figure 7), compared with 36 percent in tax year 
+2022 and 36 percent in tax year 2021.30 Households 
+may, depending on their eligibility, contribute to more 
+than one type of IRA in each tax year.31 
+FIGURE 7
+Contribution Activity to Roth IRAs Outpaces Contribution Activity to Traditional IRAs in Tax 
+Year 2023
+Percentage of US households owning each type of IRA in 2024 by contribution status
+Did not contribute in tax year 2023
+Contributed in tax year 2023
+Households with
+Roth IRAs
+Households with
+traditional IRAs
+All households owning
+traditional or Roth IRAs
+Median contribution per household to type of IRA indicated (among contributing households)
+37
+$6,000
+$5,000
+$6,000
+63
+79
+21
+59
+41
+Note: Households may hold more than one type of IRA. Contribution activity reported is for type of IRA indicated. Some of these households 
+may have been ineligible to make contributions.
+Source: Investment Company Institute IRA Owners Survey
+
+12	
+ICI RESEARCH PERSPECTIVE, VOL. 31, NO. 2  // MARCH 2025 
+Roth IRA Owners Are More Likely 
+to Contribute 
+Traditional IRA owners were less likely than Roth IRA 
+owners to have made contributions. Forty-one percent 
+of households owning Roth IRAs in mid-2024 made 
+contributions in tax year 2023 (Figure 7). In contrast, 
+21 percent of traditional IRA–owning households in 
+mid-2024 contributed to their traditional IRAs in tax 
+year 2023.32 
+Several factors play a role in the lower contribution rate 
+to traditional IRAs.33 For example, restrictions on the tax 
+deductibility of contributions34 must be considered by 
+traditional IRA–owning households that have retirement 
+plan coverage at work.35 Prior to tax year 2020, 
+traditional IRA investors aged 70½ or older were not 
+permitted to make contributions to traditional IRAs.36 In 
+addition, traditional IRA–owning households may have 
+someone in the household who was retired. Furthermore, 
+some households that own traditional IRAs use them to 
+preserve rollovers rather than as a contributory savings 
+vehicle. And some households may be able to meet their 
+retirement savings needs through their retirement plans 
+at work. 
+Traditional IRA–owning households without contributions 
+tended to have rollovers (63 percent) or have a DC plan 
+account (67 percent) (see Figure A20). Fifty-three percent 
+of traditional IRA–owning households without 
+contributions were retired, and 49 percent were not 
+employed (suggesting a lack of earnings to contribute). 
+Nevertheless, other research finds that traditional IRA 
+investors who make contributions tend to do so on a 
+recurring basis.37
+Noncontributing IRA-Owning Households 
+Cite Economic Reasons
+When asked, IRA-owning households not making 
+contributions in tax year 2023 cited economic reasons 
+for not contributing. Indeed, more than four in 10 
+noncontributing traditional IRA−owning households 
+(43 percent) indicated they were retired and no longer 
+saving (see Figures 8 and A18). About one-quarter of 
+noncontributing traditional IRA−owning households 
+indicated they were unable to meet eligibility 
+requirements, one-fifth just didn’t have extra money to 
+save, and 18 percent said their retirement plans at work 
+met their savings needs. 38
+Among noncontributing Roth IRA−owning households, 
+more than four in 10 indicated an inability to save, 
+including 25 percent who didn’t have extra money 
+to save and 18 percent who met their savings needs 
+through their workplace retirement plan (see Figures 8 
+and A19). Thirty percent of noncontributing Roth IRA−
+owning households indicated they were retired and no 
+longer saving.
+
+ICI RESEARCH PERSPECTIVE, VOL. 31, NO. 2  // MARCH 2025 	
+13
+Catch-Up Contributions
+In tax year 2023, the median household contribution 
+to traditional IRAs was $5,000, and the median 
+household contribution to Roth IRAs was $6,000 
+(Figure 7). In tax year 2023, the traditional and Roth 
+IRA contribution limit was $6,500 for individuals 
+younger than 50 (see Figure A21).39 Since tax year 
+2002, individuals aged 50 or older are eligible to 
+make catch-up contributions to their IRAs.40 Among 
+households aged 50 or older, 48 percent owned 
+traditional or Roth IRAs in mid-2024 (see Figure A22). 
+Of these IRA-owning households, 21 percent 
+made contributions to traditional or Roth IRAs; half 
+of these contributing households made catch-up 
+contributions.41 Among the 38 percent of households 
+aged 50 or older that owned but did not contribute to 
+a traditional or Roth IRA, 73 percent were retired, and 
+54 percent were not working (27 percent of those that 
+were retired were working full- or part-time). In addition, 
+61 percent of these households owned a DC account, 
+and 61 percent of them reported either a traditional 
+IRA rollover or that some of the assets in their Roth 
+IRAs were originally from an employer-sponsored 
+retirement plan.
+All told, catch-up contributions are not prevalent, 
+with only 5 percent of all US households aged 50 or 
+older reporting catch-up contributions to traditional 
+or Roth IRAs (see Figure A22). However, it should be 
+noted that US households aged 50 or older include 
+households ineligible to make deductible contributions 
+to traditional IRAs or contributions to Roth IRAs 
+because of restrictions on such contributions based on 
+income.42 Furthermore, 47 percent of US households 
+aged 50 or older were not employed, and 60 percent 
+were retired.
+FIGURE 8
+Reasons Why IRA-Owning Households Did Not Contribute to an IRA in Tax Year 2023
+Percentage of IRA-owning households that did not make contributions in tax year 2023 by type of IRA and 
+retirement status
+Noncontributing traditional
+IRA–owning households
+Noncontributing Roth 
+IRA–owning households
+Retirement status
+Retirement status
+All
+Retired
+Not retired
+All
+Retired
+Not retired
+Ability to save
+38
+18
+76
+43
+20
+67
+You are saving enough through your 
+retirement plan at work
+18
+5
+43
+18
+6
+30
+You do not have extra money to save
+20
+13
+33
+25
+14
+37
+Eligibility issue
+26
+29
+21
+21
+22
+19
+You are not eligible to make a 
+deductible contribution
+13
+14
+12
+N/A
+N/A
+N/A
+You are ineligible to contribute to an 
+IRA
+16
+18
+12
+21
+22
+19
+You are retired and no longer saving
+43
+65
+N/A
+30
+58
+N/A
+You own an inherited IRA
+4
+4
+4
+3
+3
+2
+The rules for IRA contributions are 
+confusing
+3
+2
+4
+4
+2
+5
+Some other reason
+5
+4
+8
+7
+5
+9
+Note: Multiple responses are included. The household was considered retired if either the head of household or spouse responded affirmatively 
+to the question: “Are you retired from your lifetime occupation?”
+N/A = not applicable
+Source: Investment Company Institute IRA Owners Survey
+
+14	
+ICI RESEARCH PERSPECTIVE, VOL. 31, NO. 2  // MARCH 2025 
+FIGURE 9
+Traditional IRAs Are Held Through a Variety of Financial Institutions
+Percentage of households owning traditional IRAs, 2024
+Discount brokerage
+Mutual fund company
+Insurance company
+Bank or savings institution
+Independent ﬁnancial planning ﬁrm
+Full-service brokerage
+36
+29
+23
+7
+20
+13
+80%
+Investment professionals
+(total)
+31%
+Direct sources
+(total)
+Note: Multiple responses are included.
+Source: Investment Company Institute IRA Owners Survey
+IRAs Are Held Through a Variety of 
+Financial Institutions 
+Households with traditional or Roth IRAs held them 
+through a wide array of financial institutions (see 
+Figure A11).43 In mid-2024, 80 percent of households 
+that owned traditional IRAs held them through 
+investment professionals, and 31 percent held 
+them directly at mutual fund companies or discount 
+brokers (Figure 9).44 Older traditional IRA–owning 
+households were more likely to use investment 
+professionals (82 percent among those aged 65 
+or older) than younger traditional IRA–owning 
+households (77 percent among those younger than 
+35, and 72 percent among those aged 35 to 44) 
+(see Figure A11). Younger traditional IRA–owning 
+households were more likely to hold their traditional 
+IRAs through direct sources (37 percent among those 
+aged 35 to 54) than older traditional IRA–owning 
+households (29 percent among those aged 55 to 64, 
+and 28 percent among those aged 65 or older). Roth 
+IRA–owning households similarly held their Roth IRAs 
+through a variety of financial institutions, following a 
+similar pattern of ownership location as traditional IRA–
+owning households (see Figure A11). 
+
+ICI RESEARCH PERSPECTIVE, VOL. 31, NO. 2  // MARCH 2025 	
+15
+IRA Withdrawals Are Infrequent, Mostly 
+Retirement Related 
+Few households withdraw money from their IRAs in 
+any given year, and most withdrawals are retirement 
+related. A traditional IRA withdrawal taken by an 
+individual prior to age 59½ is generally subject to 
+a 10 percent penalty on the taxable portion of the 
+withdrawal (in addition to the federal, state, and 
+local income tax that may be due).45 Starting in 2023, 
+taxpayers older than 59½ but younger than 73 may 
+take withdrawals without penalty but generally are not 
+required to do so.46 Traditional IRA owners aged 73 
+or older are required to withdraw an annual amount 
+based on life expectancy or pay a penalty for failing to 
+do so; these withdrawals are called required minimum 
+distributions (RMDs).47 Households with inherited IRAs 
+are also generally required to take distributions.
+Thirty-one percent of households owning traditional 
+IRAs in 2024 reported taking withdrawals from these 
+IRAs in tax year 2023, compared with 31 percent in tax 
+year 2022, 29 percent in tax year 2021, and 23 percent 
+in tax year 2020  (see Figure A24 ).48 The Coronavirus 
+Aid, Relief, and Economic Security (CARES) Act, enacted 
+March 27, 2020, suspended RMDs for tax year 2020.49 
+Withdrawal activity among traditional IRA–owning 
+households fell to lower levels in tax year 2020, likely 
+in part due to the suspension of RMDs from traditional 
+IRAs. Some of the increase in withdrawal activity in tax 
+year 2021 resulted from the return of RMDs. Among 
+households taking traditional IRA withdrawals in tax 
+year 2023, 90 percent reported that someone in the 
+household was retired from their lifetime occupation 
+(Figure 10). Nevertheless, 46 percent of retired 
+households owning traditional IRAs in mid-2024 did not 
+take withdrawals in tax year 2023.
+FIGURE 10
+Withdrawals from Traditional IRAs Are Infrequent
+Percentage of US households with traditional IRAs in 2024
+Number of respondents: 2,467
+31%
+Took withdrawals in tax year 2023
+24
+Retired, did not
+take a withdrawal1
+28
+Retired, took
+a withdrawal1, 2
+3
+Not retired,
+took a withdrawal2
+45
+Not retired, did not
+take a withdrawal
+1  The household was considered retired if either the head of household or spouse responded affirmatively to the question: “Are you retired from 
+your lifetime occupation?”
+2  Households that made a withdrawal exclude those that closed and no longer own traditional IRAs.
+Source: Investment Company Institute IRA Owners Survey
+
+16	
+ICI RESEARCH PERSPECTIVE, VOL. 31, NO. 2  // MARCH 2025 
+Traditional IRA–owning households that made 
+withdrawals generally took modest-sized amounts (see 
+Figure A25). Although some withdrawals appear large 
+in dollar amounts, a median of 6 percent of the account 
+balance was typically withdrawn. In line with the 
+incentives and disincentives of the tax code, younger 
+households were much less likely to make withdrawals 
+than older households. Among traditional IRA–owning 
+households in mid-2024 headed by individuals 
+younger than 59, only 5 percent took withdrawals in 
+tax year 2023 (see Figure A24).50 Twenty-nine percent 
+of households owning traditional IRAs and headed 
+by an individual aged 59 to 72 in mid-2024 reported 
+withdrawals in tax year 2023. Eighty-four percent 
+of households owning traditional IRAs and headed by 
+an individual aged 73 or older took withdrawals in tax 
+year 2023.51 
+Typically, withdrawals from traditional IRAs were taken 
+to fulfill RMDs. Seventy-three percent of households 
+owning traditional IRAs in mid-2024 and making 
+withdrawals in tax year 2023 calculated their withdrawal 
+amount based on the RMD, compared with 76 percent 
+in tax year 2022, and 74 percent in tax year 2021 
+(see Figure A26).52 Another 15 percent of traditional 
+IRA–owning households taking withdrawals reported 
+they withdrew lump sums based on needs in tax year 
+2023, compared with 12 percent in tax year 2022, and 
+14 percent in tax year 2021. In tax year 2023, 9 percent 
+reported a scheduled withdrawal amount, either as 
+a percentage of the account or a regular dollar amount, 
+compared with 8 percent in tax year 2022, and 8 percent 
+in tax year 2021.
+Reflecting the rules governing distributions from 
+traditional IRAs, households headed by individuals 
+aged 73 or older were much more likely to cite RMDs 
+as the way they calculated their withdrawal amounts,53 
+while younger households were much more likely to 
+take lump-sum withdrawals based on needs. Among 
+traditional IRA–owning households in mid-2024 with 
+a head of household aged 73 or older and taking a 
+withdrawal in tax year 2023, 96 percent indicated their 
+withdrawal was based on the RMD rules—only 2 percent 
+took lump sums based on needs (see Figure A27). In 
+contrast, among withdrawing households younger than 
+age 73, 36 percent took RMDs, and 37 percent took 
+lump sums based on needs. 
+Traditional IRA–owning households that took 
+withdrawals in tax year 2023 usually consulted outside 
+sources to determine the amount of the withdrawal. 
+Sixty-two percent consulted a professional financial 
+adviser to determine the amount to withdraw in tax 
+year 2023 (see Figure A28). Twenty-seven percent 
+consulted Internal Revenue Service (IRS) rules or 
+publications. 
+Few Roth IRA–Owning Take Withdrawals
+Among households owning Roth IRAs in mid-2024, 
+only 5 percent took withdrawals in tax year 2023 (see 
+Figure A31). Roth IRAs are not subject to RMDs during 
+the lifetime of the owner, in contrast to traditional IRAs. 
+Nearly half (48 percent) of Roth IRA–owning households 
+taking withdrawals reported they withdrew lump sums 
+based on needs in tax year 2023. Thirty-five percent 
+reported a scheduled withdrawal amount, either as 
+a percentage of the account or a regular dollar amount. 
+Fifty-eight percent of Roth IRA–owning households 
+taking withdrawals consulted with professional advisers 
+to determine the withdrawal amount and 29 percent 
+consulted Internal Revenue Service (IRS) rules or 
+publications (see Figure A28). 
+
+ICI RESEARCH PERSPECTIVE, VOL. 31, NO. 2  // MARCH 2025 	
+17
+IRA Withdrawals Are Used for a Variety 
+of Purposes 
+Households use traditional IRA withdrawals for a variety 
+of purposes, mainly in retirement.54 Among households 
+in which either the head of household or spouse was 
+retired, 41 percent reported using traditional IRA 
+withdrawals to pay for living expenses (see Figure A30). 
+Forty percent of retired households that took traditional 
+IRA withdrawals in tax year 2023 reinvested or 
+saved at least some of the withdrawal amount into 
+another account.55 Fifteen percent reported using their 
+withdrawals for home purchase, repair, or remodeling; 
+and 5 percent reported using their withdrawals 
+for healthcare expenses. Five percent used their 
+withdrawals for emergencies. Nonretired traditional IRA–
+owning households that reported taking withdrawals in 
+tax year 2023 had different uses for the funds. These 
+households were more likely to use the funds for home 
+purchase, repair, or remodeling (22 percent) or for 
+emergencies (21 percent) than retired households.
+Households use Roth IRA withdrawals for a variety 
+of purposes; the most commonly cited was to pay for 
+living expenses (31 percent) (see Figure A31). More than 
+one-quarter reinvested their Roth IRA withdrawal into 
+another account. About one-fifth used their Roth IRA 
+withdrawals for a home-related expense and 17 percent 
+used the withdrawal for some other big-ticket item. 
+Fourteen percent reported using their withdrawals for 
+emergencies, and 10 percent reported using Roth IRA 
+withdrawals for healthcare expenses.  
+Most IRA Owners Have a Planned 
+Retirement Strategy 
+Sixty-nine percent of traditional IRA–owning households 
+in mid-2024 said they have a strategy for managing 
+income and assets in retirement (see Figure A32). These 
+households typically seek advice when building their 
+retirement income and asset management strategy. 
+Seventy-eight percent of traditional IRA–owning 
+households with a strategy consulted a professional 
+financial adviser when creating the strategy, with 
+older households more likely to do so than younger 
+households. Twenty-two percent used a website to help 
+create their retirement income and asset management 
+strategy, with younger households more likely to do so 
+than older households. Twenty-two percent consulted 
+with friends or family, and 19 percent consulted 
+written materials (e.g., a book or article in a magazine 
+or newspaper). Seven percent of households with a 
+strategy used a financial software package to build their 
+retirement income and asset management strategy, with 
+younger households slightly more likely to do so than 
+older households. 
+Traditional IRA–owning households with a strategy for 
+managing their income and assets in retirement reported 
+that their strategy had multiple components. Seventy-
+two percent of these households reviewed their asset 
+allocation, and 66 percent developed a retirement 
+income plan (see Figure A33). Sixty-nine percent of 
+traditional IRA–owning households with a strategy 
+for managing their income and assets in retirement 
+determined their retirement expenses as part of their 
+strategy. Fifty-seven percent set aside emergency 
+funds, and 44 percent reviewed their insurance policies. 
+Fifty-seven percent determined when to take Social 
+Security benefits, with households aged 50 or older 
+more likely to have done so than households younger 
+than 50. Seventy-one percent of traditional IRA–owning 
+households with a strategy took three or more steps in 
+developing their strategy. 
+
+18	
+ICI RESEARCH PERSPECTIVE, VOL. 31, NO. 2  // MARCH 2025 
+Sixty-five percent of Roth IRA–owning households 
+in mid-2024 said they have a strategy for managing 
+income and assets in retirement (see Figure A34). These 
+households typically seek advice when building their 
+retirement income and asset management strategy. 
+Seventy-two percent of Roth IRA–owning households 
+with a strategy consulted a professional financial adviser 
+when creating the strategy, with older households more 
+likely to do so than younger households. Thirty percent 
+used a website to help create their retirement income 
+and asset management strategy, with younger 
+households more likely to do so than older households. 
+Twenty-eight percent consulted with friends or family, 
+and 23 percent consulted written materials (e.g., a book 
+or article in a magazine or newspaper). Eight percent of 
+households with a strategy used a financial software 
+package to build their retirement income and asset 
+management strategy. 
+Roth IRA–owning households with a strategy for 
+managing their income and assets in retirement reported 
+that their strategy had multiple components. Seventy-
+three percent of these households reviewed their asset 
+allocation, and 70 percent developed a retirement 
+income plan (see Figure A35). Sixty-seven percent 
+of Roth IRA–owning households with a strategy 
+for managing their income and assets in retirement 
+determined their retirement expenses as part of their 
+strategy. Sixty-four percent set aside emergency funds, 
+and 50 percent reviewed their insurance policies. Fifty-
+five percent determined when to take Social Security 
+benefits, with households aged 50 or older more likely 
+to have done so than households younger than 50. 
+Seventy-four percent of Roth IRA–owning households 
+with a strategy took three or more steps in developing 
+their strategy. 
+Additional Reading
+»	 Individual Retirement Accounts in the Investment Company Fact Book
+www.icifactbook.org/pdf/2024-factbook-ch8.pdf 
+»	 The IRA Investor Database 
+www.ici.org/research/investors/database 
+»	 The Evolving Role of IRAs in US Retirement Planning 
+www.ici.org/system/files/attachments/pdf/per15-03.pdf
+»	 The Individual Retirement Account at Age 30: A Retrospective 
+www.ici.org/system/files/attachments/per11-01.pdf
+»	 The US Retirement Market, Fourth Quarter 2024
+www.ici.org/research/stats/retirement 
+»	 Ten Important Facts About IRAs
+www.ici.org/files/2024/ten-facts-iras.pdf 
+»	 Individual Retirement Account Resource Center
+www.ici.org/ira
+
+ICI RESEARCH PERSPECTIVE, VOL. 31, NO. 2  // MARCH 2025 	
+19
+Description of the Surveys 
+About the ICI Annual Mutual Fund Shareholder 
+Tracking Survey 
+ICI conducts the Annual Mutual Fund Shareholder 
+Tracking Survey each year to gather information on the 
+demographic and financial characteristics of mutual 
+fund–owning households in the United States. The most 
+recent survey was conducted from May to June 2024 
+and was fielded on the KnowledgePanel®, a probability 
+based online panel designed to be representative of 
+the US population. The KnowledgePanel® is designed 
+and administered by Ipsos. Ipsos is one of the largest 
+market research and polling companies globally, 
+operating in 90 markets and employing over 18,000 
+people. The Annual Mutual Fund Shareholder Tracking 
+Survey sample for 2024 included 9,011 US households 
+drawn from the KnowledgePanel®. The overall 
+margin of sampling error for the 2024 sample of US 
+households is ± 1.0 percentage points at the 95 percent 
+confidence level. For a discussion of the revisions to ICI’s 
+Annual Mutual Fund Shareholder Tracking Survey and 
+the detail on the sampling and weighting procedures, 
+see “Ownership of Mutual Funds and Shareholder 
+Sentiment, 2024,” ICI Research Perspective 30, no. 8 
+(October), available at www.ici.org/files/2024/per30-08.
+pdf. 
+About the IRA Owners Survey 
+ICI conducts the IRA Owners Survey each year to gather 
+information on the characteristics and activities of IRA-
+owning households in the United States. The most recent 
+survey was conducted from May to June 2024 using the 
+KnowledgePanel®, a probability-based online panel 
+designed to be representative of the US population. 
+The 2024 sample of IRA owners included 3,222 
+representative US households owning traditional IRAs 
+or Roth IRAs. All surveys were conducted online with the 
+member of the household aged 18 or older who was the 
+sole or co-decisionmaker most knowledgeable about 
+the household’s savings and investments. The standard 
+error for the total sample is ± 1.7 percentage points at 
+the 95 percent confidence level. In the 2016 through 
+2024 surveys, households owning traditional or Roth 
+IRAs were surveyed, and thus households owning only 
+employer-sponsored IRAs (SEP IRAs, SAR-SEP IRAs, and 
+SIMPLE IRAs) or Coverdell education savings accounts 
+(formerly called education IRAs) are not included. 
+Revisions to ICI’s IRA Owners Survey 
+Starting in 2016, the ICI IRA Owners Survey 
+was changed from a dual-frame RDD telephone 
+survey to a self-administered online survey on the 
+KnowledgePanel®, a probability-based online panel 
+administered by Ipsos. In addition to the change in the 
+survey mode for the ICI IRA Owners Survey in 2016, 
+the questionnaire was also revised to collect only 
+demographic and financial characteristics of households 
+owning traditional IRAs or Roth IRAs. In previous years, 
+the survey collected information on households owning 
+employer-sponsored IRAs (SEP IRAs, SAR-SEP IRAs, and 
+SIMPLE IRAs). These survey changes were implemented 
+in 2016 to reduce the cost of data collection, improve the 
+representativeness of the sample, and reduce the burden 
+on survey respondents. 
+Because the methodology for the IRA Owners Survey 
+was changed to an online survey in 2016, it was 
+necessary to adjust the weighting methodology for the 
+survey. For the 2016 through 2024 data, the weighting 
+included the standard raking to control totals based on 
+census region, householder age, household income, 
+and educational attainment of US households owning 
+traditional or Roth IRAs.
+
+20	
+ICI RESEARCH PERSPECTIVE, VOL. 31, NO. 2  // MARCH 2025 
+Notes
+1	 See Investment Company Institute 2025. For the rules 
+governing IRAs, see Internal Revenue Service 2024b 
+and 2025.
+2	 Households’ total financial assets were $123.4 trillion as of 
+June 2024, $42.6 trillion at year-end 2004, and $20.9 trillion 
+at year-end 1994. See US Federal Reserve Board 2025 and 
+Investment Company Institute 2025.
+3	 Data in this ICI Research Perspective on the number 
+and percentage of households owning IRAs are based on 
+ICI’s Annual Mutual Fund Shareholder Tracking Survey, 
+which was conducted from May to June 2024. Starting in 
+2022, the Annual Mutual Fund Shareholder Tracking Survey 
+was changed from a dual frame RDD telephone survey to a 
+self-administered online survey on the KnowledgePanel®, 
+a probability based online panel administered by Ipsos, an 
+online consumer research company. The Federal Reserve 
+has also used the KnowledgePanel®; see US Federal 
+Reserve Board 2024. The Annual Mutual Fund Shareholder 
+Tracking Survey sample for 2024 included 9,011 US 
+households drawn from the KnowledgePanel®. The standard 
+error for the total sample is ± 1.0 percentage points at the 
+95 percent confidence level. For further discussion and 
+additional results from this survey, see Holden, Schrass, and 
+Bogdan 2024a and 2024b and Schrass and Bogdan 2024.
+	 The demographic and financial characteristics of IRA 
+owners are derived from a separate IRA Owners Survey 
+of 3,222 representative US households owning traditional 
+IRAs or Roth IRAs. The 2024 IRA Owners Survey was also 
+conducted using the KnowledgePanel®. The standard 
+error for the total sample is ± 1.7 percentage points at the 
+95 percent confidence level. IRA ownership does not include 
+ownership of employer-sponsored IRAs (SEP IRAs, SAR-SEP 
+IRAs, and SIMPLE IRAs) or Coverdell education savings 
+accounts (formerly called education IRAs).
+	 The incidence of IRA ownership is calculated from the ICI 
+Annual Mutual Fund Shareholder Tracking Survey, which 
+collects information on retirement and other investment 
+account ownership among US households headed by 
+individuals aged 18 or older. Starting in 2013, the order 
+of the account type choices in the question regarding 
+ownership of retirement and other savings accounts was 
+changed. This change was made to avoid confusion 
+between individual accounts in 401(k) and other employer-
+sponsored DC plan accounts versus IRAs. Beginning in 
+2013, respondents were asked if they own a 401(k) and 
+other employer-sponsored DC retirement plans, then if they 
+own a traditional IRA or a Roth IRA, then if they own an 
+employer-sponsored IRA, and, finally, if they own a 529 plan 
+or Coverdell education savings account (ESA). In prior years, 
+respondents were asked first if they own a traditional IRA 
+or Roth IRA, then if they own a Coverdell ESA, then if they 
+own an employer-sponsored IRA, and, finally, if they own a 
+401(k) or other employer-sponsored plan account (529 plan 
+ownership was a separate question). 
+	 In the surveys from 2014 through 2021, the incidence of IRA 
+ownership is lower than in previous years, possibly due to 
+the reordering of questions regarding retirement and other 
+savings accounts in the questionnaire (introduced in 2013), 
+as well as a sampling and weighting methodology change 
+introduced in 2014. See Figure A1 for the complete time 
+series on IRA incidence. See Holden, Schrass, and Bogdan 
+2024a for details on the changes to the ICI Annual Mutual 
+Fund Shareholder Tracking Survey.
+4	 See note 3 for a discussion of changes in IRA incidence 
+in ICI’s surveys. The ICI Annual Mutual Fund Shareholder 
+Tracking Survey results in higher incidence of IRA ownership 
+than the Federal Reserve Board’s Survey of Consumer 
+Finances. For example, ICI tabulations of the 2022 Survey 
+of Consumer Finances indicate that 21.4 percent of US 
+households owned traditional IRAs and 16.1 percent of US 
+households owned Roth IRAs. The ICI Annual Mutual Fund 
+Shareholder Tracking Survey finds that 31.2 percent of US 
+households in 2022, 31.3 percent in 2023, and 32.6 percent 
+in 2024 owned traditional IRAs; in addition, 24.6 percent 
+of US households in 2022, 24.3 percent in 2023, and 
+26.2 percent in 2024 owned Roth IRAs (see Figure A1). For 
+a description of the Survey of Consumer Finances, see 
+Aladangady et al. 2023.
+
+ICI RESEARCH PERSPECTIVE, VOL. 31, NO. 2  // MARCH 2025 	
+21
+5	 See Figures 4–6 for additional information on rollover 
+activities and Figure A9 for additional information on 
+traditional IRA–owning households with rollovers.
+6	 The ability to contribute to Roth IRAs is restricted based 
+on household income. Conversions also used to be limited 
+based on household income, but in 2010, the income 
+restrictions for Roth conversions were lifted. For additional 
+detail, see Internal Revenue Service 2025. It is possible that 
+Roth IRA ownership is not more widespread because income 
+limits restrict the ability of many US households to invest in 
+Roth IRAs.
+7	 See Brady and Bass 2021 and Brady, Burham, and Holden 
+2012 for discussion of the life-cycle model and household 
+survey results regarding savings goals.
+8	 See Sabelhaus and Schrass 2009.
+9	 For example, the first-year replacement rate (mean 
+scheduled Social Security first-year benefits as 
+a percentage of average inflation-indexed career earnings 
+for retired workers in the 1960–1969 birth cohort [individuals 
+aged 52 to 61 in 2021]) falls as income rises. The mean 
+replacement rate for the lowest lifetime household earnings 
+quintile was 78 percent; for the middle quintile, it was 
+49 percent; and for the highest quintile, it was 31 percent. 
+See Congressional Budget Office 2021. For additional 
+discussion, see Brady and Bass 2021 and Brady, Burham, 
+and Holden 2012.
+10	 For discussion of retirement saving by different income 
+groups, see Brady and Bass 2021; Schrass and Bogdan 
+2024; and Sabelhaus, Bogdan, and Schrass 2008.
+11	 For characteristics by type of IRA, see Figure A8. 
+12	Households with formal retirement savings tend to have 
+greater total financial assets (see Figure A15).
+13	 See Holden et al. 2005 for a discussion of the relationship 
+between demographic characteristics and the propensity 
+to save. For additional discussion, see also Brady and Bass 
+2021; Brady, Burham, and Holden 2012; and Sabelhaus, 
+Bogdan, and Schrass 2008.
+14	 For data from 1989 through 2007 (based on the Federal 
+Reserve Board’s Survey of Consumer Finances), see 
+Figures 8 and 10 in Holden and Schrass 2013.
+15	 See Figure 8 in Holden, Schrass, and Bogdan 2024a.
+16	 This is a pattern of risk tolerance observed in other types 
+of investors. For example, see Sabelhaus, Bogdan, and 
+Schrass 2008; Holden, Schrass, and Bogdan 2024a; and 
+Schrass and Bogdan 2024. Research also finds that the 
+asset allocation of traditional IRA investors varies over the 
+life cycle. Older traditional IRA investors tended to have 
+higher shares of their IRAs in fixed-income investments 
+compared with younger traditional IRA investors. With the 
+exception of the youngest traditional IRA investors (who tend 
+to have small accounts), younger traditional IRA investors 
+tended to have higher allocations to equity investments 
+compared with older traditional IRA investors. See Holden 
+and Bass 2011 and Schrass and Holden 2024a. 
+17	 See Holden, Bass, and Copeland 2024a and 2024b.
+18	 For a brief history of IRAs and a discussion of the various 
+features of different IRA types, see Holden et al. 2005. For 
+a discussion of the evolving role of IRAs in US retirement 
+planning, see Sabelhaus and Schrass 2009.
+19	 Before 2008, Roth IRAs generally were not eligible for 
+direct rollovers from employer-sponsored retirement plan 
+accounts. The Pension Protection Act of 2006 (PPA) allows 
+direct rollovers from employer-sponsored plans to Roth IRAs 
+starting in 2008. For a complete discussion of the specific 
+rules, see Internal Revenue Service 2025.
+20	 Rollovers are possible from both DC plans and DB plans. 
+For research on DC plan participants’ distribution decisions 
+at retirement, see Sabelhaus, Bogdan, and Holden 2008. 
+For distribution activity from DC plans recordkept by the 
+Vanguard Group, see Clark 2024.
+21	 See Internal Revenue Service, Statistics of Income Division 
+2025. For historical data, see Investment Company 
+Institute 2025.
+22	 Household characteristics vary between traditional IRA–
+owning households with rollovers and without rollovers (see 
+Figure A9). Rollovers into Roth IRAs have been relatively 
+rare. Nevertheless, 22 percent of Roth IRA–owning 
+households indicated that their Roth IRAs contained amounts 
+that had originally been assets in an employer-sponsored 
+retirement plan (see Figure A10). One-fifth of Roth IRA–
+owning households indicated that their Roth IRAs contained 
+amounts converted from traditional IRAs, and household 
+characteristics vary between Roth IRA–owning households 
+with and without conversions. 
+
+22	
+ICI RESEARCH PERSPECTIVE, VOL. 31, NO. 2  // MARCH 2025 
+23	 Tabulations of the Federal Reserve Board’s 2022 Survey of 
+Consumer Finances data find that 53 percent of traditional 
+IRA–owning households had rollovers in their IRAs in 
+2022, compared with 60 percent of traditional IRA–owning 
+households in ICI’s 2022 IRA Owners Survey (see Holden 
+and Schrass 2023). Tabulations of the Survey of Consumer 
+Finances also reveal that 56 percent of traditional IRA 
+assets in 2022 resulted from rollovers from employer-
+sponsored retirement plans. For a description of the Survey 
+of Consumer Finances, see Aladangady et al. 2023.
+24	 In the case of a DC plan, this amount is the account balance. 
+For DB plans, this amount is the lump-sum distribution based 
+on accrued benefits. See Figure A9 for additional information 
+on traditional IRA owners with rollovers.
+25	 The Internal Revenue Code sets out a comprehensive 
+disclosure regime covering both plan sponsors and IRA 
+providers with regard to information provided for distribution 
+and rollover decisions. Plan sponsors must inform departing 
+employees of information relevant to their distribution 
+decision. IRA providers must disclose the relevant 
+information to IRA owners at the outset and on an ongoing 
+basis. In addition, financial planners, advisers, or brokers 
+may have fiduciary obligations or be subject to other rules 
+of practice with regard to advice to clients on distribution 
+and rollover decisions. For additional discussion, see 
+Holden 2009, Holden and Chism 2014, and Holden and 
+Salinas 2018.
+26	 Traditional IRA–owning households with rollovers tend to 
+have higher traditional IRA balances than those without 
+rollovers (see Figure A9). 
+27	 Aggregate data on mutual fund assets held in IRAs find that 
+mutual fund assets accounted for 39 percent of total IRA 
+assets at the end of June 2024 (see Investment Company 
+Institute 2025). Equity funds accounted for 58 percent of 
+mutual fund assets held in IRAs, and balanced funds (which 
+include target date funds), which also provide exposure to 
+equities, were another 17 percent. 
+28	 For more information on rollovers among traditional IRA 
+investors, see Holden, Sabelhaus, and Bass 2010b and 
+Schrass and Holden 2024a.
+29	 For example, for contribution activity in the DC plans 
+recordkept by the Vanguard Group, see Clark 2024.
+ 30	These results are from the 2022 and 2023 ICI IRA Owners 
+Surveys; see Holden and Schrass 2023 and 2024.
+31	 Among households making contributions to traditional IRAs 
+or Roth IRAs in tax year 2023, 32 percent contributed to 
+traditional IRAs only, and 56 percent contributed to Roth 
+IRAs only. The remaining 12 percent contributed to both 
+traditional IRAs and Roth IRAs in tax year 2023.
+32	 Although it is difficult to compare household-level data 
+and individual-level data, the IRA Owners Survey finds 
+higher rates of contribution activity than the IRA Investor 
+Database finds among individual IRA investors. Analysis of 
+5.2 million traditional IRA investors aged 18 to 69 in 2020 
+finds that 10.6 percent of them contributed to their traditional 
+IRAs in tax year 2020 (see Schrass and Holden 2024a). 
+Contribution activity in Roth IRAs was also higher in the IRA 
+Owners Survey. The IRA Investor Database finds that among 
+4.6 million Roth IRA investors aged 18 or older in 2020, 
+35.2 percent contributed to their Roth IRAs in tax year 2020 
+(see Schrass and Holden 2024b).
+33	 ICI’s 2024 IRA Owners Survey asked traditional IRA–owning 
+households without contributions the reasons why they 
+did not contribute (see Figure A18) and Roth IRA–owning 
+households without contributions the reasons why they did 
+not contribute (see Figure A19). 
+34	For traditional IRA contribution eligibility rules, see Internal 
+Revenue Service 2025.
+35	 For ownership of DC accounts and access to DB plans 
+among traditional IRA–owning households, see Figure A8.
+36	 See Internal Revenue Service 2025 for the rules governing 
+IRA contribution eligibility. In 2019, the Setting Every 
+Community Up for Retirement Enhancement Act (SECURE 
+Act) removed the age restriction for traditional IRA 
+contributions starting in tax year 2020.
+37	 For an analysis of the persistence of traditional IRA 
+contribution activity, see Holden, Sabelhaus, and Bass 
+2010a and Schrass and Holden 2024a.
+38	 This question was included in the 2013 IRA Owners Survey. 
+Among traditional IRA–owning households in 2013 that 
+did not make contributions to their traditional IRAs in tax 
+year 2012, 24 percent indicated that they were able to 
+save enough in their retirement plans at work. Among 
+noncontributing traditional IRA–owning households that 
+were not retired, 37 percent saved enough through their 
+workplace retirement plan. See Holden and Schrass 2013.
+39	 See Internal Revenue Service 2025 for details on income 
+restrictions and other qualifications for contribution eligibility.
+40	The Economic Growth and Tax Relief Reconciliation Act 
+of 2001 (EGTRRA) created catch-up contributions, which 
+permit individuals aged 50 or older to make additional 
+contributions to qualified retirement plans and IRAs that 
+exceed the annual deferral limits. Households may make 
+catch-up contributions to Roth IRAs if their incomes are within 
+the limits to contribute to a Roth IRA and if a household 
+member is aged 50 or older. Households may make catchup 
+contributions to traditional IRAs if a household member is 
+at least 50 years old by the end of the year. See Internal 
+Revenue Service 2025.
+
+ICI RESEARCH PERSPECTIVE, VOL. 31, NO. 2  // MARCH 2025 	
+23
+41	 See Figure A23 for the full history of catch-up contributions 
+among IRA-owning households contributing to traditional 
+IRAs or Roth IRAs. 
+42	 See Internal Revenue Service 2025.
+43	 For discussion of the requirements for financial services firms 
+providing IRAs, see Holden and Chism 2014.
+44	For information on where Roth IRAs are held, see Figure A11. 
+For the variety of investments held in traditional and Roth 
+IRAs, see Figure A16.
+45	 Over the years, Congress has created exceptions to the 
+early withdrawal penalty, including qualified first-time home 
+purchase, certain medical expenses, certain educational 
+expenses, and withdrawals made as substantially equal 
+periodic payments (SEPPs) based on a life expectancy 
+calculation. For additional discussion of IRA withdrawal 
+rules and activity, see Internal Revenue Service 2024a and 
+2024b; Mortenson, Schramm, and Whitten 2016; Poterba, 
+Venti, and Wise 2013; and Holden and Reid 2008.
+46	 In 2019, the SECURE Act increased the age for required 
+minimum distributions from 70½ to 72 for individuals who 
+did not reach age 70½ in 2019. SECURE 2.0, passed at the 
+end of 2022, raised the RMD age again. As explained in IRS 
+Publication 590-b for 2023: 
+	 Individuals who reach age 72 after December 31, 2022, 
+may delay receiving their required minimum distributions 
+until April 1 of the year following the year in which they 
+reach age 73. 
+	 See Internal Revenue Service 2024a. 
+47	 See note 46. 
+48	Data exclude households that closed and no longer owned 
+traditional IRAs.
+49	 See Internal Revenue Service 2021.
+50	The withdrawal activity observed in ICI’s IRA Owners Survey 
+shows similar results compared with data collected in the 
+IRA Investor Database. In 2018, 7.0 percent of traditional IRA 
+investors younger than 60 had withdrawals, 21.0 percent 
+of traditional IRA investors aged 60 to 69 had withdrawals, 
+and 82.2 percent of traditional IRA investors aged 70 or 
+older had withdrawals. The percentage taking distributions 
+in the IRA Investor Database fell in 2020, likely due, to some 
+extent, to the suspension of RMDs from traditional IRAs. 
+In 2020, 6.0 percent of traditional IRA investors younger 
+than 60 had withdrawals, 18.7 percent of traditional IRA 
+investors aged 60 to 69 had withdrawals, and 59.6 percent 
+of traditional IRA investors aged 70 or older had withdrawals 
+(see Holden, Schrass, and Bass 2021 and Schrass and 
+Holden 2024a).
+51	 Withdrawal activity among households with a head of 
+household the RMD age or older is not 100 percent because 
+the traditional IRA owner may be a younger spouse or 
+partner who is not yet required to make withdrawals. The IRA 
+Investor Database finds that among 1.2 million traditional 
+IRA investors aged 70 or older in 2018, 82.2 percent took 
+a withdrawal from their traditional IRAs in tax year 2018 (see 
+Holden, Schrass, and Bass 2021). The older traditional IRA 
+investors without withdrawals may have taken RMDs from 
+IRAs held at financial services firms outside the IRA Investor 
+Database. RMDs were suspended for tax year 2009 and tax 
+year 2020; see Internal Revenue Service 2010 and 2021.
+52	 Only 61 percent of households with traditional IRAs taking 
+withdrawals in tax year 2020 did so to meet RMDs (see 
+Figure A26).  RMDs were suspended for tax year 2009 
+and tax year 2020; see Internal Revenue Service 2010 
+and 2021.
+53	 Analysis of 1.0 million traditional IRA investors aged 70 
+or older who took withdrawals in 2018 in the IRA Investor 
+Database finds that 57.2 percent took the RMD for the 
+individual, 1.5 percent took a joint RMD, and 0.4 percent 
+took the inherited RMD amount. See Holden, Schrass, and 
+Bass 2021.
+	 In 2019, the SECURE Act increased the age for RMDs 
+from 70½ to 72 for individuals who did not reach age 70½ 
+in 2019.
+54	Traditional IRA–owning households taking withdrawals 
+tended to be older and retired, with lower household income, 
+higher financial assets and higher assets in IRAs, compared 
+with households not taking withdrawals (see Figure A29). 
+55	 Among the 40 percent of retired households that reported 
+reinvesting or saving at least some of the amount of 
+the traditional IRA withdrawal into another account 
+(see Figure A30), 90 percent reported withdrawing the 
+amount based on the RMD.
+
+24	
+ICI RESEARCH PERSPECTIVE, VOL. 31, NO. 2  // MARCH 2025 
+References 
+Aladangady, Aditya, Jesse Bricker, Andrew C. Chang, 
+Sarena Goodman, Jacob Krimmel, Kevin B. Moore, 
+Sarah Reber, Alice Henriques Volz, and Richard A. 
+Windle. 2023. Changes in U.S. Family Finances from 
+2019 to 2022: Evidence from the Survey of Consumer 
+Finances. Washington, DC: Board of Governors of the 
+Federal Reserve System (October). Available at https://
+doi.org/10.17016/8799. 
+Brady, Peter J., and Steven Bass. 2021. “Who 
+Participates in Retirement Plans, 2018.” ICI Research 
+Perspective 27, no. 8 (September). Available at 
+www.ici.org/files/2021/per27-08.pdf. 
+Brady, Peter, Kimberly Burham, and Sarah Holden. 2012. 
+The Success of the US Retirement System (December). 
+Washington, DC: Investment Company Institute. Available 
+at www.ici.org/system/files/attachments/ppr_12_
+success_retirement.pdf. 
+Clark, Jeffrey W. 2024. How America Saves 2024. 
+Valley Forge, PA: The Vanguard Group. Available at 
+https://institutional.vanguard.com/content/dam/inst/
+iig-transformation/insights/pdf/2024/has/how_america_
+saves_report_2024.pdf.
+Congressional Budget Office. 2021. CBO’s 2021 
+Long Term Projections for Social Security: Additional 
+Information. Washington, DC: Congressional Budget 
+Office (July). Available at www.cbo.gov/system/
+files/2021-07/57342-Social-Security.xlsx. 
+Holden, Sarah. 2009. “Testimony for ERISA Advisory 
+Council Working Group on Approaches for Retirement 
+Security in the United States.” Statement of the 
+Investment Company Institute: Sarah Holden, Senior 
+Director, Retirement and Investor Research (September 
+17). Available at www.ici.org/pdf/23804b.pdf. 
+Holden, Sarah, and Steven Bass. 2011. “The IRA Investor 
+Profile: Traditional IRA Investors’ Asset Allocation, 2007 
+and 2008.” ICI Research Report (September). Available at 
+www.ici.org/pdf/rpt_11_ira_asset.pdf. 
+Holden, Sarah, Steven Bass, and Craig Copeland. 
+2024a. “401(k) Plan Asset Allocation, Account 
+Balances, and Loan Activity in 2022.” ICI Research 
+Perspective 30, no. 3 (April). Available at www.ici.org/
+files/2024/per30-03.pdf.
+Holden, Sarah, Steven Bass, and Craig Copeland. 2024b. 
+“What Does Consistent Participation in 401(k) Plans 
+Generate? Changes in 401(k) Plan Account Balances and 
+Asset Allocations, 2016–2022.” ICI Research Perspective 
+30, no. 7 (August). Available at www.ici.org/files/2024/
+per30-07.pdf.
+Holden, Sarah, and Elena Barone Chism. 2014. 
+“Testimony for 2014 ERISA Advisory Council: Issues 
+and Considerations Around Facilitating Lifetime Plan 
+Participation.” Statement of the Investment Company 
+Institute: Sarah Holden, Senior Director, Retirement and 
+Investor Research, and Elena Barone Chism, Associate 
+Counsel, Pension Regulation (June 17). Available at 
+www.dol.gov/sites/dolgov/files/ebsa/about-ebsa/about-
+us/erisa-advisory-council/ACHolden061714.pdf. 
+
+ICI RESEARCH PERSPECTIVE, VOL. 31, NO. 2  // MARCH 2025 	
+25
+Holden, Sarah, Kathy Ireland, Vicky Leonard-Chambers, 
+and Michael Bogdan. 2005. “The Individual Retirement 
+Account at Age 30: A Retrospective.” Investment 
+Company Institute Perspective 11, no. 1 (February). 
+Available at www.ici.org/pdf/per11-01.pdf. 
+Holden, Sarah, and Brian Reid. 2008. “The Role of 
+Individual Retirement Accounts in US Retirement 
+Planning.” In Recalibrating Retirement Spending and 
+Saving, edited by John Ameriks and Olivia S. Mitchell: 
+81–111. Oxford: Oxford University Press for the 
+Wharton School, University of Pennsylvania, Pension 
+Research Council. 
+Holden, Sarah, John Sabelhaus, and Steven Bass. 
+2010a. “The IRA Investor Profile: Traditional IRA 
+Investors’ Contribution Activity, 2007 and 2008.” ICI 
+Research Report (July). Available at www.ici.org/doc-
+server/pdf/rpt_10_ira_contributions.pdf.
+Holden, Sarah, John Sabelhaus, and Steven Bass. 
+2010b. “The IRA Investor Profile: Traditional IRA 
+Investors’ Rollover Activity, 2007 and 2008.” ICI Research 
+Report (December). Available at www.ici.org/doc-server/
+pdf/rpt_10_ira_rollovers.pdf.
+Holden, Sarah, and Shannon Salinas. 2018. “Testimony 
+for 2018 ERISA Advisory Council: Lifetime Income 
+Solutions as a Qualified Default Investment Alternative 
+(QDIA).” Statement of the Investment Company Institute: 
+Sarah Holden, Senior Director, Retirement and Investor 
+Research, and Shannon Salinas, Assistant General 
+Counsel, Retirement Policy (August 15). Available at 
+www.dol.gov/sites/dolgov/files/EBSA/about-ebsa/
+about-us/erisa-advisory-council/2018-lifetime-income-
+solutions-as-a-qdia-holden-written-statement-08-15.
+pdf. 
+Holden, Sarah, and Daniel Schrass. 2013. “The Role of 
+IRAs in US Households’ Saving for Retirement, 2013.” ICI 
+Research Perspective 19, no. 11 (November). Available 
+at www.ici.org/pdf/per19-11.pdf.
+Holden, Sarah, and Daniel Schrass. 2023. “The Role of 
+IRAs in US Households’ Saving for Retirement, 2022.” ICI 
+Research Perspective 29, no. 1 (February). Available at 
+http://www.ici.org/files/2023/per29-01.pdf. 
+Holden, Sarah, and Daniel Schrass. 2024. “The Role of 
+IRAs in US Households’ Saving for Retirement, 2023.” ICI 
+Research Perspective 30, no. 1 (February). Available at 
+www.ici.org/files/2024/per30-01.pdf. 
+Holden, Sarah, Daniel Schrass, and Steven Bass. 2021. 
+“The IRA Investor Profile: Traditional IRA Investors’ 
+Activity, 2010–2018.” ICI Research Report (August). 
+Available at www.ici.org/files/2021/21_rpt_ira_
+traditional.pdf.
+
+26	
+ICI RESEARCH PERSPECTIVE, VOL. 31, NO. 2  // MARCH 2025 
+Holden, Sarah, Daniel Schrass, and Michael Bogdan. 
+2024a. “Ownership of Mutual Funds and Shareholder 
+Sentiment, 2024.” ICI Research Perspective 30, no. 8 
+(October). Available at www.ici.org/files/2024/per30-08.
+pdf. 
+Holden, Sarah, Daniel Schrass, and Michael Bogdan. 
+2024b. “Characteristics of Mutual Fund Investors, 2024.” 
+ICI Research Perspective 30, no. 9 (October). Available at 
+www.ici.org/files/2024/per30-09.pdf. 
+Internal Revenue Service. 2010. Publication 590, 
+Individual Retirement Arrangements (IRAs): For Use in 
+Preparing 2009 Returns. Available at www.irs.gov/pub/
+irs-prior/p590--2010.pdf.
+Internal Revenue Service. 2021. Publication 590-B, 
+Distributions from Individual Retirement Arrangements 
+(IRAs) for Use in Preparing 2020 Returns. Available at 
+www.irs.gov/pub/irs-prior/p590b--2020.pdf. 
+Internal Revenue Service. 2024a. Publication 590-B, 
+Distributions from Individual Retirement Arrangements 
+(IRAs) for Use in Preparing 2023 Returns. Available at 
+https://www.irs.gov/pub/irs-prior/p590b--2023.pdf. 
+Internal Revenue Service. 2024b. Publication 590-B, 
+Distributions from Individual Retirement Arrangements 
+(IRAs) for Use in Preparing 2024 Returns. Available at 
+www.irs.gov/pub/irs-dft/p590b--dft.pdf.
+Internal Revenue Service. 2025. Publication 590-A, 
+Contributions to Individual Retirement Arrangements 
+(IRAs) for Use in Preparing 2024 Returns. Available at 
+www.irs.gov/pub/irs-pdf/p590a.pdf. 
+Internal Revenue Service, Statistics of Income Division. 
+2025. SOI Tax Stats: Accumulation and Distribution of 
+Individual Retirement Arrangements (IRA). Available at 
+www.irs.gov/statistics/soi-tax-stats-accumulation-and-
+distribution-of-individual-retirement-arrangements.
+Investment Company Institute. 2025. “The US Retirement 
+Market, Fourth Quarter 2024” (March). Available at 
+www.ici.org/research/stats/retirement. 
+Mortenson, Jacob A., Heidi R. Schramm, and Andrew 
+Whitten. 2016. “The Effects of Required Minimum 
+Distribution Rules on Withdrawals from Traditional 
+Individual Retirement Accounts.” SSRN Working Paper 
+(October 25). Available at https://papers.ssrn.com/sol3/
+papers.cfm?abstract_id=2764435.  
+Poterba, James, Steven Venti, and David A. Wise. 
+2013. “The Drawdown of Personal Retirement Assets: 
+Husbanding or Squandering?” Working Paper (January). 
+Available at https://conference.nber.org/conf_papers/
+f67686.pdf. 
+
+ICI RESEARCH PERSPECTIVE, VOL. 31, NO. 2  // MARCH 2025 	
+27
+Sabelhaus, John, Michael Bogdan, and Sarah Holden. 
+2008. Defined Contribution Plan Distribution Choices at 
+Retirement: A Survey of Employees Retiring Between 
+2002 and 2007. Washington, DC: Investment Company 
+Institute. Available at www.ici.org/pdf/rpt_08_dcdd.pdf. 
+Sabelhaus, John, Michael Bogdan, and Daniel Schrass. 
+2008. Equity and Bond Ownership in America, 2008. 
+Washington, DC: Investment Company Institute and 
+New York: Securities Industry and Financial Markets 
+Association. Available at www.ici.org/system/files/
+attachments/rpt_08_equity_owners.pdf.
+Sabelhaus, John, and Daniel Schrass. 2009. “The 
+Evolving Role of IRAs in US Retirement Planning.” 
+Investment Company Institute Perspective 15, no. 3 
+(November). Available at www.ici.org/pdf/per15-03.pdf. 
+Schrass, Daniel, and Michael Bogdan. 2024. “Profile of 
+Mutual Fund Shareholders, 2024.” ICI Research Report. 
+Available at www.ici.org/files/2024/24-rpt-profiles.pdf. 
+Schrass, Daniel, and Sarah Holden. 2024a. “The IRA 
+Investor Profile: Traditional IRA Investors’ Activity, 2010–
+2020.” ICI Research Report (March). Washington, DC: 
+Investment Company Institute. Available at www.ici.org/
+files/2024/24-rpt-ira-traditional.pdf.
+Schrass, Daniel, and Sarah Holden. 2024b. “The IRA 
+Investor Profile: Roth IRA Investors’ Activity, 2010– 
+2020.” ICI Research Report (June). Washington, DC: 
+Investment Company Institute. Available at www.ici.org/
+files/2024/24-rpt-ira-roth.pdf.
+US Census Bureau. 2024. “Income in the United 
+States: 2023.” Current Population Reports, P60-
+282 (September). Washington, DC: US Government 
+Printing Office. Available at www2.census.gov/library/
+publications/2024/demo/p60-282.pdf.
+US Federal Reserve Board. 2024. Economic Well-Being 
+of US Households in 2023. Washington, DC: Federal 
+Reserve Board (May). Available at www.federalreserve.
+gov/publications/files/2023-report-economic-well-
+being-us-households-202405.pdf. 
+US Federal Reserve Board. 2025. Financial Accounts of 
+the United States: Flow of Funds, Balance Sheets, and 
+Integrated Macroeconomic Accounts, Fourth Quarter 
+2024, Z.1 Release (March). Washington, DC: Federal 
+Reserve Board. Available at www.federalreserve.gov/
+releases/Z1/current.
+
+WASHINGTON, DC  //  BRUSSELS  //  LONDON  //  WWW.ICI.ORG
+Copyright © 2025 by the Investment Company Institute. All rights reserved.
+The Investment Company Institute (ICI) is the leading association representing regulated investment funds. ICI’s mission is to strengthen the 
+foundation of the asset management industry for the ultimate benefit of the long-term individual investor. Its members include mutual funds, 
+exchange-traded funds (ETFs), closed-end funds, and unit investment trusts (UITs) in the United States, and UCITS and similar funds offered 
+to investors in other jurisdictions. ICI also represents its members in their capacity as investment advisers to collective investment trusts (CITs) 
+and retail separately managed accounts (SMAs). ICI has offices in Washington DC, Brussels, and London.
+Sarah Holden
+Sarah Holden, ICI senior director of retirement and investor research, leads the Institute’s research efforts 
+on investor demographics and behavior and retirement and tax policy. Holden, who joined ICI in 1999, 
+heads efforts to track trends in household retirement saving activity and ownership of funds as well as 
+other investments inside and outside retirement accounts. She is responsible for analysis of 401(k) plan 
+participant activity using data collected in a collaborative effort with the Employee Benefit Research 
+Institute (EBRI), known as the EBRI/ICI Participant-Directed Retirement Plan Data Collection Project. In 
+addition, she oversees the IRA Investor DatabaseTM, which contains data on millions of IRA investors and 
+allows analysis of IRA investors’ contribution, rollover, conversion, and withdrawal activity, and asset 
+allocation. Before joining ICI, Holden served as an economist at the Federal Reserve Board of Governors. 
+She has a PhD in economics from the University of Michigan and a BA in mathematics and economics, 
+cum laude, from Smith College.
+Daniel Schrass
+Daniel Schrass is an economist in the retirement and investor research division at ICI. He focuses on 
+investor demographics and behavior, as well as trends in household retirement saving activity. His 
+detailed research includes analysis of IRA-owning households and individual IRA investors in the IRA 
+Investor DatabaseTM, which includes data on millions of IRA investors. He also conducts research with 
+government surveys such as the Survey of Consumer Finances, the Current Population Survey, and the 
+Survey of Household Economics and Decisionmaking. Before joining ICI in October 2007, he served as 
+an economist at the US Bureau of Labor Statistics. He has an MA in applied economics from the Johns 
+Hopkins University and a BS in economics from the Pennsylvania State University.

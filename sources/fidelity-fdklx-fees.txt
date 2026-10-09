@@ -1,0 +1,6 @@
+# requested: https://fundresearch.fidelity.com/mutual-funds/fees-and-prices/315793984
+# final:     chrome-error://chromewebdata/
+# http:      0
+# type:      rendered in Chromium (the page builds itself in JavaScript)
+# read on:   2026-10-09
+

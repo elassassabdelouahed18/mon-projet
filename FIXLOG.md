@@ -497,3 +497,50 @@ patched downstream.
 
 Pages 192 → 193.
 
+### B1, B3, A24 — one spine
+
+**B1.** `ed_spine.py` subordinates the book's seven frameworks to Appendix A's
+eight phases, which are the only one with a gate condition on every step.
+
+A new page sits straight after *How to Use This Book*, before the ten
+questions, so the reader meets the road before being asked where they stand on
+it. It carries the eight phases on a line, the five parts above them, and
+underneath a list of what clears each phase and which chapters belong to it.
+*Accept: a reader can answer "which phase am I in?" from one page.* ✓
+
+The chapter-to-phase mapping was checked against Appendix A's own checklists
+rather than taken on trust, and one gap turned up: **Phase 5 (Scale) had no
+chapter in the review's table**, though its three actions — give the engine 90
+days, raise the price on evidence, route every new dollar — are Chapter 12 and
+13 material. Those two chapters now carry two tags, "4 · Build, into 5 · Scale".
+
+Every DO THIS NOW box in all 21 chapters now carries its phase in the header:
+**21 of 21**. The front-matter and Appendix B boxes carry none, which is right —
+they belong to no chapter.
+
+> A bug worth recording. My first tagging pass searched forward from each
+> chapter's id for the next action box, so a chapter without one stole the next
+> chapter's tag and every tag after it shifted. It reported 22 tags for 21
+> chapters. It now walks the boxes in document order and asks which section
+> each one sits in.
+
+**B3.** The five chapters that run the system (3, 5, 6, 8, 14) carry a gold dot
+in the contents, with a key above the list: *"The five chapters that run the
+system. If you read nothing else, read these."* A dot with no key is decoration.
+
+> A second bug: the dot was first inserted before `</a>`, which broke the
+> contents regex in `build.py` — it matches `…<span class="n">N</span></a>` —
+> and silently dropped five page numbers (34 entries to 29). The dot now goes
+> before the page number instead. The entry count is how it was caught.
+
+**A24.** The contents were missing *How to Use This Book* and *Find Your Own
+Starting Line*, both of which the book sends readers to by name. Added, with
+the new phase page between them.
+
+> A measurement note for the acceptance tests: the book's labels carry
+> `letter-spacing:.15em`, so `pdftotext` and PyMuPDF extract "DO THIS NOW" as
+> "D O  T H I S  N O W". A search for the plain string returns zero and looks
+> like a missing feature. Every text check in this pass strips whitespace first.
+
+Pages 194 → 195.
+

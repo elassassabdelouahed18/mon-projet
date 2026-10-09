@@ -84,3 +84,12 @@ dt{break-after:avoid;page-break-after:avoid}
    are remapped by build.py.
    ========================================================================== */
 :root{--paper:#F9FDF9;--panel:#E6F1E8;--hair:#D5DFD6;--calm:#DAE7DC;--grey:#EEF6EF;--forest:#1C4C2A;--plate:#123B1F;--mist:#C8D9CB;--slab:#CBD9CD;--sage:#87A98D;--sage2:#4F885C;--sage3:#2A5E38;--c1:#1C4C2A;--c2:#447E52}
+
+/* B1: the phase tag that rides in every DO THIS NOW header */
+.box.act .lab .phase{float:right;font-family:'IBM Plex Mono';font-weight:600;
+  font-size:6.6pt;letter-spacing:.02em;color:#603900;text-transform:none}
+/* B3: the five chapters that run the system, marked in the contents */
+.core-dot{display:inline-block;width:4.2pt;height:4.2pt;border-radius:50%;
+  background:#EDA335;margin-left:4pt;vertical-align:.8pt}
+.corekey{font-family:Lora;font-style:italic;font-size:8.4pt;color:#46412A;
+  margin:0 0 7pt 0;text-align:left}

@@ -182,6 +182,15 @@ def apply(html):
     html = once(html, '<h2>3 \u00b7 Read the gap on Insights</h2>',
                 MINIMUM + '<h2>3 \u00b7 Read the gap on Insights</h2>', 'B2 minimum box')
 
+    # ------------------------------------------------------------ B4
+    # Two sentences, both pure restatements of an app panel on the same page.
+    # Everything else the review nominated was measured and kept; see FIXLOG.
+    html = once(html, ' The app hands you the ranking.', '', 'B4 cut 1')
+    html = once(html,
+                ' Gap&rsquo;s <em>Plan</em> tab keeps this picture for you: each paycheck beside '
+                'the bills due before the next one, and every due date and payday on one '
+                'calendar.', '', 'B4 cut 2')
+
     # ------------------------------------------------------------ B3 core mark
     # The five chapters that run the system, marked where a reader chooses:
     # the contents, and the six doors.

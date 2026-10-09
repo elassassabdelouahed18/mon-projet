@@ -582,3 +582,52 @@ belongs, and in its Appendix G row.
 **Chart count is unchanged**, which ground rule 3 requires: one chart replaced
 by one chart, and the two added for C1 and C4 take the total up, never down.
 
+### B4 — tighten without weakening
+
+B4 is the only item in the list that deletes, so I measured before cutting
+rather than after. The result is that the book is already tight: **two
+sentences** came out of 195 pages, and the review's three named candidates did
+not survive measurement.
+
+**Deleted (both pure restatements of an app panel on the same page):**
+
+| chapter | sentence |
+|---|---|
+| 3 | "The app hands you the ranking." |
+| 6 | "Gap's *Plan* tab keeps this picture for you: each paycheck beside the bills due before the next one, and every due date and payday on one calendar." |
+
+Each is immediately followed by the *In the app* panel that says the same thing
+with its path and its reason attached.
+
+**Kept, with the measurement that justified it:**
+
+*Chapter 18's Phase 1–4 paragraphs.* The brief said they "repeat Appendix A word
+for word". They do not. Measured as the share of their five-word runs that
+appear verbatim in Appendix A: **0%, 24%, 14% and 6%**. They are compressions,
+not repeats — and B4's own never-cut list covers "the instruction that tells the
+reader what to tap to do it", which is exactly what they are. Chapter 18 is the
+chapter whose job is to be the one-page plan; sending the reader 140 pages back
+to Appendix A for the actions would gut it.
+
+*The Chapter 6, 13 and 17 app boxes.* A script compared every sentence within
+2,600 characters of each of the eight *In the app* panels against the panel's
+own text. At a 45% shared-content-word threshold it found five candidates, and
+on reading them four are instructions ("tap Log a purchase", "add a sinking
+fund"), the routing formula, or a voice beat ("your leak honor roll"). Only one
+was a bare feature announcement, and that is the Chapter 6 cut above.
+
+*Chapter 3's "Where each leak hides on your screen".* The heading and its panel
+stay; one sentence inside it was the cut above.
+
+**The general test, which the brief did not ask for.** Rather than trust the
+named candidates, I scanned the whole rendered book for near-duplicate sentences
+within a page or its facing page: 35 pairs at 70% shared content words. Reading
+them, **every one is prose against its own chart's labels, or prose against its
+own recap card**. Both are deliberate structures — the chart condenses the
+prose, the card recaps the chapter — and B4 forbids cutting charts. There is no
+prose-against-prose duplication in this book worth deleting.
+
+**Page count: 195**, reported for information only, as the brief asks. It went
+up during this pass, not down: C1 added Model four and its chart, C3 added the
+Saver's Credit section, C4 and B5 added charts, and B1 added the phase map.
+

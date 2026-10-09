@@ -1,15 +1,16 @@
-# requested: https://www.irs.gov/eitc-central/about-eitc
-# final:     https://www.irs.gov/eitc-central/about-eitc
-# http:      404
+# requested: https://www.irs.gov/credits-deductions/individuals/earned-income-tax-credit-eitc
+# final:     https://www.irs.gov/credits-deductions/individuals/earned-income-tax-credit-eitc
+# http:      200
+# type:      text/html; charset=UTF-8 (html), read with the contact user-agent
 # read on:   2026-10-09
 
-404 | Internal Revenue Service 
+Earned Income Tax Credit (EITC) | Internal Revenue Service 
  Skip to main content
  An official website of the United States government 
  Here's how you know 
  Here's how you know 
- Official websites use .gov
- A .gov website belongs to an official government organization in the United States.
+ Official websites use .gov 
+ A .gov website belongs to an official government organization in the United States. 
  Secure .gov websites use HTTPS 
  A lock 
  ( )
@@ -30,6 +31,7 @@
  Tax records 
  Create account 
  Search
+ Help Menu Mobile 
  Sign in 
  Individual 
  Business 
@@ -40,12 +42,6 @@
  Tax records 
  Create account 
  Menu
- Search 
- Include Historical Content 
- - Any - No 
- Include Historical Content 
- - Any - No 
-Search 
  Main navigation 
  File 
  Overview 
@@ -136,20 +132,7 @@ Search
  - Any - No 
  Include Historical Content 
  - Any - No 
-Search 
- Information Menu 
- Help 
- News 
- Tax Pros 
- Sign in 
- Individual 
- Business 
- Tax Pro 
- Access your tax information with an IRS account. 
- Refunds 
- Payments 
- Tax records 
- Create account 
+ Search 
  File 
  Overview INFORMATION FOR… Individuals Business and self-employed Charities and nonprofits International filers Retirement Governments and tax-exempt bonds Indian Tribal Governments FILING FOR INDIVIDUALS How to file When to file Where to file Update your information POPULAR Tax record (transcript) Apply for an Employer ID Number (EIN) Amend return Identity Protection PIN (IP PIN) 
  Pay 
@@ -173,16 +156,35 @@ Search
  Help 
  News 
  Tax Pros 
- Page Not Found. 
- Error 404. 
- Sorry, this page is not available. 
- Please check the web address or try searching by the keyword below. 
  Search 
  Include Historical Content 
  - Any - No 
  Include Historical Content 
  - Any - No 
-Search 
+ Search 
+ Home 
+ Credits & Deductions 
+ Family, dependents and students 
+ Earned Income Tax Credit (EITC)
+ Earned Income Tax Credit (EITC) 
+ English Español 中文 (简体) 中文 (繁體) 한국어 Русский Tiếng Việt Kreyòl ayisyen 
+ More In Credits & Deductions
+ Family, dependents and students 
+ Earned Income Tax Credit 
+ EITC Qualification Assistant 
+ Who qualifies for the EITC 
+ Qualifying child or relative for the EITC 
+ Earned income and credit tables 
+ How to claim the EITC 
+ When to expect your refund if you claimed the EITC or Additional Child Tax Credit 
+ Child Tax Credit 
+ Education credits 
+ Clean energy and vehicle credits and deductions 
+ Individuals credits and deductions 
+ Business credits and deductions 
+ The Earned Income Tax Credit (EITC) helps low- to moderate-income workers and families get a tax break. If you qualify, you can use the credit to reduce the taxes you owe – and maybe increase your refund. Who qualifies You may claim the EITC if your income is low- to moderate. The amount of your credit may change if you have children or dependents, are disabled or meet other criteria. Military and clergy should review our special EITC rules because using this credit may affect other government benefits. Check if you qualify If you claim this credit , your refund may be delayed . By law, we must wait until mid-February to issue refunds to taxpayers who claim the Earned Income Tax Credit. Still not sure if you qualify for the EITC? These resources may help: Basic EITC qualifications Earned income Income limits and credit tables Rules for qualifying children Rules for self-only EITC Disability and the Earned Income Tax Credit Tax benefits eligibility chart How to claim this credit Get instructions on  how to claim the EITC  for past tax years. Find information on  how to avoid common errors . Information if we audit or deny your claim Find out what to do if you received a letter about the EITC and what documents to send in . What to do if we deny your claim How to claim the credit if we denied it in the past Other credits you may qualify for If you qualify for the EITC, you may also qualify for other tax credits. Child Tax Credit and the Credit for Other Dependents Child and Dependent Care Credit Education credits Adoption Credit Resources Publication 596, Earned Income Credit (EIC) Free tax preparation help - Prepared by IRS-certified volunteers Free electronic tax filing – Self prepared Choose a tax professional Find out what you need to bring to your preparer EITC central has tools and information for IRS partners, community organizations, employers, government agencies and offices and tax preparers. 
+ Page Last Reviewed or Updated: 26-Mar-2026
+ Share Facebook Twitter Linkedin Print 
  Footer Navigation 
  Our Agency 
  About IRS 

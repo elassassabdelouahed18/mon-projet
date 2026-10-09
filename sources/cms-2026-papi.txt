@@ -1,0 +1,279 @@
+# requested: https://www.cms.gov/files/document/2026-papi-parameters-guidance-2024-10-08.pdf
+# final:     https://www.cms.gov/files/document/2026-papi-parameters-guidance-2024-10-08.pdf
+# http:      200
+# type:      application/pdf (pdf), read with the contact user-agent
+# read on:   2026-10-09
+
+1 
+DEPARTMENT OF HEALTH & HUMAN SERVICES 
+Centers for Medicare & Medicaid Services 
+Center for Consumer Information and Insurance Oversight 
+200 Independence Avenue SW 
+Washington, DC  20201  
+Date: October 8, 2024 
+Subject: Premium Adjustment Percentage, Maximum Annual Limitation on Cost Sharing, Reduced 
+Maximum Annual Limitation on Cost Sharing, and Required Contribution Percentage for the 2026 
+Benefit Year 
+I.
+Purpose
+As finalized in the HHS Notice of Benefit and Payment Parameters for 2022 and Pharmacy Benefit Manager 
+Standards (2022 Payment Notice Part 2),1 the Department of Health and Human Services (HHS) publishes 
+the premium adjustment percentage, maximum annual limitation on cost sharing, reduced maximum annual 
+limitation on cost sharing, and required contribution percentage (payment parameters) in guidance by 
+January of the year preceding the applicable benefit year using the most recent National Health Expenditure 
+Accounts (NHEA) income and premium data that is available at the time of publication. HHS is issuing 
+this guidance to provide these payment parameters for the 2026 benefit year. 
+II.
+Background
+Section 1302(c)(4) of the Patient Protection and Affordable Care Act (ACA) directs the Secretary of HHS 
+to determine an annual premium adjustment percentage, a measure of premium growth that is used to set 
+three other parameters detailed in the ACA, including: 
+1.
+the maximum annual limitation on cost sharing (defined at 45 CFR 156.130(a));
+2.
+the required contribution percentage used to determine eligibility for certain exemptions under
+section 5000A of the Internal Revenue Code (the Code) (defined at 45 CFR 155.605(d)(2)); and
+3.
+the employer shared responsibility payment amounts under section 4980H(a) and (b) of the Code
+(see section 4980H(c)(5) of the Code).
+Section 1302(c)(4) of the ACA and 45 CFR 156.130(e) provide that the premium adjustment percentage is 
+the percentage (if any) by which the average per capita premium for health insurance coverage for the 
+preceding calendar year exceeds such average per capita premium for health insurance for 2013.  
+In the 2022 Payment Notice Part 2, HHS established that the average per capita premium will be based on 
+NHEA estimates of employer-sponsored insurance (ESI) premiums and finalized that, beginning with the 
+2023 benefit year, HHS would release the payment parameters in guidance by January of the year preceding 
+the applicable benefit year.2 HHS also established that the premium adjustment percentage, maximum 
+annual limitation on cost sharing, reduced maximum annual limitation on cost sharing, and required 
+1 86 FR 24140 (May 5, 2021). 
+2 We noted in the rule that if HHS proposes changes to the methodology used to calculate these values for a future 
+benefit year, we would publish the annual premium adjustment percentage in rulemaking and then would resume 
+publication in guidance for subsequent benefit years when no methodological changes are proposed. See 86 FR at 
+24238. 
+
+2 
+contribution percentage would be calculated using the most recent NHEA income and premium data that is 
+available at the time these values are published in guidance or, if applicable, rulemaking. 
+For the 2026 benefit year, HHS is not proposing changes to the methodology to calculate the premium 
+adjustment percentage or related parameters. As such, we are releasing these parameters in this guidance.  
+III.
+NHEA Data Years
+For the calculation of the 2026 benefit year payment parameters, we use the NHEA Projections 2023-2032.3 
+This data source reflects the most recent NHEA projections available and was released on June 12, 2024.4 
+IV.
+Premium Adjustment Percentage for 2026
+Using the NHEA Projections 2023-2032, the premium adjustment percentage for 2026 is the percentage (if 
+any) by which the NHEA Projections 2023-2032 value for per enrollee ESI premiums for 2025 ($7,833) 
+exceeds the NHEA Projections 2023-2032 value for per enrollee ESI premiums for 2013 ($4,895) carried 
+out to ten significant digits. Using this formula, the premium adjustment percentage for the 2026 benefit 
+year is 1.6002042901 ($7,833/$4,895), which represents an increase in ESI premiums of approximately 
+60.0 percent over the period from 2013 to 2025. This premium adjustment percentage is used to index the 
+maximum annual limitation on cost sharing and the required contribution percentage used to determine 
+eligibility for certain exemptions under section 5000A of the Code. It is also used to index the employer 
+shared responsibility payment amounts under section 4980H(a) and (b) of the Code. 
+V.
+Maximum Annual Limitation on Cost Sharing for 2026
+Under 45 CFR 156.130(a)(2), for the 2026 calendar year, cost sharing for self-only coverage may not 
+exceed the dollar limit for calendar year 2014 increased by an amount equal to the product of that amount 
+and the premium adjustment percentage for 2026. For other than self-only coverage, the limit is twice the 
+dollar limit for self-only coverage. Under § 156.130(d), these amounts must be rounded down to the next 
+lowest multiple of $50. Using the premium adjustment percentage for 2026 of 1.6002042901, and the 2014 
+maximum annual limitation on cost sharing of $6,350 for self-only coverage, which was published by the 
+Internal Revenue Service on May 2, 2013,5 the 2026 maximum annual limitation on cost sharing is $10,150 
+for self-only coverage and $20,300 for other than self-only coverage. This represents an approximately 10.3 
+percent increase from the 2025 parameters of $9,200 for self-only coverage and $18,400 for other than self-
+only coverage.  
+VI.
+Reduced Maximum Annual Limitation on Cost Sharing for 2026
+The reduced maximum annual limitations on cost sharing for cost-sharing plan variations are determined 
+by the methodology we established beginning with the 2014 benefit year. In the 2014 Payment Notice,6 we 
+established standards related to the provision of these cost-sharing reductions (CSRs). Specifically, in 45 
+CFR part 156, subpart E, we specified that qualified health plan (QHP) issuers must provide CSRs by 
+developing plan variations, which are separate cost-sharing structures for each eligibility category that 
+change how the cost sharing required under the QHP is to be shared between the enrollee and the federal 
+government. At 45 CFR 156.420(a), we detailed the structure of these plan variations and specified that 
+3 Available at: https://www.cms.gov/Research-Statistics-Data-and-Systems/Statistics-Trends-and-
+Reports/NationalHealthExpendData/NationalHealthAccountsProjected. 
+4 See https://www.cms.gov/newsroom/press-releases/cms-releases-2023-2032-national-health-expenditure-
+projections 
+5 See Revenue Procedure 2013-25, 2013-21 IRB 1110 available at: http://www.irs.gov/pub/irs-drop/rp-13-25.pdf. 
+6 Patient Protection and Affordable Care Act; HHS Notice of Benefit and Payment Parameters for 2014 and 
+Amendments to the HHS Notice of Benefit and Payment Parameters for 2014; 78 FR 15409 (Mar. 11, 2013). 
+
+3 
+QHP issuers must ensure that each silver plan variation has an annual limitation on cost sharing no greater 
+than the applicable reduced maximum annual limitation on cost sharing specified in the annual HHS 
+guidance or HHS notice of benefit and payment parameters. Although the amount of the reduction in the 
+maximum annual limitation on cost sharing is specified in section 1402(c)(1)(A) of the ACA, section 
+1402(c)(1)(B)(ii) of the ACA states that the Secretary may adjust the cost sharing limits to ensure that the 
+resulting limits do not cause the actuarial value (AV) of the health plans to exceed the levels specified in 
+section 1402(c)(1)(B)(i) of the ACA (that is, 70 percent, 73 percent, 87 percent, or 94 percent, depending 
+on the income of the enrollee). 
+We note that for the 2026 benefit year, as described in 45 CFR 156.135(d), states are permitted to request 
+HHS approval for state-specific datasets for use as the standard population to calculate AV. No state 
+submitted a dataset by the September 1, 2024 deadline. 
+As indicated in Table 1, we are establishing the values of the 2026 reduced maximum annual limitation on 
+cost sharing at $3,350 for enrollees with household income greater than or equal to 100 percent of the 
+federal poverty level (FPL) and less than or equal to 150 percent FPL, $3,350 for enrollees with household 
+income greater than 150 percent FPL and less than or equal to 200 percent FPL, and $8,100 for enrollees 
+with household income greater than 200 and less than or equal to 250 percent FPL, as calculated using the 
+2026 premium adjustment percentage and maximum annual limitation on cost sharing.  
+TABLE 1:  Reductions in Maximum Annual Limitation on Cost Sharing for 20267 
+Eligibility Category 
+Reduced Maximum Annual 
+Limitation on Cost Sharing 
+for Self-only Coverage for 
+2026 
+Reduced Maximum Annual 
+Limitation on Cost Sharing 
+for Other than Self-only 
+Coverage for 2026 
+Silver 94% AV* CSR Plan Variant: Individuals 
+eligible for CSRs under § 155.305(g)(2)(i) 
+(household income greater than or equal to 100 and 
+less than or equal to 150 percent of FPL) 
+$3,350 
+$6,700 
+Silver 87% AV* CSR Plan Variant: Individuals 
+eligible for CSRs under § 155.305(g)(2)(ii) 
+(household income greater than 150 and less than or 
+equal to 200 percent of FPL) 
+$3,350 
+$6,700 
+Silver 73% AV* CSR Plan Variant: Individuals 
+eligible for CSRs under § 155.305(g)(2)(iii) 
+(household income greater than 200 and less than or 
+equal to 250 percent of FPL) 
+$8,100 
+$16,200 
+*Under Section 1402(d) of the ACA, American Indian/Alaska Native (AI/AN) enrollees with incomes under 300 percent
+of FPL are eligible for Zero Cost Sharing plan variants. Additionally, all AI/AN QHP enrollees are eligible for no cost
+sharing for items and services provided by the Indian Health Service, an Indian Tribe, Tribal Organization, or Urban
+Indian Organization or through referral under contract health services. Under § 155.305(g)(1)(ii), all other enrollees must
+be enrolled in a silver plan variant to be eligible for cost-sharing reductions.
+7 The reduced maximum annual limitations on cost sharing generally apply to the silver plan variations as listed in 
+this table. For all other plans, the maximum annual limitation on cost sharing is as specified in Section V of this 
+document. 
+
+4 
+To confirm consistency with past results of the analysis for the reduced maximum annual limitation on cost 
+sharing, we tested the updated reductions to the 2026 maximum annual limitation for cost sharing ($10,150) 
+that we are publishing in this guidance on the AV levels of silver level QHPs with varying cost sharing 
+structures. For 2026, the test QHPs included a preferred provider organization (PPO) with typical cost 
+sharing structure ($8,850 annual limitation on cost sharing, $3,250 deductible, and 25 percent in-network 
+coinsurance rate); a PPO with a lower annual limitation on cost sharing ($6,650 annual limitation on cost 
+sharing, $4,500 deductible, and 25 percent in-network coinsurance rate); and a health maintenance 
+organization (HMO) ($8,850 annual limitation on cost sharing, $3,700 deductible, 25 percent in-network 
+coinsurance rate, and the following services with copayments that are not subject to the deductible or 
+coinsurance: $2500 inpatient stay per day, $1200 emergency department visit, $35 primary care office visit, 
+and $80 specialist office visit).  
+We then entered these test plans into a draft version of the 2026 benefit year AV Calculator and observed 
+how the reductions in the maximum annual limitation on cost sharing specified in the ACA affected the 
+AVs of the plans. We found that the reduction in the maximum annual limitation on cost sharing specified 
+in the ACA for enrollees with a household income greater than or equal to 100 percent FPL and less than 
+or equal to 150 percent of FPL (2/3 reduction in the maximum annual limitation on cost sharing), and 
+greater than 150 percent FPL and less than or equal to 200 percent of FPL (2/3 reduction), would not cause 
+the AV of any of the model QHPs to exceed the statutorily specified AV levels.  
+As with prior years, we continue to find that the reduction in the maximum annual limitation on cost sharing 
+specified in the ACA for enrollees with a household income greater than 200 percent FPL and less than or 
+equal to 250 percent of FPL (1/2 reduction) would cause the AVs of multiple of the test QHPs to exceed 
+the specified AV level of 73 percent. Furthermore, as with prior years, for individuals with household 
+incomes greater than 250 and less than or equal to 400 percent of FPL, without any change in other forms 
+of cost sharing, the reductions in the maximum annual limitation on cost sharing specified in the ACA 
+would cause an increase in AV for multiple of the test QHPs that exceeds the maximum 70 percent level 
+set forth in the statute.  
+Therefore, we continue to reduce the maximum annual limitation on cost sharing by 2/3 for enrollees with 
+a household income greater than or equal to 100 percent FPL and less than or equal to 200 percent of FPL, 
+1/5 for enrollees with a household income greater than 200 percent FPL and less than or equal to 250 percent 
+of FPL, and no reduction for individuals with household incomes greater than 250 percent FPL and less 
+than or equal to 400 percent of FPL for the 2026 benefit year. The resulting final 2026 reduced maximum 
+annual limitations on cost sharing are displayed in Table 1 above.   
+VII.
+Required Contribution Percentage for 2026
+HHS calculates the required contribution percentage for each benefit year using the most recent projections 
+and estimates of premium growth and income growth over the period from 2013 to the preceding calendar 
+year (i.e., the 2025 calendar year, in the case of the 2026 required contribution percentage). Accordingly, 
+we are establishing the required contribution percentage for the 2026 benefit year, calculated using income 
+and premium growth data for the 2013 and 2025 calendar years. 
+Section 5000A of the Code imposes an individual shared responsibility payment on non-exempt individuals 
+who do not have minimum essential coverage (MEC) for each month. Under 45 CFR 155.605(d)(2), an 
+individual is allowed a coverage exemption (the affordability exemption) for months in which the amount 
+the individual would pay for MEC exceeds a percentage, called the required contribution percentage, of the 
+individual’s household income. Although the Tax Cuts and Jobs Act8 reduced the individual shared 
+responsibility payment to $0 for months beginning after December 31, 2018, the required contribution 
+8 Pub. L. 115-97 (Dec. 22, 2017). 
+
+5 
+percentage is still used to determine whether individuals age 30 and above qualify for an affordability 
+exemption that would enable them to enroll in catastrophic coverage under 45 CFR 155.305(h).  
+The initial 2014 required contribution percentage under section 5000A of the Code was 8 percent. For plan 
+years after 2014, section 5000A(e)(1)(D) of the Code and Treasury regulations at 26 CFR 1.5000A-
+3(e)(2)(ii) provide that the required contribution percentage is the percentage determined by the Secretary 
+of HHS that reflects the excess of the rate of premium growth between the preceding calendar year and 
+2013, over the rate of income growth for that period.  
+As the measure of income growth for a calendar year, we established in the 2017 Payment Notice9 that we 
+would use NHEA projections of per capita personal income (PI). The rate of income growth for 2026 is the 
+percentage (if any) by which the NHEA Projections 2023–2032 value for per capita PI for the preceding 
+calendar year ($74,083 for 2025) exceeds the NHEA Projections 2023–2032 value for per capita PI for 
+2013 ($44,559), carried out to ten significant digits. The rate of income growth from 2013 to 2025 is 
+therefore 1.6625821944 ($74,083/$44,559).  Using the 2026 premium adjustment percentage established 
+in this guidance, the excess of the rate of premium growth over the rate of income growth for 2013 to 2025 
+is 1.6002042901 ÷ 1.6625821944, or 0.9624813110. This results in the 2026 required contribution 
+percentage under section 5000A of the Code of 8.00 × 0.9624813110 or 7.70 percent, when rounded to the 
+nearest one-hundredth of one percent, an increase of approximately 0.42 percentage points from the 2025 
+value (7.70 percent - 7.28 percent).  
+9 Patient Protection and Affordable Care Act; HHS Notice of Benefit and Payment Parameters for 2017, 81 FR 
+12203 (Mar. 8, 2016). 
+
+6 
+Table 2: Payment Parameters for the 2026 Benefit Year 
+Area 
+Metric 
+Value 
+Premium Adjustment 
+Percentage 
+NHEA Projections 2023-2032 value for per enrollee 
+ESI premiums for 2013  
+$4,895 
+NHEA Projections 2023-2032 value for per enrollee 
+ESI premiums for 2025  
+$7,833 
+2026 Premium Adjustment Percentage 
+1.6002042901 
+Required Contribution 
+NHEA Projections 2023-2032 value for of per capita 
+personal income for 2013  
+$44,559 
+NHEA Projections 2023-2032 value for of per capita 
+personal income for 2025  
+$74,083 
+Income Growth 
+1.6625821944 
+Premium Growth over Income Growth Index 
+0.9624813110 
+2026 Required Contribution Percentage 
+7.70% 
+Maximum Annual 
+Limitation on Cost Sharing 
+– Self Only10
+2026 Maximum Annual Limitation on Cost Sharing 
+$10,150 
+2026 Reduced Maximum Annual Limitation on Cost 
+Sharing – household income greater than or equal to 
+100% and less than or equal to 150% FPL 
+$3,350 
+2026 Reduced Maximum Annual Limitation on Cost 
+Sharing – household income greater than 150% and 
+less than or equal to 200% FPL 
+$3,350 
+2026 Reduced Maximum Annual Limitation on Cost 
+Sharing – household income greater than 200% and 
+less than or equal to 250% FPL 
+$8,100 
+Note: NHEA Data Available as of June 12, 2024.11 
+10 The maximum annual limitation on cost sharing for other than self-only coverage is twice the dollar limit for self-
+only coverage. See 45 CFR 156.130(a)(2)(ii). For the 2026 benefit year, that results in an $20,300 maximum annual 
+limitation on cost sharing for other than self-only coverage. See also, supra, notes 3 and 4 
+11 For the calculation of the 2026 benefit year premium adjustment percentage, maximum annual limitation on cost 
+sharing, reduced maximum annual limitation on cost sharing, and required contribution percentage, we are using the 
+NHEA Projections 2023-2032, which are the most recent projections that have been released. Available at: 
+https://www.cms.gov/data-research/statistics-trends-and-reports/national-health-expenditure-data/projected  

@@ -1,6 +1,7 @@
-# requested: https://www.irs.gov/eitc-central/about-eitc
-# final:     https://www.irs.gov/eitc-central/about-eitc
+# requested: https://www.irs.gov/newsroom/irs-and-partners-highlight-the-earned-income-tax-credit-for-2026
+# final:     https://www.irs.gov/newsroom/irs-and-partners-highlight-the-earned-income-tax-credit-for-2026
 # http:      404
+# type:      text/html; charset=UTF-8 (html), read with the contact user-agent
 # read on:   2026-10-09
 
 404 | Internal Revenue Service 

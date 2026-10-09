@@ -1,9 +1,9 @@
-# requested: https://www.bankrate.com/finance/credit-cards/side-hustles-survey/
-# final:     https://www.bankrate.com/finance/credit-cards/side-hustles-survey/
-# http:      404
+# requested: https://www.bankrate.com/credit-cards/news/side-hustles-survey/
+# final:     https://www.bankrate.com/credit-cards/news/side-hustles-survey-2024/
+# http:      200
 # read on:   2026-10-09
 
-Bankrate.com - Compare mortgage, refinance, insurance, CD rates 
+Survey: More Than 1 In 3 Americans Earn Money Through Side Hustles | Bankrate 
  Skip to Main Content 
  {closeNav(); $refs.siteNavMenuButton.focus();}">
 Mortgages 
@@ -381,15 +381,7 @@ Log out
  this.showSearchAutocomplete = false;
  }
  }
- }"
-data-beam-element-viewed
-data-type="drawer"
-data-location="site-nav"
-data-name="search flyout"
-data-position="top"
-data-text="open search flyout"
-data-outcome="open search flyout container"
->
+ }" data-beam-element-viewed data-type="drawer" data-location="site-nav" data-name="search flyout" data-position="top" data-text="open search flyout" data-outcome="open search flyout container">
  { $focus.within($refs.siteSearchDropdownContainer).first() }" x-on:keydown.up="() => { $focus.within($refs.siteSearchDropdownContainer).last() }" class="FormInput SiteNavSearch-input" name="q" placeholder="Search..." value="" autocomplete="off" aria-label="Search Bankrate" data-beam-field-inputted-no-pii data-label="Search Bankrate" :tabindex="isSearchOpen ? 0 : -1">
  Submit 
  Popular searches
@@ -399,25 +391,256 @@ data-outcome="open search flyout container"
  Mortgage calculator 
  Loan calculator 
  CD calculator 
-Error 404 
-Looks like this page doesn’t exist. Our bad! Try our homepage or search for another topic. 
- Go to homepage 
-Explore topics
- Credit cards 
- Personal loans 
- Home equity 
- Investing 
- Home purchase 
- Home refinance 
- High-yield savings 
- CD rates 
-Our latest & greatest
-Mortgages 
-Mortgage rates jump to three-year high, blow past 7.5% 
-Banking 
-What is a checking account? 
-Personal Finance 
-Current credit card interest rates 
+ credit cards
+ › 
+ news
+ › 
+ Survey: More than 1 in 3 Americans earn money through side hustles, 32% think they’ll always need them
+ Advertiser Disclosure
+ Advertiser Disclosure
+ There are products on this page provided by financial institutions from which Bankrate earns a fixed fee. Here’s what that means for you — and what it doesn’t. 
+ Home lending. Mortgage and home equity products are ranked by lowest cost to you where lenders bid to win your business with better rates. Live offers are immediately actionable — represented by the blue button on each offer — and we earn a fixed fee when you select that you would like to be contacted by a lender. 
+ Deposits. Live offers for banking products are immediately actionable — represented by the blue button on each offer — and we earn a fixed fee from the institution when you click to start their application process. Only institutions in the top 10% of rates qualify and our toggles filter your live offers, after which our fee may affect how, where, and in what order products appear. 
+ Credit cards. Live offers for card products are immediately actionable — represented by the blue button on each offer — and we earn a fixed fee from the issuer you select when your application is approved or account is opened. Our toggles filter your live offers, after which our fee may affect how, where, and in what order products appear. 
+ Other products. For home and auto insurance, financial advisor matching, personal and student loans, small business loans, and most auto loans, we utilize specialized third-parties to bring you live offers from financial institutions. We earn a share of the fees these third-parties earn from financial institutions as you move through the application process. For investing and certain auto loans, we connect you directly with live offers and earn a fixed fee as you move through the application process. Our fee may affect how, where, and in what order products appear. 
+ What’s not for sale. Bankrate’s editorial team operates independently from our commercial operations and their assessments are the genuine, data-driven judgments of our staff. Financial institutions don’t pay for ratings, reviews, or recommendations. 
+ Not exhaustive. We survey 850+ institutions to ensure the offers you’re comparing are highly competitive. That said, Bankrate doesn’t display every financial institution or available financial product. 
+ How we make money 
+ Survey: More than 1 in 3 Americans earn money through side hustles, 32% think they’ll always need them
+ Written by
+ Lane Gillespie
+ ,
+ Lane Gillespie
+ Former Writer, Personal Finance 
+ Expertise
+ • 
+ Personal finance
+ • 
+ Financial planning
+ 7 Years of experience
+ Lane Gillespie is a former writer for Bankrate, who specialized in writing well-rounded financial content that answered readers' questions, regardless of where they are in their financial journey. Lane was a real estate and business journalist for three years, specializing in his hometown of Houston.
+ Read more 
+ Connect with Lane Gillespie on LinkedIn 
+ Close
+ Lane Gillespie ,
+ Edited by
+ Tori Rubloff
+ Tori Rubloff
+ Former Senior Editor, Personal Finance 
+ Expertise
+ • 
+ Personal finance
+ • 
+ Financial planning
+ 10 Years of experience
+ Tori Rubloff is a former editor at Bankrate, where she managed staff writers, copyedited feature articles and oversaw production of data-driven, timely content that empowers readers to make informed decisions about their finances.
+ Read more 
+ Connect with Tori Rubloff on LinkedIn 
+ Close
+ Tori Rubloff 
+ Published on July 10, 2024
+ | 
+ 6 min read
+ Bankrate is always editorially independent.
+ While we adhere to strict
+ editorial integrity
+ ,
+ this post may contain references to products from our partners. Here's an explanation for
+ how we make money
+ .
+ Editorial Integrity
+ Bankrate's editorial policy is built on a simple premise: ordinary people deserve the same financial
+ information the institutions have. Our editorial guidelines govern what we cover, how we cover it, and who influences
+ it, so you
+ never have to wonder whether a recommendation was earned.
+ Key principles
+ We value your trust, so every editorial decision starts with one question: will this help the person
+ reading it?
+ Rather than just telling you our content is credible, we show you why it is. We trace every claim back
+ to a source,
+ and we stand behind every finding we publish. But naming a problem isn't enough on its own, so every
+ story also
+ gives you a way to act on what you've learned.
+ Editorial independence
+ Bankrate's editorial team writes on behalf of you, the reader. Our job is to give you the best advice we
+ can, so you
+ can make smart decisions about your money. Advertisers have no say in that work. A firewall separates
+ them from the
+ editorial side, and no editor or reporter here receives direct compensation from an advertiser.
+ Images by GettyImages; Illustration by Hunter Newton/Bankrate
+ Table of contents
+ Bankrate's insights on side hustles
+ Nearly half of Gen Zers and millennials have a side hustle
+ More than 1 in 4 side hustlers make more than $500 per month
+ Most Americans are new to side-hustling
+ Nearly 1 in 3 side hustlers believe they will always need a side hustle to make ends meet
+ FAQs
+ Table of contents 
+ Back to top
+ Table of contents
+ Bankrate's insights on side hustles
+ Nearly half of Gen Zers and millennials have a side hustle
+ More than 1 in 4 side hustlers make more than $500 per month
+ Most Americans are new to side-hustling
+ Nearly 1 in 3 side hustlers believe they will always need a side hustle to make ends meet
+ FAQs
+ If you spent your free time in the last year picking up jobs on gig apps, freelancing, working a weekend job or developing a hobby into your full-time career, you’re one of the many Americans who’ve been hard at work on a side hustle. 
+ More than one-third (36 percent) of U.S. adults earn extra money beyond their main source of income through a side hustle, according to new data from Bankrate’s Side Hustles Survey. 
+ Working side jobs can be a great way to explore a passion or grow a new business, but for many Americans, it’s also another way to pay their bills. More than 1 in 3 (36 percent) side hustlers use side hustle income to pay for regular living expenses, like rent and groceries , and 32 percent of side hustlers think they will always need that work to make ends meet. 
+ Even as inflation cools , the high percentage of people with a side hustle shows many Americans don’t feel they can sustain their lifestyles on one income alone. Read on to learn more about the many Americans taking on side hustles — and why they’re chasing those extra funds. 
+ While it's admirable that so many Americans are putting in extra time and effort on their side hustles, it's unfortunate that most are doing so simply to fund their expenses. 
+ — Ted Rossman, Bankrate Senior Credit Card Analyst
+ Bankrate’s insights on side hustles 
+ Side hustling is bringing in more money year-over-year. The average side hustlers say they make $891 on average per month in extra income aside from their main source of income, up from $810 in 2023. 
+ Most side hustlers started after 2022. 52% of side hustlers have been making money on the side for two years or less. 
+ Side hustlers are roughly equally split on how they spend their money. 37% of side hustlers agree they use at least some of their side hustle income to fund discretionary spending; 36% use at least some to pay for regular living expenses; 31% save at least some and 20% use it to pay down debt. 
+ Side hustling isn’t always a one-time gig. 32% of side hustlers think they will always need a side gig to make ends meet. 
+ Nearly half of Gen Zers and millennials have a side hustle 
+ The percentage of Americans with a side hustle decreased slightly year-over-year, but it’s still a common way for people to bring in extra cash. Around one-third (36 percent) of U.S. adults have a side hustle in 2024, only down slightly from 39 percent in 2023. 
+ Which side hustles are best for you?
+ You don’t need to have a specialized skill to pick up extra money. Explore ways both offline and online to make more money and meet your financial goals. 
+ 20 ways to make extra money
+ Side hustles are especially popular with younger adults. Nearly half (48 percent) of Gen Zers have a side hustle, the highest percentage of any generation: 
+ Gen Zers (ages 18-27): 48 percent 
+ Millennials (ages 28-43): 44 percent 
+ Gen Xers (ages 44-59): 33 percent 
+ Baby boomers (ages 60-78): 23 percent 
+ Source: Bankrate survey, June 10-12, 2024 
+ Also, parents of young children are more likely to have a side hustle than childless adults and those with adult children: 
+ Parent/guardian of any children younger than 18 : 45 percent 
+ Not a parent/guardian: 36 percent 
+ Parent/guardian of any children 18 or over: 28 percent 
+ Bankrate Senior Industry Analyst Ted Rossman attributes the popularity of side hustles to Americans’ ongoing cost of living struggles. Thanks to high inflation and rising housing prices, many Americans with a side hustle are taking on the work for the chance to afford their monthly bills, let alone pay for discretionary expenses, travel or save. This is especially true for younger Americans, who are earlier in their careers than older generations, and tend to make less. 
+ “Side hustles are a little less common this year than they were last year, but many Americans are still finding that one job isn’t enough. The cost of living has risen sharply in recent years,” Rossman says. 
+ More than 1 in 4 side hustlers make more than $500 per month 
+ Not everyone reports a large monthly payout from their side hustle, but the average figure can be a much-needed boost to someone’s monthly income . The average side hustler makes $891 per month in extra income, up from $810 in 2023. 
+ Notes: Respondents were asked to round to the nearest dollar; Percentages are of U.S. adults with a side hustle; Percentages may not total 100 due to rounding. 
+ Source: Bankrate survey, June 10-12, 2024 
+ Younger generations are more likely to have a side hustle, and they also report larger payouts. Millennial side hustlers bring in $1,129 per month on average in extra income, the most of any generation: 
+ Gen Z side hustlers: $958 
+ Millennial side hustlers: $1,129 
+ Gen X side hustlers: $751 
+ Baby boomer side hustlers: $561 
+ Overall, more than a quarter (28 percent) of side hustlers make more than $500 per month in extra income. While Gen Zers are the likeliest generation to have a side hustle, only 21 percent of Gen Z side hustlers make more than $500 on average in extra income per month, the lowest percentage of any generation: 
+ Gen Z side hustlers: 21 percent 
+ Millennial side hustlers: 34 percent 
+ Gen X side hustlers: 29 percent 
+ Baby boomer side hustlers: 26 percent 
+ The gender pay gap between men and women is well documented in full-time roles, but it also appears in side hustles. Only a slightly higher percentage of men have side hustles compared to women (38 percent of men, compared to 33 percent of women), but men make far more. Men with a side hustle make $1,034 on average in extra income per month, compared to only $735 per month on average for women with a side hustle. 
+ Most Americans are new to side-hustling 
+ The majority (52 percent) of U.S. side hustlers have been making money on the side for two years or less — that includes 24 percent who have been side hustling for less than a year: 
+ Less than a year: 24 percent 
+ 1 to 2 years: 28 percent 
+ 3 to 5 years: 25 percent 
+ 6 to 10 years: 13 percent 
+ 11 to 20 years : 5 percent 
+ More than 20 years: 5 percent 
+ Notes: Percentages are of U.S. adults with a side hustle; Percentages may not total 100 due to rounding. 
+ Source: Bankrate survey, June 10-12, 2024 
+ Younger generations have had less time to build a side business, so it makes sense that the majority of Gen Z side hustlers (77 percent) and millennial side hustlers (52 percent) have been bringing in money on the side for two years or less: 
+ Gen Z side hustlers: 77 percent 
+ Millennial side hustlers: 52 percent 
+ Gen X side hustlers: 36 percent 
+ Baby boomer side hustlers: 41 percent 
+ Nearly 1 in 3 side hustlers believe they will always need a side hustle to make ends meet 
+ No matter who brings in side hustle income or how much they bring in, chances are they’re using the funds for fun money, bills or savings. 
+ A roughly equal percentage of side hustlers use the extra income to fund discretionary spending (37 percent), regular living expenses (36 percent) or savings (31 percent). Only 20 percent use the money to pay down debt. 
+ Notes: Percentages are of U.S. adults with a side hustle; Respondents could select more than one option. 
+ Source: Bankrate survey, June 10-12, 2024 
+ People using side hustle income for everyday expenses likely will continue to do so. Nearly one-third (32 percent) of side hustlers say they think they will always need a side hustle to make ends meet. For others, side hustling isn’t forever — 16 percent of people with a side hustle plan to develop it into their main source of income. 
+ Whether it’s a necessity or a means to your dream career, the enduring popularity of side hustles isn’t likely to fade any time soon. So long as people have the time and desire to meet more financial goals, they’ll put in extra hours to make it happen. 
+ Learn more:
+ Can credit cards help you go back to college or make a career change?
+ FAQs 
+ What is a side hustle? 
+ A side hustle is any extra income someone earns on the side of their main source of income, such as their primary job. 
+ What is the average income of a side hustle? 
+ The average side hustlers make, on average, $891 per month, according to Bankrate’s Side Hustles Survey. 
+ Is starting a side hustle really worth it? 
+ While side hustlers make, on average, $891 per month, according to Bankrate’s Side Hustles Survey, 25% of people only make between $1 and $50 per month on average through their side hustle. It may take more work — and time — before your side hustle is worth it. 
+ Methodology 
+ All figures, unless otherwise stated, are from YouGov Plc. Total sample size was 2,332 US adults, of whom 822 have side hustles. Fieldwork was undertaken between 10th–12th June 2024. The survey was carried out online and meets rigorous quality standards. It employed a nonprobability-based sample using both quotas upfront during collection and then a weighting scheme on the back end designed and proven to provide nationally representative results. 
+ Did you find this page helpful?
+ Why we ask for feedback 
+ Your feedback helps us improve our content and services. It takes less than a minute to
+ complete.
+ Your responses are anonymous and will only be used for improving our website. 
+ Help us improve our content 
+ Yes 
+ No 
+ Great! Tell us more 
+ The content was clear and easy to understand
+ I found exactly what I was looking for
+ The page layout and design worked well
+ Additional comments (optional) 
+ 0 /200
+ Submit 
+ We're sorry to hear that. Please tell
+ us more 
+ The content was confusing and hard to follow
+ Important information was missing
+ The page layout or design needs improvements
+ Additional comments (optional) 
+ 0 /200
+ Submit 
+ Thank you for your
+ feedback! 
+ Your input helps us improve our
+ content and services. 
+ Cite us
+ Quick citation guide
+ Select a citation to automatically copy to clipboard.
+ APA:
+ Gillespie, L. (2024, July 10). Survey: More than 1 in 3 Americans earn money through side hustles, 32% think they’ll always need them. Bankrate. Retrieved October 09, 2026, from https://www.bankrate.com/credit-cards/news/side-hustles-survey-2024/
+ Copied to clipboard!
+ MLA:
+ Gillespie, Lane. "Survey: More than 1 in 3 Americans earn money through side hustles, 32% think they’ll always need them." Bankrate . 10 July 2024, https://www.bankrate.com/credit-cards/news/side-hustles-survey-2024/.
+ Copied to clipboard!
+ Chicago:
+ Gillespie, Lane. "Survey: More than 1 in 3 Americans earn money through side hustles, 32% think they’ll always need them." Bankrate. July 10, 2024. https://www.bankrate.com/credit-cards/news/side-hustles-survey-2024/.
+ Copied to clipboard!
+ Share this article
+ Share this article
+ Close
+ Written by
+ Lane Gillespie
+ Former Writer, Personal Finance
+ Connect with Lane Gillespie on LinkedIn 
+ Read more from Lane
+ Lane Gillespie is a former writer for Bankrate, who specialized in writing well-rounded financial content that answered readers' questions, regardless of where they are in their financial journey. Lane was a real estate and business journalist for three years, specializing in his hometown of Houston.
+ Images by GettyImages; Illustration by Hunter Newton/Bankrate
+ Bankrate is always editorially independent.
+ While we adhere to strict
+ editorial integrity
+ ,
+ this post may contain references to products from our partners. Here's an explanation for
+ how we make money
+ .
+ Table of contents
+ Bankrate's insights on side hustles
+ Nearly half of Gen Zers and millennials have a side hustle
+ More than 1 in 4 side hustlers make more than $500 per month
+ Most Americans are new to side-hustling
+ Nearly 1 in 3 side hustlers believe they will always need a side hustle to make ends meet
+ FAQs
+ Back to top
+ You may also like
+ Survey: Almost half of loan applicants have been denied over the past 12 months
+ News
+ By Sarah Foster 
+ 9 min read 
+ Survey: Inflation less impactful this year; still, nearly 1 in 3 back-to-school shoppers are making changes to save
+ News
+ By Katie Kelton, CCC 
+ 5 min read 
+ Survey: ‘Out of control,’ ‘Pay employees better’ and other things Americans say about tipping
+ News
+ By Katie Kelton, CCC 
+ 3 min read 
+ Survey: More than 1 in 3 Americans have faced a financial scam or fraud in the past year
+ News
+ By Katie Kelton, CCC 
+ 8 min read 
  Bankrate logo 
 Bankrate, LLC NMLS ID# 1427381 | NMLS Consumer Access 
 BR Tech Services, Inc. NMLS ID #1743443 | NMLS Consumer Access 
@@ -440,13 +663,12 @@ Cookie settings
 Do Not Sell or Share My Personal Information
 Terms of use
 © 2026 Bankrate, LLC. A Red Ventures company. All Rights Reserved.
-How likely are you to recommend Bankrate to a friend or colleague? 
+ How likely are you to recommend Bankrate to a friend or colleague?
  Not at all likely 
  Extremely likely 
-Anything else you'd like us to know? (optional) 
+ Anything else you'd like us to know? (optional) 
  /200
-Submit
-Cancel
+ Submit
+ Cancel
  We appreciate your feedback 
- Thank you for taking the time to share your experience. 
- = 0">
+ Thank you for taking the time to share your experience.

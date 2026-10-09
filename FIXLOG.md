@@ -295,3 +295,67 @@ pebble grain exactly would mean regenerating the artwork, which would change
 the design and lose the staircase illustration that carries the guide's whole
 idea. Say the word and I will try it, but I think the pair is right as it is.
 
+### Section D — three wrong figures, found by reading the sources
+
+`tools/fetch-source.py` reads a page and keeps it in `sources/` with the URL
+requested, the URL finally served, the HTTP status, which user-agent the site
+accepted and the date. `tools/check-sources.py` is acceptance test K3: it pulls
+every number out of the chapters and asks whether Appendix G, Appendix D or
+Appendix H carries it.
+
+That pass found three errors, and all three are the kind a reader could act on.
+
+| | printed | correct | source |
+|---|---|---|---|
+| 2026 ACA out-of-pocket cap, self-only | $10,600 | **$10,150** | CMS, 2026 Payment Notice parameters |
+| 2026 EITC phase-out, one child | $51,550 | **$51,593** | IRS Rev. Proc. 2025-32 §3.06 |
+| 2026 EITC maximum credit | $600 to $8,000 | **$664 to $8,231** | IRS Rev. Proc. 2025-32 §3.06 |
+
+Twelve rows were added to Appendix G (76 → 88), including the Columbus wages,
+the KFF medical-debt figures, both HDHP caps and the full Saver's Match table.
+
+**D2.** "Medical costs are the single largest cause of financial catastrophe"
+became "one of the largest", with KFF's $220 billion and 14 million adults
+attached. "Billions of dollars in benefits go unclaimed" now names the EITC's
+own published reach. "Most readers of this book are underpaid by their own
+employer's published rules" — a claim about this book's readers that nothing
+can support — became "Many workers have never asked about the differentials
+their employer already publishes." "Almost all hospital bills are negotiable"
+→ "Many". "Most will change it on the first call" → "Many". The 20-to-60% range
+traces to no publisher and is gone. The job-switching claim now carries the
+Atlanta Fed's Wage Growth Tracker.
+
+One softening I made larger than asked: SSA blocks this container, so rather
+than cite what I could not read, "far more likely to lose income to a
+disability than to die" became "more likely to lose income to a long illness
+or injury than to die during their working years" — true without a ranking.
+
+### C3 — the Saver's Credit, and the honest version of the Saver's Match
+
+New section 3 in Chapter 9, and a line in the Chapter 20 order.
+
+The review's brief was right about the mechanism and wrong about who gets it.
+From the IRS's own page: from tax year 2027 the Saver's Match deposits 50% of
+what you contribute into your retirement account, up to $1,000 a person. But
+for a single filer the full match runs only to a modified adjusted gross income
+of **$20,500**, tapers to $35,499 and stops — and MAGI **adds pre-tax
+retirement contributions back in**, so you cannot contribute your way under the
+line.
+
+**Neither Marcus nor Maya qualifies.** Writing "the government will add up to
+$1,000" to a $42,000 warehouse worker would have been exactly the kind of
+financial promise this book exists to refuse, so the section says who it is for
+and who it is not.
+
+What it found instead is better for him. The 2026 Saver's Credit runs out at
+$40,250 for a single filer. Marcus's adjusted gross income is about $40,573 —
+**$323 over**. The 401(k) increase Chapter 9 already tells him to make lowers
+his AGI under the line and earns him a credit he is currently missing by the
+width of a rounding error.
+
+Pages 188 → 190. Style-sheet check still 0 failures.
+
+**Still open in D1:** the Chapter 12 case studies (Morgan, Odio-Sutton, Woo,
+Steph Smith, Rocklein, Graham Stephan, the Gumroad 2020 count) and the
+Chapter 20 fund fees (0.12%, 0.08%, 0.00–0.05%).
+

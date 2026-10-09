@@ -45,6 +45,8 @@ RECAPS = {
              'Most emergencies are known bills that do not come monthly. Fund them a little every payday.'],
     'ch09': ['Your benefits portal hides real pay. Capture the full match if your month can carry it, and read the vesting.',
              'Check the EITC and the Child Tax Credit, and file free through VITA or IRS Free File.',
+             'The Saver&rsquo;s Credit pays you for saving, up to $40,250 of income. Its 2027 replacement, '
+             'the Saver&rsquo;s Match, stops at $35,500.',
              'The overtime deduction covers only the premium half of overtime pay, within income limits.'],
     'ch10': ['One paycheck is a single point of failure. Stack several small streams instead of swinging for one.',
              'The typical side hustle pays about $200 a month. The $885 average is pulled up by a few.',

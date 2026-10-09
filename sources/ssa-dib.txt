@@ -1,0 +1,11 @@
+# requested: https://www.ssa.gov/oact/STATS/dib1.html
+# final:     https://www.ssa.gov/oact/STATS/dib1.html
+# http:      403
+# type:      text/html (html), read with the browser user-agent
+# read on:   2026-10-09
+
+Access Denied 
+ Access Denied 
+You don't have permission to access "http://www.ssa.gov/oact/STATS/dib1.html" on this server. 
+Reference #18.ccd6d717.1791566322.5d2d0011
+ https://errors.edgesuite.net/18.ccd6d717.1791566322.5d2d0011

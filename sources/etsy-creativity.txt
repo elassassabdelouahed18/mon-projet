@@ -1,0 +1,7 @@
+# requested: https://www.etsy.com/legal/policy/creativity-standards/1298765636069
+# final:     https://www.etsy.com/legal/policy/creativity-standards/1298765636069
+# http:      403
+# type:      text/html;charset=utf-8 (html), read with the browser user-agent
+# read on:   2026-10-09
+
+etsy.com Please enable JS and disable any ad blocker

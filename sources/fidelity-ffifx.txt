@@ -1,0 +1,125 @@
+# requested: https://fundresearch.fidelity.com/mutual-funds/summary/315793984
+# final:     https://fundresearch.fidelity.com/mutual-funds/summary/315793984
+# http:      200
+# type:      text/html;charset=UTF-8 (html), read with the contact user-agent
+# read on:   2026-10-09
+
+- | Fidelity Investments 
+ Skip to Main Content. 
+ Site navigation 
+ Fidelity.com Home 
+ Fidelity.com Home 
+ Customer Service 
+ Profile 
+ Open an Account 
+ Fidelity Assistant 
+ Log In 
+ Customer Service 
+ Profile 
+ Open an Account 
+ Fidelity Assistant 
+ Log Out 
+ Accounts & Trade 
+ Portfolio Log In Required 
+ Portfolio 
+ Account Positions Log In Required 
+ Account Positions 
+ Trade Log In Required 
+ Trade 
+ Fidelity Trader+ Web (Trading Dashboard) Log In Required 
+ Fidelity Trader+ Web (Trading Dashboard) 
+ Fidelity Trader+ 
+ Transfers 
+ Cash Management 
+ Log In Required 
+ Cash Management 
+ Bill Pay 
+ Log In Required 
+ Bill Pay 
+ Full View Log In Required 
+ Full View 
+ Security Settings 
+ Log In Required 
+ Security Settings 
+ Account Features Log In Required 
+ Account Features 
+ Documents Log In Required 
+ Documents 
+ Tax Forms & Information 
+ Retirement Distributions Log In Required 
+ Refer a Friend 
+ Planning & Advice 
+ What We Offer 
+ Build Your Free Plan 
+ My Goals Log In Required 
+ My Goals 
+ Financial Basics 
+ Building Savings 
+ Robo Investing Plus Advice 
+ Wealth Management 
+ Find an advisor 
+ Retirement 
+ Life Events 
+ Saving & Investing for a Child 
+ Charitable Giving 
+ Long-Term Care Planning 
+ News & Research 
+ News 
+ Wealth Management Insights 
+ Watchlist Log In Required 
+ Alerts Log In Required 
+ Stocks, ETFs, Crypto 
+ Mutual Funds 
+ Fixed Income, Bonds & CDs 
+ Options Log In Required 
+ IPOs 
+ Annuities 
+ Learn 
+ Products 
+ Retirement & IRAs 
+ Spending & Saving 
+ Investing & Trading 
+ Mutual Funds 
+ Crypto 
+ Direct Indexing 
+ Fixed Income, Bonds & CDs 
+ ETFs 
+ Options 
+ Sustainable Investing 
+ Managed Accounts 
+ 529 College Savings 
+ Health Savings Accounts 
+ Annuities 
+ Life Insurance 
+ Why Fidelity 
+ The Fidelity Advantage 
+ Planning & Advice 
+ Trading 
+ Straightforward Pricing 
+ Insights & Tools 
+ Security & Protection 
+ FDIC & SIPC Coverage 
+ Marketplace Solutions 
+ About Fidelity 
+ Careers 
+ Customer Service 
+ Profile 
+ Open an Account 
+ Fidelity Assistant 
+ Log In 
+ Customer Service 
+ Profile 
+ Open an Account 
+ Fidelity Assistant 
+ Log Out 
+ Footer 
+ Fidelity Investments 
+ Copyright 1998- 2024  FMR LLC. All Rights Reserved. 
+ Terms of Use 
+ Privacy 
+ Security 
+ Site Map 
+ Share Your Screen 
+ Disclosures Opens in a new window 
+ Do Not Sell or Share My Personal Information 
+ This is for persons in the US only.

@@ -544,3 +544,41 @@ the new phase page between them.
 
 Pages 194 → 195.
 
+### B2, B5 — the minimum, and a chart that stops repeating itself
+
+**B2.** A `box forest` in Chapter 6, between "Let the fixed side enter itself"
+and "Read the gap on Insights", which is after two of the three things it names
+have been shown:
+
+> One automatic transfer the day after payday. Every fixed bill entered once,
+> as a repeat, so it enters itself from then on. One bank-file import a week
+> and ten minutes on a Sunday to read it.
+>
+> That is the whole system. The seven-day audit in Chapter 3 is a measurement
+> you take once, not a habit you keep. Log daily if it helps you; the gap does
+> not depend on it.
+
+71 words against the 80-word limit.
+
+*Accept: nothing in book, guide or app says the system fails without daily
+logging.* ✓ — checked by script across all three before writing the box: no
+sentence pairs "daily", "every day" or "each day" with must, requires, fails,
+only works, have to or breaks.
+
+**B5.** Chapters 10 and 13 drew the same chart: the $885 mean against the $200
+median. Chapter 13's copy is replaced by what that chapter is actually about —
+where a side-income dollar goes before any of it is his:
+
+```
+$200 gross  −$20 costs  −$45 tax reserve  =  $135
+                                   $54 card · $54 buffer and funds · $27 him
+```
+
+All five figures come from the model's own month-6 rule (10% costs, a 25%
+reserve settled quarterly), so the chart cannot drift from Appendix D. Checked
+after the build: the $885 figure now appears only in Chapter 10, where it
+belongs, and in its Appendix G row.
+
+**Chart count is unchanged**, which ground rule 3 requires: one chart replaced
+by one chart, and the two added for C1 and C4 take the total up, never down.
+

@@ -46,6 +46,20 @@ TAGS = {
 CORE = {'ch03', 'ch05', 'ch06', 'ch08', 'ch14'}
 
 
+# ------------------------------------------------------------------ B2
+# The system the book actually requires, as against the system a reader
+# imagines it requires. Chapter 3's seven-day audit is a measurement, not a
+# permanent habit, and nothing after it depends on logging every purchase.
+MINIMUM = (
+    '<div class="box forest"><p class="lab">The minimum that works</p>'
+    '<p>One automatic transfer the day after payday. Every fixed bill entered once, as a repeat, '
+    'so it enters itself from then on. One bank-file import a week and ten minutes on a Sunday to '
+    'read it.</p>'
+    '<p>That is the whole system. The seven-day audit in Chapter 3 is a measurement you take '
+    'once, not a habit you keep. Log daily if it helps you; the gap does not depend on it.</p>'
+    '</div>')
+
+
 def map_figure():
     """The whole road on one page: parts above, phases on the line, gates below."""
     W = 331
@@ -161,6 +175,12 @@ def apply(html):
     out.append(html[cursor:])
     html = ''.join(out)
     print(f'phase tags: {tagged} of the 21 chapters')
+
+    # ------------------------------------------------------------ B2
+    # after the fixed side has been shown entering itself, which is two of the
+    # three things the box names
+    html = once(html, '<h2>3 \u00b7 Read the gap on Insights</h2>',
+                MINIMUM + '<h2>3 \u00b7 Read the gap on Insights</h2>', 'B2 minimum box')
 
     # ------------------------------------------------------------ B3 core mark
     # The five chapters that run the system, marked where a reader chooses:

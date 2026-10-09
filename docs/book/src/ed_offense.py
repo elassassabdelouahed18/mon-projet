@@ -17,7 +17,7 @@ from build import once
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, '..', '..', '..')
 
-INK, INK2, HAIR = '#2E2910', '#46412A', '#D5DFD6'
+INK, INK2, HAIR, FOREST = '#2E2910', '#46412A', '#D5DFD6', '#1C4C2A'
 # the same lightness ladder the Model four chart uses
 C_SMALL, C_MID, C_BIG, C_FLAT = '#F5AE4B', '#953B17', '#003916', '#539C65'
 
@@ -98,6 +98,86 @@ def figure():
             f'Bank of Atlanta, Wage Growth Tracker. Tuition assistance: 26 U.S.C. §127.</p></figure>')
 
 
+
+# ------------------------------------------------------------------ B5
+# Chapters 10 and 13 drew the same $885 mean against the $200 median. The one
+# in Chapter 13 is replaced by what that chapter is actually about: where a
+# side-income dollar goes before any of it is yours.
+SIDE = 200.0
+COST_RATE, TAX_RATE = 0.10, 0.25
+
+
+def side_flow():
+    """Marcus's $200: costs, the tax reserve, then the split."""
+    cost = SIDE * COST_RATE
+    tax = round((SIDE - cost) * TAX_RATE)
+    net = SIDE - cost - tax
+    shares = [('To the card', 0.40, C_BIG), ('To the buffer and funds', 0.40, C_FLAT),
+              ('To you, guilt-free', 0.20, C_SMALL)]
+    W = 331
+    x0, x1 = 0, 268
+    b = []
+    # the gross bar, with the two deductions cut out of it
+    y = 26
+    b.append(f'<text x="0" y="{y - 8}" style="font-family:Poppins;font-weight:600;font-size:7px;'
+             f'letter-spacing:1.1px;fill:{INK2}">WHAT THE PDF EARNS</text>')
+    b.append(f'<rect x="0" y="{y}" width="{x1}" height="19" rx="2" fill="{C_MID}" opacity=".28"/>')
+    seg = [('costs', cost, C_MID), ('tax reserve', tax, '#B7770A')]
+    cur = 0.0
+    for label, amount, col in seg:
+        w = x1 * amount / SIDE
+        b.append(f'<rect x="{x1 - (cur + w) * 1:.1f}" y="{y}" width="{w:.1f}" height="19" '
+                 f'fill="{col}" opacity=".85"/>')
+        cur += w / (x1 / SIDE)
+    b.append(f'<text x="6" y="{y + 13:.1f}" style="font-family:\'IBM Plex Mono\';font-weight:600;'
+             f'font-size:9px;fill:{INK}">${SIDE:,.0f}</text>')
+    b.append(f'<text x="{x1 + 6}" y="{y + 13:.1f}" style="font-family:Lora;font-style:italic;'
+             f'font-size:7.4px;fill:{INK2}">gross</text>')
+    b.append(f'<text x="0" y="{y + 32:.1f}" style="font-family:Lora;font-size:7.6px;fill:{INK2}">'
+             f'less ${cost:,.0f} of costs and ${tax:,.0f} held back for tax, which was never '
+             f'his to spend</text>')
+
+    # the net bar
+    y2 = y + 60
+    netw = x1 * net / SIDE
+    b.append(f'<text x="0" y="{y2 - 8}" style="font-family:Poppins;font-weight:600;font-size:7px;'
+             f'letter-spacing:1.1px;fill:{INK2}">WHAT IS ACTUALLY HIS</text>')
+    b.append(f'<rect x="0" y="{y2}" width="{netw:.1f}" height="19" rx="2" fill="{FOREST}"/>')
+    b.append(f'<text x="6" y="{y2 + 13:.1f}" style="font-family:\'IBM Plex Mono\';font-weight:600;'
+             f'font-size:9px;fill:#F9FDF9">${net:,.0f}</text>')
+
+    # the split
+    y3 = y2 + 44
+    b.append(f'<text x="0" y="{y3 - 8}" style="font-family:Poppins;font-weight:600;font-size:7px;'
+             f'letter-spacing:1.1px;fill:{INK2}">WHERE IT GOES, DECIDED BEFORE IT ARRIVES</text>')
+    cur = 0.0
+    for label, share, col in shares:
+        w = netw * share
+        b.append(f'<rect x="{cur:.1f}" y="{y3}" width="{max(w - 2, 2):.1f}" height="19" rx="2" '
+                 f'fill="{col}"/>')
+        cur += w
+    for i, (label, share, col) in enumerate(shares):
+        yy = y3 + 34 + i * 11.6
+        b.append(f'<rect x="0" y="{yy - 5.4:.1f}" width="11" height="2.4" rx="1.2" fill="{col}"/>')
+        b.append(f'<text x="16" y="{yy:.1f}" style="font-family:Lora;font-size:8.2px;fill:{INK}">'
+                 f'{label}</text>')
+        b.append(f'<text x="{x1}" y="{yy:.1f}" text-anchor="end" style="font-family:'
+                 f'\'IBM Plex Mono\';font-weight:600;font-size:8px;fill:{INK}">'
+                 f'${net * share:,.0f}</text>')
+        b.append(f'<text x="{x1 + 8}" y="{yy:.1f}" style="font-family:\'IBM Plex Mono\';'
+                 f'font-size:7.4px;fill:{INK2}">{share:.0%}</text>')
+    h = y3 + 34 + len(shares) * 11.6 + 6
+    alt = (f'Marcus\u2019s ${SIDE:,.0f} of side income: ${cost:,.0f} of costs and ${tax:,.0f} '
+           f'held for tax come out first, leaving ${net:,.0f}. That is split ${net * .4:,.0f} to '
+           f'the card, ${net * .4:,.0f} to the buffer and funds, and ${net * .2:,.0f} to him.')
+    svg = (f'<svg width="{W}" height="{h:.0f}" viewBox="0 0 {W} {h:.0f}" '
+           f'xmlns="http://www.w3.org/2000/svg" role="img" aria-label="{alt}">{"".join(b)}</svg>')
+    return (f'<figure class="hero">{svg}<figcaption>A side-income dollar has three owners before '
+            f'it has one</figcaption><p class="srcline">Marcus\u2019s month 6 onward, from the '
+            f'model in <a href="#appD">Appendix D</a>: 10% of costs and a 25% reserve settled '
+            f'quarterly. Your own reserve depends on your bracket and your state.</p></figure>')
+
+
 EDITS = []
 
 
@@ -128,6 +208,12 @@ def apply(html):
     # ------------------------------------------------------------ C4
     html = once(html, 'Five moves, cheapest first.', figure() + '<p>Five moves, cheapest first.</p>',
                 'C4 engine zero chart')
+
+    # ------------------------------------------------------------ B5
+    i = html.index('Offense feeds defense, and the gap compounds')
+    a = html.rindex('<figure', 0, i)
+    b = html.index('</figure>', i) + len('</figure>')
+    html = html[:a] + side_flow() + html[b:]
 
     # ------------------------------------------------------------ C5
     # Appendix D does not run Marcus on the 50/25/25 default, and the reason is

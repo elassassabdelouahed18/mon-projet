@@ -417,3 +417,41 @@ $100,000 at 4% for 20 years, with the fee taken off the balance each year,
 ends at $208,413 against $179,213 — the book prints $208,000, $179,000 and a
 $29,000 difference.
 
+### C1 — Model four, and the chart that carries it
+
+`model/scenarios.py` computes it. Nothing in the section is typed by hand: the
+2026 brackets and standard deduction come from IRS Rev. Proc. 2025-32 §3.01
+Table 3 and §3.14, the supervisor's wage from the BLS OEWS May 2025 release
+file, and the starting position from the persona model.
+
+**The promotion, taxed properly.** Columbus median for SOC 53-1047 is $62,260;
+Marcus grosses $42,003; the step is $20,257 a year. Federal 12%, FICA 7.65%,
+Ohio 2.75% and Columbus 2.5% take $5,044 of it, which is **24.9%** — and here is
+the detail that makes it checkable: after the raise his taxable income would be
+$44,730, and the 12% bracket runs to $50,400, so the *whole* raise stays in one
+bracket. The marginal rate on his last dollar is the rate errata A2 used on his
+first. **About $1,268 a month** reaches his account.
+
+| what he adds | free in |
+|---|---|
+| nothing he is not already doing | year 30 |
+| a side service at $500 a month net, from year 2 | year 25 |
+| the supervisor's job, from year 3 | year 23 |
+| both | **year 20** |
+
+*Accept: the reader sees a plausible 15–25-year path, not only a number above
+30.* ✓ He is 28 when the book opens; the last row puts him at 51.
+
+**The chart.** Four portfolio lines, each stopping where it crosses, with the
+year marked on the line and repeated in the legend, captioned *Scenario, not a
+prediction*. It sits after the two levers have landed, not before — putting it
+earlier interrupted an argument still being made.
+
+The four line colours are **staggered by lightness, not hue**, which is the
+lesson from the earlier palette work: the book's red and mid-green collapse to
+5.5 ΔE under deuteranopia, below the floor of 8. Restaggered at L 30/47/63/80 on
+the brand's own hues, the worst pair is **16.0** under deuteranopia and 23.3 in
+normal vision, against floors of 8 and 15.
+
+Pages 190 → 192.
+

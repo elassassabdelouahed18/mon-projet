@@ -93,7 +93,7 @@ EDITS = [
      'and gas the month needs, is yours to spend, guilt-free. You don&rsquo;t track every coffee or score '
      'yourself at the register. The system already protected the important money before you ever saw it.'),
     ('rep', 'That’s it. Twenty-five dollars.',
-     'That&rsquo;s it. Twenty-five dollars. He tells no one and changes nothing else. At the end of the '
+     'That&rsquo;s it. Twenty-five dollars. He tells no one. At the end of the '
      'first month, $62 has landed in the Ally account and stayed there: the two transfers, plus the few '
      'dollars the month left over. It&rsquo;s the first time in his adult life that he has ended a month '
      'with more money than he started it.'),

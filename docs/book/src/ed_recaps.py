@@ -73,7 +73,7 @@ RECAPS = {
     'ch17': ['A slip is data, not a verdict. Aim for a fast comeback, not a perfect streak.',
              'When you stop, restart with the four steps in order, and nothing else.',
              'Fifteen minutes a month, thirty a quarter: the reset is what keeps the machine running.'],
-    'ch18': ['Ninety days, four phases: Stabilize, Map, Protect, Build. Each has a condition that clears it.',
+    'ch18': ['Four phases, each opened by a condition, not a date: Stabilize, Map, Protect, Build.',
              'Score the five numbers today, and again in ninety days.',
              'It starts tomorrow with one logged expense.'],
     'ch19': ['Your salary sets your comfort. Your savings rate sets your calendar, and your gap rate is its ceiling.',

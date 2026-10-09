@@ -58,7 +58,8 @@ def main():
     html = once(html, '<link rel="stylesheet" href="sys.css">',
                 '<link rel="stylesheet" href="sys.css"><link rel="stylesheet" href="sys2.css">', 'stylesheet')
     sys.path.insert(0, HERE)
-    for mod in ('ed_front', 'ed_mid', 'ed_end', 'ed_figures', 'ed_recaps', 'ed_widen', 'ed_tables'):
+    for mod in ('ed_front', 'ed_mid', 'ed_end', 'ed_figures', 'ed_recaps', 'ed_widen',
+                'ed_errata', 'ed_tables'):
         if os.path.exists(os.path.join(HERE, mod + '.py')):
             html = importlib.import_module(mod).apply(html)
     html = brand_green(html)

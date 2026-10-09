@@ -32,9 +32,9 @@ D_IN, D_FIX, D_VAR = '#36894F', '#E3A72A', '#C4462E'
 def levers_figure():
     """Years to freedom under each lever, as a bar per scenario."""
     W, x0, x1, top, bh, gap = 331, 0, 331, 26, 15, 9
-    rows = [('As he stands today', '20.2%', 37, D_VAR),
+    rows = [('As he stands today', '19.7%', 37, D_VAR),
             ('Three quarters of every raise', '—', 30, D_FIX),
-            ('$400 a month off housing or transport', '32.9%', 26, D_IN),
+            ('$400 a month off housing or transport', '32.6%', 27, D_IN),
             ('Both together', '—', 24, D_IN)]
     longest = max(r[2] for r in rows)
     b = [f'<text x="0" y="10" style="font-family:Poppins;font-weight:600;font-size:7.4px;'
@@ -49,7 +49,7 @@ def levers_figure():
     y = top + len(rows) * (bh + gap) + 4
     b.append(f'<path d="M0 {y} H{W}" stroke="{HAIR}" stroke-width="1"/>')
     for k, line in enumerate(
-            ['Marcus from month 34, when his last debt is gone: $3,149 in, $2,512 of living costs.',
+            ['Marcus from month 36, when his last debt is gone: $3,124 in, $2,507 of living costs.',
              'Raises are 2% a year above inflation. Investments earn 5% a year after inflation.',
              'Cutting works twice: it widens the gap and lowers the target it is aiming at.']):
         b.append(f'<text x="0" y="{y + 14 + k * 11}" style="font-family:Lora;font-style:italic;'
@@ -57,7 +57,7 @@ def levers_figure():
     svg = (f'<svg width="{W}" height="{y + 52}" viewBox="0 0 {W} {y + 52}" '
            f'xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four bars. As he stands today, 37 '
            f'years. Sending three quarters of every raise to the gap, 30 years. Taking 400 dollars a month '
-           f'off housing or transport, 26 years. Both together, 24 years.">{"".join(b)}</svg>')
+           f'off housing or transport, 27 years. Both together, 24 years.">{"".join(b)}</svg>')
     return (f'<figure class="hero">{svg}<figcaption>Two decisions, thirteen years</figcaption>'
             '<p class="srcline">Worked in <a href="#appH">Appendix H</a>, from the model in '
             '<a href="#appD">Appendix D</a>. Illustrative, and the shape holds at any income.</p></figure>')
@@ -71,8 +71,8 @@ WIDEN = (
     'stable, feel the relief, and let the gap sit at whatever width it happened to reach. A gap that stops '
     'widening is a gap that slowly closes, because life gets more expensive on its own.</p>'
 
-    '<p>So look at what the width is actually worth. Run Marcus on past the model in Appendix D. In month 34 '
-    'his last debt goes, the minimums leave his costs, and his gap settles near $637 a month, about 20% of '
+    '<p>So look at what the width is actually worth. Run Marcus on past the model in Appendix D. In month 35 '
+    'his last debt goes, the minimums leave his costs, and his gap settles near $617 a month, about 20% of '
     'take-home. Left exactly there, with no raise and no further change, the arithmetic in Chapter 19 gives '
     'him his freedom number in about 37 years. He is 28. That is a working life.</p>'
 
@@ -86,7 +86,7 @@ WIDEN = (
     'pointed at housing and transport, the two lines where most American households are quietly '
     'overcommitted. This is the chapter where you act on that. A roommate, a smaller place at the next '
     'lease, one car instead of two, a paid-off used car instead of a payment: $400 a month off those lines '
-    'takes Marcus from 37 years to 26.</p>'
+    'takes Marcus from 37 years to 27.</p>'
 
     '<p>No subscription sweep comes close, and the reason is the one Chapter 19 gives. Cutting a permanent '
     'cost moves the number twice: it widens the gap and it lowers the target, because a smaller life needs a '
@@ -156,7 +156,7 @@ EDITS = [
      'this book are underpaid by their own employer&rsquo;s published rules, and have never asked. '
      'Differentials, certifications, internal postings, the hand above the one you were hired into. In the '
      'model behind this book it is the largest single move either reader makes: the lead differential adds '
-     'about $180 a month to Marcus&rsquo;s pay, matching every cut he made in month 1 and beating his side '
+     'about $155 a month to Marcus&rsquo;s pay, beating his side '
      'income, which nets about $135 a month after costs and the tax reserve. It costs him no weekends.'),
 
     # ------------------------------------------------- chapter 21 and the appendices follow the same rule
@@ -188,20 +188,20 @@ APPH = (
     '<p>Chapter 16 claims that two decisions take Marcus from 37 years to 24. Here is the arithmetic, so you '
     'can check it rather than trust it.</p>'
 
-    '<p>The starting position is not his month 24, but the same model run on to month 34, when his last debt '
-    'is paid and the minimums leave his living costs: $3,149 a month in, $2,511.80 out, a gap of $637.20, or '
-    '20.2% of take-home. From there each year adds the gap to the portfolio, the portfolio earns 5% after '
+    '<p>The starting position is not his month 24, but the same model run on to month 36, when his last debt '
+    'is paid and the minimums leave his living costs: $3,124 a month in, $2,506.72 out, a gap of $616.86, or '
+    '19.7% of take-home. From there each year adds the gap to the portfolio, the portfolio earns 5% after '
     'inflation, and the target is 25 times a year of living costs. Raises, where they appear, are 2% a year '
     'above inflation, and the share not sent to the gap is absorbed by living costs, which raises the target '
     'as well.</p>'
 
     '<table><thead><tr><th>What changes</th><th class="num">Gap rate</th><th class="num">Years</th></tr>'
     '</thead><tbody>'
-    '<tr><td>Nothing: the gap he has, held steady</td><td class="num">20.2%</td><td class="num">37</td></tr>'
+    '<tr><td>Nothing: the gap he has, held steady</td><td class="num">19.7%</td><td class="num">37</td></tr>'
     '<tr><td>2% raises, half of each to the gap</td><td class="num">rising</td><td class="num">36</td></tr>'
     '<tr><td>2% raises, three quarters of each to the gap</td><td class="num">rising</td><td class="num">30</td></tr>'
-    '<tr><td>$200 a month off a fixed cost, no raises</td><td class="num">26.6%</td><td class="num">31</td></tr>'
-    '<tr><td>$400 a month off a fixed cost, no raises</td><td class="num">32.9%</td><td class="num">26</td></tr>'
+    '<tr><td>$200 a month off a fixed cost, no raises</td><td class="num">26.2%</td><td class="num">31</td></tr>'
+    '<tr><td>$400 a month off a fixed cost, no raises</td><td class="num">32.6%</td><td class="num">27</td></tr>'
     '<tr><td>$400 off, and three quarters of 2% raises</td><td class="num">rising</td><td class="num">24</td></tr>'
     '</tbody></table>'
 

@@ -122,7 +122,7 @@ def essentials_gauge():
         for k, sub in enumerate(subs):
             b.append(t(x + 11, 91 + 10 * k, sub, 'ht'))
     # personas, month 0 essentials over take-home (Appendix D)
-    for name, p, y in (('Maya', 70.7, 30), ('Marcus', 94.7, 30)):
+    for name, p, y in (('Maya', 70.7, 30), ('Marcus', 91.1, 30)):
         x = X(p)
         b.append(f'<path d="M{x:.1f} {y + 3} V54" stroke="{INK}" stroke-width="1"/>'
                  f'<circle cx="{x:.1f}" cy="{y}" r="3" fill="{INK}"/>')
@@ -133,9 +133,9 @@ def essentials_gauge():
     b.append(t(0, 137, 'and minimum payments, over one month of take-home pay.', 'ht'))
     s = svg(W, 142, 'A horizontal scale of essentials as a share of income. Below 60 percent, cutting and earning both '
             'work. From 60 to 85 percent, earning returns more. Above 85 percent, trimming is mostly theater. Maya sits at '
-            'about 71 percent and Marcus at about 95 percent at month zero.', ''.join(b))
+            'about 71 percent and Marcus at about 91 percent at month zero.', ''.join(b))
     return (f'<figure class="hero">{s}<figcaption>Which side of the line you are on decides your next month</figcaption>'
-            '<p class="srcline">Month 0 costs from <a href="#appD">Appendix D</a>: Marcus $2,622 of essentials on '
+            '<p class="srcline">Month 0 costs from <a href="#appD">Appendix D</a>: Marcus $2,522 of essentials on '
             '$2,769, Maya $3,992 on $5,647. Phone and internet counted as utilities.</p></figure>')
 
 
@@ -282,15 +282,27 @@ def apply(html):
         ('re:year, that two-day gap is the whole of Marcus.s \\$60 problem\\.',
          'year, that two-day gap turns his $103 shortfall into an overdraft as well.'),
         ('Nothing was cut. The shortfall is gone.', 'Nothing was cut. The timing problem is gone.')], 'fig calendar')
+    # Every figure below reads the model rather than carrying a typed number,
+    # so errata A1 and A2 reached them without anyone editing a chart.
+    m24 = {w: next(r for r in MODEL[w]['rows'] if r['month'] == 24) for w in ('Marcus', 'Maya')}
+    M, Y = m24['Marcus'], m24['Maya']
     html = in_figure(html, 'Month 24, with the honest numbers', [
-        ('>$3,097<', '>$3,149<'), ('>$608<', '>$320<'), ('>$1,108<', '>$500<'), ('>$552<', '>$509<'),
-        ('re:(x="139" y="94"[^>]*>)\\$0<', '\\1$320<'), ('>$5,596<', '>$6,206<'),
-        ('>$5,501<', '>$6,101<'), ('>$704<', '>$549<'), ('>$4,253<', '>$9,769<'), ('>$2,090<', '>$2,192<'),
-        ('>$27,135<', '>$27,711<')], 'fig month 24')
+        ('>$3,097<', f">{usd(M['income'])}<"), ('>$608<', f">{usd(M['gap'])}<"),
+        ('>$1,108<', f">{usd(M['buffer'])}<"), ('>$552<', f">{usd(M['fund'])}<"),
+        ('re:(x="139" y="94"[^>]*>)\\$0<', f"\\1{usd(M['cards'])}<"), ('>$5,596<', f">{usd(M['debt'])}<"),
+        ('>$5,501<', f">{usd(Y['income'])}<"), ('>$704<', f">{usd(Y['gap'])}<"),
+        ('>$4,253<', f">{usd(Y['buffer'])}<"), ('>$2,090<', f">{usd(Y['fund'])}<"),
+        ('>$27,135<', f">{usd(Y['debt'])}<")], 'fig month 24')
+    # the five freedoms are multiples of Marcus's month-24 living costs
+    liv = M['living']
+    rungs = [round(k * 12 * liv, -3) for k in (0.5, 1, 12.5, 25)]
+    fear, walk, half, free = (f'${r:,.0f}'.replace('.0', '') for r in rungs)
+    bare = [f'{r:,.0f}' for r in rungs]
     html = in_figure(html, 'Five freedoms, each with its own number', [
-        ('$14,900', '$17,000'), ('$29,900', '$34,000'), ('$373,000', '$424,000'), ('$747,000', '$849,000'),
+        ('$14,900', fear), ('$29,900', walk), ('$373,000', half), ('$747,000', free),
         ('14,900 dollars saved, free to walk at 29,900, half free at 373,000, and free at 747,000',
-         '17,000 dollars saved, free to walk at 34,000, half free at 424,000, and free at 849,000')], 'fig freedoms')
+         f'{bare[0]} dollars saved, free to walk at {bare[1]}, half free at {bare[2]}, '
+         f'and free at {bare[3]}')], 'fig freedoms')
     html = in_figure(html, 'Where what it earns passes what you add', [
         ('WHAT YOU ADD · $7,296 A YEAR', 'WHAT YOU ADD · THE SAME EACH YEAR'),
         ('THE CROSSOVER · YEAR 14', 'THE CROSSOVER · YEAR 15'),

@@ -143,291 +143,291 @@
       },
       {
         "month": 7,
-        "income": 3149,
-        "living": 2790.4,
-        "gap": 358.6,
-        "assigned": 358.6,
+        "income": 3123.58,
+        "living": 2785.32,
+        "gap": 338.26,
+        "assigned": 338.26,
         "buffer": 500,
-        "fund": 58.24,
+        "fund": 54.17,
         "taxReserve": 45,
-        "extra": 232.96,
+        "extra": 216.69,
         "interest": 261.56,
         "relief": 0,
         "shock": 0,
-        "cards": 5808.53,
-        "debt": 17277.3
+        "cards": 5824.8,
+        "debt": 17293.57
       },
       {
         "month": 8,
-        "income": 3149,
-        "living": 2790.4,
-        "gap": 358.6,
-        "assigned": 358.6,
+        "income": 3123.58,
+        "living": 2785.32,
+        "gap": 338.26,
+        "assigned": 338.26,
         "buffer": 500,
-        "fund": 120.96,
+        "fund": 112.82,
         "taxReserve": 90,
-        "extra": 250.88,
-        "interest": 252.96,
+        "extra": 234.61,
+        "interest": 253.32,
         "relief": 0,
         "shock": 0,
-        "cards": 5527.86,
-        "debt": 16762.38
+        "cards": 5560.76,
+        "debt": 16795.28
       },
       {
         "month": 9,
-        "income": 3149,
-        "living": 2925.4,
-        "gap": 223.6,
-        "assigned": 223.6,
+        "income": 3123.58,
+        "living": 2920.32,
+        "gap": 203.26,
+        "assigned": 203.26,
         "buffer": 500,
-        "fund": 183.68,
+        "fund": 171.47,
         "taxReserve": 0,
-        "extra": 250.88,
-        "interest": 243.79,
+        "extra": 234.61,
+        "interest": 244.53,
         "relief": 0,
         "shock": 0,
-        "cards": 5240.93,
-        "debt": 16238.29
+        "cards": 5290.84,
+        "debt": 16288.2
       },
       {
         "month": 10,
-        "income": 3149,
-        "living": 2790.4,
-        "gap": 358.6,
-        "assigned": 358.6,
+        "income": 3123.58,
+        "living": 2785.32,
+        "gap": 338.26,
+        "assigned": 338.26,
         "buffer": 500,
-        "fund": 246.4,
+        "fund": 230.12,
         "taxReserve": 45,
-        "extra": 250.88,
-        "interest": 234.46,
+        "extra": 234.61,
+        "interest": 235.58,
         "relief": 0,
         "shock": 0,
-        "cards": 4947.61,
-        "debt": 15704.87
+        "cards": 5014.91,
+        "debt": 15772.17
       },
       {
         "month": 11,
-        "income": 3149,
-        "living": 2790.4,
-        "gap": 358.6,
-        "assigned": 358.6,
+        "income": 3123.58,
+        "living": 2785.32,
+        "gap": 338.26,
+        "assigned": 338.26,
         "buffer": 500,
-        "fund": 309.12,
+        "fund": 288.77,
         "taxReserve": 90,
-        "extra": 250.88,
-        "interest": 224.94,
+        "extra": 234.61,
+        "interest": 226.45,
         "relief": 0,
         "shock": 0,
-        "cards": 4647.75,
-        "debt": 15161.93
+        "cards": 4732.83,
+        "debt": 15247.01
       },
       {
         "month": 12,
-        "income": 3149,
-        "living": 2925.4,
-        "gap": 223.6,
-        "assigned": 223.6,
+        "income": 3123.58,
+        "living": 2920.32,
+        "gap": 203.26,
+        "assigned": 203.26,
         "buffer": 500,
-        "fund": 371.84,
+        "fund": 347.42,
         "taxReserve": 0,
-        "extra": 250.88,
-        "interest": 215.24,
+        "extra": 234.61,
+        "interest": 217.14,
         "relief": 0,
         "shock": 0,
-        "cards": 4341.21,
-        "debt": 14609.29
+        "cards": 4444.46,
+        "debt": 14712.54
       },
       {
         "month": 13,
-        "income": 3149,
-        "living": 2790.4,
-        "gap": 358.6,
-        "assigned": 358.6,
+        "income": 3123.58,
+        "living": 2785.32,
+        "gap": 338.26,
+        "assigned": 338.26,
         "buffer": 500,
-        "fund": 434.56,
+        "fund": 406.07,
         "taxReserve": 45,
-        "extra": 250.88,
-        "interest": 205.35,
+        "extra": 234.61,
+        "interest": 207.66,
         "relief": 0,
         "shock": 0,
-        "cards": 4027.84,
-        "debt": 14046.76
+        "cards": 4149.67,
+        "debt": 14168.59
       },
       {
         "month": 14,
-        "income": 3149,
-        "living": 2790.4,
-        "gap": 358.6,
-        "assigned": 358.6,
+        "income": 3123.58,
+        "living": 2785.32,
+        "gap": 338.26,
+        "assigned": 338.26,
         "buffer": 500,
-        "fund": 497.28,
+        "fund": 464.72,
         "taxReserve": 90,
-        "extra": 250.88,
-        "interest": 195.27,
+        "extra": 234.61,
+        "interest": 198,
         "relief": 1180,
         "shock": 0,
-        "cards": 3707.48,
-        "debt": 12294.15
+        "cards": 3848.31,
+        "debt": 12434.98
       },
       {
         "month": 15,
-        "income": 3149,
-        "living": 2925.4,
-        "gap": 223.6,
-        "assigned": 223.6,
+        "income": 3123.58,
+        "living": 2920.32,
+        "gap": 203.26,
+        "assigned": 203.26,
         "buffer": 500,
-        "fund": 560,
+        "fund": 523.37,
         "taxReserve": 0,
-        "extra": 250.88,
-        "interest": 185,
+        "extra": 234.61,
+        "interest": 188.16,
         "relief": 0,
         "shock": 0,
-        "cards": 3379.98,
-        "debt": 11711.27
+        "cards": 3540.24,
+        "debt": 11871.53
       },
       {
         "month": 16,
-        "income": 3149,
-        "living": 3570.4,
-        "gap": -421.4,
-        "assigned": -421.4,
-        "buffer": 342.72,
+        "income": 3123.58,
+        "living": 3565.32,
+        "gap": -441.74,
+        "assigned": -441.74,
+        "buffer": 302.02,
         "fund": 0,
         "taxReserve": 45,
-        "extra": 250.88,
-        "interest": 174.54,
+        "extra": 234.61,
+        "interest": 178.13,
         "relief": 0,
         "shock": 780,
-        "cards": 3045.19,
-        "debt": 11117.93
+        "cards": 3225.31,
+        "debt": 11298.05
       },
       {
         "month": 17,
-        "income": 3149,
-        "living": 2790.4,
-        "gap": 358.6,
-        "assigned": 358.6,
+        "income": 3123.58,
+        "living": 2785.32,
+        "gap": 338.26,
+        "assigned": 338.26,
         "buffer": 500,
-        "fund": 31.26,
+        "fund": 19.06,
         "taxReserve": 90,
-        "extra": 125.06,
-        "interest": 163.87,
+        "extra": 76.22,
+        "interest": 167.9,
         "relief": 0,
         "shock": 0,
-        "cards": 2828.76,
-        "debt": 10639.74
+        "cards": 3061.75,
+        "debt": 10872.73
       },
       {
         "month": 18,
-        "income": 3149,
-        "living": 2925.4,
-        "gap": 223.6,
-        "assigned": 223.6,
+        "income": 3123.58,
+        "living": 2920.32,
+        "gap": 203.26,
+        "assigned": 203.26,
         "buffer": 500,
-        "fund": 93.98,
+        "fund": 77.71,
         "taxReserve": 0,
-        "extra": 250.88,
-        "interest": 155.81,
+        "extra": 234.61,
+        "interest": 161.04,
         "relief": 0,
         "shock": 0,
-        "cards": 2481.7,
-        "debt": 10027.67
+        "cards": 2736.19,
+        "debt": 10282.16
       },
       {
         "month": 19,
-        "income": 3149,
-        "living": 2790.4,
-        "gap": 358.6,
-        "assigned": 358.6,
+        "income": 3123.58,
+        "living": 2785.32,
+        "gap": 338.26,
+        "assigned": 338.26,
         "buffer": 500,
-        "fund": 156.7,
+        "fund": 136.36,
         "taxReserve": 45,
-        "extra": 250.88,
-        "interest": 144.78,
+        "extra": 234.61,
+        "interest": 150.49,
         "relief": 0,
         "shock": 0,
-        "cards": 2126.9,
-        "debt": 9404.57
+        "cards": 2403.37,
+        "debt": 9681.04
       },
       {
         "month": 20,
-        "income": 3149,
-        "living": 2790.4,
-        "gap": 358.6,
-        "assigned": 358.6,
+        "income": 3123.58,
+        "living": 2785.32,
+        "gap": 338.26,
+        "assigned": 338.26,
         "buffer": 500,
-        "fund": 219.42,
+        "fund": 195.01,
         "taxReserve": 90,
-        "extra": 250.88,
-        "interest": 133.54,
+        "extra": 234.61,
+        "interest": 139.74,
         "relief": 0,
         "shock": 0,
-        "cards": 1764.2,
-        "debt": 8770.23
+        "cards": 2063.14,
+        "debt": 9069.17
       },
       {
         "month": 21,
-        "income": 3149,
-        "living": 2925.4,
-        "gap": 223.6,
-        "assigned": 223.6,
+        "income": 3123.58,
+        "living": 2920.32,
+        "gap": 203.26,
+        "assigned": 203.26,
         "buffer": 500,
-        "fund": 282.14,
+        "fund": 253.66,
         "taxReserve": 0,
-        "extra": 250.88,
-        "interest": 122.08,
+        "extra": 234.61,
+        "interest": 128.78,
         "relief": 0,
         "shock": 0,
-        "cards": 1393.41,
-        "debt": 8124.43
+        "cards": 1715.32,
+        "debt": 8446.34
       },
       {
         "month": 22,
-        "income": 3149,
-        "living": 2790.4,
-        "gap": 358.6,
-        "assigned": 358.6,
+        "income": 3123.58,
+        "living": 2785.32,
+        "gap": 338.26,
+        "assigned": 338.26,
         "buffer": 500,
-        "fund": 344.86,
+        "fund": 312.31,
         "taxReserve": 45,
-        "extra": 250.88,
-        "interest": 110.41,
+        "extra": 234.61,
+        "interest": 117.62,
         "relief": 0,
         "shock": 0,
-        "cards": 1014.36,
-        "debt": 7466.96
+        "cards": 1359.75,
+        "debt": 7812.35
       },
       {
         "month": 23,
-        "income": 3149,
-        "living": 2694.4,
-        "gap": 454.6,
-        "assigned": 454.6,
+        "income": 3123.58,
+        "living": 2785.32,
+        "gap": 338.26,
+        "assigned": 338.26,
         "buffer": 500,
-        "fund": 426.78,
+        "fund": 370.96,
         "taxReserve": 90,
-        "extra": 327.68,
-        "interest": 99.05,
+        "extra": 234.61,
+        "interest": 106.24,
         "relief": 0,
         "shock": 0,
-        "cards": 670.61,
-        "debt": 6841.33
+        "cards": 996.26,
+        "debt": 7166.98
       },
       {
         "month": 24,
-        "income": 3149,
-        "living": 2829.4,
-        "gap": 319.6,
-        "assigned": 319.6,
+        "income": 3123.58,
+        "living": 2824.32,
+        "gap": 299.26,
+        "assigned": 299.26,
         "buffer": 500,
-        "fund": 508.7,
+        "fund": 448.81,
         "taxReserve": 0,
-        "extra": 327.68,
-        "interest": 89.14,
+        "extra": 311.41,
+        "interest": 95.22,
         "relief": 0,
         "shock": 0,
-        "cards": 320.45,
-        "debt": 6205.79
+        "cards": 668.45,
+        "debt": 6553.79
       }
     ],
     "ledger": [
@@ -750,7 +750,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 2949,
+            "amt": 2923.58,
             "status": "done"
           },
           {
@@ -798,7 +798,7 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 78.4,
+            "amt": 73.32,
             "status": "done"
           },
           {
@@ -810,13 +810,13 @@
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 58.24,
+            "amt": 54.17,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Debt payment",
-            "amt": 232.96,
+            "amt": 216.69,
             "status": "done",
             "debtRole": "extra"
           }
@@ -828,7 +828,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 2949,
+            "amt": 2923.58,
             "status": "done"
           },
           {
@@ -876,19 +876,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 78.4,
+            "amt": 73.32,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 62.72,
+            "amt": 58.65,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Debt payment",
-            "amt": 250.88,
+            "amt": 234.61,
             "status": "done",
             "debtRole": "extra"
           }
@@ -900,7 +900,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 2949,
+            "amt": 2923.58,
             "status": "done"
           },
           {
@@ -948,19 +948,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 78.4,
+            "amt": 73.32,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 62.72,
+            "amt": 58.65,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Debt payment",
-            "amt": 250.88,
+            "amt": 234.61,
             "status": "done",
             "debtRole": "extra"
           },
@@ -985,7 +985,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 2949,
+            "amt": 2923.58,
             "status": "done"
           },
           {
@@ -1033,19 +1033,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 78.4,
+            "amt": 73.32,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 62.72,
+            "amt": 58.65,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Debt payment",
-            "amt": 250.88,
+            "amt": 234.61,
             "status": "done",
             "debtRole": "extra"
           }
@@ -1057,7 +1057,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 2949,
+            "amt": 2923.58,
             "status": "done"
           },
           {
@@ -1105,19 +1105,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 78.4,
+            "amt": 73.32,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 62.72,
+            "amt": 58.65,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Debt payment",
-            "amt": 250.88,
+            "amt": 234.61,
             "status": "done",
             "debtRole": "extra"
           }
@@ -1129,7 +1129,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 2949,
+            "amt": 2923.58,
             "status": "done"
           },
           {
@@ -1177,19 +1177,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 78.4,
+            "amt": 73.32,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 62.72,
+            "amt": 58.65,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Debt payment",
-            "amt": 250.88,
+            "amt": 234.61,
             "status": "done",
             "debtRole": "extra"
           },
@@ -1214,7 +1214,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 2949,
+            "amt": 2923.58,
             "status": "done"
           },
           {
@@ -1262,19 +1262,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 78.4,
+            "amt": 73.32,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 62.72,
+            "amt": 58.65,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Debt payment",
-            "amt": 250.88,
+            "amt": 234.61,
             "status": "done",
             "debtRole": "extra"
           }
@@ -1286,7 +1286,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 2949,
+            "amt": 2923.58,
             "status": "done"
           },
           {
@@ -1334,19 +1334,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 78.4,
+            "amt": 73.32,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 62.72,
+            "amt": 58.65,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Debt payment",
-            "amt": 250.88,
+            "amt": 234.61,
             "status": "done",
             "debtRole": "extra"
           }
@@ -1358,7 +1358,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 2949,
+            "amt": 2923.58,
             "status": "done"
           },
           {
@@ -1406,19 +1406,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 78.4,
+            "amt": 73.32,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 62.72,
+            "amt": 58.65,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Debt payment",
-            "amt": 250.88,
+            "amt": 234.61,
             "status": "done",
             "debtRole": "extra"
           },
@@ -1443,7 +1443,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 2949,
+            "amt": 2923.58,
             "status": "done"
           },
           {
@@ -1491,33 +1491,33 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 78.4,
+            "amt": 73.32,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 62.72,
+            "amt": 58.65,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Debt payment",
-            "amt": 250.88,
+            "amt": 234.61,
             "status": "done",
             "debtRole": "extra"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 622.72,
+            "amt": 582.02,
             "status": "done",
             "dir": "in"
           },
           {
             "type": "transfer",
             "cat": "Savings",
-            "amt": 157.28,
+            "amt": 197.98,
             "status": "done",
             "dir": "in"
           },
@@ -1535,7 +1535,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 2949,
+            "amt": 2923.58,
             "status": "done"
           },
           {
@@ -1583,25 +1583,25 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 78.4,
+            "amt": 73.32,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Savings",
-            "amt": 157.28,
+            "amt": 197.98,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 31.26,
+            "amt": 19.06,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Debt payment",
-            "amt": 125.06,
+            "amt": 76.22,
             "status": "done",
             "debtRole": "extra"
           }
@@ -1613,7 +1613,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 2949,
+            "amt": 2923.58,
             "status": "done"
           },
           {
@@ -1661,19 +1661,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 78.4,
+            "amt": 73.32,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 62.72,
+            "amt": 58.65,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Debt payment",
-            "amt": 250.88,
+            "amt": 234.61,
             "status": "done",
             "debtRole": "extra"
           },
@@ -1698,7 +1698,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 2949,
+            "amt": 2923.58,
             "status": "done"
           },
           {
@@ -1746,19 +1746,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 78.4,
+            "amt": 73.32,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 62.72,
+            "amt": 58.65,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Debt payment",
-            "amt": 250.88,
+            "amt": 234.61,
             "status": "done",
             "debtRole": "extra"
           }
@@ -1770,7 +1770,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 2949,
+            "amt": 2923.58,
             "status": "done"
           },
           {
@@ -1818,19 +1818,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 78.4,
+            "amt": 73.32,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 62.72,
+            "amt": 58.65,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Debt payment",
-            "amt": 250.88,
+            "amt": 234.61,
             "status": "done",
             "debtRole": "extra"
           }
@@ -1842,7 +1842,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 2949,
+            "amt": 2923.58,
             "status": "done"
           },
           {
@@ -1890,19 +1890,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 78.4,
+            "amt": 73.32,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 62.72,
+            "amt": 58.65,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Debt payment",
-            "amt": 250.88,
+            "amt": 234.61,
             "status": "done",
             "debtRole": "extra"
           },
@@ -1927,7 +1927,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 2949,
+            "amt": 2923.58,
             "status": "done"
           },
           {
@@ -1975,19 +1975,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 78.4,
+            "amt": 73.32,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 62.72,
+            "amt": 58.65,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Debt payment",
-            "amt": 250.88,
+            "amt": 234.61,
             "status": "done",
             "debtRole": "extra"
           }
@@ -1999,7 +1999,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 2949,
+            "amt": 2923.58,
             "status": "done"
           },
           {
@@ -2023,6 +2023,12 @@
           {
             "type": "fixed",
             "cat": "Debt minimum",
+            "amt": 120,
+            "status": "done"
+          },
+          {
+            "type": "fixed",
+            "cat": "Debt minimum",
             "amt": 35,
             "status": "done"
           },
@@ -2041,19 +2047,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 102.4,
+            "amt": 73.32,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 81.92,
+            "amt": 58.65,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Debt payment",
-            "amt": 327.68,
+            "amt": 234.61,
             "status": "done",
             "debtRole": "extra"
           }
@@ -2065,7 +2071,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 2949,
+            "amt": 2923.58,
             "status": "done"
           },
           {
@@ -2107,19 +2113,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 102.4,
+            "amt": 97.32,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 81.92,
+            "amt": 77.85,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Debt payment",
-            "amt": 327.68,
+            "amt": 311.41,
             "status": "done",
             "debtRole": "extra"
           },
@@ -2214,11 +2220,11 @@
       },
       {
         "month": 3,
-        "income": 5501,
-        "living": 5265.8,
-        "gap": 235.2,
-        "assigned": 235.2,
-        "buffer": 939.2,
+        "income": 5529.82,
+        "living": 5271.56,
+        "gap": 258.26,
+        "assigned": 258.26,
+        "buffer": 962.26,
         "fund": 0,
         "taxReserve": 0,
         "extra": 0,
@@ -2230,95 +2236,95 @@
       },
       {
         "month": 4,
-        "income": 5501,
-        "living": 5265.8,
-        "gap": 235.2,
-        "assigned": 235.2,
+        "income": 5529.82,
+        "living": 5271.56,
+        "gap": 258.26,
+        "assigned": 258.26,
         "buffer": 1000,
-        "fund": 34.88,
+        "fund": 44.1,
         "taxReserve": 0,
-        "extra": 139.52,
+        "extra": 176.42,
         "interest": 267.64,
         "relief": 0,
         "shock": 0,
-        "cards": 2177.13,
-        "debt": 40751.15
+        "cards": 2140.23,
+        "debt": 40714.25
       },
       {
         "month": 5,
-        "income": 5501,
-        "living": 5265.8,
-        "gap": 235.2,
-        "assigned": 235.2,
+        "income": 5529.82,
+        "living": 5271.56,
+        "gap": 258.26,
+        "assigned": 258.26,
         "buffer": 1000,
-        "fund": 81.92,
+        "fund": 95.75,
         "taxReserve": 0,
-        "extra": 188.16,
-        "interest": 261.33,
+        "extra": 206.61,
+        "interest": 260.56,
         "relief": 0,
         "shock": 0,
-        "cards": 1964.15,
-        "debt": 40024.32
+        "cards": 1908.03,
+        "debt": 39968.2
       },
       {
         "month": 6,
-        "income": 6101,
-        "living": 5541.8,
-        "gap": 559.2,
-        "assigned": 559.2,
+        "income": 6129.82,
+        "living": 5547.56,
+        "gap": 582.26,
+        "assigned": 582.26,
         "buffer": 1000,
-        "fund": 193.76,
+        "fund": 212.2,
         "taxReserve": 0,
-        "extra": 447.36,
-        "interest": 253.94,
+        "extra": 465.81,
+        "interest": 252.77,
         "relief": 0,
         "shock": 0,
-        "cards": 1487.55,
-        "debt": 39030.9
+        "cards": 1411.81,
+        "debt": 38955.16
       },
       {
         "month": 7,
-        "income": 6101,
-        "living": 5406.8,
-        "gap": 694.2,
-        "assigned": 694.2,
+        "income": 6129.82,
+        "living": 5412.56,
+        "gap": 717.26,
+        "assigned": 717.26,
         "buffer": 1000,
-        "fund": 305.6,
+        "fund": 328.65,
         "taxReserve": 135,
-        "extra": 447.36,
-        "interest": 241.06,
+        "extra": 465.81,
+        "interest": 239.49,
         "relief": 0,
         "shock": 0,
-        "cards": 1001.06,
-        "debt": 38024.6
+        "cards": 905.3,
+        "debt": 37928.84
       },
       {
         "month": 8,
-        "income": 6101,
-        "living": 5406.8,
-        "gap": 694.2,
-        "assigned": 694.2,
+        "income": 6129.82,
+        "living": 5412.56,
+        "gap": 717.26,
+        "assigned": 717.26,
         "buffer": 1000,
-        "fund": 417.44,
+        "fund": 445.1,
         "taxReserve": 270,
-        "extra": 447.36,
-        "interest": 227.94,
+        "extra": 465.81,
+        "interest": 225.95,
         "relief": 0,
         "shock": 0,
-        "cards": 504.47,
-        "debt": 37005.18
+        "cards": 388.27,
+        "debt": 36888.98
       },
       {
         "month": 9,
-        "income": 6101,
-        "living": 7261.8,
-        "gap": -1160.8,
-        "assigned": -1160.8,
-        "buffer": 81.7,
+        "income": 6129.82,
+        "living": 7267.56,
+        "gap": -1137.74,
+        "assigned": -1137.74,
+        "buffer": 251.03,
         "fund": 0,
         "taxReserve": 0,
-        "extra": 444.94,
-        "interest": 214.62,
+        "extra": 326.33,
+        "interest": 212.21,
         "relief": 0,
         "shock": 1450,
         "cards": 0,
@@ -2326,11 +2332,11 @@
       },
       {
         "month": 10,
-        "income": 6101,
-        "living": 5350.8,
-        "gap": 750.2,
-        "assigned": 750.2,
-        "buffer": 696.9,
+        "income": 6129.82,
+        "living": 5356.56,
+        "gap": 773.26,
+        "assigned": 773.26,
+        "buffer": 889.29,
         "fund": 0,
         "taxReserve": 135,
         "extra": 0,
@@ -2342,12 +2348,12 @@
       },
       {
         "month": 11,
-        "income": 6101,
-        "living": 5350.8,
-        "gap": 750.2,
-        "assigned": 750.2,
-        "buffer": 1249.68,
-        "fund": 62.42,
+        "income": 6129.82,
+        "living": 5356.56,
+        "gap": 773.26,
+        "assigned": 773.26,
+        "buffer": 1422.04,
+        "fund": 105.51,
         "taxReserve": 270,
         "extra": 0,
         "interest": 198.04,
@@ -2358,12 +2364,12 @@
       },
       {
         "month": 12,
-        "income": 6101,
-        "living": 5551.8,
-        "gap": 549.2,
-        "assigned": 549.2,
-        "buffer": 1905.04,
-        "fund": 226.26,
+        "income": 6129.82,
+        "living": 5557.56,
+        "gap": 572.26,
+        "assigned": 572.26,
+        "buffer": 2095.85,
+        "fund": 273.96,
         "taxReserve": 0,
         "extra": 0,
         "interest": 194.96,
@@ -2374,12 +2380,12 @@
       },
       {
         "month": 13,
-        "income": 6101,
-        "living": 5146.8,
-        "gap": 954.2,
-        "assigned": 954.2,
-        "buffer": 2560.4,
-        "fund": 390.1,
+        "income": 6129.82,
+        "living": 5152.56,
+        "gap": 977.26,
+        "assigned": 977.26,
+        "buffer": 2769.66,
+        "fund": 442.41,
         "taxReserve": 135,
         "extra": 0,
         "interest": 191.86,
@@ -2390,12 +2396,12 @@
       },
       {
         "month": 14,
-        "income": 6101,
-        "living": 5146.8,
-        "gap": 954.2,
-        "assigned": 954.2,
-        "buffer": 3215.76,
-        "fund": 553.94,
+        "income": 6129.82,
+        "living": 5152.56,
+        "gap": 977.26,
+        "assigned": 977.26,
+        "buffer": 3443.47,
+        "fund": 610.86,
         "taxReserve": 270,
         "extra": 0,
         "interest": 188.74,
@@ -2406,12 +2412,12 @@
       },
       {
         "month": 15,
-        "income": 6101,
-        "living": 5551.8,
-        "gap": 549.2,
-        "assigned": 549.2,
-        "buffer": 3871.12,
-        "fund": 717.78,
+        "income": 6129.82,
+        "living": 5557.56,
+        "gap": 572.26,
+        "assigned": 572.26,
+        "buffer": 4117.28,
+        "fund": 779.31,
         "taxReserve": 0,
         "extra": 0,
         "interest": 185.61,
@@ -2422,12 +2428,12 @@
       },
       {
         "month": 16,
-        "income": 6101,
-        "living": 5146.8,
-        "gap": 954.2,
-        "assigned": 954.2,
-        "buffer": 4526.48,
-        "fund": 881.62,
+        "income": 6129.82,
+        "living": 5152.56,
+        "gap": 977.26,
+        "assigned": 977.26,
+        "buffer": 4791.09,
+        "fund": 947.76,
         "taxReserve": 135,
         "extra": 0,
         "interest": 182.45,
@@ -2438,12 +2444,12 @@
       },
       {
         "month": 17,
-        "income": 6101,
-        "living": 5146.8,
-        "gap": 954.2,
-        "assigned": 954.2,
-        "buffer": 5181.84,
-        "fund": 1045.46,
+        "income": 6129.82,
+        "living": 5152.56,
+        "gap": 977.26,
+        "assigned": 977.26,
+        "buffer": 5464.9,
+        "fund": 1116.21,
         "taxReserve": 270,
         "extra": 0,
         "interest": 179.27,
@@ -2454,12 +2460,12 @@
       },
       {
         "month": 18,
-        "income": 6101,
-        "living": 5551.8,
-        "gap": 549.2,
-        "assigned": 549.2,
-        "buffer": 5837.2,
-        "fund": 1209.3,
+        "income": 6129.82,
+        "living": 5557.56,
+        "gap": 572.26,
+        "assigned": 572.26,
+        "buffer": 6138.71,
+        "fund": 1284.66,
         "taxReserve": 0,
         "extra": 0,
         "interest": 176.08,
@@ -2470,12 +2476,12 @@
       },
       {
         "month": 19,
-        "income": 6101,
-        "living": 5146.8,
-        "gap": 954.2,
-        "assigned": 954.2,
-        "buffer": 6492.56,
-        "fund": 1373.14,
+        "income": 6129.82,
+        "living": 5152.56,
+        "gap": 977.26,
+        "assigned": 977.26,
+        "buffer": 6812.52,
+        "fund": 1453.11,
         "taxReserve": 135,
         "extra": 0,
         "interest": 172.88,
@@ -2486,12 +2492,12 @@
       },
       {
         "month": 20,
-        "income": 6101,
-        "living": 5146.8,
-        "gap": 954.2,
-        "assigned": 954.2,
-        "buffer": 7147.92,
-        "fund": 1536.98,
+        "income": 6129.82,
+        "living": 5152.56,
+        "gap": 977.26,
+        "assigned": 977.26,
+        "buffer": 7486.33,
+        "fund": 1621.56,
         "taxReserve": 270,
         "extra": 0,
         "interest": 169.64,
@@ -2502,12 +2508,12 @@
       },
       {
         "month": 21,
-        "income": 6101,
-        "living": 5551.8,
-        "gap": 549.2,
-        "assigned": 549.2,
-        "buffer": 7803.28,
-        "fund": 1700.82,
+        "income": 6129.82,
+        "living": 5557.56,
+        "gap": 572.26,
+        "assigned": 572.26,
+        "buffer": 8160.14,
+        "fund": 1790.01,
         "taxReserve": 0,
         "extra": 0,
         "interest": 166.4,
@@ -2518,12 +2524,12 @@
       },
       {
         "month": 22,
-        "income": 6101,
-        "living": 5146.8,
-        "gap": 954.2,
-        "assigned": 954.2,
-        "buffer": 8458.64,
-        "fund": 1864.66,
+        "income": 6129.82,
+        "living": 5152.56,
+        "gap": 977.26,
+        "assigned": 977.26,
+        "buffer": 8833.95,
+        "fund": 1958.46,
         "taxReserve": 135,
         "extra": 0,
         "interest": 163.13,
@@ -2534,12 +2540,12 @@
       },
       {
         "month": 23,
-        "income": 6101,
-        "living": 5146.8,
-        "gap": 954.2,
-        "assigned": 954.2,
-        "buffer": 9114,
-        "fund": 2028.5,
+        "income": 6129.82,
+        "living": 5152.56,
+        "gap": 977.26,
+        "assigned": 977.26,
+        "buffer": 9507.76,
+        "fund": 2126.91,
         "taxReserve": 270,
         "extra": 0,
         "interest": 159.84,
@@ -2550,12 +2556,12 @@
       },
       {
         "month": 24,
-        "income": 6101,
-        "living": 5551.8,
-        "gap": 549.2,
-        "assigned": 549.2,
-        "buffer": 9769.36,
-        "fund": 2192.34,
+        "income": 6129.82,
+        "living": 5557.56,
+        "gap": 572.26,
+        "assigned": 572.26,
+        "buffer": 10181.57,
+        "fund": 2295.36,
         "taxReserve": 0,
         "extra": 0,
         "interest": 156.53,
@@ -2666,7 +2672,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 5501,
+            "amt": 5529.82,
             "status": "done"
           },
           {
@@ -2696,13 +2702,13 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 58.8,
+            "amt": 64.56,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Savings",
-            "amt": 235.2,
+            "amt": 258.26,
             "status": "done"
           }
         ]
@@ -2713,7 +2719,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 5501,
+            "amt": 5529.82,
             "status": "done"
           },
           {
@@ -2743,25 +2749,25 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 58.8,
+            "amt": 64.56,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Savings",
-            "amt": 60.8,
+            "amt": 37.74,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 34.88,
+            "amt": 44.1,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Debt payment",
-            "amt": 139.52,
+            "amt": 176.42,
             "status": "done",
             "debtRole": "extra"
           }
@@ -2773,7 +2779,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 5501,
+            "amt": 5529.82,
             "status": "done"
           },
           {
@@ -2803,19 +2809,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 58.8,
+            "amt": 64.56,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 47.04,
+            "amt": 51.65,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Debt payment",
-            "amt": 188.16,
+            "amt": 206.61,
             "status": "done",
             "debtRole": "extra"
           }
@@ -2827,7 +2833,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 5501,
+            "amt": 5529.82,
             "status": "done"
           },
           {
@@ -2875,19 +2881,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 139.8,
+            "amt": 145.56,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 111.84,
+            "amt": 116.45,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Debt payment",
-            "amt": 447.36,
+            "amt": 465.81,
             "status": "done",
             "debtRole": "extra"
           },
@@ -2912,7 +2918,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 5501,
+            "amt": 5529.82,
             "status": "done"
           },
           {
@@ -2960,19 +2966,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 139.8,
+            "amt": 145.56,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 111.84,
+            "amt": 116.45,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Debt payment",
-            "amt": 447.36,
+            "amt": 465.81,
             "status": "done",
             "debtRole": "extra"
           }
@@ -2984,7 +2990,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 5501,
+            "amt": 5529.82,
             "status": "done"
           },
           {
@@ -3032,19 +3038,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 139.8,
+            "amt": 145.56,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 111.84,
+            "amt": 116.45,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Debt payment",
-            "amt": 447.36,
+            "amt": 465.81,
             "status": "done",
             "debtRole": "extra"
           }
@@ -3056,7 +3062,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 5501,
+            "amt": 5529.82,
             "status": "done"
           },
           {
@@ -3104,39 +3110,39 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 139.8,
+            "amt": 145.56,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Savings",
-            "amt": 2.42,
+            "amt": 139.48,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 111.84,
+            "amt": 116.45,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Debt payment",
-            "amt": 444.94,
+            "amt": 326.33,
             "status": "done",
             "debtRole": "extra"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 529.28,
+            "amt": 561.55,
             "status": "done",
             "dir": "in"
           },
           {
             "type": "transfer",
             "cat": "Savings",
-            "amt": 920.72,
+            "amt": 888.45,
             "status": "done",
             "dir": "in"
           },
@@ -3167,7 +3173,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 5501,
+            "amt": 5529.82,
             "status": "done"
           },
           {
@@ -3209,13 +3215,13 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 153.8,
+            "amt": 159.56,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Savings",
-            "amt": 615.2,
+            "amt": 638.26,
             "status": "done"
           }
         ]
@@ -3226,7 +3232,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 5501,
+            "amt": 5529.82,
             "status": "done"
           },
           {
@@ -3268,19 +3274,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 153.8,
+            "amt": 159.56,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Savings",
-            "amt": 552.78,
+            "amt": 532.75,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 62.42,
+            "amt": 105.51,
             "status": "done"
           }
         ]
@@ -3291,7 +3297,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 5501,
+            "amt": 5529.82,
             "status": "done"
           },
           {
@@ -3333,19 +3339,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 204.8,
+            "amt": 210.56,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Savings",
-            "amt": 655.36,
+            "amt": 673.81,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 163.84,
+            "amt": 168.45,
             "status": "done"
           },
           {
@@ -3369,7 +3375,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 5501,
+            "amt": 5529.82,
             "status": "done"
           },
           {
@@ -3411,19 +3417,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 204.8,
+            "amt": 210.56,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Savings",
-            "amt": 655.36,
+            "amt": 673.81,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 163.84,
+            "amt": 168.45,
             "status": "done"
           }
         ]
@@ -3434,7 +3440,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 5501,
+            "amt": 5529.82,
             "status": "done"
           },
           {
@@ -3476,19 +3482,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 204.8,
+            "amt": 210.56,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Savings",
-            "amt": 655.36,
+            "amt": 673.81,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 163.84,
+            "amt": 168.45,
             "status": "done"
           }
         ]
@@ -3499,7 +3505,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 5501,
+            "amt": 5529.82,
             "status": "done"
           },
           {
@@ -3541,19 +3547,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 204.8,
+            "amt": 210.56,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Savings",
-            "amt": 655.36,
+            "amt": 673.81,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 163.84,
+            "amt": 168.45,
             "status": "done"
           },
           {
@@ -3577,7 +3583,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 5501,
+            "amt": 5529.82,
             "status": "done"
           },
           {
@@ -3619,19 +3625,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 204.8,
+            "amt": 210.56,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Savings",
-            "amt": 655.36,
+            "amt": 673.81,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 163.84,
+            "amt": 168.45,
             "status": "done"
           }
         ]
@@ -3642,7 +3648,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 5501,
+            "amt": 5529.82,
             "status": "done"
           },
           {
@@ -3684,19 +3690,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 204.8,
+            "amt": 210.56,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Savings",
-            "amt": 655.36,
+            "amt": 673.81,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 163.84,
+            "amt": 168.45,
             "status": "done"
           }
         ]
@@ -3707,7 +3713,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 5501,
+            "amt": 5529.82,
             "status": "done"
           },
           {
@@ -3749,19 +3755,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 204.8,
+            "amt": 210.56,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Savings",
-            "amt": 655.36,
+            "amt": 673.81,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 163.84,
+            "amt": 168.45,
             "status": "done"
           },
           {
@@ -3785,7 +3791,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 5501,
+            "amt": 5529.82,
             "status": "done"
           },
           {
@@ -3827,19 +3833,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 204.8,
+            "amt": 210.56,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Savings",
-            "amt": 655.36,
+            "amt": 673.81,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 163.84,
+            "amt": 168.45,
             "status": "done"
           }
         ]
@@ -3850,7 +3856,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 5501,
+            "amt": 5529.82,
             "status": "done"
           },
           {
@@ -3892,19 +3898,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 204.8,
+            "amt": 210.56,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Savings",
-            "amt": 655.36,
+            "amt": 673.81,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 163.84,
+            "amt": 168.45,
             "status": "done"
           }
         ]
@@ -3915,7 +3921,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 5501,
+            "amt": 5529.82,
             "status": "done"
           },
           {
@@ -3957,19 +3963,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 204.8,
+            "amt": 210.56,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Savings",
-            "amt": 655.36,
+            "amt": 673.81,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 163.84,
+            "amt": 168.45,
             "status": "done"
           },
           {
@@ -3993,7 +3999,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 5501,
+            "amt": 5529.82,
             "status": "done"
           },
           {
@@ -4035,19 +4041,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 204.8,
+            "amt": 210.56,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Savings",
-            "amt": 655.36,
+            "amt": 673.81,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 163.84,
+            "amt": 168.45,
             "status": "done"
           }
         ]
@@ -4058,7 +4064,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 5501,
+            "amt": 5529.82,
             "status": "done"
           },
           {
@@ -4100,19 +4106,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 204.8,
+            "amt": 210.56,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Savings",
-            "amt": 655.36,
+            "amt": 673.81,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 163.84,
+            "amt": 168.45,
             "status": "done"
           }
         ]
@@ -4123,7 +4129,7 @@
           {
             "type": "income",
             "cat": "Paycheck",
-            "amt": 5501,
+            "amt": 5529.82,
             "status": "done"
           },
           {
@@ -4165,19 +4171,19 @@
           {
             "type": "variable",
             "cat": "Optional spending",
-            "amt": 204.8,
+            "amt": 210.56,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Savings",
-            "amt": 655.36,
+            "amt": 673.81,
             "status": "done"
           },
           {
             "type": "transfer",
             "cat": "Sinking fund",
-            "amt": 163.84,
+            "amt": 168.45,
             "status": "done"
           },
           {

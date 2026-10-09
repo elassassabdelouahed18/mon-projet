@@ -1,18 +1,22 @@
 """Revision edits, Chapter 19 to the back cover.
 
 Persona figures come from model/financial-model.json (run model/financial-model.cjs
-to regenerate it). The freedom milestones assume year-end contributions at 5% a
-year after inflation from zero, and a target of 25 times a year of living costs:
+to regenerate it). The Chapter 21 milestone years are not typed here: they are
+computed by model/freedom-milestones.py from that same file, so the table can
+never drift from the model. Run it to see them:
 
-    Marcus, month 24: gap $319.60 of $3,149 = 10.149%, printed 10.1%; living $2,829.40 a month
-        fear (6 months, cash) year 5 · walk year 9 · half free year 39 · free year 52
-    Maya, month 24:   gap $549.20 of $6,101 = 9.00%;  living $5,551.80 a month
-        fear year 6 · walk year 11 · half free year 41 · free year 54
-    Crossover: B_n = C(1.05^n - 1)/0.05 passes 20C when 1.05^n > 2, so year 15
-        for any steady C (year 18 at 4%, year 12 at 6%).
-    Marcus, run on: last debt paid in month 34; gap then $637.20 = 20.2%, so
-        about 37 years from a standing start.
+    python3 model/freedom-milestones.py
+
+Conventions it uses, which Appendix H states for the reader: year-end
+contributions, 5% a year after inflation for the portfolio, 0% after inflation
+for the two cash milestones, and a target of 25 times a year of living costs.
+The crossover is where the portfolio's own growth first passes 20 times the
+annual contribution, which at 5% is year 15 whatever the contribution is.
+
+After errata A1 and A2 (the marginal-rate tax fix), Marcus clears his last
+debt in month 35 and settles near $617 a month of gap, 19.7% of take-home.
 """
+import importlib.util
 import json
 import os
 
@@ -21,6 +25,18 @@ from ed import apply_list
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 MODEL = json.load(open(os.path.join(HERE, 'model', 'financial-model.json'), encoding='utf-8'))
+
+
+def _milestones():
+    """model/freedom-milestones.py, loaded by path because of the hyphen."""
+    path = os.path.join(HERE, 'model', 'freedom-milestones.py')
+    spec = importlib.util.spec_from_file_location('freedom_milestones', path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return {who: mod.milestones(who, MODEL) for who in ('Marcus', 'Maya')}
+
+
+MILE = _milestones()
 
 
 def usd(v):
@@ -54,7 +70,7 @@ EDITS = [
     ('rep', 'Take your gap and divide it by your take-home pay.',
      'Take your gap and divide it by your take-home pay. That percentage is your <em>gap rate</em>, and it '
      'is the ceiling on your savings rate: the share you actually invest can match it, never beat it. '
-     'Marcus ends month 24 at 10.1%. Maya, earning more than twice as much, ends at 9.0%.'),
+     'Marcus ends month 24 at 9.6%. Maya, earning more than twice as much, ends at 9.3%.'),
     ('rep', 'Here is the part almost every book',
      'Here is the part almost every book about financial independence gets wrong. It presents one enormous '
      'number, years away, and calls that freedom. For a reader who was $103 short every month two years ago, '
@@ -106,12 +122,12 @@ EDITS = [
      'and the chart in Chapter 19 is entirely a chart of that habit.'),
     ('rep', 'Look at the last row and then look',
      'Look at the last row and then look at their salaries. Maya earns more than twice what Marcus earns and '
-     'reaches freedom two years after him, because her costs are about twice his too. That is the whole book '
+     'reaches freedom in the same year, because her costs are about twice his too. That is the whole book '
      'in one line, and it is the same line as Chapter One: the trap does not care what you earn.'),
     ('rep', 'Neither of those calendars is fixed.',
      'Neither of those calendars is fixed, and Marcus&rsquo;s is already moving. His month-24 costs still '
-     'carry a car loan and the last of a card. Run the same model on and his last debt goes in month 34; the '
-     'minimums leave his living costs, his gap settles near $637 a month, about 20% of take-home, and year 52 '
+     'carry a car loan and the last of a card. Run the same model on and his last debt goes in month 35; the '
+     'minimums leave his living costs, his gap settles near $617 a month, about 20% of take-home, and year 53 '
      'becomes about year 37 without him earning a dollar more. Every point he adds after that pulls it in '
      'again, and the compass in Chapter 11 is how he adds them. The number is not a prophecy. It is a '
      'speedometer.'),
@@ -184,22 +200,22 @@ EDITS = [
      'Month 1: overdraft coverage off, gym and one subscription canceled, delivery apps deleted, two consoles '
      'sold, and two due dates moved: $180 a month out of his costs, which is what ends the shortfall. Month 6: '
      'the warehouse PDF starts paying $200 a month, less 10% costs and a 25% tax reserve settled each quarter. '
-     'Month 7: a lead differential adds about $180 a month to his pay, and the $500 starter cushion is full. '
+     'Month 7: a lead differential adds about $155 a month to his pay, and the $500 starter cushion is full. '
      'From then on a fifth of what is free goes to the car fund and the rest to the highest rate first. Month '
      '14: hospital financial assistance clears the $1,180 medical collection. Month 16: an alternator and two '
-     'tires, $780, absorbed by the car fund and the buffer, with nothing on a card. Month 22: Card A is gone, '
-     'having cost $1,563 in interest; Card B follows in month 25 and the car in month 34. At month 24 he still '
-     'owes $320 on the cards and $6,206 in all, and he has no three-month emergency fund. The book says so '
+     'tires, $780, absorbed by the car fund and the buffer, with nothing on a card. Month 23: Card A is gone, '
+     'having cost $1,620 in interest; Card B follows in month 26 and the car in month 35. At month 24 he still '
+     'owes $668 on the cards and $6,554 in all, and he has no three-month emergency fund. The book says so '
      'rather than rounding the story up. Throughout, a fifth of each month&rsquo;s free money goes to a '
      'guilt-free share, counted in his living costs; without it the model is a fantasy.'),
     ('rep', 'Month 1: dining down $220',
      'Month 1: dining down $220, subscriptions down $80, shopping down $180. Month 3: she raises her 401(k) '
-     'from 3% to 5% to capture the full match. Take-home falls $146 and she gains roughly $1,900 a year in '
+     'from 3% to 5% to capture the full match. Take-home falls $117 and she gains roughly $1,900 a year in '
      'employer money, which is why her pay line drops. Month 4: the $1,000 starter cushion is full. Month 6: '
      '$600 a month of side income starts, less costs and a 25% reserve. Month 9: a $1,450 emergency, absorbed '
-     'by the car fund and the cushion, and the same month the card is paid off, after $345 of interest. Month '
+     'by the car fund and the cushion, and the same month the card is paid off, after $337 of interest. Month '
      '12: the lease ends and she moves one step down, $255 a month cheaper. Her other debts sit below 12%, so '
-     'they get their minimums and every spare dollar builds savings: $9,769 by month 24. Throughout, a fifth '
+     'they get their minimums and every spare dollar builds savings: $10,182 by month 24. Throughout, a fifth '
      'of each month&rsquo;s free money goes to a guilt-free share; without it the model is a fantasy.'),
 
     # ---------------------------------------------------------------- appendix E
@@ -281,13 +297,14 @@ OLD_CH21_TABLE = (
     '<tr><td>Free to walk · one year of costs</td><td>year 4</td><td>year 9</td></tr>'
     '<tr><td>The crossover</td><td>year 14</td><td>year 18</td></tr>'
     '<tr><td>Free · 25 times spending</td><td>year 37</td><td>year 46</td></tr>')
+M_, Y_ = MILE['Marcus'], MILE['Maya']
 NEW_CH21_TABLE = ''.join(
     f'<tr><td>{a}</td><td class="num">{b}</td><td class="num">{c}</td></tr>' for a, b, c in (
-        ('Gap rate at month 24', '10.1%', '9.0%'),
-        ('Free from fear · six months', 'year 5', 'year 6'),
-        ('Free to walk · one year of costs', 'year 9', 'year 11'),
-        ('The crossover', 'year 15', 'year 15'),
-        ('Free · 25 times spending', 'year 52', 'year 54')))
+        ('Gap rate at month 24', f"{M_['rate']:.1f}%", f"{Y_['rate']:.1f}%"),
+        ('Free from fear · six months', f"year {M_['fear']}", f"year {Y_['fear']}"),
+        ('Free to walk · one year of costs', f"year {M_['walk']}", f"year {Y_['walk']}"),
+        ('The crossover', f"year {M_['crossover']}", f"year {Y_['crossover']}"),
+        ('Free · 25 times spending', f"year {M_['free']}", f"year {Y_['free']}")))
 
 
 def apply(html):

@@ -1,5 +1,6 @@
 """Years to 25x spending, from Marcus's position once his debts are gone."""
-INC, LIV = 3149.0, 2511.8   # month 34 of the model: no more debt minimums
+INC, LIV = 3123.58, 2506.72  # month 36 of the model: the debts are gone
+# (financial-model.cjs, MONTHS=48). Marcus clears his last balance in month 35.
 
 def years(inc=INC, liv=LIV, cut=0.0, raise_pct=0.0, to_gap=1.0, r=0.05, mult=25, cap=99):
     inc, liv = inc, liv - cut

@@ -21,7 +21,7 @@ DEBT_TABLE_NEW = (
 EDITS = [
     # ---------------------------------------------------------------- chapter 12
     ('rep', 'It shows up in month 7 as about $163 a month net.',
-     'It shows up in month 7 as about $180 a month net. He routes all of it into the gap, because his '
+     'It shows up in month 7 as about $155 a month net. He routes all of it into the gap, because his '
      'lifestyle never learned the money existed. It is the single largest income change in his entire '
      'twenty-four months, and it did not cost him one evening.'),
 
@@ -53,8 +53,8 @@ EDITS = [
      'deciding one in advance, so the tired evening version of you never has to.'),
     ('rep', 'There is one more way to read that gap,',
      'There is one more way to read that gap, and it is the bridge to the last part of this book. Divide '
-     'your gap by your take-home pay. That percentage is your gap rate. Marcus ends month 24 at 10.1%. '
-     'Maya, on more than twice his income, ends at 9.0%, which should tell you everything about why this '
+     'your gap by your take-home pay. That percentage is your gap rate. Marcus ends month 24 at 9.6%. '
+     'Maya, on more than twice his income, ends at 9.3%, which should tell you everything about why this '
      'book was never about salary. Part of any gap pays down debt and fills reserves, so the share you '
      'actually invest, your savings rate, is the gap rate or less. It is the number Part Five runs on.'),
     ('rep', 'Gap shows you that percentage on the Overview screen',
@@ -134,7 +134,7 @@ EDITS = [
      'promises no date beyond it.'),
     ('rep', 'Maya is capturing every dollar of her employer match',
      'Maya is capturing every dollar of her employer match, on the same $95,000 that used to disappear '
-     'without a trace. She has no card balance, $9,769 in her buffer and $2,192 in her true-expense funds. '
+     'without a trace. She has no card balance, $10,182 in her buffer and $2,295 in her true-expense funds. '
      'Her remaining debt is a car loan and a student loan, both cheap, both on schedule.'),
     ('rep', 'Marcus, whose relationship with money began',
      'Marcus, whose relationship with money began with a $25 automatic transfer he felt embarrassed about, '

@@ -222,6 +222,34 @@ def apply(html):
                 'Chapter 9. Then the HSA, if you are on a high-deductible plan.',
                 'C3 investing order')
 
+    # ---------------------------------------------------------------- A19
+    # Etsy was listed twice, once with the processing fee and once with the
+    # offsite-ads fee. One row, both components, one source line.
+    html = once(html,
+                '<tr><td>Etsy fees</td><td>$0.20 listing, 6.5% transaction, 3% + $0.25 processing'
+                '</td><td>Etsy fees and payments policy</td></tr>',
+                '<tr><td>Etsy fees</td><td>$0.20 listing, 6.5% transaction, 3% + $0.25 payment '
+                'processing, and 15% offsite ads on orders under $10,000 a year</td>'
+                '<td>Etsy, <em>Fees and payments policy</em></td></tr>', 'A19 Etsy row')
+    html = once(html,
+                '<tr><td>Etsy fees</td><td>$0.20 listing, 6.5% transaction, plus 15% offsite ads '
+                'under $10,000 a year</td><td>Etsy</td></tr>', '', 'A19 Etsy duplicate')
+
+    # ---------------------------------------------------------------- D8
+    # The section is not about what was taken out; it is about figures a
+    # reader will meet everywhere else and should not trust. Name it for that,
+    # and list the dropshipping figure Chapter 12 already refuses to print.
+    html = once(html, 'Removed from this edition as unverifiable',
+                'Widely quoted, left out as unverifiable', 'D8 heading')
+    html = once(html,
+                'The percentage is sourced and stays; the headcount is gone.</p>',
+                'The percentage is sourced and stays; the headcount is gone.</p>'
+                '<p><b>&ldquo;80 to 90% of dropshippers fail.&rdquo;</b> Quoted everywhere, '
+                'including by people selling dropshipping courses, with no study behind it. '
+                '<a href="#ch12">Chapter 12</a> says what is not in dispute instead: thin '
+                'margins, and an advertising budget spent before you know whether anything '
+                'sells.</p>', 'D8 dropshipping')
+
     # -------------------------------------------------- the new Appendix G rows
     rows = ''.join(f'<tr><td>{a}</td><td>{b}</td><td>{c}</td></tr>' for a, b, c in ROWS)
     i = html.index('id="appG"')

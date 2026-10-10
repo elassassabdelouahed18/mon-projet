@@ -827,3 +827,40 @@ this is recorded rather than hidden.
    taller than the half page it sits in, and the guide's page 16 overflowed by
    9px. The shot is now clipped at twice its width, which is the card's head
    and its first rows.
+
+### The last five, and one that stayed blocked
+
+| ID | what changed | evidence |
+|---|---|---|
+| A19 | **Appendix G's duplicates.** Etsy was listed twice, once with the payment-processing fee and once with the offsite-ads fee. One row now carries both and one source line. Pew and Ahrefs were already single rows by then. | 98 rows, **no repeated fact**, checked by script |
+| A21 | **The simulator box and the screenshot beside it** came from two different debt sets. Both now read the sample file the app itself loads — Marcus's four debts — driven in the app and read off the screen: minimums alone 48 months and $7,115 of interest; $300 a month clears it 22 months sooner and saves $4,032. The screenshot was re-shot at the same $300. | page 118 of the book: the panel and its caption carry the same four numbers |
+| A25 | **The six doors name their page.** Each door in the chart reads "Ch 14 · p110". The number is a `{{p:ch14}}` token that `build.py` resolves against where the chapter actually landed, in the same pass that fills the contents, so it cannot drift when the book repaginates. The box underneath now says "turn to the page beside it". | pages 53, 61, 65, 90, 110 printed into the chart on page 12 |
+| D6 | **befreeacademy.site/engines**, generated into `site-pages/engines.html` from the book's own five course boxes, with a QR code. Each box in the book carries that address, its QR, and the line "checked every quarter". **Not deployed.** | 5 boxes, 10 link annotations, the QR renders at 30pt |
+| D7 | **befreeacademy.site/sources**, generated into `site-pages/sources.html` from Appendix G itself — all 97 rows — with a QR code. Appendix G's opening now prints the address. **Not deployed.** | page 182 |
+| D8 | The section is now **"Widely quoted, left out as unverifiable"**, which is what it is for. The 160-million headcount stays listed, and the "80 to 90% of dropshippers fail" figure joins it, with a pointer to what Chapter 12 says instead. | page 188 |
+
+**D5 — BLOCKED, and it needs a person.** The review asks me to replace Liam
+Ottley's AI-agents course with a free, complete course on building one service
+offer and landing a first client, published within 24 months, no income
+screenshots, not a done-for-you pitch, **recording views, length, publish date
+and the check date**. Choosing one is easy; recording those four facts is the
+job, and this container cannot read them: YouTube serves a consent shell to
+every request from here, so I cannot confirm a view count, a length or a
+publish date for any candidate. Picking a course and typing plausible
+metadata beside it is exactly what ground rule 8 forbids. The current box
+stands, with its own honest caveat that it advertises the author's program.
+
+**The six Chapter 12 figures that stay unsourced** are the same wall: the
+CNBC-reviewed case studies (Steph Smith's $130,000, Graham Stephan's $5.1
+million, Midwest Foodie's $206,000), Gumroad's 45,917 creators, and the two
+YouTube view counts. cnbc.com returns 403 to every user-agent from this
+address and YouTube returns a shell. The book cites each one inline with its
+URL and the author's check date of 26 September 2026; what is missing is my
+own re-verification, not a citation.
+
+**What did get verified, late and at the primary source:** the three fund costs
+Chapter 20 prints, from the funds' own SEC summary prospectuses rather than a
+brokerage page built by script (FDKLX 0.12%, SWYNX 0.08%, both with no minimum,
+and FZROX 0.00% and VTSAX 0.04% for the 0.00–0.05% range); the Saver's Match
+phase-out by filing status, from the IRS; and the Wage Growth Tracker's 325 of
+356 months, counted out of the Atlanta Fed's own spreadsheet.

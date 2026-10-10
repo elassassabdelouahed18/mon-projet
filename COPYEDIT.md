@@ -27,6 +27,10 @@ Each entry is the paragraph as it reads now, followed by the sentence or sentenc
 
   **cut:** Reading about index funds while the rent is short is a way of avoiding the rent.
 
+> 
+
+  **cut:** Turn to that page now, do its one action, and then come back to the Introduction and read straight through.
+
 > An hour on a benefits screener has a better hourly return than anything else in this book for a reader in a structural deficit.
 
   **cut:** Start at the USA.gov benefit finder, then call 2-1-1 and ask a human what your county runs that no website lists.
@@ -718,5 +722,5 @@ Each entry is the paragraph as it reads now, followed by the sentence or sentenc
 
 ---
 
-**144 paragraphs** lost a sentence and kept the rest.
+**145 paragraphs** lost a sentence and kept the rest.
 

@@ -213,4 +213,22 @@ def apply(html):
     # then unambiguous.
     html = once(html, 'read Ch 17 before you pay', 'read the next section first', 'A5 medical debt row')
     html = once(html, 'Ch 17', 'Ch 14', 'A4 door d')
+    for old, new in SIMULATOR:
+        html = once(html, old, new, 'A21 simulator')
     return html
+
+
+# A21 - the simulator box and the screenshot beside it came from two different
+# debt sets, so the reader could not reconcile them. Both now read the sample
+# file the app itself loads: Marcus's four debts from Appendix D. Driven in the
+# app on 10 October 2026 and read off the screen.
+SIMULATOR = [
+    ('Minimums alone: 24 months, $1,083 in interest. Add $300 a month: 13 months, and $657 '
+     'stays in your pocket.',
+     'Minimums alone: 48 months, $7,115 in interest. Add $300 a month: 26 months, and $4,032 '
+     'stays in your pocket.'),
+    ('On this sample file an extra $100 a month makes it debt free in a year and seven months '
+     'and saves $533 of interest.',
+     'On this sample file an extra $300 a month clears everything 22 months sooner and saves '
+     '$4,032 of interest.'),
+]

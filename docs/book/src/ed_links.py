@@ -37,6 +37,8 @@ EXT = [
  ('BenefitFinder.gov', 'https://www.usa.gov/benefit-finder'),
  ('USA.gov benefit finder', 'https://www.usa.gov/benefit-finder'),
  ('FDIC BankFind', 'https://banks.data.fdic.gov/bankfind-suite/bankfind'),
+ ('befreeacademy.site/engines', 'https://befreeacademy.site/engines'),
+ ('befreeacademy.site/sources', 'https://befreeacademy.site/sources'),
  ('befreeacademy.site', 'https://befreeacademy.site'),
  ('BankFind', 'https://banks.data.fdic.gov/bankfind-suite/bankfind'),
 ]

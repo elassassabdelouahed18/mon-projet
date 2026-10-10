@@ -62,7 +62,7 @@ def main():
     sys.path.insert(0, HERE)
     for mod in ('ed_front', 'ed_mid', 'ed_end', 'ed_figures', 'ed_recaps', 'ed_widen',
                 'ed_errata', 'ed_shared', 'ed_sources', 'ed_model4', 'ed_offense', 'ed_spine', 'ed_tables',
-                'ed_charts', 'ed_captions', 'ed_links', 'ed_heads', 'ed_alt'):
+                'ed_charts', 'ed_doors', 'ed_site', 'ed_captions', 'ed_links', 'ed_heads', 'ed_alt'):
         if os.path.exists(os.path.join(HERE, mod + '.py')):
             html = importlib.import_module(mod).apply(html)
     html = brand_green(html)
@@ -80,6 +80,13 @@ def main():
             landed.setdefault(anchor, i)
     toc = re.compile(r'(<a href="#([\w-]+)">(?:(?!</a>).)*?<span class="n">)(\d+)(</span></a>)', re.S)
     fixed = toc.sub(lambda m: m.group(1) + str(landed.get(m.group(2), m.group(3))) + m.group(4), html)
+    # {{p:ch06}} prints the page Chapter 6 actually landed on, so a figure can
+    # name a page without anyone typing it (A25).
+    tok = re.compile(r'\{\{p:([\w-]+)\}\}')
+    missing_tok = [m.group(1) for m in tok.finditer(fixed) if m.group(1) not in landed]
+    if missing_tok:
+        sys.exit(f'[page tokens] no target for {missing_tok}')
+    fixed = tok.sub(lambda m: str(landed[m.group(1)]), fixed)
     missing = [m.group(2) for m in toc.finditer(html) if m.group(2) not in landed]
     if missing:
         sys.exit(f'[contents] no target for {missing}')

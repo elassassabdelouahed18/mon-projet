@@ -121,3 +121,20 @@ figure{position:relative}
 .ilx{position:absolute;top:0;right:0;font-family:Poppins;font-weight:600;font-size:6.2pt;
   letter-spacing:.14em;text-transform:uppercase;color:var(--goldlab);background:var(--paper);
   border:.4pt solid var(--hair);border-radius:2pt;padding:1.6pt 4pt;line-height:1;z-index:5}
+
+/* A25 - the six doors, each with the page it opens */
+table.doors{width:100%;border-collapse:collapse;margin:8pt 0 10pt;font-size:8.8pt;line-height:12pt}
+table.doors td{padding:3.4pt 6pt 3.4pt 0;border-bottom:.4pt solid var(--hair);vertical-align:baseline}
+table.doors tr:last-child td{border-bottom:none}
+table.doors td.dl{width:14pt;font-family:Poppins;font-weight:600;font-size:8pt;color:var(--goldlab)}
+table.doors td.dr{text-align:right;white-space:nowrap;font-family:Poppins;font-weight:500;font-size:8pt}
+table.doors td.dr a{border-bottom:none}
+table.doors td.dr .n{display:inline-block;min-width:16pt;text-align:right;color:var(--folio);
+  font-family:Poppins;font-weight:500;font-size:8pt;margin-left:5pt}
+
+/* D6, D7 - the short address a printed link falls back to */
+p.short{display:flex;align-items:center;gap:8pt;margin-top:7pt;padding-top:6pt;
+  border-top:.4pt solid var(--hair);font-family:Poppins;font-weight:500;font-size:7.4pt;
+  line-height:10pt;color:var(--ink2)}
+p.short .qr{flex:0 0 auto;display:block}
+p.short b{font-weight:600;color:var(--goldlab)}

@@ -15,6 +15,6 @@ const top=async(sel,h,name)=>{const l=p.locator(sel).first();await l.scrollIntoV
  await p.screenshot({path:out(name),clip:bb,fullPage:true});};
 await top('#catsCard',560,'gap-where-it-goes');
 await p.evaluate(()=>go('debts'));await p.waitForTimeout(500);await kill();
-await p.evaluate(()=>{const r=document.getElementById('extra');r.value=100;r.dispatchEvent(new Event('input',{bubbles:true}))});await p.waitForTimeout(500);
+await p.evaluate(()=>{const r=document.getElementById('extra');r.value=300;r.dispatchEvent(new Event('input',{bubbles:true}))});await p.waitForTimeout(500);
 await p.evaluate(()=>document.getElementById('extra').closest('.card').id='simShot');await top('#simShot',318,'gap-payoff');
 if(errs.length)console.log('page errors:',errs);await b.close();})();

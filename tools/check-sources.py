@@ -68,6 +68,8 @@ DERIVED = {
     '511': "Chapter 14's own payoff table",
     '229': "Chapter 14's own payoff table",
     '1,262': "Chapter 14's own payoff table",
+    '7,115': "Chapter 14: Gap's payoff simulator on the sample file, minimums alone",
+    '4,032': 'Chapter 14: the same simulator, with $300 a month added',
     '1,083': "Chapter 14's worked simulator run",
     '657': "Chapter 14's worked simulator run",
     '533': "Chapter 14's worked simulator run",

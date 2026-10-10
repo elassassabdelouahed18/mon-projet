@@ -832,7 +832,7 @@ this is recorded rather than hidden.
 
 | ID | what changed | evidence |
 |---|---|---|
-| A19 | **Appendix G's duplicates.** Etsy was listed twice, once with the payment-processing fee and once with the offsite-ads fee. One row now carries both and one source line. Pew and Ahrefs were already single rows by then. | 98 rows, **no repeated fact**, checked by script |
+| A19 | **Appendix G's duplicates.** Etsy was listed twice, once with the payment-processing fee and once with the offsite-ads fee. One row now carries both and one source line. Pew and Ahrefs were already single rows by then. | 97 rows, **no repeated fact**, checked by script |
 | A21 | **The simulator box and the screenshot beside it** came from two different debt sets. Both now read the sample file the app itself loads — Marcus's four debts — driven in the app and read off the screen: minimums alone 48 months and $7,115 of interest; $300 a month clears it 22 months sooner and saves $4,032. The screenshot was re-shot at the same $300. | page 118 of the book: the panel and its caption carry the same four numbers |
 | A25 | **The six doors name their page.** Each door in the chart reads "Ch 14 · p110". The number is a `{{p:ch14}}` token that `build.py` resolves against where the chapter actually landed, in the same pass that fills the contents, so it cannot drift when the book repaginates. The box underneath now says "turn to the page beside it". | pages 53, 61, 65, 90, 110 printed into the chart on page 12 |
 | D6 | **befreeacademy.site/engines**, generated into `site-pages/engines.html` from the book's own five course boxes, with a QR code. Each box in the book carries that address, its QR, and the line "checked every quarter". **Not deployed.** | 5 boxes, 10 link annotations, the QR renders at 30pt |
@@ -864,3 +864,50 @@ brokerage page built by script (FDKLX 0.12%, SWYNX 0.08%, both with no minimum,
 and FZROX 0.00% and VTSAX 0.04% for the 0.00–0.05% range); the Saver's Match
 phase-out by filing status, from the IRS; and the Wage Growth Tracker's 325 of
 356 months, counted out of the Atlanta Fed's own spreadsheet.
+
+---
+
+## 5. Verification pass — every ID re-checked against the built files
+
+Run after the work was called finished, deliberately against the **artefacts**
+and not against this log: `docs/book/src/book.html` after a full build,
+`docs/start-here/book.html`, `docs/install-guide/guide.html`, `befree-apps/*/app.js`,
+both manifests, `STYLESHEET.md`, `site-pages/`, and `pdftotext` + `pikepdf` over
+the four PDFs. 105 checks over all 91 IDs, in `tools/verify-fixlist.py`, which exits 1 on
+anything but D4 and D5. **103 pass, 2 blocked (D4, D5), 0 fail.**
+
+**Two real findings.**
+
+**Appendix G row count.** `appendix_g()` returns `len(rows) - 1`, which is right:
+98 `<tr>` elements, one of them the header, so **97 data rows**. A19's and K3's
+“98 rows” counted the header; both now read 97, agreeing with
+`site-pages/sources.html`, which is generated from the same table.
+
+**K3 read 8 unsourced where the report said 6.** The two extra were A21's payoff
+figures, **$7,115** and **$4,032**. They are not claims about the world: they are
+what Gap's own simulator returns for the sample file, and the sentence beside them
+says so (“Those figures come from one illustrative file”). `check-sources.py`
+had entries for the rest of Chapter 14's payoff table ($345, $511, $229, $1,262)
+but not for these two, which arrived with A21. They are now in `DERIVED` with the
+line that produces each. The checker reports **226 numbers, 97 rows, 8 examples,
+18 the book's own arithmetic, 6 unsourced** — the six Chapter 12 case-study
+figures, which are exactly what D4, D5 and K3 record as blocked by this
+container's network.
+
+**One deviation, stated rather than papered over.** J8's unified short form,
+*“Regular paycheck first. Appendix B when your pay changes,”* is recorded as the
+rule in `STYLESHEET.md` §J8 and is **not** pasted verbatim into the four products.
+The book carries the idea in voice on the who-it's-for page (“written for people
+paid on a regular schedule, hourly or salaried … if your income swings from week
+to week … read Appendix B first”) and in Appendix B's subtitle, which is the B6
+edit; the guide points at Appendix B from *If your pay changes*, which is E6.
+The apps have no appendix to point a reader at, so the sentence there would read
+as an advert for the book on an app screen. Ground rule 1 outranks a verbatim
+paste: one idea, one meaning, three sentences in their own register.
+
+**Four first-run flags were faults in the checking expressions**, each confirmed
+by reading the markup before the expression was changed: B3 (`class="core-dot"`,
+6 occurrences — five chapters and the key — not `class="core"`), E7 (the sentence
+begins “The ten-minute Sunday review”, capital T), I4 (`MX={` wraps before
+`pay:1384.50`), J2 (`loadNote` compares `load<=60` and `load<=85`, integers, not
+0.6 and 0.85).

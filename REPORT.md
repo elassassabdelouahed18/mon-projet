@@ -3,7 +3,8 @@
 Branch `claude/new-session-hcmz47`. Every change is in `FIXLOG.md` with its
 evidence; this is the summary the fix list asked for.
 
-**91 IDs: 84 done, 3 done with a stated limit, 4 blocked.**
+**91 IDs: 83 done, 4 done with a stated limit or deviation, 4 blocked.**
+**Re-verified against the built files after the fact: 105 checks, 103 pass, 2 blocked, 0 fail (§5).**
 **Acceptance tests: 7 pass, 1 blocked, 0 fail.** Nothing failed.
 
 ---
@@ -16,7 +17,7 @@ evidence; this is the summary the fix list asked for.
 | A2 | done | `model/financial-model.cjs` | A pre-tax 401(k) deferral saves income tax and not FICA, which was backwards. Maya's step-up cost: **$146 → $117**. |
 | A3 | done | `ed_errata.py` | The ten essential items sum to $2,522 and the chart marker moved with it: 91.1%. |
 | A4–A18 | done | `ed_errata.py`, `ed_front.py` | Fifteen errata applied as named, checked replacements. A14's investing order is a six-step chart with the HSA third. |
-| A19 | done | `ed_sources.py` | Etsy was two rows; it is one, carrying both the processing fee and the offsite-ads fee. 98 rows, no repeated fact. |
+| A19 | done | `ed_sources.py` | Etsy was two rows; it is one, carrying both the processing fee and the offsite-ads fee. 97 rows, no repeated fact. |
 | A20 | done | `ed_recaps.py` | "Ninety days, four phases" is gone. |
 | A21 | done | `ed_errata.py`, `shots.cjs` | The simulator box and the screenshot beside it now read the same sample file: **24 months / $1,083 / 13 months / $657 → 48 months / $7,115 / 26 months / $4,032**. |
 | A22–A24 | done | `ed_errata.py`, `ed_spine.py` | Cash milestones state their 0% real assumption; the spine is one framework. |
@@ -72,11 +73,11 @@ evidence; this is the summary the fix list asked for.
 | I3 | done | `gap/index.html` | The install card floats at the foot of Today and nowhere else. |
 | I4 | done | `shots.cjs` ×2 | Every app screenshot recaptured from the Marcus file. |
 | I5 | done | `tools/axe-audit.cjs` | **40 screens, light and dark, 0 WCAG 2 A/AA violations.** |
-| J1–J8 | done | `STYLESHEET.md`, `ed_shared.py`, both apps | One wording per idea. J2's thresholds moved **50/65/80 → 60/85** and the app computes the same number the same way. |
+| J1–J8 | done, with one stated deviation | `STYLESHEET.md`, `ed_shared.py`, both apps | One wording per idea. J2's thresholds moved **50/65/80 → 60/85** and the app computes the same number the same way. **J8 deviates:** its short form, *“Regular paycheck first. Appendix B when your pay changes,”* is the rule in `STYLESHEET.md` and is not pasted into the four products. The book states it in voice on the who-it's-for page and in Appendix B's subtitle (B6); the guide points at Appendix B from *If your pay changes* (E6); the apps have no appendix to point at, so the sentence would read as a stray book advert on an app screen. The idea is one; the sentence is not copied. |
 | J9 | done | `STYLESHEET.md`, `tools/check-stylesheet.py` | The contract, and a script that enforces it. **0 failures.** |
 | K1 | **pass** | `tools/acceptance.py` | The model reproduces itself byte for byte and ships. |
 | K2 | **pass** | same | 90 internal links, every one with a target that it names. |
-| K3 | **blocked** | `tools/check-sources.py` | 227 numbers against 98 rows; 8 are examples, 19 are the book's own arithmetic, **6 unsourced** — the Chapter 12 case studies above. |
+| K3 | **blocked** | `tools/check-sources.py` | 226 numbers against 97 rows; 8 are examples, 18 are the book's own arithmetic, **6 unsourced** — the Chapter 12 case studies above. |
 | K4 | **pass** | `tools/acceptance.py` | No leftovers. |
 | K5 | **pass** | `tools/check-stylesheet.py` | 0 failures. |
 | K6 | **pass** | `tools/acceptance.py` | 0 broken ligatures, 0 Type 3, 0 fallback fonts, `/Lang en-US` and tagged on all four PDFs. |
@@ -171,3 +172,38 @@ registers, the page renders with the network off, and there are no page errors.
 10. **H6, if you want it.** The guide cover can be regenerated to match the
     book's grain, at the cost of the staircase illustration. I argued against
     it; it is your call.
+
+---
+
+## 5 · The verification pass
+
+Every ID was re-checked against the **built artefacts**, not against this report.
+`tools/verify-fixlist.py`, 105 checks in all, re-runnable: `book.html` after the full build, the guide, the
+install sheet, both `app.js` files, both manifests, `STYLESHEET.md`, the
+`site-pages/` output, and `pdftotext` and `pikepdf` over the four finished PDFs.
+
+| | |
+|---|---|
+| Checks that passed | **103** |
+| Still blocked, reported above | **2** — D4, D5 |
+| Failures | **0** |
+
+Four flags in the first run were faults in the checking expressions, not in the
+products: B3 looks for `class="core-dot"` and not `class="core"` (6 dots: five
+core chapters and the key), E7's sentence begins with a capital *T*, I4's sample
+constant wraps after `MX={`, and J2's thresholds are integers in `loadNote`, not
+fractions. Each was confirmed by reading the markup before the expression was
+corrected.
+
+Two real findings, both fixed in this pass:
+
+1. **Appendix G is 97 rows, not 98.** The count included the header row. A19,
+   D7 and K3 now all say 97, and they agree with `site-pages/sources.html`.
+2. **K3 read 8 unsourced, not 6.** A21's payoff figures, **$7,115** and
+   **$4,032**, are the app's own amortisation of the sample file — the book says
+   so in the sentence beside them — but `check-sources.py` had no entry for them
+   and counted them as claims about the world. They join `DERIVED` with the two
+   lines that work them out. The checker now reports **6 unsourced, every one a
+   Chapter 12 case study**, which is what D4, D5 and K3 say is blocked.
+
+Nothing else moved. The suite still reads **7 pass, 1 blocked, 0 fail**.

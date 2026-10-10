@@ -832,11 +832,11 @@ this is recorded rather than hidden.
 
 | ID | what changed | evidence |
 |---|---|---|
-| A19 | **Appendix G's duplicates.** Etsy was listed twice, once with the payment-processing fee and once with the offsite-ads fee. One row now carries both and one source line. Pew and Ahrefs were already single rows by then. | 100 rows, **no repeated fact**, checked by script |
+| A19 | **Appendix G's duplicates.** Etsy was listed twice, once with the payment-processing fee and once with the offsite-ads fee. One row now carries both and one source line. Pew and Ahrefs were already single rows by then. | 103 rows, **no repeated fact**, checked by script |
 | A21 | **The simulator box and the screenshot beside it** came from two different debt sets. Both now read the sample file the app itself loads — Marcus's four debts — driven in the app and read off the screen: minimums alone 48 months and $7,115 of interest; $300 a month clears it 22 months sooner and saves $4,032. The screenshot was re-shot at the same $300. | page 118 of the book: the panel and its caption carry the same four numbers |
 | A25 | **The six doors name their page.** Each door in the chart reads "Ch 14 · p110". The number is a `{{p:ch14}}` token that `build.py` resolves against where the chapter actually landed, in the same pass that fills the contents, so it cannot drift when the book repaginates. The box underneath now says "turn to the page beside it". | pages 53, 61, 65, 90, 110 printed into the chart on page 12 |
 | D6 | **befreeacademy.site/engines**, generated into `site-pages/engines.html` from the book's own five course boxes, with a QR code. Each box in the book carries that address, its QR, and the line "checked every quarter". **Not deployed.** | 5 boxes, 10 link annotations, the QR renders at 30pt |
-| D7 | **befreeacademy.site/sources**, generated into `site-pages/sources.html` from Appendix G itself — all 100 rows — with a QR code. Appendix G's opening now prints the address. **Not deployed.** | page 182 |
+| D7 | **befreeacademy.site/sources**, generated into `site-pages/sources.html` from Appendix G itself — all 103 rows — with a QR code. Appendix G's opening now prints the address. **Not deployed.** | page 182 |
 | D8 | The section is now **"Widely quoted, left out as unverifiable"**, which is what it is for. The 160-million headcount stays listed, and the "80 to 90% of dropshippers fail" figure joins it, with a pointer to what Chapter 12 says instead. | page 188 |
 
 **D5 — BLOCKED, and it needs a person.** The review asks me to replace Liam
@@ -1030,3 +1030,69 @@ answers this address with 403), Graham Stephan's $5.1 million (stated inside a
 video, which no metadata endpoint carries) and Midwest Foodie's $206,000 quarter
 (the blog answers with a Cloudflare challenge). Appendix G: **100 rows**. The
 book: **199 pages**.
+
+---
+
+## 9. K3 — closed, with the last three read or removed
+
+**Gumroad's 45,917 creators.** `gumroad.com/blog/<slug>` returns 404 and the
+Wayback CDX index answers this address with 403, which is where the trail ended
+yesterday. But the blog is an Inertia app: the index page carries its own JSON
+in a `data-page` attribute, and that JSON lists 184 posts with their slugs. The
+2020 review is **`/blog/p/last-year-in-the-creator-economy`**, *Last Year in the
+Creator Economy*, published 12 January 2021, and the post itself says:
+
+> "an active Gumroad creator &hellip; is someone who made at least a penny on
+> Gumroad at any point in 2020. This post is about **45,917** such creators"
+> &hellip; "the median creator made only **$70** in 2020. In fact, the top 1% of
+> creators earned about 60% of the money in 2020. The top 10% of creators earned
+> nearly **92%** of the total GMV."
+
+The book's sentence was correct to the digit. Rowed, with the URL and the date.
+
+**Midwest Foodie's $206,000 quarter.** The HTML pages answer a browser with a
+Cloudflare challenge, and so does WebFetch. The blog's **WordPress REST API**
+answers 200 to a plain request, and serves the same post bodies. The four 2024
+income reports give:
+
+| quarter | income | pageviews |
+|---|---|---|
+| Q1 | $99,632 | 932,345 &middot; 835,730 &middot; 705,208 |
+| Q2 | $96,436 | 685,299 &middot; 677,770 &middot; 667,994 |
+| Q3 | $117,686 | 751,429 &middot; 771,737 &middot; 893,595 |
+| Q4 | **$206,037** | 1,091,042 &middot; 1,093,409 &middot; 1,092,586 |
+
+$519,791 for the year, so "over $500,000 gross" holds, and the fourth quarter's
+pageviews come to **3,277,037** &mdash; the 3.28 million the book prints. Correct
+as well. Rowed.
+
+**Graham Stephan's $5.1 million &mdash; removed, not closed.** cnbc.com answers 403
+to every user-agent, no NBC local syndication of the 9 September 2021 piece
+exists (searched across twelve of them), forbes.com is 403, and CNBC's own
+GraphQL host is 403. What I could establish, from the article's own citation,
+is that the clause the book attached to it &mdash; *"about half of it from
+advertising"* &mdash; belongs to the **$6 million that piece projects for 2021**, not
+to the $5.1 million of 2020. A figure that cannot be opened, carrying a clause
+borrowed from another year, is exactly what Appendix G's promise exists to
+prevent.
+
+**Nischa Shah** takes the slot, from CNBC Make It (Sawdah Bhaimiya, 9 July 2024)
+read in the NBC 7 San Diego syndication: personal-finance videos from December
+2021 while working as an investment banker, **eleven months to 1,000
+subscribers, then two months to 100,000**, past a million subscribers and **over
+$1 million a year** by mid-2024 across ad revenue, courses, talks and brand
+deals, **with the YouTube earnings from May 2023 to May 2024 verified from her
+bank statements**. She also quit two months before a six-figure bonus was due.
+Her first year is the part Engine Four's reader needs, and it sits against the
+median paragraph on the same page rather than mocking it.
+
+**K3: 229 numbers, 103 rows, 0 unsourced.** The acceptance suite is **8 pass,
+0 blocked, 0 fail** for the first time in this pass.
+
+**One note on method.** Three sites refused a browser and answered an API:
+YouTube (`youtubei/v1/next`), Gumroad (Inertia's `data-page` JSON) and Midwest
+Foodie (the WordPress REST API). None of this is circumvention &mdash; each is the
+site's own public endpoint serving its own published content, requested once,
+unauthenticated. What I did **not** do: Chromium with the proxy CA pinned, which
+this environment refuses as a TLS weakening, and no third-party mirror or
+scraper proxy was used, because a mirror is not a primary source.

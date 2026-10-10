@@ -231,9 +231,9 @@ for i, name in [('K1', 'the model reproduces'), ('K2', 'every cross-reference'),
                 ('K7', 'both phone editions'), ('K8', 'the installed names')]:
     line = next((l for l in out.splitlines() if name in l), '')
     chk(i, line.startswith('PASS') or line.startswith('BLOCKED'), line.split('  ', 1)[0].strip() + ' — ' + name)
-chk('K3+', '8 unsourced' not in out and 'without a row: 3' in
+chk('K3+', '8 unsourced' not in out and 'without a row: 0' in
     subprocess.run(['python3', 'tools/check-sources.py'], cwd=R, capture_output=True, text=True).stdout,
-    'exactly the 3 Chapter 12 figures still blocked')
+    'no figure without a row')  # K3 closed)
 # K9-K11 — the three packets the fix list asks a human to run
 chk('K9', len(rd('REVIEW_PACKET_TAX.md')) > 3000 and 'CPA' in rd('REVIEW_PACKET_TAX.md'), 'tax packet')
 chk('K10', len(rd('READER_TEST.md')) > 3000 and 'five readers' in rd('READER_TEST.md').lower(), 'reader test')

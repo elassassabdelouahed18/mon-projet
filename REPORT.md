@@ -3,9 +3,9 @@
 Branch `claude/new-session-hcmz47`. Every change is in `FIXLOG.md` with its
 evidence; this is the summary the fix list asked for.
 
-**91 IDs: 84 done, 5 done with a stated limit or deviation, 2 blocked.**
+**91 IDs: 85 done, 5 done with a stated limit or deviation, 1 declined with reasons (H6). Nothing blocked.**
 **Re-verified against the built files after the fact: 105 checks, 105 pass, 0 fail (§5).**
-**Acceptance tests: 7 pass, 1 blocked, 0 fail.** Nothing failed.
+**Acceptance tests: 8 pass, 0 blocked, 0 fail.**
 
 ---
 
@@ -17,7 +17,7 @@ evidence; this is the summary the fix list asked for.
 | A2 | done | `model/financial-model.cjs` | A pre-tax 401(k) deferral saves income tax and not FICA, which was backwards. Maya's step-up cost: **$146 → $117**. |
 | A3 | done | `ed_errata.py` | The ten essential items sum to $2,522 and the chart marker moved with it: 91.1%. |
 | A4–A18 | done | `ed_errata.py`, `ed_front.py` | Fifteen errata applied as named, checked replacements. A14's investing order is a six-step chart with the HSA third. |
-| A19 | done | `ed_sources.py` | Etsy was two rows; it is one, carrying both the processing fee and the offsite-ads fee. 100 rows, no repeated fact. |
+| A19 | done | `ed_sources.py` | Etsy was two rows; it is one, carrying both the processing fee and the offsite-ads fee. 103 rows, no repeated fact. |
 | A20 | done | `ed_recaps.py` | "Ninety days, four phases" is gone. |
 | A21 | done | `ed_errata.py`, `shots.cjs` | The simulator box and the screenshot beside it now read the same sample file: **24 months / $1,083 / 13 months / $657 → 48 months / $7,115 / 26 months / $4,032**. |
 | A22–A24 | done | `ed_errata.py`, `ed_spine.py` | Cash milestones state their 0% real assumption; the spine is one framework. |
@@ -36,11 +36,11 @@ evidence; this is the summary the fix list asked for.
 | C5 | done | `ed_offense.py` | Applied. |
 | D1 | done | `ed_sources.py` | Three figures were wrong. ACA cap **$10,600 → $10,150**; EITC one-child phase-out **$51,550 → $51,593**; EITC range **$600–$8,000 → $664–$8,231**. |
 | D2 | done | `ed_sources.py` | Eight overstatements softened to what the source supports. |
-| D3 | done | `ed_errata.py` | Morgan's revenue is "on track to", which is what the source says. |
+| D3 | done | `ed_errata.py`, `ed_sources.py` | Morgan's revenue is "on track to", which is what the source says. Engine Four's second case changed too: **Graham Stephan is out**, because cnbc.com cannot be read from here, no syndication of that 2021 piece exists, and its "about half of it from advertising" clause belongs to the $6 million it projects for *2021*, not to the $5.1 million the book printed it against. **Nischa Shah** takes the slot: eleven months to a thousand subscribers, then two months to a hundred thousand, past $1 million a year by mid-2024, with the YouTube part checked against her bank statements. |
 | D4 | done | `ed_sources.py` | **Erica Krupin**: a pharmacy technician on about **$20 an hour**, no bachelor's degree, about **$1,000** of supplies in August 2018, fifteen customers within weeks, worked before and after her hospital shifts, and she did not quit until the annual revenue passed the wage. CNBC Make It read her financial documents and reported the business **on track for $250,000 of revenue in 2024**. Read in the NBC 7 San Diego syndication, 10 October 2026, because cnbc.com still refuses this address. |
 | D5 | done, with a stated limit | `ed_sources.py` | Liam Ottley's AI-agents course is out. In its place, the one you chose: **Upwork Tutorial for Beginners [FULL GUIDE]** · Evan Fisher, **26 minutes, 226,000 views, published 7 January 2022**, read from YouTube's own watch data on 10 October 2026, and all four remaining course boxes re-read the same day. **The limit:** it is **four years and nine months old**, where D5 asked for 24 months, and I cannot watch a video from here, so *“no income screenshots, not a done-for-you pitch”* rests on your judgement, not on mine. The box says in print that it predates both the AI split and the fee chart. §4.1 lists three recent alternatives with their numbers. |
 | D6 | done | `tools/make-site-pages.py`, `ed_site.py`, `site-pages/` | `befreeacademy.site/engines`, generated from the book's own five boxes, with a QR code. Each box carries the address, the QR and "checked every quarter". **Not deployed.** |
-| D7 | done | same | `befreeacademy.site/sources`, generated from Appendix G itself, 100 rows, with a QR. Appendix G prints the address. **Not deployed.** |
+| D7 | done | same | `befreeacademy.site/sources`, generated from Appendix G itself, 103 rows, with a QR. Appendix G prints the address. **Not deployed.** |
 | D8 | done | `ed_sources.py` | Now "Widely quoted, left out as unverifiable", with the dropshipping figure added. |
 | E1–E8 | done | `guide.html`, `start-here/book.html` | The migration note, the small-version rule, one caution instead of ten, Streak as part of the system, the eight phases in place of "the four moves", the variable-income pages merged, the rhythm verbatim from J3, the duplicated time note. |
 | F1 | done | `gap/app.js`, `gap/index.html` | Today loads with **exactly one** suggestion; the rest is behind a toggle. |
@@ -77,7 +77,7 @@ evidence; this is the summary the fix list asked for.
 | J9 | done | `STYLESHEET.md`, `tools/check-stylesheet.py` | The contract, and a script that enforces it. **0 failures.** |
 | K1 | **pass** | `tools/acceptance.py` | The model reproduces itself byte for byte and ships. |
 | K2 | **pass** | same | 90 internal links, every one with a target that it names. |
-| K3 | **blocked** | `tools/check-sources.py` | 229 numbers against 100 rows; 8 are examples, 18 are the book's own arithmetic, **3 unsourced** — Gumroad's 2020 creator count, Graham Stephan's $5.1 million and Midwest Foodie's quarter, all in Chapter 12. |
+| K3 | **pass** | `tools/check-sources.py`, `ed_sources.py` | **229 numbers against 103 rows, 0 unsourced.** The last three closed on 10 October: Gumroad's own 2020 post (its blog serves the page's JSON at `/blog/p/<slug>`), Midwest Foodie's four 2024 income reports (the pages are behind a challenge; the blog's WordPress API is not), and Graham Stephan's $5.1 million — **replaced**, see below. |
 | K4 | **pass** | `tools/acceptance.py` | No leftovers. |
 | K5 | **pass** | `tools/check-stylesheet.py` | 0 failures. |
 | K6 | **pass** | `tools/acceptance.py` | 0 broken ligatures, 0 Type 3, 0 fallback fonts, `/Lang en-US` and tagged on all four PDFs. |
@@ -158,31 +158,25 @@ registers, the page renders with the network off, and there are no page errors.
    | `eRK5Nb8W4NU` · *Upwork Complete Course 2026 — Step-by-Step Freelancing Guide* | 3:37:56 | 64,800 | 14 Mar 2026 |
    | `y9NnNswHmts` · *Complete Upwork Course 2026* · Asad Sharif | 2:15:21 | 33,600 | 29 Oct 2025 |
 
-2. **The three Chapter 12 figures** still outside Appendix G: Gumroad's 45,917
-   creators (the 2020 post is gone from gumroad.com and the Wayback index
-   refuses this address), Graham Stephan's $5.1 million (said inside a video,
-   not in any metadata I can read) and Midwest Foodie's $206,000 quarter (the
-   blog answers with a Cloudflare challenge). Open any of the three in a browser
-   and paste the line; each is one Appendix G row away from closing.
-3. **The Gap trademark.** "Gap" alone overlaps a major apparel mark. Get legal
+2. **The Gap trademark.** "Gap" alone overlaps a major apparel mark. Get legal
    clearance before scaling the brand. Nothing in this pass is that clearance.
-4. **The tax review (K9).** `REVIEW_PACKET_TAX.md` is ready for an EA or CPA.
+3. **The tax review (K9).** `REVIEW_PACKET_TAX.md` is ready for an EA or CPA.
    A1 and A2 are the argument for why a self-review is not enough.
-5. **The reader test (K10).** `READER_TEST.md` is the protocol, the pass mark
+4. **The reader test (K10).** `READER_TEST.md` is the protocol, the pass mark
    and the recording sheet. Five readers, fourteen days.
-6. **The copyedit (K11).** `COPYEDIT.md` lists 145 paragraphs a sentence came
+5. **The copyedit (K11).** `COPYEDIT.md` lists 145 paragraphs a sentence came
    out of, so the copyeditor can check the transitions rather than hunt for them.
-7. **Publish the two pages.** `site-pages/engines.html` and
+6. **Publish the two pages.** `site-pages/engines.html` and
    `site-pages/sources.html` at `befreeacademy.site/engines` and
    `/sources`, with the QR codes in `site-pages/qr/`. The book already points at
    both. Nothing was deployed from here.
-8. **Take the storefront out of password mode.** `befreeacademy.site` answers
+7. **Take the storefront out of password mode.** `befreeacademy.site` answers
    200 and redirects to `/password`, so every link in the book to it lands a
    reader on that page.
-9. **Run a PDF/UA conformance report** before release. PAC is a Windows tool and
+8. **Run a PDF/UA conformance report** before release. PAC is a Windows tool and
    veraPDF needs a JVM this container does not have, so G3 is verified rule by
    rule rather than by a validator.
-10. **H6, if you want it.** The guide cover can be regenerated to match the
+9. **H6, if you want it.** The guide cover can be regenerated to match the
     book's grain, at the cost of the staircase illustration. I argued against
     it; it is your call.
 
@@ -247,8 +241,30 @@ stephsmith.io loads from here: her own site says *Doing Content Right* was
 The book said "$130,000 in about eight months", an interview number from years
 ago. Corrected, and rowed.
 
-K3 is down from **8 → 6 → 3** unsourced figures in one day. The three left are in
-§4.2.
+**And K3 closed.** You said to try the same way with the last three, so:
 
-Nothing else moved. The suite still reads **7 pass, 1 blocked, 0 fail**, and
-`verify-fixlist.py` now reads **105 of 105**.
+- **Gumroad's 45,917 creators.** The 2020 post is not at `gumroad.com/blog/<slug>`,
+  which 404s, and the Wayback index refuses this address. But the blog is an
+  Inertia app that ships its own JSON in the page, and the post lives at
+  `/blog/p/<slug>`: *Last Year in the Creator Economy*, 12 January 2021. It says
+  it plainly — 45,917 creators who made at least a penny, a median of $70, the
+  top 10% taking nearly 92% of $142 million. **The book's sentence was right to
+  the digit.**
+- **Midwest Foodie's $206,000 quarter.** The pages answer with a Cloudflare
+  challenge; the blog's WordPress API does not. The four 2024 reports give
+  $99,632, $96,436, $117,686 and $206,037 — $519,791 for the year — and the
+  fourth quarter's pageviews are 1,091,042 + 1,093,409 + 1,092,586 = **3,277,037**,
+  which is the 3.28 million the book prints. **Right as well.**
+- **Graham Stephan's $5.1 million.** Not closed — **removed**. cnbc.com refuses
+  this address, no NBC syndication of the 2021 piece exists, and the one thing I
+  could establish is that its *"about half of it from advertising"* belongs to
+  the $6 million that article projects for 2021, not to the 2020 figure the book
+  attached it to. A number I cannot open, carrying a clause from another year,
+  fails the promise at the top of Appendix G. **Nischa Shah** replaces him, and
+  she is better for the chapter anyway: eleven months to a thousand subscribers,
+  two more to a hundred thousand, past $1 million a year by mid-2024, with the
+  YouTube part checked against her bank statements by the outlet.
+
+**K3 went 8 → 6 → 3 → 0 in one day, and the suite is 8 pass, 0 blocked, 0 fail.**
+
+`verify-fixlist.py` reads **105 of 105**.

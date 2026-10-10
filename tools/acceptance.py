@@ -93,7 +93,8 @@ def k3():
     report('K3', 'every number is sourced, or named as the book’s own', None if n else True,
            f'{checked.group(1)} numbers checked against {rows.group(1)} Appendix G rows\n'
            f'{illus.group(1)} are examples, {derived.group(1)} are the book’s own arithmetic\n'
-           f'{n} unsourced, all in Chapter 12 and all blocked by this container’s network')
+           + (f'{n} unsourced, all in Chapter 12 and all blocked by this container’s network'
+              if n else 'every one of them has a row in Appendix G'))
 
 
 # ───────────────────────────────────────────── K4 · leftovers

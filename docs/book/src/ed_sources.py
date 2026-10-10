@@ -65,6 +65,32 @@ ROWS = [
     ('2026 Saver&rsquo;s Credit income limit',
      '$40,250 single, $60,375 head of household, $80,500 joint',
      'IRS, 2026 cost-of-living adjustments'),
+    # K3: Gumroad's own 2020 report. gumroad.com/blog is a client-rendered
+    # app and /blog/<slug> is a 404, but the post lives at /blog/p/<slug> and
+    # the page ships its own JSON, so the post was read in full.
+    ('Gumroad&rsquo;s 2020 numbers for its own creators',
+     '45,917 creators earned at least one cent; the median creator made $70 for the whole '
+     'year; the top 1% took about 60% and the top 10% nearly 92% of $142 million of sales',
+     'Gumroad, <em>Last Year in the Creator Economy</em>, 12 January 2021, '
+     'gumroad.com/blog/p/last-year-in-the-creator-economy. Read 10 October 2026'),
+    # K3: Midwest Foodie's own income reports. The pages answer a browser with
+    # a Cloudflare challenge, but the blog's WordPress API serves the same
+    # posts, so every figure here is the blog's own.
+    ('Midwest Foodie, a food blog&rsquo;s own 2024 income reports',
+     'quarterly totals $99,632, $96,436, $117,686 and $206,037, which is $519,791 for the '
+     'year, so over $500,000 gross and a single quarter at $206,000; that quarter&rsquo;s '
+     'pageviews were 1,091,042, 1,093,409 and 1,092,586, which is 3,277,037, or 3.28 million',
+     'midwestfoodieblog.com, the four 2024 quarterly income reports. Read 10 October 2026'),
+    # K3: the replacement for Graham Stephan, whose $5.1 million cannot be read
+    # from here and whose "about half from advertising" belongs to a different
+    # year's figure.
+    ('Nischa Shah, personal-finance YouTube channel',
+     'eleven months to 1,000 subscribers from December 2021, then two months to 100,000; '
+     'past 1 million subscribers and over $1 million a year by mid-2024, from ad revenue, '
+     'courses, talks and brand deals',
+     'CNBC Make It, Sawdah Bhaimiya, 9 July 2024; the YouTube earnings from May 2023 to '
+     'May 2024 verified from her bank statements. Read in the NBC 7 San Diego syndication, '
+     '10 October 2026'),
     # K3: Steph Smith's ebook, read on her own site rather than from an
     # interview about it. Her number is larger and her timeframe is shorter
     # than the one the book carried.
@@ -175,6 +201,25 @@ EDITS = [
      'nearly $500,000 a year, paying him more than $350,000. Eryn Andrews spent $200 on a '
      'microphone and a class in 2022 while employed at NASA, started selling voice-over work, '
      'and said her voice-over income passed her NASA salary in the summer of 2025.'),
+
+    # ------------------------------------------------------- K3, Engine Four
+    # Graham Stephan's $5.1 million is reported by CNBC, which refuses this
+    # address, and no syndication of that 2021 piece exists; worse, the "about
+    # half of it from advertising" clause belongs to the $6 million the same
+    # article projects for 2021, not to the 2020 figure the book printed it
+    # against. An unreadable number carrying a misattributed clause does not
+    # belong in a book that promises every figure is on one page. Nischa Shah
+    # is the same engine, documented, and her first year is the part a reader
+    # needs.
+    ('rep', 'The ceiling, documented. Kelly Rocklein',
+     'The ceiling, documented. Kelly Rocklein made $142,000 in 2022 making content for '
+     'brands on about fifteen hours a week while working at a marketing agency, and CNBC '
+     'reviewed her documents for that figure. Nischa Shah started posting personal-finance '
+     'videos in December 2021 while working as an investment banker: eleven months to her '
+     'first thousand subscribers, then two months to a hundred thousand. By the middle of '
+     '2024 she was past a million subscribers and over $1 million a year across ad revenue, '
+     'courses, talks and brand deals, with the YouTube part checked against her bank '
+     'statements, and she had left the bank two months before a six-figure bonus was due.'),
 
     # ---------------------------------------------------------- K3, Smith
     # The book said "more than $130,000 in about eight months", which is an

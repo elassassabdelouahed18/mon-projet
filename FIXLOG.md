@@ -6,7 +6,7 @@ commit `d1d3bde`.
 
 ## 1. Pipeline map
 
-### Book — *The Anti-Paycheck Trap*, 6×9, 189 pp, WeasyPrint 70
+### Book — *The Anti-Paycheck Trap*, 6×9, 198 pp, WeasyPrint 70
 
     docs/book/src/original.html     third-edition source as supplied — NEVER edited
     docs/book/src/sys.css           its stylesheet — NEVER edited
@@ -832,11 +832,11 @@ this is recorded rather than hidden.
 
 | ID | what changed | evidence |
 |---|---|---|
-| A19 | **Appendix G's duplicates.** Etsy was listed twice, once with the payment-processing fee and once with the offsite-ads fee. One row now carries both and one source line. Pew and Ahrefs were already single rows by then. | 97 rows, **no repeated fact**, checked by script |
+| A19 | **Appendix G's duplicates.** Etsy was listed twice, once with the payment-processing fee and once with the offsite-ads fee. One row now carries both and one source line. Pew and Ahrefs were already single rows by then. | 98 rows, **no repeated fact**, checked by script |
 | A21 | **The simulator box and the screenshot beside it** came from two different debt sets. Both now read the sample file the app itself loads — Marcus's four debts — driven in the app and read off the screen: minimums alone 48 months and $7,115 of interest; $300 a month clears it 22 months sooner and saves $4,032. The screenshot was re-shot at the same $300. | page 118 of the book: the panel and its caption carry the same four numbers |
 | A25 | **The six doors name their page.** Each door in the chart reads "Ch 14 · p110". The number is a `{{p:ch14}}` token that `build.py` resolves against where the chapter actually landed, in the same pass that fills the contents, so it cannot drift when the book repaginates. The box underneath now says "turn to the page beside it". | pages 53, 61, 65, 90, 110 printed into the chart on page 12 |
 | D6 | **befreeacademy.site/engines**, generated into `site-pages/engines.html` from the book's own five course boxes, with a QR code. Each box in the book carries that address, its QR, and the line "checked every quarter". **Not deployed.** | 5 boxes, 10 link annotations, the QR renders at 30pt |
-| D7 | **befreeacademy.site/sources**, generated into `site-pages/sources.html` from Appendix G itself — all 97 rows — with a QR code. Appendix G's opening now prints the address. **Not deployed.** | page 182 |
+| D7 | **befreeacademy.site/sources**, generated into `site-pages/sources.html` from Appendix G itself — all 98 rows — with a QR code. Appendix G's opening now prints the address. **Not deployed.** | page 182 |
 | D8 | The section is now **"Widely quoted, left out as unverifiable"**, which is what it is for. The 160-million headcount stays listed, and the "80 to 90% of dropshippers fail" figure joins it, with a pointer to what Chapter 12 says instead. | page 188 |
 
 **D5 — BLOCKED, and it needs a person.** The review asks me to replace Liam
@@ -873,15 +873,16 @@ Run after the work was called finished, deliberately against the **artefacts**
 and not against this log: `docs/book/src/book.html` after a full build,
 `docs/start-here/book.html`, `docs/install-guide/guide.html`, `befree-apps/*/app.js`,
 both manifests, `STYLESHEET.md`, `site-pages/`, and `pdftotext` + `pikepdf` over
-the four PDFs. 105 checks over all 91 IDs, in `tools/verify-fixlist.py`, which exits 1 on
-anything but D4 and D5. **103 pass, 2 blocked (D4, D5), 0 fail.**
+the four PDFs. 105 checks over all 91 IDs, in `tools/verify-fixlist.py`. **104 pass, 1 blocked
+(D5), 0 fail** — D4 was blocked when the audit ran and is closed in §6 below.
 
 **Two real findings.**
 
 **Appendix G row count.** `appendix_g()` returns `len(rows) - 1`, which is right:
-98 `<tr>` elements, one of them the header, so **97 data rows**. A19's and K3's
-“98 rows” counted the header; both now read 97, agreeing with
-`site-pages/sources.html`, which is generated from the same table.
+the header `<tr>` is not a row. A19 and K3 were counting it, so both were one
+high. They now read what the script reads, and agree with
+`site-pages/sources.html`, which is generated from the same table. (With D4's
+row added below, that count is **98 data rows**.)
 
 **K3 read 8 unsourced where the report said 6.** The two extra were A21's payoff
 figures, **$7,115** and **$4,032**. They are not claims about the world: they are
@@ -911,3 +912,58 @@ by reading the markup before the expression was changed: B3 (`class="core-dot"`,
 begins “The ten-minute Sunday review”, capital T), I4 (`MX={` wraps before
 `pay:1384.50`), J2 (`loadNote` compares `load<=60` and `load<=85`, integers, not
 0.6 and 0.85).
+
+---
+
+## 6. D4 — closed, with the source read
+
+The audit sent me back to the network, and this time the case was there.
+
+**What D4 asked for.** One documented case of an hourly worker without a degree
+who built side income, reviewed by a news outlet, placed under the fitting
+engine with an Appendix G row. It had been blocked because **cnbc.com answers
+this address with 403 to every user-agent**.
+
+**How it was read.** The NBC local syndications of CNBC Make It copy do answer
+this address — that is how Morgan, Odio-Sutton, Rocklein and Woo were verified
+earlier in this pass — so the search ran against the syndications instead of
+cnbc.com. The story is **NBC 7 San Diego's syndication of CNBC Make It, Morgan
+Smith, published 12 December 2024**, from the *Ditching the Degree* series. Read
+in full, 10 October 2026.
+
+| what the source says | in the book |
+|---|---|
+| pharmacy technician at the University of Michigan medical centre, 13 years, **about $20 an hour** at the time she quit | about $20 an hour |
+| *Ditching the Degree*; a couple of general courses at a community college, **no bachelor's degree** | without a bachelor's degree |
+| **about $1,000** on a children's gardening rake, bags, gloves, a dust pan and disinfectant, an LLC, insurance, a domain, a cargo trailer and hitch | about $1,000, itemised |
+| launched **August 2018**; printed a map of nearby grooming shops and vets, business cards in one hand, donuts in the other; **first 15 customers within weeks** | unchanged |
+| took appointments **mornings and evenings after her hospital shifts** | before and after her hospital shifts |
+| waited to quit until **annual revenue exceeded what she earned at the hospital**; hit it at the end of her first full calendar year; quit **February 2020** | kept, with the caveat that revenue is not profit |
+| weekly cleanings start at **$87 a month** | unchanged |
+| **on track to hit $250,000 in revenue for 2024, according to financial documents reviewed by CNBC Make It** | "reading her financial documents, reported it on track for $250,000 of revenue in 2024" |
+
+**Where it went.** Engine One, straight after the existing *"The ceiling,
+documented"* paragraph, which carried only a trademark attorney and a NASA
+employee — two people Marcus cannot stand next to. The paragraph ends by saying
+what the case proves about the engine rather than about her: nothing in it is
+remote, no AI touches it, and it is still one clear job at a price set in
+advance, paid when the job is done.
+
+**Two disciplines held.** *On track to* is printed as a projection, the same
+correction D3 made to Morgan's $500,000. And *revenue passed the wage* is
+flagged in the sentence itself as the softer test it is, because revenue is not
+take-home and a reader planning their own exit needs to know that.
+
+Appendix G: 97 → **98 rows**. The book: 197 → **198 pages**.
+
+**D5 is the one source still open.** Every YouTube surface that carries length,
+view count or publish date refuses this address: the watch page redirects to a
+captcha, both embeds return a "watch on YouTube" interstitial, and
+`youtubei/v1/player` returns `LOGIN_REQUIRED` for WEB, MWEB, ANDROID, IOS and
+both embedded clients. oEmbed answers and carries the title and the channel
+only. The non-YouTube route is closed too: Upwork's academy and resources,
+Fiverr Learn, both help centres and SCORE all return a Cloudflare challenge, and
+the one Coursera course on the topic sits in a "Generate Passive Income"
+specialization whose page carries the instructor's own sales figures. Three
+candidate links, with titles and channels confirmed through oEmbed today, are in
+REPORT.md §4.1 for whoever can open a browser.

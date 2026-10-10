@@ -65,6 +65,17 @@ ROWS = [
     ('2026 Saver&rsquo;s Credit income limit',
      '$40,250 single, $60,375 head of household, $80,500 joint',
      'IRS, 2026 cost-of-living adjustments'),
+    # D4: the one ceiling case a reader on an hourly wage can stand next to.
+    # Read in the NBC 7 San Diego syndication of the CNBC Make It story, because
+    # cnbc.com refuses this address; the syndication carries the full copy and
+    # the byline.
+    ('Erica Krupin, Kroopin&rsquo;s Poopin Scoopin, dog waste removal, Michigan',
+     'started August 2018 for about $1,000 while a pharmacy technician on about $20 an hour '
+     'and without a bachelor&rsquo;s degree; quit February 2020, after the annual revenue '
+     'passed the wage at the end of her first full calendar year; weekly service from $87 a '
+     'month; on track for $250,000 of revenue in 2024',
+     'CNBC Make It, Morgan Smith, 12 December 2024, from financial documents it reviewed. '
+     'Read in the NBC 7 San Diego syndication, 10 October 2026'),
     ('Derrick Morgan Jr., trademark filings on Fiverr',
      '$180 in month one, about $10,000 in month four; business on track for nearly '
      '$500,000 in 2025, paying him over $350,000',
@@ -147,6 +158,28 @@ EDITS = [
      'nearly $500,000 a year, paying him more than $350,000. Eryn Andrews spent $200 on a '
      'microphone and a class in 2022 while employed at NASA, started selling voice-over work, '
      'and said her voice-over income passed her NASA salary in the summer of 2025.'),
+
+    # ------------------------------------------------------------ D4
+    # Both documented cases in Engine One are credentialed professionals: a
+    # trademark attorney and a NASA employee. Marcus is neither, and a ceiling
+    # he cannot stand next to is not a ceiling he will aim at. Krupin is the
+    # same engine from his own starting line, and her own rule for quitting is
+    # the one this book gives.
+    ('after', 'The ceiling, documented. Derrick Morgan Jr.',
+     '<p>Neither of those two started where Marcus is standing. Erica Krupin did. She was a '
+     'pharmacy technician on about $20 an hour, without a bachelor&rsquo;s degree, when she '
+     'spent about $1,000 &mdash; a children&rsquo;s gardening rake, bags, gloves, disinfectant, '
+     'an LLC, insurance, a domain and a trailer hitch &mdash; and started a dog-waste removal '
+     'round in Michigan in August 2018. Her marketing was a printed map of every grooming shop '
+     'and veterinarian&rsquo;s office nearby, business cards in one hand and a box of donuts in '
+     'the other; she had fifteen customers within weeks, and she worked them before and after '
+     'her hospital shifts. She did not quit until the business&rsquo;s annual revenue passed '
+     'what the hospital paid her &mdash; revenue, not profit, which is a softer test than it '
+     'sounds &mdash; and that happened at the end of her first full calendar year. CNBC Make It, '
+     'reading her financial documents, reported it on track for $250,000 of revenue in 2024. '
+     'Weekly service starts at $87 a month. Nothing in it is remote and no AI touches it, and it '
+     'is this engine exactly: one clear job, a price set in advance, paid when the job is '
+     'done.</p>'),
 
     # ------------------------------------------------------------ D2
     # KFF puts medical debt at $220 billion and 14 million adults, which is

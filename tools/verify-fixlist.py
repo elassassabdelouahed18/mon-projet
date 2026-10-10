@@ -89,7 +89,9 @@ chk('D1', has(flat,'$10,150') and has(flat,'$51,593') and has(flat,'$664 to $8,2
      and nope(flat,'$10,600') and nope(flat,'$51,550') and nope(flat,'$600 to $8,000'), '')
 chk('D2', has(flat,'Many will change it on the first call'), '')
 chk('D3', has(flat,'on track'), 'Morgan stated as on track to')
-chk('D4', False, 'BLOCKED: no hourly-worker case verified')
+chk('D4', has(flat,'Erica Krupin') and has(flat,'pharmacy technician on about $20 an hour')
+     and has(flat,'reading her financial documents') and has(flat,'Kroopin'),
+    'hourly, no degree, documents reviewed, rowed in Appendix G')
 chk('D5', False, 'BLOCKED: course metadata unreadable')
 chk('D6', os.path.exists(R+'/site-pages/engines.html') and has(flat,'befreeacademy.site/engines'), '')
 chk('D7', os.path.exists(R+'/site-pages/sources.html') and has(flat,'befreeacademy.site/sources'), '')

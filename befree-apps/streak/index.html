@@ -178,6 +178,8 @@ header{display:flex;align-items:center;gap:10px;padding:14px 0 10px}
   transition:border-color .2s var(--e),color .2s var(--e),background .2s var(--e),transform .16s var(--e-out)}
 @media(hover:hover) and (pointer:fine){.chip:hover{border-color:var(--acc);color:var(--tx)}}
 .chip[aria-pressed=true]{background:var(--btn);border-color:var(--btn);color:var(--btnT);font-weight:600}
+/* [hidden] has to win over the layout rules that follow it */
+[hidden]{display:none!important}
 .seg{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
 .seg button{flex:1;padding:10px 8px;min-height:var(--tap);border-radius:var(--rs);border:1px solid var(--hair);
   font-size:14px;color:var(--tx2);transition:border-color .2s var(--e),background .2s var(--e),color .2s var(--e),transform .16s var(--e-out)}

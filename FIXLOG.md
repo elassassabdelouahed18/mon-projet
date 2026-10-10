@@ -804,3 +804,26 @@ writer spacing small display type, not the Type 3 fault, and it survives
 `font-kerning:none`. WeasyPrint brings it to 1 word, but it renders the
 guide's drop cap on top of its own paragraph, so the guide stays on Chrome and
 this is recorded rather than hidden.
+
+### Section I — the apps' design
+
+| ID | what changed | evidence |
+|---|---|---|
+| I1 | **Today is calm.** The order is now Safe to spend → Coming up → the one next step → Log a purchase, and everything else sits behind a **Show more** row: the money check, the check-in record, and the rest of the suggestion list. Coming up shows the **next three** items with a line saying how many more are scheduled. | measured with the sample file at 390 × 844: Today is **1,458px, 1.73 screens**, with exactly one suggestion card. It was 4.4 screens when the review was written and 2.43 after F1 |
+| I2 | **Insights is three groups.** *This month* (available until payday, the three totals, income that varies, where it goes, where income went, pace check), *Trends* (surplus by month, essentials and optional, income sources, spending days, biggest movers, weekday, category by month) and *Records* (close the month, the financial-independence estimate). **No chart was removed.** The "Jump to" strip is gone, because the groups are the navigation now and its links would have pointed into hidden sections. | the first screen carries the gap number (bottom at 673px) and **both bars in full** (bottom at 557px) inside the 844px viewport. The page went from 7.9 screens to 4.82 / 4.45 / 2.23 |
+| I3 | **The install card.** It used to be inserted inline at the top of the page on iPhone, Android and Safari — above the main number on Insights. It now always floats as a bar at the foot, and only on Today. | `body:not([data-page="guide"]) .instcard.float{display:none}`, and `start()` calls `show(true)` on every platform |
+| I4 | **Every app screenshot recaptured** from the Marcus sample file, for both the book and the guide: 23 figures in the guide, 2 panels in the book. | the Today hero now reads `$525 until payday, Thu, Oct 1` — Marcus's month, not the old invented person's |
+| I5 | **The accessibility audit, widened.** `tools/axe-audit.cjs` walks Gap's first-run screen, all four tabs, both new Insights groups, five sheets (log a purchase, settings, privacy, add a debt, add a goal, import a bank file), Streak's page and three of its sheets, and the three install pages — **in light and dark**. | **40 screens, 0 WCAG 2.0/2.1 A and AA violations** |
+
+**Two layout faults I introduced and closed.**
+
+1. Putting the money check and the check-in record inside a nested grid left
+   them **114px wide** on a phone: `@media(max-width:759px)` gave every
+   `.bento > .card` the full row but left plain `div.c6` children — the log
+   button, the Show more row and the region it opens — on a single column of
+   three. The rule now covers `.bento > .c6` too, and they measure 366px.
+   The first re-shoot caught it: `gap-money-check.png` came out 342 × 1872.
+2. Marcus's file carries eight repeats, so the Money tab's repeats card is
+   taller than the half page it sits in, and the guide's page 16 overflowed by
+   9px. The shot is now clipped at twice its width, which is the card's head
+   and its first rows.

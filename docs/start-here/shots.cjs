@@ -10,6 +10,8 @@ await p.evaluate(()=>{S.cyc.ess=150;S.cyc.confirmed=today();S.cyc.cardReserve=0;
 await p.evaluate(()=>go('guide'));await p.waitForTimeout(400);await kill();
 await el('#homeHero','gap-today-hero');
 await el('#actCard','gap-next-step');await el('#upCard','gap-coming-up');
+/* I1 put the money check behind Show more on Today */
+await p.evaluate(()=>{const t=document.getElementById('todayTog');if(t&&document.getElementById('moreToday').hidden)t.click()});await p.waitForTimeout(350);await kill();
 await el('#checkCard','gap-money-check');
 await p.evaluate(()=>{scrollTo(0,0);document.body.classList.remove('noNav')});await el('#nav','gap-nav');await kill();
 // Insights
@@ -18,10 +20,19 @@ await el('#posCard','gap-where-you-stand');
 const tb=await p.evaluate(()=>{const a=document.getElementById('t1').getBoundingClientRect(),c=document.getElementById('t3').getBoundingClientRect();return {x:a.left-4,y:a.top+scrollY-4,width:c.right-a.left+8,height:Math.max(a.height,c.height)+8}});
 await p.screenshot({path:out('gap-tiles'),clip:tb,fullPage:true});
 await el('#paceCard','gap-pace');{const l=p.locator('#cycCard');await l.scrollIntoViewIfNeeded();await p.waitForTimeout(250);const bb=await p.evaluate(()=>{const r=document.getElementById('cycCard').getBoundingClientRect();return {x:r.left,y:r.top+scrollY,width:r.width,height:Math.min(r.height,392)}});await p.screenshot({path:out('gap-available'),clip:bb,fullPage:true});}
+/* I2 moved the months behind the Trends group */
+await p.evaluate(()=>{const b=document.querySelector('#ovSeg [data-g=trends]');if(b)b.click()});await p.waitForTimeout(500);await kill();
 await el('#trendCard','gap-trend');
+await p.evaluate(()=>{const b=document.querySelector('#ovSeg [data-g=month]');if(b)b.click()});await p.waitForTimeout(400);
 // Money
 await p.evaluate(()=>go('ledger'));await p.waitForTimeout(400);await kill();
-const rep=p.locator('section.card, .card').filter({hasText:'Paychecks and bills that repeat'}).last();await rep.scrollIntoViewIfNeeded();await rep.screenshot({path:out('gap-repeats')});
+/* the sample file carries eight repeats, so the card is taller than the half
+   page it sits in; the shot keeps the head and the first rows */
+const rep=p.locator('section.card, .card').filter({hasText:'Paychecks and bills that repeat'}).last();
+await rep.scrollIntoViewIfNeeded();await p.waitForTimeout(250);
+{const bb=await rep.evaluate(e=>{const r=e.getBoundingClientRect();
+  return {x:r.left,y:r.top+scrollY,width:r.width,height:Math.min(r.height,Math.round(r.width*2.05))}});
+ await p.screenshot({path:out('gap-repeats'),clip:bb,fullPage:true});}
 await p.evaluate(()=>go('goals'));await p.waitForTimeout(400);await kill();
 const fund=p.locator('.card').filter({hasText:'Sinking funds'}).last();await fund.scrollIntoViewIfNeeded();await fund.screenshot({path:out('gap-funds')});
 await p.evaluate(()=>go('debts'));await p.waitForTimeout(400);await kill();

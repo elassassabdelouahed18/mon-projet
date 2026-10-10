@@ -885,7 +885,10 @@ function drawMoves(){
  $('#moreCard').hidden=!rest.length;
  $('#moves2').innerHTML=rest.map((m,i)=>moveHTML(m,i+1,false)).join('');
  setMovesOpen(movesOpen);
- const mm=$('#moreMoves');if(mm)mm.onclick=()=>{setMovesOpen(true);$('#moreCard').scrollIntoView({behavior:reduced()?'auto':'smooth',block:'start'})};
+ const mm=$('#moreMoves');if(mm)mm.onclick=()=>{
+  const box=$('#moreToday');
+  if(box&&box.hidden&&$('#todayTog'))$('#todayTog').click();
+  setMovesOpen(true);$('#moreCard').scrollIntoView({behavior:reduced()?'auto':'smooth',block:'start'})};
  const tg=$('#movesTog');if(tg)tg.onclick=()=>setMovesOpen(!movesOpen);
  bindActs();
 }
@@ -928,17 +931,23 @@ function upRow(p,opts){
    <div class="ub"><button data-cf="${esc(p.key)}" aria-label="${verb}: ${esc(p.name)}, ${fmtD(p.date)}">${verb}</button>${!opts||opts.skip!==false?`<button class="q" data-sk="${esc(p.key)}" aria-label="Skip ${esc(p.name)} on ${fmtD(p.date)}">Skip</button>`:''}</div></div>
  </div>`}
 let UPC={};
+const UP_SHOWN=3;
 function drawUpcoming(){
  const t=today(),pay=primary(),next=pay?nextPay(pay,t):null;
  const to=next&&diffD(t,next)>14?next:addD(t,14);
  const un=unconfirmed(),soon=planned(t,to);
  UPC={};un.concat(soon).forEach(p=>UPC[p.key]=p);
- let h='';
- if(un.length)h+=`<div class="uphead"><span>Needs confirming</span><span>${un.length}</span></div>`+un.slice(0,5).map(p=>upRow(p)).join('')
-  +(un.length>5?`<p class="foot">${un.length-5} more in the ledger.</p>`:'');
+ let h='',room=UP_SHOWN;
+ const take=a=>{const n=a.slice(0,Math.max(room,0));room-=n.length;return n};
+ const shownUn=take(un);
+ if(shownUn.length)h+=`<div class="uphead"><span>Needs confirming</span><span>${un.length}</span></div>`+shownUn.map(p=>upRow(p)).join('');
  const before=next?soon.filter(p=>p.date<next):soon,after=next?soon.filter(p=>p.date>=next):[];
- if(before.length)h+=`<div class="uphead"><span>${next?'Before payday, '+fmtD(next):'Next two weeks'}</span><span class="mono">${money(-sum(before.filter(p=>p.flow<0),p=>p.amt))}</span></div>`+before.map(p=>upRow(p)).join('');
- if(after.length)h+=`<div class="uphead"><span>From payday on</span></div>`+after.slice(0,6).map(p=>upRow(p)).join('');
+ const shownBefore=take(before);
+ if(shownBefore.length)h+=`<div class="uphead"><span>${next?'Before payday, '+fmtD(next):'Next two weeks'}</span><span class="mono">${money(-sum(before.filter(p=>p.flow<0),p=>p.amt))}</span></div>`+shownBefore.map(p=>upRow(p)).join('');
+ const shownAfter=take(after);
+ if(shownAfter.length)h+=`<div class="uphead"><span>From payday on</span></div>`+shownAfter.map(p=>upRow(p)).join('');
+ const rest=un.length+soon.length-(UP_SHOWN-Math.max(room,0));
+ if(rest>0)h+=`<p class="foot">${plural(rest,'more item')} scheduled. <b>All scheduled</b> shows them.</p>`;
  $('#upl').innerHTML=h||empty('cal','Nothing scheduled in the next two weeks','Schedule your paycheck and regular bills and they show up here before they happen.',['Add a schedule','reps']);
  bindUp($('#upl'));bindActs($('#upl'));
 }
@@ -2887,7 +2896,8 @@ function revisionCycleFields(){
 }
 function revisionOverview(){
  const host=$('#p-overview');if(!host)return;let box=$('#revisionOverview');
- if(!box){box=document.createElement('section');box.id='revisionOverview';box.className='card c6';const grid=host.querySelector('.bento');(grid||host).appendChild(box);}
+ if(!box){box=document.createElement('section');box.id='revisionOverview';box.className='card c6';
+  const grid=$('#g-records')||host.querySelector('.bento');(grid||host).appendChild(box);}
  const m=V.range==='month'?mKey(V.off):null,reviewed=m&&S.reviewed[m],t=tot(pTx()),pending=S.tx.filter(x=>x.needsReview).length;
  const mName=m?fmtD(m+'-01',{month:'long',year:'numeric'}):'';
  box.innerHTML=`<div class="ch"><h2 class="eb">Your records</h2><div class="eb mono">${reviewed?'reviewed':'in progress'}</div></div><p style="margin:0 0 8px">${reviewed?`${mName} is reviewed: its entries were checked against your statements.`:`${m?mName+' is still open, so these':'These'} totals cover only what you have logged so far.`} The surplus is not your checking balance.</p>${pending?`<p class="neg">${pending} older payment entries need a purpose. Edit them in Money, then check your debt and checking balances.</p>`:''}<div class="chk-row"><button class="btn2" id="revCompleteDay">Today's spending is all logged</button>${m?`<button class="btn2" id="revCloseMonth">${reviewed?'Reopen this month':'Close this month'}</button>`:''}<button class="btn2" id="revFI">Financial independence estimate</button></div><p class="foot">Mark a day as logged only after adding cash, debit and card purchases. Save a backup each week and after you close a month.</p>`;
@@ -2961,6 +2971,27 @@ if($('#swRemind'))$('#swRemind').onclick=async()=>{
  else toast('Reminder on. Without notification permission you’ll still see it here when you open the app.');
 };
 rmRefreshRow();
+/* I2 - Insights is three groups, not eight screens. Where you stand keeps
+   its place above them, so the gap number and both bars are the first thing
+   on the page whichever group is open. */
+let OVG='month';
+function setGroup(g){
+ OVG=g;
+ ['month','trends','records'].forEach(k=>{const el=$('#g-'+k);if(el)el.hidden=k!==g});
+ $$('#ovSeg button').forEach(b=>b.setAttribute('aria-selected',b.dataset.g===g?'true':'false'));
+ render();
+}
+if($('#ovSeg'))$('#ovSeg').onclick=e=>{const b=e.target.closest('button');if(b)setGroup(b.dataset.g)};
+
+/* I1 - Today opens on four things: what is safe to spend, what is coming,
+   the one next step, and the button that logs a purchase. */
+if($('#todayTog'))$('#todayTog').onclick=()=>{
+ const box=$('#moreToday'),open=box.hidden;
+ box.hidden=!open;
+ $('#todayTog').setAttribute('aria-expanded',open?'true':'false');
+ $('#todayTog').textContent=open?'Show less':'Show more';
+ if(open)box.scrollIntoView({behavior:reduced()?'auto':'smooth',block:'nearest'});
+};
 if($('#swWeekly'))$('#swWeekly').onclick=()=>{
  S.weekly=!S.weekly;save();syncSet();render();
  toast(S.weekly?'Weekly mode on. Import your bank file when the week is done.':'Weekly mode off. Log as you go.')};

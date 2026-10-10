@@ -85,7 +85,7 @@ evidence; this is the summary the fix list asked for.
 | K8 | **pass** | same | The installed names, Today at 1.73 screens, axe at 0, offline working. |
 | K9 | prepared | `REVIEW_PACKET_TAX.md` | For an EA or CPA. **You arrange it.** |
 | K10 | prepared | `READER_TEST.md` | Five readers, fourteen days. **You run it.** |
-| K11 | prepared | `COPYEDIT.md` | **145 paragraphs** that lost a sentence, each shown with the sentence that went. **You arrange the copyedit.** |
+| K11 | prepared | `COPYEDIT.md` | **152 paragraphs** that lost a sentence, each shown with the sentence that went. **You arrange the copyedit.** |
 
 ---
 
@@ -164,7 +164,7 @@ registers, the page renders with the network off, and there are no page errors.
    A1 and A2 are the argument for why a self-review is not enough.
 4. **The reader test (K10).** `READER_TEST.md` is the protocol, the pass mark
    and the recording sheet. Five readers, fourteen days.
-5. **The copyedit (K11).** `COPYEDIT.md` lists 145 paragraphs a sentence came
+5. **The copyedit (K11).** `COPYEDIT.md` lists 152 paragraphs a sentence came
    out of, so the copyeditor can check the transitions rather than hunt for them.
 6. **Publish the two pages.** `site-pages/engines.html` and
    `site-pages/sources.html` at `befreeacademy.site/engines` and

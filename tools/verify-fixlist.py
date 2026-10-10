@@ -237,7 +237,7 @@ chk('K3+', '8 unsourced' not in out and 'without a row: 0' in
 # K9-K11 — the three packets the fix list asks a human to run
 chk('K9', len(rd('REVIEW_PACKET_TAX.md')) > 3000 and 'CPA' in rd('REVIEW_PACKET_TAX.md'), 'tax packet')
 chk('K10', len(rd('READER_TEST.md')) > 3000 and 'five readers' in rd('READER_TEST.md').lower(), 'reader test')
-chk('K11', len(rd('COPYEDIT.md')) > 3000 and re.search(r'14[0-9] paragraph', rd('COPYEDIT.md')), 'copyedit packet')
+chk('K11', len(rd('COPYEDIT.md')) > 3000 and re.search(r'\*\*152 paragraphs\*\*', rd('COPYEDIT.md')), 'copyedit packet')
 
 bad = [r for r in rows if not r[1]]
 for id_, ok, note in rows:

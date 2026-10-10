@@ -2,6 +2,8 @@
 
 Each entry is the paragraph as it reads now, followed by the sentence or sentences this revision removed from it. A paragraph that was deleted whole, or added whole, is not listed: nothing can be left dangling in it.
 
+Regenerated on 10 October 2026 with `BASE_COMMIT=d1d3bde python3 tools/deleted-sentences.py > COPYEDIT.md`. The book is compared against `original.html`, which the build never edits; the guide and the install sheet against that commit, which is where this revision began.
+
 
 ## The Anti-Paycheck Trap
 
@@ -275,9 +277,49 @@ Each entry is the paragraph as it reads now, followed by the sentence or sentenc
 
   **cut:** Eryn Andrews spent $200 on a microphone and a class in 2022 while employed at NASA, started selling voice-over work, and passed her NASA salary in the summer of 2025.
 
+> 
+
+  **cut:** Published 26 March 2025, 3.8 million views.
+
+  **cut:** Checked 26 September 2026.
+
+  **cut:** The most-watched complete course on the AI end of this field.
+
+  **cut:** It is technical and it advertises his own program; the teaching stands without them.
+
+> Chosen over the larger dropshipping courses because it starts at nearly zero capital. It carries sponsor links; you need none of them to begin.
+
+  **cut:** Published 17 April 2024, 2.8 million views.
+
+  **cut:** Checked 26 September 2026.
+
+> The ceiling, documented. Easlo built Notion templates on weekends during his military service in Singapore and was reporting around $50,000 a month by 2023.
+
+  **cut:** Steph Smith wrote one ebook while working a full-time job and sold more than $130,000 of it in about eight months.
+
+> Chosen over more-watched Etsy tutorials because those predate the AI-disclosure rules. Complete, recent, no income screenshots; her own course is optional.
+
+  **cut:** Published 27 May 2026, 45,000 views.
+
+  **cut:** Checked 26 September 2026.
+
+> The ceiling, documented. Kelly Rocklein made $142,000 in 2022 making content for brands on about fifteen hours a week while working at a marketing agency, and CNBC reviewed her documents for that figure.
+
+  **cut:** Graham Stephan started a personal-finance channel while working as a real-estate agent and reported $5.1 million in 2020, about half of it from advertising.
+
 > Three rules keep people sane here. Pick one platform and one topic, because scattering across five is how beginners burn out.
 
   **cut:** Serve one person: not “people who want to save money,” but “the second-shift warehouse worker who ends every month $60 short of rent.” And choose consistency over virality, because the algorithm rewards the viral one occasionally and the consistent one eventually.
+
+> Published 4 October 2024, 1.0 million views. Shorter than the twelve-hour courses and from someone who built his channel beside a full-time job as a doctor, which is your situation.
+
+  **cut:** Checked 26 September 2026.
+
+> 1 hour 48 minutes. From a search-tool company rather than a hosting affiliate, which is rare here. It predates AI Overviews, so read the paragraph above alongside it.
+
+  **cut:** Published 24 May 2023, 719,000 views.
+
+  **cut:** Checked 26 September 2026.
 
 > 
 
@@ -722,5 +764,5 @@ Each entry is the paragraph as it reads now, followed by the sentence or sentenc
 
 ---
 
-**145 paragraphs** lost a sentence and kept the rest.
+**152 paragraphs** lost a sentence and kept the rest.
 

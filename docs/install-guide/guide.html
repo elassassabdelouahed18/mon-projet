@@ -55,6 +55,10 @@ ol.st>li{display:flex;gap:9px;margin:3px 0;font-size:9.3pt;line-height:1.36}
 .path div{background:var(--chip);border-radius:8px;padding:3px 9px;font-size:8.6pt;color:var(--tx2)}
 .path b{display:inline-block;width:54px;color:var(--tx)}
 .sep{color:var(--goldT);margin:0 3px;font-weight:600}
+.chev{display:inline-block;width:7px;height:7px;vertical-align:0}
+.arw{display:block;width:15px;height:15px}
+.ico.kebab{width:9px}
+.url a,.foot a{color:inherit;text-decoration:none}
 .note{display:flex;gap:7px;align-items:flex-start;font-size:8.6pt;color:var(--tx3);margin-top:6px;line-height:1.35}
 .note svg{flex:none;margin-top:1px;color:var(--goldT)}
 
@@ -88,7 +92,7 @@ ol.st>li{display:flex;gap:9px;margin:3px 0;font-size:9.3pt;line-height:1.36}
       <span class="n">1</span>
       <div>
         <div class="eyebrow">Open this page on the device you’ll use</div>
-        <div class="url">app.befreeacademy.site</div>
+        <div class="url"><a href="https://app.befreeacademy.site">app.befreeacademy.site</a></div>
         <div class="small">Scan the code with your phone’s camera, or type the address.</div>
       </div>
     </div>
@@ -106,7 +110,7 @@ ol.st>li{display:flex;gap:9px;margin:3px 0;font-size:9.3pt;line-height:1.36}
     <p>Follow the steps for your device. The page then takes you to Streak.</p>
   </div>
   <div class="apps">
-    <span class="app"><img src="gap.png" alt="">Gap</span><span class="arrow">→</span><span class="app"><img src="streak.png" alt="">Streak</span>
+    <span class="app"><img src="gap.png" alt="">Gap</span><span class="arrow"><svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span><span class="app"><img src="streak.png" alt="">Streak</span>
   </div>
 </div>
 
@@ -114,7 +118,7 @@ ol.st>li{display:flex;gap:9px;margin:3px 0;font-size:9.3pt;line-height:1.36}
   <section class="card">
     <div class="ch"><span class="dev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><h3>iPhone or iPad</h3><span class="pill">Safari</span></div>
     <ol class="st">
-      <li><span class="k">1</span><span>Tap <b>Share</b> <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M5 11v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8"/></svg>. Don’t see it? Tap <b>···</b> next to the address bar first.</span></li>
+      <li><span class="k">1</span><span>Tap <b>Share</b> <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M5 11v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8"/></svg>. Don’t see it? Tap <b><svg class="ico" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="the three-dot button"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></b> next to the address bar first.</span></li>
       <li><span class="k">2</span><span>Tap <b>Add to Home Screen</b> <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M12 8v8M8 12h8"/></svg>. Scroll down if you don’t see it.</span></li>
       <li><span class="k">3</span><span>Keep <b>Open as Web App</b> on, check the name says <b>Gap</b>, then tap <b>Add</b>.</span></li>
     </ol>
@@ -125,7 +129,7 @@ ol.st>li{display:flex;gap:9px;margin:3px 0;font-size:9.3pt;line-height:1.36}
     <div class="ch"><span class="dev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><h3>Android phone</h3><span class="pill">Chrome</span></div>
     <ol class="st">
       <li><span class="k">1</span><span>Tap <b>Install Gap</b> on the page, then <b>Install</b>.</span></li>
-      <li><span class="k">2</span><span>No button? Tap <b>⋮</b> at the top right, then <b>Add to Home screen</b> or <b>Install app</b>.</span></li>
+      <li><span class="k">2</span><span>No button? Tap <b><svg class="ico kebab" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="the three-dot menu"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></b> at the top right, then <b>Add to Home screen</b> or <b>Install app</b>.</span></li>
       <li><span class="k">3</span><span>If asked, choose <b>Install</b>, not “Create shortcut”, and confirm.</span></li>
     </ol>
   </section>
@@ -136,8 +140,8 @@ ol.st>li{display:flex;gap:9px;margin:3px 0;font-size:9.3pt;line-height:1.36}
       <li><span class="k">1</span><span>Click <b>Install Gap</b> on the page, or the install icon <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M12 8v6M9 11l3 3 3-3"/></svg> at the right of the address bar.</span></li>
       <li><span class="k">2</span><span style="flex:1">No button? Use the browser menu:
         <div class="path">
-          <div><b>Chrome</b>⋮<span class="sep">›</span>Cast, save, and share<span class="sep">›</span>Install page as app</div>
-          <div><b>Edge</b>···<span class="sep">›</span>Apps<span class="sep">›</span>Install this site as an app</div>
+          <div><b>Chrome</b><svg class="ico kebab" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="the three-dot menu"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg><span class="sep"><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></span>Cast, save, and share<span class="sep"><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></span>Install page as app</div>
+          <div><b>Edge</b><svg class="ico" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="the three-dot button"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg><span class="sep"><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></span>Apps<span class="sep"><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></span>Install this site as an app</div>
         </div></span></li>
       <li><span class="k">3</span><span>Click <b>Install</b>. Gap opens in its own window.</span></li>
     </ol>
@@ -146,7 +150,7 @@ ol.st>li{display:flex;gap:9px;margin:3px 0;font-size:9.3pt;line-height:1.36}
   <section class="card">
     <div class="ch"><span class="dev"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></svg></span><h3>Mac</h3><span class="pill">Safari</span></div>
     <ol class="st">
-      <li><span class="k">1</span><span>In the menu bar, click <b>File</b><span class="sep">›</span><b>Add to Dock</b>. You’ll also find it under <b>Share</b> <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M5 11v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8"/></svg>.</span></li>
+      <li><span class="k">1</span><span>In the menu bar, click <b>File</b><span class="sep"><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></span><b>Add to Dock</b>. You’ll also find it under <b>Share</b> <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M5 11v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8"/></svg>.</span></li>
       <li><span class="k">2</span><span>Check the name says <b>Gap</b> and click <b>Add</b>.</span></li>
       <li><span class="k">3</span><span>Open Gap from the Dock from now on, not from a Safari tab.</span></li>
     </ol>
@@ -171,7 +175,7 @@ ol.st>li{display:flex;gap:9px;margin:3px 0;font-size:9.3pt;line-height:1.36}
   </div>
   <div class="habit">
     <h4><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 19h16"/></svg>Back up each app weekly</h4>
-    <p>Gap and Streak keep separate records, so back up each one: <b>Settings › Save a backup file</b>. Also after setup and big changes.</p>
+    <p>Gap and Streak keep separate records, so back up each one: <b>Settings<span class="sep"><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></span>Save a backup file</b>. Also after setup and big changes.</p>
   </div>
   <div class="habit">
     <h4><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Private by design</h4>
@@ -179,6 +183,6 @@ ol.st>li{display:flex;gap:9px;margin:3px 0;font-size:9.3pt;line-height:1.36}
   </div>
 </div>
 
-<footer class="foot"><span>Questions? <b>support@befreeacademy.site</b></span><span class="mono">app.befreeacademy.site</span></footer>
+<footer class="foot"><span>Questions? <b><a href="mailto:support@befreeacademy.site">support@befreeacademy.site</a></b></span><span class="mono"><a href="https://app.befreeacademy.site">app.befreeacademy.site</a></span></footer>
 </body>
 </html>

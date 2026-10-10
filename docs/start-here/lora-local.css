@@ -1,4 +1,9 @@
-@font-face{font-family:'Lora';font-style:italic;font-weight:400;src:url(fonts/lora-400i.woff2) format('woff2')}
-@font-face{font-family:'Lora';font-style:italic;font-weight:600;src:url(fonts/lora-600i.woff2) format('woff2')}
-@font-face{font-family:'Lora';font-style:normal;font-weight:400;src:url(fonts/lora-400.woff2) format('woff2')}
-@font-face{font-family:'Lora';font-style:normal;font-weight:600;src:url(fonts/lora-600.woff2) format('woff2')}
+/* H3 - static Lora, not the variable font.
+   Chrome rasterises a variable font into a Type 3 font when it writes a PDF,
+   and a Type 3 font has no usable text layer: extraction gave "Inst all G ap"
+   and "T he bo o k". These are the same static files the book embeds, where
+   each weight is its own face. */
+@font-face{font-family:'Lora';font-style:normal;font-weight:400;src:url(fonts/lora-400s.woff2) format('woff2')}
+@font-face{font-family:'Lora';font-style:italic;font-weight:400;src:url(fonts/lora-400is.woff2) format('woff2')}
+@font-face{font-family:'Lora';font-style:normal;font-weight:600;src:url(fonts/lora-600s.woff2) format('woff2')}
+@font-face{font-family:'Lora';font-style:italic;font-weight:600;src:url(fonts/lora-600is.woff2) format('woff2')}

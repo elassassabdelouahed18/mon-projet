@@ -1,0 +1,49 @@
+/* H1 - the phone format.
+   The same content and the same design, laid on a 390 x 845 page (9:19.5)
+   with the body at 16 CSS px. The 6x9 pages become auto-height blocks with a
+   page break after each, so a page whose content no longer fits continues on
+   the next sheet instead of being clipped, and every screenshot runs the full
+   width of the column. Loaded on top of the print stylesheet by
+   render-phone.cjs; the 6x9 edition is untouched. */
+@page{size:390px 845px;margin:0}
+html,body{background:#fff}
+.pg{width:390px;height:auto;min-height:845px;overflow:visible;padding:30px 22px 40px;
+  font:400 16px/1.52 Lora,Georgia,serif}
+.pn{position:static;margin-top:26px;font:500 13px Poppins,sans-serif}
+.eb{font-size:11px;margin-bottom:8px}
+h1{font-size:30px;line-height:1.08;margin:0 0 14px}
+h2{font-size:21px;margin:20px 0 8px}
+/* justified text on a 346px measure opens rivers, so the phone sets ragged right */
+p{margin:0 0 11px;text-align:left}
+.lede{font-size:17px;line-height:1.45;padding:1px 0 1px 14px;margin:0 0 15px}
+.cap{font-size:13px;margin:7px 4px 13px}
+.fig{width:auto;padding:6px;margin:12px auto}
+.fig img,.fig.w img,.fig.s img,.fig.xs img{width:100%}
+.shot .no{width:22px;height:22px;font:600 11px/22px Poppins,sans-serif;box-shadow:0 0 0 2px rgba(255,250,242,.92)}
+.box{padding:14px 16px 12px;margin:13px 0}
+.box p{font-size:16px;line-height:1.5}
+.two,.grid6,.side{display:block}
+.two .box,.grid6 .box{margin:0 0 11px}
+.side .fig{margin:0 0 12px}
+.steps li{grid-template-columns:30px 1fr;margin:0 0 11px}
+.steps li::before{font-size:14px}
+.steps b.t{font-size:15px}
+.steps span{font-size:16px;line-height:1.5}
+.defs td{font-size:16px;line-height:1.5;padding:8px 0}
+.defs td:first-child{width:38%;font-size:14px}
+.defs td:first-child small{font-size:13px}
+table.t th{font-size:11px;padding-bottom:7px}
+table.t td{font-size:15px;line-height:1.45;padding:7px 6px 7px 0}
+.toc{margin-top:8px}
+.toc .sec{font-size:11px;margin:18px 0 5px}
+.toc a{font-size:16px;padding:7px 0}
+.toc a span:last-child{font-size:14px}
+.drop::first-letter{font-size:52px;margin:6px 8px 0 0}
+.bul li{font-size:16px;padding-left:16px;margin:4px 0}
+.url{font-size:20px}
+.cover{padding:0;min-height:845px;display:flex;align-items:center}
+.cover img{width:100%;height:auto;object-fit:contain}
+.back{min-height:845px}
+.back .q{font-size:20px}
+.back p{font-size:15px;max-width:none}
+.back .site{font-size:13px;margin-top:22px}

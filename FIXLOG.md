@@ -775,3 +775,32 @@ the link points at the USA.gov benefit finder, which the review names and which
 answers 200.
 
 After G: 196 pages, 2,920 KB, EPUB 1,396 KB, `check-stylesheet.py` 0 failures.
+
+### Section H — the guide and the install sheet, design
+
+| ID | what changed | evidence |
+|---|---|---|
+| H1 | **The phone format.** `docs/start-here/phone.css` and `render-phone.cjs` lay the same `book.html` on a 390 × 845 page (9:19.5) with the body at **16 CSS px**, every screenshot running the full column, and the two- and three-column grids stacked. The 6 × 9 pages become auto-height blocks that break to the next sheet rather than clip, so nothing is lost: **65 phone sheets for the 32 printed pages**. The 6 × 9 edition is untouched — the phone stylesheet is injected at render time. | measured in Chromium: body 16px, **0 pages clipped**, **no element wider than the column**, 0 broken images |
+| H2 | **Bookmarks, language, links.** Both documents now render with Chrome's `tagged` and `outline` options. | guide: `/Lang en-US`, `/MarkInfo /Marked true`, `/StructTreeRoot`, **25 bookmarks**, 19 contents links. Install sheet: `/Lang en-US`, tagged, 10 bookmarks |
+| H3 | **No Type 3 fonts.** The guide's Lora was the variable font, which Chrome rasterises into Type 3 when it writes a PDF; it now uses the same static faces the book embeds (`lora-local.css`). The install sheet's Type 3 DejaVu went with H7's icons. | `pdffonts`: guide **15 CID, 0 Type 3**; install sheet **7 CID, 0 Type 3, no fallback faces at all**. `pdftotext` yields "Install Gap" |
+| H4 | **One body size.** Running text, boxes, steps, definition tables, data tables and bullets were 8.6 / 8.9 / 9.0 / 9.2 / 9.4pt; they are all **9.4pt** now. Table padding came down from 6px to 5px to pay for it. | the guide's remaining other sizes are labels, step numbers and the back cover, not body |
+| H5 | **The screenshot carries the step numbers.** The log-sheet figure has four gold badges, 01–04, over the amount, the category row, Add expense and More options, matching the four steps beside it, and the image gained real alt text. | page 12 of the guide, read back and looked at |
+| H6 | **Not done, and I still argue against it.** The guide cover is already a cream hardcover with the same gold frame, wordmark and bottom line. Matching the book's pebble grain means regenerating the artwork, which loses the staircase that carries the guide's whole idea. | unchanged |
+| H7 | **The install sheet's technical faults.** The address and the support email are links (`https://` and `mailto:`). The three browser glyphs — `···`, `⋮` and `›` — and the Gap → Streak arrow are drawn as inline SVG, so no fallback font is embedded at all. `/Lang` is en-US. | 3 link annotations where there were 0; the font list is Fraunces, Poppins and IBM Plex Mono and nothing else |
+
+**Three pages I had to pay for, and what I spent.** Setting the body to one
+size pushed two pages over. Table padding (6px → 5px) closed page 4. Page 9
+needed 7px more, and the sentence that went was "Protect assigned money before
+choosing what remains available to spend", in a box whose first sentence
+already says those transfers assign the gap. One more cut, on page 8: "A
+browser tab can show a separate, empty record", where the paragraph above it
+already says another browser or profile keeps its own separate storage. Both
+are B4 cuts, both whole sentences, nothing reworded.
+
+**What is left in the guide's text layer, measured.** Of 1,194 distinct words
+of four letters or more, **16 come out split** — BEFREEACADEMY, SITE and the
+rest in letter-spaced Poppins labels and step headings. That is Chrome's PDF
+writer spacing small display type, not the Type 3 fault, and it survives
+`font-kerning:none`. WeasyPrint brings it to 1 word, but it renders the
+guide's drop cap on top of its own paragraph, so the guide stays on Chrome and
+this is recorded rather than hidden.

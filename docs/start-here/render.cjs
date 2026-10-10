@@ -10,5 +10,5 @@ const r=await p.evaluate(()=>{const fonts=['900 20px Fraunces','400 12px Lora','
  const broken=[...document.images].filter(i=>!i.naturalWidth).map(i=>i.src);
  return {fonts,over,broken,pages:document.querySelectorAll('.pg').length}});
 console.log(JSON.stringify(r));
-await p.pdf({path:path.resolve(__dirname,'Start-Here-The-BeFree-System.pdf'),width:'6in',height:'9in',printBackground:true,preferCSSPageSize:true});
+await p.pdf({path:path.resolve(__dirname,'Start-Here-The-BeFree-System.pdf'),width:'6in',height:'9in',printBackground:true,preferCSSPageSize:true,tagged:true,outline:true});
 await b.close()})();

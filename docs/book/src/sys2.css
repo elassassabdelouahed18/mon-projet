@@ -19,6 +19,13 @@
 
 html{line-height:14pt}
 
+/* G2 - the text layer. The fi, ffi and fl glyphs in these woff2 builds carry
+   no usable ToUnicode mapping, so "financial" extracted as "nancial", "five"
+   as "yve" and "deficit" as "deycit": a reader copying a sentence out of the
+   PDF, or a screen reader reading it, got nonsense. Common ligatures off, so
+   every glyph in the text layer is the letter it stands for. */
+*{font-variant-ligatures:no-common-ligatures}
+
 /* figures at full measure */
 figure svg{width:100%;height:auto}
 figure{margin:16pt 0 14pt}
@@ -93,3 +100,24 @@ dt{break-after:avoid;page-break-after:avoid}
   background:#EDA335;margin-left:4pt;vertical-align:.8pt}
 .corekey{font-family:Lora;font-style:italic;font-size:8.4pt;color:#46412A;
   margin:0 0 7pt 0;text-align:left}
+
+/* G10 - four typefaces, not five. The Roman part numerals were the only DM
+   Serif Display in the book; Fraunces at 54pt matches their optical weight on
+   the plate, and the fifth font stops being embedded at all. */
+.opener .num{font-family:Fraunces;font-weight:900;font-size:54pt;letter-spacing:.015em}
+
+/* G11 - a running head, so a reader who opens the book in the middle knows
+   where they are. Poppins in the gold label ink, like every other label here.
+   first-except keeps it off the page where the title is already set large. */
+h1{string-set:head content(text)}
+@page{@top-center{content:string(head, first-except);font-family:Poppins;font-weight:600;
+  font-size:7.2pt;letter-spacing:.14em;text-transform:uppercase;color:#603900;padding-bottom:16pt}}
+@page plate{@top-center{content:none}}
+@page blank{@top-center{content:none}}
+
+/* G8 - Illustrative is a status, not a sentence. One small tag in the chart's
+   top right corner, so no source line has to spend its first words on it. */
+figure{position:relative}
+.ilx{position:absolute;top:0;right:0;font-family:Poppins;font-weight:600;font-size:6.2pt;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--goldlab);background:var(--paper);
+  border:.4pt solid var(--hair);border-radius:2pt;padding:1.6pt 4pt;line-height:1;z-index:5}

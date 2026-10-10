@@ -724,3 +724,54 @@ not treat the `short_name` choice above as that clearance.
 
 Both apps were re-tested after `tools/sync-bundles.py`: service worker active,
 offline reload renders, no page errors, `check-stylesheet.py` 0 failures.
+
+### Section G — the book's design
+
+| ID | what changed | evidence |
+|---|---|---|
+| G1 | **The phone edition.** `tools/make-epub.py` builds an EPUB 3 from the same `book.html` the PDF is rendered from, so the two can never drift: 48 reflowable documents, 43 navigation entries, every chart as live SVG, every box, every cross-reference, 1,396 KB. `tools/epub.css` restates the print design in relative units — nothing in points, nothing at a fixed width. | rendered every one of the 48 documents in Chromium at 390 × 844: **0 pages overflow**, body type 16px, charts 359px wide, no page errors |
+| G2 | **The text layer.** `font-variant-ligatures:no-common-ligatures` on everything. | `pdftotext` over all 196 pages: `nancial` 0, `speci c` 0, `deycit` 0, `yve` 0, `rst` 0, and `financial` 20, `specific` 11, `deficit` 6, `five` 43, `first` 154. No U+FFFD or U+FFFE |
+| G3 | **Tagged.** Rendered as `pdf/ua-1`, sRGB. Each chart's `aria-label` is copied into an SVG `<title>`, which is where WeasyPrint reads a figure's alternate text (`ed_alt.py`); the eight decorative marks are named too. | `/MarkInfo /Marked true`, `/StructTreeRoot`, `/Lang en-US`, `/ViewerPreferences /DisplayDocTitle true`, XMP `pdfuaid:part 1`, **80 of 80 Figure elements carry /Alt**, 245 of 245 link annotations carry /Contents, 0 Type 3 fonts, 10 embedded CID fonts, 191 bookmarks |
+| G4 | **Everything clickable** (`ed_links.py`). 63 cross-references and 32 external addresses, up from five YouTube URLs. | the finished PDF carries **204 internal link annotations, every one with a destination**, and 36 external. A scan of the body text for anything of the shape `name.tld` outside an anchor returns **nothing** |
+| G7 | **Three new charts**, in the existing style (`ed_charts.py`). Chapter 4: every $100 of a shared bill, split fifty-fifty and in proportion, with what each costs its payer as a share of their own month. Chapter 9: what one return can be worth, four benefits drawn to scale. Chapter 20: the estimated-tax year laid flat, with the four due dates and the safe harbour. | pages 41, 77 and 153 of the built PDF, each read back and looked at |
+| G8 | **Illustrative is a tag, not a sentence.** One small chip in each chart's top right corner, on the twelve charts that carried the word; each source line keeps only what it says beyond the status; the two charts that also had the sentence drawn into the artwork lose it (`ed_captions.py`). | a contact sheet of all twelve tag positions was inspected: none covers chart content |
+| G9 | **The calendar names its days.** RENT · 1ST, CARD · 29TH, PAYDAY · 3RD / 17TH / 31ST, and the shaded band carries the word SHORTFALL inside the strip, on a leader from the band. | page 56 |
+| G10 | **Four typefaces, not five.** The Roman part numerals move from DM Serif Display to Fraunces. | `pdffonts` lists Fraunces, Lora, Poppins and IBM Plex Mono only — DM Serif Display is no longer embedded |
+| G11 | **Running heads.** The chapter title in small Poppins, gold label ink, centred above every body page, `first-except` so it never appears on the page where the title is already set large. | pages 27, 29, 31, 120 read `THE TRAP ISN'T YOUR SALARY`, `WHY BUDGETS (AND WILLPOWER) ALWAYS FAIL`, `PROTECT THE MACHINE` |
+| G12 | **Paper tone.** The guide moves from #FAFAF6 to the book's **#F9FDF9**. The install sheet keeps #FAF6EF, matching its web page, as asked. | `--bg` in `docs/start-here/book.html` |
+
+**A bug the running heads uncovered, and how it was closed without moving a
+line.** `string-set: head content(text)` concatenates the two halves of a
+title that is split with `<br>`, so the first head printed
+`THE TRAP ISN'TYOUR SALARY`. `ed_heads.py` puts one space before each break in
+all 23 titles. A space at the end of a line is hung rather than set, so
+nothing on the page moves: pages 25 and 27 were rendered before and after and
+are **pixel for pixel identical below the top margin**.
+
+**The palette, checked and kept.** The two new category colours are the book's
+own deep green `#1C4C2A` and clay `#A34E00`. Run through the data-visualisation
+validator against this paper: **CVD separation ΔE 9.0** (floor 8) and
+**normal-vision ΔE 22.1** (floor 15) both pass, and so does contrast. It
+reports the green as too dark and too low in chroma for its screen-dashboard
+band — that is the book's brand ink, ground rule 5 says the palette stays, and
+both segments are directly labelled, so nothing here depends on colour alone.
+
+**What I could not run here.** PAC and the Acrobat accessibility check are
+Windows tools and veraPDF needs a JVM this container does not have, so G3 is
+verified structurally, rule by rule, rather than by a conformance report. The
+list above is what a validator checks; run one before release.
+
+**One thing for you.** `befreeacademy.site` answers 200 but redirects to
+`/password` — the storefront is still password-protected. Every link in the
+book to it will land a reader on that page until you lift it.
+
+**External addresses, checked on 10 October 2026.** 200: app.befreeacademy.site,
+befreeacademy.site, nfcc.org, irs.gov, irs.gov/vita, irs.gov/freefile,
+napfa.org, healthcare.gov, fdic.gov, banks.data.fdic.gov/bankfind-suite,
+usa.gov/benefit-finder, annualcreditreport.com, investor.gov. 403 to this
+datacentre address, live for a reader: bogleheads.org. Not reachable through
+this proxy at all: benefitfinder.gov — the book's own Appendix G cites it, and
+the link points at the USA.gov benefit finder, which the review names and which
+answers 200.
+
+After G: 196 pages, 2,920 KB, EPUB 1,396 KB, `check-stylesheet.py` 0 failures.

@@ -1,0 +1,168 @@
+/* The Anti-Paycheck Trap - the phone edition.
+   The same design as the printed book, restated in relative units so the
+   reader sets the type size and the text reflows. Nothing here is in points
+   and nothing has a fixed width, which is what makes it readable on a 390px
+   screen without zooming. */
+
+@font-face{font-family:Fraunces;src:url(../fonts/fraunces-latin-900-normal.woff2) format("woff2");font-weight:900;font-display:swap}
+@font-face{font-family:Lora;src:url(../fonts/lora-latin-400-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:Lora;src:url(../fonts/lora-latin-400-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:Lora;src:url(../fonts/lora-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:Lora;src:url(../fonts/lora-latin-700-normal.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:Lora;src:url(../fonts/lora-latin-700-italic.woff2) format("woff2");font-weight:700;font-style:italic;font-display:swap}
+@font-face{font-family:Poppins;src:url(../fonts/poppins-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:Poppins;src:url(../fonts/poppins-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(../fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(../fonts/ibm-plex-mono-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(../fonts/ibm-plex-mono-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
+
+:root{
+  --paper:#F9FDF9; --panel:#E6F1E8; --hair:#D5DFD6; --calm:#DAE7DC; --grey:#EEF6EF;
+  --ink:#2E2910; --ink2:#46412A; --folio:#46412A; --forest:#1C4C2A;
+  --goldlab:#603900; --gilt:#B7770A; --goldlt:#EDA335; --champagne:#F3C57F;
+  --cream:#FBF6EE; --mist:#CBD8C6; --garnet:#A34E00; --garnetlab:#6B3300;
+  --plate:#123B1F;
+}
+html{font-family:Lora,Georgia,serif;color:var(--ink);background:var(--paper)}
+body{margin:0 4%;line-height:1.52;font-variant-ligatures:no-common-ligatures}
+p{margin:0 0 .7em;text-align:justify;hyphens:auto;-epub-hyphens:auto;orphans:2;widows:2}
+h1,h2,h3,figcaption,.deck,.chap-eyebrow,.box .lab,.box p.big,.toc a,.titlepg .sub{hyphens:none;-epub-hyphens:none}
+strong{font-weight:600}
+img{max-width:100%;height:auto}
+svg{max-width:100%}
+a{color:var(--goldlab);text-decoration:none;border-bottom:1px solid var(--gilt)}
+section{margin:0;padding:1.2em 0}
+
+/* ---------- headings ---------- */
+.chap-eyebrow{font-family:Poppins,sans-serif;font-weight:600;font-size:.82em;letter-spacing:.17em;
+  text-transform:uppercase;color:var(--goldlab);margin:0 0 1em}
+.chap-eyebrow i{font-family:Lora,serif;font-style:italic;font-weight:700;font-size:1.2em;
+  letter-spacing:0;text-transform:none;color:var(--forest);margin-left:.8em}
+h1{font-family:Fraunces,Georgia,serif;font-weight:900;font-size:1.95em;line-height:1.1;
+  color:var(--forest);margin:0 0 .5em}
+h1.sm{font-size:1.6em}
+h2{font-family:Fraunces,Georgia,serif;font-weight:900;font-size:1.28em;line-height:1.26;
+  color:var(--forest);margin:1.5em 0 .45em;page-break-after:avoid;break-after:avoid}
+h3{font-family:Poppins,sans-serif;font-weight:600;font-size:.87em;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--goldlab);margin:1.4em 0 .4em;
+  page-break-after:avoid;break-after:avoid}
+.deck{font-family:Lora,serif;font-style:italic;font-size:1.14em;line-height:1.45;color:var(--ink2);
+  border-left:2px solid var(--gilt);padding-left:.8em;margin:0 0 1.2em}
+p.open{text-indent:0}
+span.dcap{font-family:Fraunces,Georgia,serif;font-weight:900;font-size:2.8em;line-height:.84;
+  color:var(--forest);float:left;padding:.08em .14em 0 0}
+
+/* ---------- boxes ---------- */
+.box{background:var(--panel);padding:.9em 1.1em;margin:1.1em 0;page-break-inside:avoid;break-inside:avoid}
+.box .lab{font-family:Poppins,sans-serif;font-weight:600;font-size:.78em;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--goldlab);margin:0 0 .6em}
+.box p{font-size:.97em;line-height:1.5;margin:0 0 .5em;text-align:left}
+.box p:last-child{margin-bottom:0}
+.box.forest{background:var(--plate)}
+.box.forest .lab{color:var(--champagne)}
+.box.forest p{color:var(--cream)}
+.box.forest p.big{font-family:Fraunces,Georgia,serif;font-weight:900;font-size:1.28em;line-height:1.32}
+.box.act{border-top:2px solid var(--forest)} .box.act .lab{color:var(--forest)}
+.box.caut{border-top:2px solid var(--garnet)} .box.caut .lab{color:var(--garnetlab)}
+.box.case{background:var(--calm);border-left:3px solid var(--forest)} .box.case .lab{color:var(--forest)}
+.box.learn{background:var(--grey);border-top:2px solid var(--gilt)}
+.box.learn .lab{color:var(--goldlab)}
+.box.learn p.src{font-style:italic;font-size:.85em;line-height:1.45;color:var(--ink2);margin-top:.3em}
+.box.learn a{word-break:break-word}
+.box p.ifthen{font-style:italic;color:var(--ink2);font-size:.9em;margin:.2em 0 .6em .9em}
+.box.act p.laterlab{font-family:Poppins,sans-serif;font-weight:600;font-size:.74em;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink2);margin:.6em 0 .3em;padding-top:.5em;
+  border-top:1px solid var(--hair)}
+.box ol.laterlist{margin:0 0 0 1em;padding:0;font-size:.87em;line-height:1.4;color:var(--ink2)}
+.box ol.laterlist li{margin:0 0 .25em;text-align:left}
+.pull{margin:1.2em 0;padding-left:.9em;border-left:3px solid var(--gilt);
+  page-break-inside:avoid;break-inside:avoid}
+.pull p{font-family:Fraunces,Georgia,serif;font-weight:900;font-size:1.35em;line-height:1.3;
+  color:var(--forest);margin:0;text-align:left}
+.recap{margin:1.3em 0 1em;border:1px solid var(--hair);border-left:3px solid var(--forest);
+  background:var(--paper);padding:.9em 1.1em;page-break-inside:avoid;break-inside:avoid}
+.recap .lab{font-family:Poppins,sans-serif;font-weight:600;font-size:.78em;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--forest);margin:0 0 .6em}
+.recap ol{margin:0;padding:0;list-style:decimal;margin-left:1.2em}
+.recap li{margin:0 0 .4em;font-size:.96em;line-height:1.45}
+
+/* ---------- tables: they must never force a sideways scroll ---------- */
+table{width:100%;border-collapse:collapse;margin:1em 0;font-size:.88em;line-height:1.4;
+  table-layout:fixed;word-wrap:break-word}
+thead th{font-family:Poppins,sans-serif;font-weight:600;font-size:.82em;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--forest);text-align:left;padding:0 .5em .4em 0;
+  border-bottom:2px solid var(--gilt)}
+tbody td{padding:.45em .5em .45em 0;border-bottom:1px solid var(--hair);vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+td.num,th.num{text-align:right}
+.mono,td.num{font-family:"IBM Plex Mono",monospace;font-size:.95em}
+ol,ul{margin:.8em 0 .8em 1.3em;padding:0} li{margin:0 0 .45em;text-align:left}
+
+/* ---------- figures: the charts carry the book, so they scale ---------- */
+figure{margin:1.3em 0;text-align:center;page-break-inside:avoid;break-inside:avoid;position:relative}
+figure svg{display:block;width:100%;height:auto;max-width:100%}
+figure img{display:block;width:100%;height:auto;margin:0 auto}
+figcaption{font-family:Poppins,sans-serif;font-weight:600;font-size:.82em;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--forest);margin-top:.7em;line-height:1.45}
+.srcline{font-style:italic;font-size:.85em;line-height:1.45;color:var(--ink2);margin-top:.4em;
+  text-align:left}
+.ilx{display:inline-block;font-family:Poppins,sans-serif;font-weight:600;font-size:.64em;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--goldlab);background:var(--paper);
+  border:1px solid var(--hair);border-radius:2px;padding:.15em .4em;line-height:1;
+  position:absolute;top:0;right:0}
+
+/* ---------- plates ---------- */
+.plate{background:var(--plate);color:var(--cream);padding:2.5em 1.4em;margin:0;text-align:center}
+.plate .tex{display:none}
+.plate p,.plate h1,.plate div{text-align:center;color:var(--cream)}
+.mark{font-family:Fraunces,Georgia,serif;font-weight:900;letter-spacing:.02em;color:var(--cream);
+  white-space:nowrap}
+.mark .dot{color:var(--goldlt)}
+.rule-g{width:2.2em;height:2px;background:var(--gilt);margin:1.2em auto}
+.coverpage{margin:0;padding:0;background:var(--plate)}
+.coverimg{display:block;width:100%;height:auto;margin:0}
+.opener .lab{font-family:Poppins,sans-serif;font-weight:600;font-size:.8em;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--champagne);margin:0 0 .6em}
+.opener .num{font-family:Fraunces,Georgia,serif;font-weight:900;font-size:3.4em;line-height:1;
+  color:var(--champagne);margin:0}
+.opener h1{color:var(--cream);margin:.5em 0 0}
+.opener .epi{font-style:italic;font-size:1.08em;line-height:1.5;color:var(--cream);margin:1.2em auto 0}
+.opener .epic{font-family:Poppins,sans-serif;font-weight:600;font-size:.76em;letter-spacing:.17em;
+  text-transform:uppercase;color:var(--champagne);margin:.7em 0 0}
+.opener .deck{font-style:italic;color:var(--mist);border:none;padding:0;margin:1em auto 0;text-align:center}
+.closing .say{font-style:italic;font-size:1.3em;color:var(--cream);margin:0}
+.back .q{font-family:Fraunces,Georgia,serif;font-weight:900;font-size:1.5em;line-height:1.38;
+  color:var(--cream);margin:0}
+.back .t{font-style:italic;font-size:1em;line-height:1.55;color:var(--mist);margin:1.6em 0 0}
+.back .f{font-family:Poppins,sans-serif;font-weight:600;font-size:.8em;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--champagne);line-height:2}
+
+/* ---------- front and back matter ---------- */
+.titlepg{text-align:center;padding:2em 0}
+.titlepg .frame{border:1px solid var(--hair);padding:2.4em 1.2em}
+.titlepg h1{font-size:1.8em;margin-bottom:.6em}
+.titlepg .sub{font-style:italic;font-size:1.05em;color:var(--ink2);line-height:1.5}
+.titlepg .ed{font-family:Poppins,sans-serif;font-weight:600;font-size:.8em;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--goldlab);margin-top:1.4em}
+.copy{font-size:.9em;line-height:1.5;color:var(--ink2)}
+.copy p{text-align:left;margin-bottom:.6em}
+.copy .lab{font-family:Poppins,sans-serif;font-weight:600;font-size:.82em;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--goldlab);margin:1.2em 0 .4em}
+.toc a{display:block;border:none;padding:.45em 0;font-size:1em;border-bottom:1px dotted var(--hair);
+  color:var(--ink)}
+.toc .part{font-family:Poppins,sans-serif;font-weight:600;font-size:.82em;letter-spacing:.17em;
+  text-transform:uppercase;color:var(--goldlab);margin:1.4em 0 .4em}
+.toc .cn{font-family:Poppins,sans-serif;font-weight:600;font-size:.86em;color:var(--forest);
+  display:inline-block;width:2.2em}
+/* page numbers belong to the printed book; the phone edition has no pages */
+.toc .n{display:none}
+.gloss dt{font-family:Fraunces,Georgia,serif;font-weight:900;font-size:1.05em;color:var(--forest);margin-top:1em}
+.gloss dd{margin:.2em 0 0;font-size:.97em;line-height:1.5}
+.src{font-size:.85em}
+.dense{font-size:.97em}
+.fill{font-family:"IBM Plex Mono",monospace;color:var(--ink)}
+input.fld{display:inline-block;border:none;border-bottom:1px solid var(--hair);background:transparent;
+  font-family:Lora,serif;font-size:.95em;color:var(--ink);padding:0 .2em;min-width:4em}
+input.cbx{display:inline-block;width:1em;height:1em;border:1px solid var(--gilt);
+  background:transparent;margin:0 .5em 0 0}
+.wks{page-break-inside:auto;break-inside:auto}

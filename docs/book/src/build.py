@@ -61,7 +61,8 @@ def main():
                 '<link rel="stylesheet" href="sys.css"><link rel="stylesheet" href="sys2.css">', 'stylesheet')
     sys.path.insert(0, HERE)
     for mod in ('ed_front', 'ed_mid', 'ed_end', 'ed_figures', 'ed_recaps', 'ed_widen',
-                'ed_errata', 'ed_shared', 'ed_sources', 'ed_model4', 'ed_offense', 'ed_spine', 'ed_tables'):
+                'ed_errata', 'ed_shared', 'ed_sources', 'ed_model4', 'ed_offense', 'ed_spine', 'ed_tables',
+                'ed_charts', 'ed_captions', 'ed_links', 'ed_heads', 'ed_alt'):
         if os.path.exists(os.path.join(HERE, mod + '.py')):
             html = importlib.import_module(mod).apply(html)
     html = brand_green(html)
@@ -86,7 +87,10 @@ def main():
         open(path, 'w', encoding='utf-8').write(fixed)
         doc = weasyprint.HTML(path, base_url=HERE).render()
     print('pages', len(doc.pages), '· contents entries', len(toc.findall(html)))
-    doc.write_pdf(os.path.join(HERE, 'The-Anti-Paycheck-Trap.pdf'))
+    # G3 - tagged, with the structure tree, the bookmarks and /Lang that a
+    # screen reader needs. Every chart's aria-label becomes its /Alt.
+    doc.write_pdf(os.path.join(HERE, 'The-Anti-Paycheck-Trap.pdf'),
+                  pdf_variant='pdf/ua-1', srgb=True)
 
 
 if __name__ == '__main__':

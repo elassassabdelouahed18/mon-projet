@@ -130,69 +130,86 @@ function cashEff(t){return BeFreeFinance.cash(t)}
 function tot(l){return BeFreeFinance.totals(l)}
 
 /* ══════════ demo data ══════════ */
-function seed(){let s=11,R=()=>(s=(s*1103515245+12345)&0x7fffffff)/0x7fffffff;
- const o=[],now=new Date(),TODAY=iso(now);
- for(let b=5;b>=0;b--){const d=new Date(now.getFullYear(),now.getMonth()-b,1),Y=d.getFullYear(),M=d.getMonth();
-  const dt=x=>iso(new Date(Y,M,Math.min(x,dayCount(Y,M))));
-  /* Sample data must never run past today. */
-  const p=(day,t,c,a,x)=>{const ds=dt(day); if(a>0&&ds<=TODAY)
-    o.push(Object.assign({id:uid(),date:ds,type:t,cat:c,amt:Math.round(a),note:c,status:'done',src:'demo',ts:D(ds).getTime()+36e6},x||{}))};
-  p(1,'fixed','Rent',1180);p(4,'fixed','Utilities',118+R()*54);p(6,'fixed','Phone',64);
-  p(8,'fixed','Insurance',142);p(12,'fixed','Car payment',288);
-  p(14,'fixed','Subscriptions',44-(b<2?12:0));p(15,'transfer','Card payment',77,{dir:'out'});
-  if(b<3)p(22,'income','Side income',110+R()*230);
-  if(b<2)p(11,'income','Freelance',180+R()*260);
-  if(b<4)p(4,'transfer','Savings',b>1?60:120,{dir:'out',goal:'gE'});
-  [[5,88],[12,104],[19,79],[26,96]].forEach(([dd,v])=>p(dd,'variable','Groceries',v*(.82+R()*.4)));
-  for(let i=0;i<(b>2?7:4);i++)p(2+Math.floor(R()*26),'variable','Dining out',13+R()*34);
-  p(7,'variable','Gas',52+R()*22);p(21,'variable','Gas',48+R()*24);
-  if(R()>.35)p(9+Math.floor(R()*16),'variable','Shopping',26+R()*68);
-  if(R()>.5)p(16,'variable','Entertainment',16+R()*24);
-  if(R()>.7)p(20,'variable','Health',30+R()*55);
-  if(b===2)p(18,'variable','Shopping',34,{refund:true,note:'Returned jacket'});
-  for(let i=0;i<(b>2?5:3);i++)p(1+Math.floor(R()*27),'variable','Other',5+R()*13,{note:'Small buy'});}
- return o}
+/* ══════════ sample data: Marcus, from Appendix D ══════════
+   F5. The tour runs on the book's Marcus, not an invented stranger. The month
+   on screen is his month 7, in progress, where the $154.58 lead differential
+   starts. Last month is his month 6, closed: the month the side income begins
+   and the first quarterly estimate is paid.
+     month 6 · $2,969 in · $2,799.40 out · gap $169.60 · buffer $477.60
+     debts  · Card A $4,721.31 · Card B $1,344.25 · Auto $10,520.14 · Medical $1,180
+   Appendix D models one month at a time, so his $2,769 of take-home is paid on
+   the 1st and the 15th and every calendar month carries all of it. His bills
+   are split across the two pay cycles, each one landing just after a deposit,
+   which is the book's own advice; the sample is a person who has taken it.
+   Essentials come to $2,005 a month and the optional categories to $185.40,
+   which is Appendix D's $2,175 of living costs plus its $15.40 of optional
+   spending. The one figure Appendix D does not model is a checking balance,
+   because it models flows; $810 is the sample. */
+const MX={
+ pay:1384.50,up:1461.79,
+ bills:[['Rent',950,3],['Utilities',165,4],['Phone',55,6],['Insurance',120,18],['Internet',60,20]],
+ ess:[['Groceries',105,5],['Groceries',105,12],['Groceries',105,19],['Groceries',105,26],
+      ['Gas',78,7],['Gas',77,21],['Health',80,16]],
+ opt:[['Dining out',27,3],['Dining out',28,11],['Dining out',27,18],['Dining out',28.4,24],
+      ['Subscriptions',32,14],['Entertainment',25,16],['Shopping',18,22]]};
 function demoState(){
  const st=blankState();st.setup={done:true,demo:true};
- const t=today();
- /* a real every-two-weeks rhythm: paydays land on the same weekday */
- const d=new Date();while(d.getDay()!==5)d.setDate(d.getDate()-1);
- const anchor=iso(d);
- st.tx=seed();
- const pay={id:uid(),kind:'income',cat:'Paycheck',note:'Paycheck',amt:1712,freq:'biweekly',anchor,wk:'before',on:true,prim:true,start:addD(t,-190)};
- occ(pay,addD(t,-182),t).forEach(ds=>st.tx.push({id:uid(),date:ds,type:'income',cat:'Paycheck',amt:1712,note:'Paycheck',
-   status:'done',src:'demo',rid:pay.id,occ:ds,ts:D(ds).getTime()+36e6}));
- st.goals=[{id:'gE',name:'Emergency buffer',target:1000,start:160,due:'',emerg:true,made:addD(t,-300)},
-           {id:uid(),name:'New tires',target:600,start:120,due:'',made:addD(t,-150)}];
- st.debts=[{id:uid(),kind:'card',name:'Blue card',total:2400,bal0:1490,ts:Date.now()-864e5*20,apr:24.9,min:65},
-           {id:uid(),kind:'card',name:'Store card',total:780,bal0:570,ts:Date.now()-864e5*20,apr:29.9,min:12},
-           {id:uid(),kind:'loan',name:'Car loan',total:9200,bal0:5800,ts:Date.now()-864e5*20,apr:7.4,min:288},
-           {id:uid(),kind:'due',name:'Loan to Dana',total:300,bal0:200,ts:Date.now()-864e5*20,apr:0,min:0}];
- st.funds=[{id:uid(),name:'Car maintenance',target:600,due:addD(t,120),every:12,start:180,cat:'Car maintenance',made:addD(t,-240)},
-           {id:uid(),name:'Holidays and gifts',target:450,due:iso(new Date(new Date().getFullYear(),11,10)),every:12,start:90,cat:'Gifts',made:addD(t,-80)}];
- const mStart=t.slice(0,8)+'01';
- st.rec=[pay,
-  {id:uid(),kind:'fixed',cat:'Rent',note:'Rent',amt:1180,freq:'monthly',day:1,wk:'same',on:true,start:mStart},
-  {id:uid(),kind:'fixed',cat:'Phone',note:'Phone',amt:64,freq:'monthly',day:6,wk:'same',on:true,start:mStart},
-  {id:uid(),kind:'fixed',cat:'Insurance',note:'Insurance',amt:142,freq:'monthly',day:8,wk:'same',on:true,start:mStart},
-  {id:uid(),kind:'fixed',cat:'Car payment',note:'Car payment',amt:288,freq:'monthly',day:12,wk:'same',on:true,start:mStart},
-  {id:uid(),kind:'fixed',cat:'Subscriptions',note:'Streaming',amt:32,freq:'monthly',day:14,wk:'same',on:true,start:mStart},
-  {id:uid(),kind:'transfer',cat:'Card payment',note:'Card payments',amt:77,freq:'monthly',day:15,wk:'same',on:true,start:mStart,debt:st.debts[0].id}];
- st.rec.find(r=>r.cat==='Car payment').debt=st.debts[2].id;
- /* this month's bills that already passed are logged against their schedule */
- st.rec.filter(r=>r.kind!=='income').forEach(r=>{
-  st.tx=st.tx.filter(x=>!(x.cat===r.cat&&x.date.slice(0,7)===t.slice(0,7)&&x.type===r.kind));
-  occ(r,mStart,t).forEach(ds=>st.tx.push({id:uid(),date:ds,type:r.kind,cat:r.cat,amt:r.amt,note:r.note,status:'done',src:'demo',
-   rid:r.id,occ:ds,ts:D(ds).getTime()+36e6,debt:r.debt,dir:r.kind==='transfer'?'out':undefined}))});
- st.bal={amt:1840,asOf:t,ts:Date.now()};
- st.cyc={buf:150,ess:null,funds:true};
+ const t=today(),now=new Date(),Y=now.getFullYear(),M=now.getMonth();
+ const mFirst=b=>iso(new Date(Y,M-b,1)),mLast=b=>iso(new Date(Y,M-b+1,0)),start=mFirst(6);
+ st.debts=[['Card A','card',4800,4721.31,26.9,120],['Card B','card',1400,1344.25,22.4,35],
+  ['Auto','loan',11850,10520.14,14.9,362],['Medical','loan',1180,1180,0,0]]
+  .map(([name,kind,total,bal0,apr,min])=>({id:'d'+name.replace(/\W/g,''),kind,name,total,bal0,
+   ts:new Date(Y,M,0).getTime()+86399e3,apr,min}));
+ const dOf=n=>st.debts.find(x=>x.name===n).id;
+ st.goals=[{id:'gE',name:'Buffer Rung 1',target:500,start:0,due:'',emerg:true,made:start}];
+ const pay={id:'rPay',kind:'income',cat:'Paycheck',note:'Paycheck',amt:MX.up,freq:'semimonthly',
+  day:1,day2:15,wk:'same',on:true,prim:true,start};
+ st.rec=[pay];
+ MX.bills.forEach(([c,a,d])=>st.rec.push({id:'r'+c.replace(/\W/g,''),kind:'fixed',cat:c,note:c,amt:a,
+  freq:'monthly',day:d,wk:'same',on:true,start}));
+ st.rec.push({id:'rAuto',kind:'fixed',cat:'Loan payment',note:'Auto loan',amt:362,freq:'monthly',day:17,
+  wk:'same',on:true,start,debt:dOf('Auto')});
+ st.rec.push({id:'rCardA',kind:'fixed',cat:'Debt minimum',note:'Card A minimum',amt:120,freq:'monthly',day:22,
+  wk:'same',on:true,start,debt:dOf('Card A')});
+ st.rec.push({id:'rCardB',kind:'fixed',cat:'Debt minimum',note:'Card B minimum',amt:35,freq:'monthly',day:25,
+  wk:'same',on:true,start,debt:dOf('Card B')});
+ /* Sample data must never run past today. */
+ const tx=[],put=(ds,o)=>{if(ds<=t)tx.push(Object.assign({id:uid(),date:ds,status:'done',src:'demo',
+  ts:D(ds).getTime()+36e6},o))};
+ for(let b=6;b>=0;b--){
+  const m=7-b,d0=new Date(Y,M-b,1),Yb=d0.getFullYear(),Mb=d0.getMonth();
+  const dt=d=>iso(new Date(Yb,Mb,Math.min(d,dayCount(Yb,Mb))));
+  occ(pay,mFirst(b),mLast(b)).forEach(ds=>put(ds,{type:'income',cat:'Paycheck',amt:m>=7?MX.up:MX.pay,
+   note:'Paycheck',rid:pay.id,occ:ds}));
+  st.rec.filter(r=>r.kind!=='income').forEach(r=>occ(r,mFirst(b),mLast(b)).forEach(ds=>{
+   const o={type:r.kind,cat:r.cat,amt:r.amt,note:r.note,rid:r.id,occ:ds};
+   if(r.debt){o.debt=r.debt;o.debtRole='minimum';if(r.cat==='Loan payment')o.principal=231.38}
+   put(ds,o)}));
+  MX.ess.concat(MX.opt).forEach(([c,a,d])=>put(dt(d),{type:'variable',cat:c,amt:a,note:c}));
+  if(m>=6){
+   put(dt(22),{type:'income',cat:'Side income',amt:200,note:'Weekend install job'});
+   put(dt(22),{type:'variable',cat:'Business expense',amt:20,note:'Materials'});
+   put(dt(23),{type:'transfer',cat:'Tax reserve',amt:45,dir:'out'})}
+  if(m===6){
+   put(dt(28),{type:'variable',cat:'Dining out',amt:27,note:'Dining out'});
+   put(dt(28),{type:'transfer',cat:'Tax reserve',amt:45,dir:'in'});
+   put(dt(28),{type:'fixed',cat:'Taxes',amt:45,note:'Quarterly estimate, Form 1040-ES'})}
+  /* month 7 is still open, so nothing is assigned out of it yet */
+  if(m<7)put(dt(28),{type:'transfer',cat:'Savings',amt:m===6?169.6:61.6,dir:'out',goal:'gE'});
+  if(m<7)st.reviewed[iso(d0).slice(0,7)]=true;
+ }
+ st.tx=tx;
+ for(let i=1;i<=60;i++){const d=addD(t,-i);if(d>=start)st.checks[d]={t:'complete',ts:D(d).getTime()+54e6,src:'gap'}}
+ st.tax={on:true,rate:25,cats:['Side income'],biz:true};
+ st.bal={amt:810,asOf:t,ts:Date.now()};
+ st.cyc={buf:100,ess:null,funds:true,cardReserve:0};
  st.lastRun=ym(new Date());st.seenMonth=ym(new Date());
  return st}
 function blankState(){return{v:5,reviewed:{},setup:{done:false,demo:false},tx:[],goals:[],debts:[],rec:[],funds:[],
  route:{gap:50,debt:25,you:25},vari:{on:false,tax:25},tax:{on:false,rate:25,cats:['Freelance','Side income'],biz:true},
  prefs:{askRoute:true,monthNudge:true,reminder:false},streak:{n:0,best:0,last:'',days:[]},
  bal:null,cyc:{buf:null,ess:null,funds:true},ess:{},checks:{},inbox:[],
- won:[],lastRun:'',seenMonth:ym(new Date()),remindShown:'',theme:null,migr:[]}}
+ won:[],lastRun:'',seenMonth:ym(new Date()),remindShown:'',weekly:false,weeklyShown:'',theme:null,migr:[]}}
 
 /* ══════════ load + migrate ══════════
    The v3 record is never overwritten: v4 is written under its own key, so the
@@ -560,10 +577,10 @@ function drawGap(){
  const T=tot(pTx()),svg=$('#gapSvg'),px=svg.getBoundingClientRect().width||340;
  const VBW=px>520?Math.round(Math.max(340,px*128/190)):340;svg.setAttribute('viewBox',`0 0 ${VBW} 128`);
  const L=8,R=VBW-8,MW=R-L;
- let pi=0,po=0;
+ let pi=0,po=0,pin=0;
  if(V.range==='month'&&V.off===0){
   const pl=planned(monthStart(),monthEnd());
-  pi=sum(pl.filter(p=>p.type==='income'),p=>p.amt);
+  pin=pl.filter(p=>p.type==='income').length;pi=sum(pl.filter(p=>p.type==='income'),p=>p.amt);
   po=Math.max(sum(pl.filter(p=>p.type==='fixed'||p.type==='variable'),p=>p.refund?-p.amt:p.amt),0)}
  const I=Math.max(T.i,0),F=Math.max(T.f,0),Vv=Math.max(T.v,0),O=F+Vv;
  const peak=Math.max(I+pi,O+po,I,O,1),w=v=>MW*(Math.max(v,0)/peak);
@@ -606,6 +623,7 @@ function drawGap(){
  const has=T.i||T.out;
  let cap=has?(T.gap>=0?`kept from ${money(T.i)} received, ${rangeLabel()}`:`more went out than came in, ${rangeLabel()}`)
   :`nothing completed ${rangeLabel()} yet`;
+ if(pin&&new Date().getDate()<=10)cap+=`<br>Early in the month: ${pin>1?pin+' paychecks are':'one paycheck is'} still on its way.`;
  if(pi||po)cap+=`<br>Still scheduled: <b class="mono">+${money(pi)}</b> in, <b class="mono">${money(-po)}</b> out. This schedule is not a complete month-end forecast; unrecorded variable costs and other obligations may remain.`;
  $('#gCap').innerHTML=cap;
  const el=$('#dl');
@@ -618,7 +636,7 @@ function drawGap(){
 function drawCycle(){
  const C=cycle(),box=$('#cyc');
  if(C.need.length){
-  const L={review:['Review this pay cycle','Confirm bills, pending charges and card reserves today','cyc'],card:['Card purchase reserve','Cash needed to settle purchases already recorded, excluding old debt minimums','cyc'],pay:['Your pay schedule','One real payday and how often you\'re paid','pay'],
+  const L={review:['Review this pay cycle','Confirm bills, pending charges and card reserves today','cyc'],card:['Card purchases not yet paid','Cash needed to settle purchases already recorded, excluding old debt minimums','cyc'],pay:['Your pay schedule','One real payday and how often you\'re paid','pay'],
    bal:['Today\'s checking balance','What your account shows right now','cyc'],
    ess:['Essential spending per week','Groceries, gas, medicine. Or log about three weeks of spending and Gap works it out','cyc'],
    buf:['A protective buffer','Money you keep untouched so a surprise doesn\'t overdraw you','cyc']};
@@ -647,7 +665,7 @@ function drawCycle(){
    ${ln('Bills and planned transfers',money(-C.obl),C.items.length?`${plural(C.items.length,'item')} due before payday, not yet confirmed`:'nothing scheduled before payday')}
    ${C.fl.length?ln('Sinking-fund set-asides',money(-C.funds),C.fl.map(x=>esc(x.f.name)).join(', ')):''}
    ${ln('Essential spending',money(-C.ess),`${plural(C.days,'day')} × ${edTxt}`)}
-   ${ln('Protective buffer',money(-C.buf),'kept untouched')}${ln('Card purchase reserve',money(-C.card),'already recorded purchases awaiting payment')}${ln('Tax reserve shortfall',money(-C.taxHold),'estimated, not a tax bill')}
+   ${ln('Protective buffer',money(-C.buf),'kept untouched')}${ln('Card purchases not yet paid',money(-C.card),'already recorded, still waiting to be settled')}${ln('Tax reserve shortfall',money(-C.taxHold),'estimated, not a tax bill')}
    ${ln('Available until payday',money(C.avail),'',neg?'tot over':'tot')}
    ${C.incoming.length?`<p class="foot" style="margin-top:8px">Not counted: ${money(sum(C.incoming,p=>p.amt))} of other income expected before payday. It counts once it arrives.</p>`:''}
   </div></div>`;
@@ -852,16 +870,23 @@ function moveHTML(m,i,lead){
   </div></div>`}
 const empty=(icon,title,sub,act)=>`<div class="empty"><div class="em">${ico(icon,20)}</div>
  <b>${title}</b><span class="es">${sub}</span>${act?`<button type="button" class="ea" data-act="${act[1]}">${act[0]}</button>`:''}</div>`;
+let movesOpen=false;
+function setMovesOpen(open){
+ movesOpen=open;
+ const n=$('#moves2').children.length,tg=$('#movesTog');
+ $('#moves2Wrap').hidden=!open;
+ if(tg){tg.setAttribute('aria-expanded',open?'true':'false');tg.textContent=open?'Hide':`Show ${n}`}
+}
 function drawMoves(){
- const all=moves();
+ const all=moves(),rest=all.slice(1);
  $('#moves').innerHTML=all.length?moveHTML(all[0],0,true)
   :empty('target','Nothing needs attention','Log a couple of weeks and specific next steps show up here, worked out from your own numbers.',['Add an entry','add']);
- $('#movesN').innerHTML=all.length>1?`<button class="lnk" id="moreMoves">${all.length-1} more →</button>`:'';
- const mm=$('#moreMoves');if(mm)mm.onclick=()=>$('#moves2').scrollIntoView({behavior:reduced()?'auto':'smooth',block:'start'});
- const rest=all.slice(1);
- $('#moves2').innerHTML=rest.length?rest.map((m,i)=>moveHTML(m,i+1,false)).join('')
-  :empty('target','Nothing else to flag','Everything here is read from your own entries, never from a template.',['Add an entry','add']);
- $('#movesN2').textContent=rest.length?rest.length+' more':'';
+ $('#movesN').innerHTML=rest.length?`<button type="button" class="lnk" id="moreMoves">${rest.length} more →</button>`:'';
+ $('#moreCard').hidden=!rest.length;
+ $('#moves2').innerHTML=rest.map((m,i)=>moveHTML(m,i+1,false)).join('');
+ setMovesOpen(movesOpen);
+ const mm=$('#moreMoves');if(mm)mm.onclick=()=>{setMovesOpen(true);$('#moreCard').scrollIntoView({behavior:reduced()?'auto':'smooth',block:'start'})};
+ const tg=$('#movesTog');if(tg)tg.onclick=()=>setMovesOpen(!movesOpen);
  bindActs();
 }
 function bindActs(root){
@@ -1176,7 +1201,7 @@ function loadNote(T){
    that was moved. The rest is surplus you haven't assigned yet. */
 function drawSplit(){
  const T=tot(pTx()),sv=Math.max(T.sav,0),loose=Math.max(T.unassigned,0);
- const ps=[['Fixed',Math.max(T.f,0),'var(--c-fix)'],['Variable',Math.max(T.v,0),'var(--c-var)'],['Moved to savings',sv,'var(--k5)'],['Extra debt paid',Math.max(T.extra,0),'var(--c-over)'],['Unassigned gap',loose,'var(--c-keep)']];
+ const ps=[['Fixed',Math.max(T.f,0),'var(--c-fix)'],['Variable',Math.max(T.v,0),'var(--c-var)'],['Moved to savings',sv,'var(--k5)'],['Extra debt paid',Math.max(T.extra,0),'var(--c-over)'],['Unassigned \u00b7 no job yet',loose,'var(--c-keep)']];
  const s=sum(ps,p=>p[1]),cx=100,cy=75,r=56,C=2*Math.PI*r;let o=0;
  const pl=V.range==='month'&&V.off===0?sum(planned(monthStart(),monthEnd()).filter(p=>p.type==='transfer'&&p.flow<0),p=>p.amt):0;
  const base=T.i>0?Math.max(T.i,s):s;
@@ -1188,7 +1213,9 @@ function drawSplit(){
   <text x="${cx}" y="${cy+21}" text-anchor="middle" font-size="11" letter-spacing="1.2" fill="var(--tx2)" font-family="Poppins">TRANSFERRED</text>`;
  $('#splitLeg').innerHTML=ps.map(([n,v,c])=>`<div class="shr"><span class="shn"><i style="background:${c}"></i>${n}</span>
    <span class="shv mono">${money(v)}</span><span class="shp mono">${base?Math.round(v/base*100):0}%</span></div>`).join('')
-  +`<p class="foot">Gap ${money(T.gap)} - net assignments ${money(T.assigned)} = ${money(T.unassigned)} unassigned. Tax reserves and sinking funds are assigned cash, not investment growth. Negative unassigned means you used earlier savings or borrowing.</p>`+(pl?`<p class="foot">Planned, not moved: ${money(pl)}</p>`:'');
+  +`<p class="foot">${T.unassigned<0
+   ?`You gave ${money(T.assigned)} a job, but the month only left ${money(T.gap)}. The extra ${money(-T.unassigned)} came from earlier savings or a card.`
+   :`The month left ${money(T.gap)}. You gave ${money(T.assigned)} of it a job, so ${money(T.unassigned)} still has none.`}</p>`+(pl?`<p class="foot">Planned, not moved: ${money(pl)}</p>`:'');
 }
 function drawHeat(){
  const m=mk(V.off),Y=m.getFullYear(),M=m.getMonth();
@@ -1615,7 +1642,8 @@ function render(){
  if(V.page==='overview'){drawPos();drawGap();drawCycle();drawTiles();drawVari();drawPace();drawTrend();
   drawCats();drawEss();drawSplit();drawIncome();drawHeat();drawMovers();drawDow();drawTable()}
  if(V.page==='guide'){if(typeof drawHome==='function')drawHome();drawMoves();drawUpcoming();drawCheck();drawStreak()}
- if(V.page==='ledger'){drawSched();drawTx();drawReps()}
+ if(V.page==='ledger'){drawSched();drawTx();drawReps();
+  const bi=$('#bankImpL');if(bi)bi.textContent=S.weekly?'Import a bank file first':'Import a bank file'}
  if(V.page==='plan'&&typeof drawPlan==='function')drawPlan();
  if(V.page==='debts'){drawDebts();if(typeof drawCreditUse==='function')drawCreditUse()}
  if(V.page==='goals')drawGoals();
@@ -2111,7 +2139,7 @@ function openCyc(){
  show('#shCyc')}
 $('#cSave').onclick=()=>{
  const b=$('#cBal').value;if(b===''){toast('Re-enter today’s checking balance with the current reserve.');return}if(!Number.isFinite(+b)){toast('Enter a valid balance');return}if(b!==''){S.bal={amt:+b,asOf:today(),ts:Date.now()};S.balanceReviewed=today();}
- const cr=$('#revCard').value;if(cr===''||!Number.isFinite(+cr)||+cr<0){toast('Enter the card purchase reserve, including zero if none.');return}
+ const cr=$('#revCard').value;if(cr===''||!Number.isFinite(+cr)||+cr<0){toast('Enter the cash set aside for card purchases you have not paid yet, or zero.');return}
  S.cyc.cardReserve=+cr;S.cyc.confirmed=$('#revCycleOK').checked?today():null;
  const u=$('#cBuf').value;S.cyc.buf=u===''?null:Math.max(+u,0);
  const e=$('#cEss').value;S.cyc.ess=e===''?null:Math.max(+e,0);
@@ -2182,6 +2210,8 @@ function syncSet(){
  const p=primary();
  $('#setPay').textContent=p?`${money(p.amt)} ${FREQ_L[p.freq]}${p.vary?', varies':''} · next ${fmtD(nextPay(p,today()),{month:'short',day:'numeric'})}`:'Not set';
  $('#setCyc').textContent=[S.bal?`balance ${money(S.bal.amt)} on ${fmtD(S.bal.asOf)}`:'no balance',S.cyc.buf!=null?`buffer ${money(S.cyc.buf)}`:'no buffer',S.cyc.ess!=null?`essentials ${money(S.cyc.ess)}/week`:''].filter(Boolean).join(' · ');
+ $('#swWeekly').setAttribute('aria-checked',!!S.weekly);
+ $('#weeklyDesc').textContent=S.weekly?'On · the bank file first, the review on Sunday':'Off · you log as you go';
  $('#swTax').setAttribute('aria-checked',!!S.tax.on);
  $('#taxOpts').style.display=S.tax.on?'block':'none';
  $('#taxPct').value=S.tax.rate;$('#taxBiz').checked=!!S.tax.biz;
@@ -2346,6 +2376,16 @@ function remindBanner(){
  if(!remindCheck())return false;
  banner({b1:'Nothing logged yet today',b2:'A minute now keeps the picture accurate.',
   action:'Log one',fn:()=>openTx(null)}); return true}
+/* weekly mode: the review beat belongs to the app, not to the reader's memory */
+function weeklyBanner(){
+ if(!S.weekly)return false;
+ const t=today();
+ if(S.weeklyShown===t||D(t).getDay()!==0)return false;
+ S.weeklyShown=t;save();
+ banner({b1:'The ten-minute Sunday review',
+  b2:'Catch up from your bank file, then read what is safe to spend until payday.',
+  action:'Import a bank file',fn:()=>$('#bankImp').click()});
+ return true}
 function monthNotice(){
  const key=ym(new Date());
  if(!S.prefs.monthNudge||S.seenMonth===key){S.seenMonth=key;save();return false}
@@ -2359,7 +2399,7 @@ function monthNotice(){
 /* ══════════ first run ══════════ */
 const BILLS=[['Rent',1],['Utilities',4],['Phone',6],['Internet',10],['Car payment',12],
  ['Insurance',8],['Child care',5],['Subscriptions',14]];
-const SU={income:0,freq:'biweekly',steady:null,step:1};
+const SU={income:0,freq:'biweekly',steady:null,weekly:0,step:1};
 function startSetup(){
  $('#suBills').innerHTML=`<div class="bill" style="margin-bottom:6px">
    <div class="bd" style="text-align:left">Bill</div><div class="bd">Amount</div><div class="bd">Day due</div></div>`
@@ -2384,6 +2424,11 @@ $('#suFreq').onclick=e=>{const b=e.target.closest('button');if(!b)return;SU.freq
  $$('#suFreq .opt').forEach(x=>x.setAttribute('aria-pressed',x===b));syncSu()};
 $('#suSteady').onclick=e=>{const b=e.target.closest('button');if(!b)return;SU.steady=+b.dataset.s;
  $$('#suSteady .opt').forEach(x=>x.setAttribute('aria-pressed',x===b))};
+$('#suMode').onclick=e=>{const b=e.target.closest('button');if(!b)return;SU.weekly=+b.dataset.w;
+ $$('#suMode .opt').forEach(x=>x.setAttribute('aria-pressed',x===b));
+ $('#suModeNote').textContent=SU.weekly
+  ?'Gap will put Import a bank file first and ask for the review on Sunday. In Streak, start with Weekly money review.'
+  :'Either works. You can change it later in Settings.'};
 $('#su1').onclick=()=>{
  SU.income=parseFloat($('#suIncome').value)||0;
  if(!SU.income){toast('Add one paycheck to start');$('#suIncome').focus();return}
@@ -2425,10 +2470,11 @@ $('#su4').onclick=()=>{
  (SU.bills||[]).forEach(b=>S.rec.push({id:uid(),kind:'fixed',cat:b.name,note:b.name,amt:b.amt,freq:'monthly',day:b.day,wk:'same',on:true,start:t}));
  if(SU.bal!=null)S.bal={amt:SU.bal,asOf:t,ts:Date.now()};
  S.cyc.buf=SU.buf;
+ S.weekly=!!SU.weekly;
  save();
  $('#setup').classList.remove('on');document.body.classList.remove('locked');
  render();memWarn();
- toast('You\'re set. Tap + to log a purchase.')};
+ toast(S.weekly?'You\'re set. Import your bank file when the week is done.':'You\'re set. Tap + to log a purchase.')};
 $('#suDemo').onclick=()=>{S=demoState();save();
  $('#setup').classList.remove('on');document.body.classList.remove('locked');
  render();memWarn();toast('Sample numbers loaded. Clear them any time in Settings.')};
@@ -2528,7 +2574,7 @@ else{
  render();
  const shown=migrNotice()||monthNotice();
  memWarn();
- if(!shown&&!backupNudge()&&!quietNudge()) remindBanner();
+ if(!shown&&!weeklyBanner()&&!backupNudge()&&!quietNudge()) remindBanner();
 }
 
 /* ══════════ one install card, both platforms ══════════
@@ -2915,6 +2961,9 @@ if($('#swRemind'))$('#swRemind').onclick=async()=>{
  else toast('Reminder on. Without notification permission you’ll still see it here when you open the app.');
 };
 rmRefreshRow();
+if($('#swWeekly'))$('#swWeekly').onclick=()=>{
+ S.weekly=!S.weekly;save();syncSet();render();
+ toast(S.weekly?'Weekly mode on. Import your bank file when the week is done.':'Weekly mode off. Log as you go.')};
 
 /* the reliable half: once a day, once per app open, only if there is
    really nothing logged yet today */
@@ -2928,7 +2977,7 @@ function remindCheck(){
 
 
 
-INFO.surplus=['Gap and assignments','<p>Gap = received income minus recorded living costs and required payments on existing debt. Planned entries do not count. Purchase refunds reduce spending. Extra debt payments and net transfers to savings, funds, investments and tax reserves assign the gap. Settlement of already-recorded card purchases is not a second expense.</p><p>Unassigned gap = gap minus net assignments. It can be negative. Your checking balance is a separate number.</p>'];
+INFO.surplus=['Gap and assignments','<p>Gap = received income minus recorded living costs and required payments on existing debt. Planned entries do not count. Purchase refunds reduce spending. Extra debt payments and net transfers to savings, funds, investments and tax reserves assign the gap. Settlement of already-recorded card purchases is not a second expense.</p><p>Whatever is left after that has no job yet. It can be negative, which means some of the money you gave a job came from earlier savings or a card. Your checking balance is a separate number.</p>'];
 INFO.savings=['Assigned cash','<p>Net transfers into savings, goals, sinking funds, tax reserves and investments, less withdrawals or spending from funds. Extra debt is shown separately. A tax reserve is an obligation, and a sinking fund is planned future spending; neither is investment growth.</p>'];
 INFO.balance=['Checking estimate','<p>Starts with your current available checking balance. New checking transactions change it; card purchases do not. Paying a card reduces checking. Reconcile after backdated entries or changes to records already included in a balance. Physical cash is assumed covered by the checking figure; adjust for withdrawals so cash is not counted twice.</p>'];
-INFO.available=['Protected room until payday','<p>Checking estimate minus unpaid bills, planned transfers, essential spending, sinking-fund set-asides, protective buffer, unsettled card-purchase reserve and the estimated tax-reserve shortfall. Expected income is excluded until received. Review overdue obligations, pending charges and the card reserve today before using this estimate.</p><p>Do not treat it as permission to spend. Unknown obligations or incomplete records can make it too high. Only allocate within the protected amount. Extra debt payments must also fit the lender’s rules.</p>'];
+INFO.available=['Protected room until payday','<p>Checking estimate minus unpaid bills, planned transfers, essential spending, sinking-fund set-asides, protective buffer, the cash set aside for card purchases you have not paid yet, and the estimated tax-reserve shortfall. Expected income is excluded until received. Review overdue obligations, pending charges and that card cash today before using this estimate.</p><p>Do not treat it as permission to spend. Unknown obligations or incomplete records can make it too high. Only allocate within the protected amount. Extra debt payments must also fit the lender’s rules.</p>'];

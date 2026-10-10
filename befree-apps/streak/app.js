@@ -287,7 +287,7 @@ function drawToday(){
    :n===0?`<b>${plural(cnt,'habit')}</b> for today.${cnt>1?' Start with the one that takes the least effort.':''}`
    :`<b>${cnt-n} left</b> for today. The small version counts.`)+tip;
  let h='';
- if(!S.habits.length)h=`<div class="inb">${['log-daily','bills-weekly','weekly-review'].map(id=>{const L=tplOf(id);
+ if(!S.habits.length)h=`<div class="inb">${['weekly-review','log-daily','bills-weekly'].map(id=>{const L=tplOf(id);
   return `<div class="inbi"><div><div class="t">${esc(L.name)}</div><div class="s">${esc(L.why)} ${esc(L.when)}.</div></div><div class="b"><button class="btn" data-start="${id}">Start this one</button></div></div>`}).join('')}
   <button class="ghost" data-lib="1">See all money habits</button></div>`;
  else h=due.map(x=>habitRow(x,t)).join('');

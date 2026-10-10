@@ -665,3 +665,62 @@ deterministic, but it leaves no room: any later edit to page 4 must be a
 deletion, or the page needs a second column of the table moved off it.
 
 After E: no page overflows, 32 pages, 3,197 KB, `check-stylesheet.py` 0 failures.
+
+### Section F — the two apps
+
+| ID | what changed | evidence |
+|---|---|---|
+| F1 | Today loads with exactly one suggestion. "After that, in order" is a collapsed card with a `Show 6` toggle, and the `6 more →` link on the first card expands it and scrolls to it. The card hides itself when there is no second suggestion. | Chromium, sample file: `#moves .move` = 1, `#moves2Wrap.hidden` = true, toggle reads "Show 6" |
+| F2 | The gap footnote in Insights now reads, in plain words, "The month left $170. You gave $170 of it a job, so $0 still has none." and, when the month ran short, "You gave $120 a job, but the month only left −$17. The extra $137 came from earlier savings or a card." "Net assignments" is gone from the app. "Card purchase reserve" is now "Card purchases not yet paid" in all three places, and the two explanation sheets say "the cash set aside for card purchases you have not paid yet". The donut legend reads "Unassigned · no job yet", so the glossary term carries its definition where it appears. | the sentence above was read off the running app |
+| F3 | `name` is "BeFree Gap" and "BeFree Streak"; `<title>` matches. `short_name` is **"BeFree Gap"** (10 characters, inside the ~12 an iPhone home screen shows) and **"Streak"**. "BeFree Streak" is 13 and would truncate, and Gap is the name that needs the brand in front of it, so the brand stays where it fits and is dropped where the product name is already unique. | `await page.title()` = BeFree Gap / BeFree Streak |
+| F4 | One new setup question on the last screen: "Log as you go, or catch up once a week from your bank file?" The weekly answer stores `S.weekly`, which (a) raises a Sunday banner, "The ten-minute Sunday review · Catch up from your bank file, then read what is safe to spend until payday", whose button opens the bank-file importer, (b) makes the Money tab's control read "Import a bank file first", and (c) prints, under the question, "In Streak, start with Weekly money review" — the instruction instead of a data bridge. A Settings row turns it on and off later. In Streak, "Weekly money review" is now the first of the three suggested starting habits. | the banner was raised under a faked clock set to Sunday 11 Oct 2026; the settings row and the stored flag were read back |
+| F5 | The sample file is Marcus, from Appendix D. See below. | the app's own screens, compared with the model |
+| F6 | Under the gap number, when the month is young and a paycheck is still scheduled: "Early in the month: one paycheck is still on its way." | read off the running app on 10 October |
+
+**F5 · the sample file, and what had to be decided.**
+The tour used to run on an invented person with $1,712 of biweekly pay. It now
+runs on Marcus. The month on screen is his **month 7**, in progress, where the
+$154.58 lead differential starts; **last month is his month 6**, closed, where
+the side income begins and the first quarterly estimate is paid. Read off the
+running app, against `docs/book/src/model/financial-model.cjs`:
+
+| what the app shows for last month | Appendix D, month 6 |
+|---|---|
+| $2,969 received | $2,969 |
+| $1,912 fixed + $887 variable = $2,799 | $2,799.40 |
+| surplus $170, all of it moved to savings, $0 unassigned | gap $169.60, assigned $169.60 |
+| Buffer Rung 1 at $478 of $500 | buffer $477.60 |
+| Card A $4,721 · Card B $1,344 · Auto $10,520 · Medical $1,180 | $4,721.31 · $1,344.25 · $10,520.14 · $1,180 |
+
+Three decisions the model does not make for me, each recorded because a reader
+comparing the book with the app will meet them:
+
+1. **Pay frequency.** Appendix D models a month at a time and the book never
+   states Marcus's pay frequency. Paid every two weeks, ten calendar months
+   would show $2,556 and two would show $3,834, and no month would equal the
+   printed row. He is therefore paid **on the 1st and the 15th**, which puts
+   the whole $2,769 in every calendar month and makes the app's month-to-date
+   figure the book's figure.
+2. **Where the bills sit.** Appendix D gives one living-cost total, not due
+   dates. With every bill in the first twelve days, Gap's own Plan tab showed
+   the 1st-of-month paycheck $250 short every month — true of the shape, but it
+   reads as a broken app. The bills are split across the two pay cycles, each
+   just after a deposit, which is the advice the book itself gives; both cycles
+   now clear ($292 and $765 left).
+3. **The checking balance.** Appendix D models flows, not a bank balance, so
+   there is no figure to copy. $810 is the sample, and it is the only number in
+   the sample file that is not Appendix D's.
+
+The category split is derived, not invented: essentials come to **$2,005** a
+month (rent 950, utilities 165, phone 55, insurance 120, internet 60,
+groceries 420, gas 155, health 80) and the optional categories to **$185.40**,
+which together are Appendix D's $2,175 of living costs plus its $15.40 of
+optional spending. Month 6 adds $27 of optional spending, $200 of side income,
+$20 of materials and the $45 estimate, which is the printed row exactly.
+
+**F3 · the trademark, which is not mine to decide.** "Gap" alone overlaps a
+major apparel trademark. Get legal clearance before scaling the brand, and do
+not treat the `short_name` choice above as that clearance.
+
+Both apps were re-tested after `tools/sync-bundles.py`: service worker active,
+offline reload renders, no page errors, `check-stylesheet.py` 0 failures.

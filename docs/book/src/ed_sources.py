@@ -16,6 +16,29 @@ READ = '9 October 2026'
 
 # Rows appended to Appendix G. (fact, value, source)
 ROWS = [
+    ('Saver&rsquo;s Match phase-out, by filing status, from tax year 2027',
+     'single or married filing separately: full to $20,500, partial to $35,499, none at $35,500. '
+     'Head of household: $30,750 / $53,249 / $53,250. Married filing jointly: $41,000 / $70,999 / $71,000',
+     'IRS, <em>Saver&rsquo;s Match</em>. Verified 10 October 2026'),
+    ('Months the Wage Growth Tracker put job switchers above job stayers',
+     '325 of 356 months, January 1997 to September 2026',
+     'Federal Reserve Bank of Atlanta, Wage Growth Tracker, <em>wage-growth-data.xlsx</em>, '
+     'Job Switcher sheet. Counted from the file, 10 October 2026'),
+    # Chapter 20's fund costs, read out of the funds' own SEC filings rather
+    # than a brokerage page, because the brokerage pages are built by script and
+    # a summary prospectus is the primary document.
+    ('Fidelity Freedom Index 2060, Investor Class (FDKLX), annual cost',
+     '0.12%, and no purchase minimum',
+     'Summary prospectus, 30 May 2026 (SEC 497K, 0000880195-26-000445)'),
+    ('Schwab Target 2060 Index Fund (SWYNX), annual cost',
+     '0.08%, and no minimum initial investment',
+     'Summary prospectus, 28 July 2025 (SEC 497K, 0001104659-25-070907)'),
+    ('Fidelity ZERO Total Market Index (FZROX), annual cost',
+     '0.00%',
+     'Summary prospectus, 29 December 2025 (SEC 497K, 0000819118-25-000478)'),
+    ('Vanguard Total Stock Market Index, Admiral (VTSAX), annual cost',
+     '0.04%',
+     'Summary prospectus, 28 April 2026 (SEC 497K, 0000036405-26-000214)'),
     ('2026 ACA out-of-pocket maximum, self-only',
      '$10,150 ($20,300 other than self-only)',
      'CMS, <em>2026 Payment Notice parameters guidance</em>, 8 October 2024'),

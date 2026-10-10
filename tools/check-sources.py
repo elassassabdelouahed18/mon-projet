@@ -43,6 +43,42 @@ WORKED = {'3,000', '2,700', '300', '150', '100', '2,769', '5,647', '19.50', '29.
           '1,974', '1,976', '120', '2,522', '3,992', '2,872', '5,687'}
 SKIP_SECTIONS = {'s-toc', 's-copy', 's-half', 's-title'}
 
+# Amounts used as examples rather than as claims about the world. Each one is
+# listed with the sentence it stands in, so the exemption can be audited.
+ILLUSTRATIVE = {
+    '200,000': 'people pulling in $100,000, $200,000, even more',
+    '80,000': 'easier to break the cycle at $80,000 than at $30,000',
+    '30,000': 'easier to break the cycle at $80,000 than at $30,000',
+    '9.99': 'the $9.99s and $14.99s that felt trivial signing up',
+    '14.99': 'the $9.99s and $14.99s that felt trivial signing up',
+    '4,000': "Maya's first raise, three years ago, was small, just $4,000 a year",
+    '1,500': '$500 to $1,500 is typical for a starter buffer',
+    '50,000': 'capturing a 3% match on $50,000 is $1,500',
+}
+# Figures the book works out in front of the reader, from numbers that are
+# themselves sourced. The page that shows the arithmetic is named.
+DERIVED = {
+    '40,573': "Chapter 9: $42,003 gross less Marcus's health premium",
+    '323': 'Chapter 9: how far his AGI sits above the Saver&rsquo;s Credit limit',
+    '1,170': 'Chapter 9: half of the $3,510 overtime check',
+    '115': "Chapter 8: one month's interest on the card the cushion delays",
+    '9.6%': 'Chapter 13: month 24 gap divided by month 24 income, Appendix D',
+    '9.3%': 'Chapter 13: the same, for Maya',
+    '345': "Chapter 14's own payoff table, from the simulator in Gap",
+    '511': "Chapter 14's own payoff table",
+    '229': "Chapter 14's own payoff table",
+    '1,262': "Chapter 14's own payoff table",
+    '1,083': "Chapter 14's worked simulator run",
+    '657': "Chapter 14's worked simulator run",
+    '533': "Chapter 14's worked simulator run",
+    '617': 'Chapter 16: month 24 of Appendix D',
+    '320': 'Chapter 16: the card balance at month 24 of Appendix D',
+    '849,000': 'Appendix H: 25 times annual spending',
+    '34,000': 'Appendix H: one year of costs',
+    '424,000': 'Appendix H: half the freedom number',
+    '29,000': "Chapter 20: the difference between the two fee lines on the same chart",
+}
+
 
 def visible_sections(html):
     """Chapter and front-matter text, without the appendices that do the sourcing."""
@@ -104,6 +140,7 @@ def main():
     personas = persona_numbers()
     worked = appendices(html)
     gaps, seen = [], set()
+    kinds = {'illustrative': 0, 'derived': 0}
     for sid, body in visible_sections(html):
         for mo in NUM.finditer(plain(body)):
             n = mo.group(0).rstrip(',')      # a trailing comma is punctuation
@@ -125,6 +162,12 @@ def main():
                 continue
             if n in worked or bare in worked:
                 continue      # Appendix D or H shows the arithmetic for it
+            if bare in ILLUSTRATIVE or n.strip('$') in ILLUSTRATIVE:
+                kinds['illustrative'] += 1
+                continue
+            if bare in DERIVED or n in DERIVED or n.strip('$') in DERIVED:
+                kinds['derived'] += 1
+                continue
             ctx = plain(body)
             k = ctx.find(n)
             # a quote's date line, e.g. "Benjamin Franklin · The Way to Wealth · 1758"
@@ -133,6 +176,8 @@ def main():
             gaps.append((sid, n, ctx[max(0, k - 70):k + 70].strip()))
     print(f'Appendix G rows: {g_rows}')
     print(f'distinct numbers checked in the chapters: {len(seen)}')
+    print(f'examples rather than claims: {kinds["illustrative"]} (listed in ILLUSTRATIVE)')
+    print(f"the book's own arithmetic: {kinds['derived']} (listed in DERIVED)")
     print(f'without a row: {len(gaps)}\n')
     for sid, n, ctx in gaps:
         print(f'  {n:>10}  {sid:12} …{ctx}…')

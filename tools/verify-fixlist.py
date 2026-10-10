@@ -92,7 +92,11 @@ chk('D3', has(flat,'on track'), 'Morgan stated as on track to')
 chk('D4', has(flat,'Erica Krupin') and has(flat,'pharmacy technician on about $20 an hour')
      and has(flat,'reading her financial documents') and has(flat,'Kroopin'),
     'hourly, no degree, documents reviewed, rowed in Appendix G')
-chk('D5', False, 'BLOCKED: course metadata unreadable')
+chk('D5', has(flat,'Upwork Tutorial for Beginners [FULL GUIDE]') and has(book,'bCcssVfBd98')
+     and has(flat,'26 minutes. Published 7 January 2022, 226,000 views. Checked 10 October 2026')
+     and nope(book,'w0H1-b044KY') and nope(flat,'Liam Ottley')
+     and len(re.findall(r'Checked 10 October 2026', flat))>=5,
+    'Ottley out, all five boxes re-read at the source')
 chk('D6', os.path.exists(R+'/site-pages/engines.html') and has(flat,'befreeacademy.site/engines'), '')
 chk('D7', os.path.exists(R+'/site-pages/sources.html') and has(flat,'befreeacademy.site/sources'), '')
 chk('D8', has(flat,'Widely quoted, left out as unverifiable') and has(flat,'dropshippers fail'), '')
@@ -227,9 +231,9 @@ for i, name in [('K1', 'the model reproduces'), ('K2', 'every cross-reference'),
                 ('K7', 'both phone editions'), ('K8', 'the installed names')]:
     line = next((l for l in out.splitlines() if name in l), '')
     chk(i, line.startswith('PASS') or line.startswith('BLOCKED'), line.split('  ', 1)[0].strip() + ' — ' + name)
-chk('K3+', '8 unsourced' not in out and 'without a row: 6' in
+chk('K3+', '8 unsourced' not in out and 'without a row: 3' in
     subprocess.run(['python3', 'tools/check-sources.py'], cwd=R, capture_output=True, text=True).stdout,
-    'exactly the 6 Chapter 12 figures')
+    'exactly the 3 Chapter 12 figures still blocked')
 # K9-K11 — the three packets the fix list asks a human to run
 chk('K9', len(rd('REVIEW_PACKET_TAX.md')) > 3000 and 'CPA' in rd('REVIEW_PACKET_TAX.md'), 'tax packet')
 chk('K10', len(rd('READER_TEST.md')) > 3000 and 'five readers' in rd('READER_TEST.md').lower(), 'reader test')

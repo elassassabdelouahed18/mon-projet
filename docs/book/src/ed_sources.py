@@ -65,6 +65,23 @@ ROWS = [
     ('2026 Saver&rsquo;s Credit income limit',
      '$40,250 single, $60,375 head of household, $80,500 joint',
      'IRS, 2026 cost-of-living adjustments'),
+    # K3: Steph Smith's ebook, read on her own site rather than from an
+    # interview about it. Her number is larger and her timeframe is shorter
+    # than the one the book carried.
+    ('Steph Smith, <em>Doing Content Right</em>',
+     'written in seven weeks; more than $250,000 and 4,800 copies sold, cumulative',
+     'stephsmith.io, her own site. Read 10 October 2026'),
+    # D5: the course metadata, read from YouTube's own watch data on the day.
+    # cnbc.com-style 403s do not apply here: youtubei/v1/next answers this
+    # address even though the watch page, both embeds and the player endpoint
+    # do not, and it carries the view count and the publish date.
+    ('Chapter 12&rsquo;s five courses: length, view count and publish date',
+     'Upwork walkthrough (Evan Fisher) 26 minutes, 226,000 views, 7 January 2022; '
+     'print on demand (Mark Tilbury) 34 minutes, 2.9 million views, 17 April 2024; '
+     'digital products (Sandra Di) 2 hours, 47,000 views, 27 May 2026; '
+     'YouTube (Ali Abdaal) 40 minutes, 1.0 million views, 4 October 2024; '
+     'affiliate marketing (Ahrefs) 1 hour 48 minutes, 720,000 views, 24 May 2023',
+     'YouTube, each video&rsquo;s own watch data. Read 10 October 2026'),
     # D4: the one ceiling case a reader on an hourly wage can stand next to.
     # Read in the NBC 7 San Diego syndication of the CNBC Make It story, because
     # cnbc.com refuses this address; the syndication carries the full copy and
@@ -158,6 +175,51 @@ EDITS = [
      'nearly $500,000 a year, paying him more than $350,000. Eryn Andrews spent $200 on a '
      'microphone and a class in 2022 while employed at NASA, started selling voice-over work, '
      'and said her voice-over income passed her NASA salary in the summer of 2025.'),
+
+    # ---------------------------------------------------------- K3, Smith
+    # The book said "more than $130,000 in about eight months", which is an
+    # interview number from years ago. Her own site states the writing time and
+    # the cumulative total, so the book now says what she says.
+    ('rep', 'The ceiling, documented. Steph Smith',
+     'The ceiling, documented. Steph Smith wrote one ebook, <em>Doing Content Right</em>, '
+     'in seven weeks; her own site reports it has sold more than $250,000 and 4,800 copies. '
+     'Easlo built Notion templates on weekends during his military service in Singapore and '
+     'was reporting around $50,000 a month by 2023.'),
+
+    # ------------------------------------------------------------ D5
+    # Engine One's course was Liam Ottley's AI-agents guide: it teaches a
+    # different business from the one this engine describes, and it advertises
+    # his own paid program. Replaced, and every course box's numbers re-read at
+    # the source the same day.
+    ('rep', 'How to Build & Sell AI Agents',
+     '<strong>Upwork Tutorial for Beginners [FULL GUIDE]</strong> &middot; Evan Fisher'),
+    ('rep', 'https://www.youtube.com/watch?v=w0H1-b044KY',
+     '<a href="https://www.youtube.com/watch?v=bCcssVfBd98">'
+     'https://www.youtube.com/watch?v=bCcssVfBd98</a>'),
+    ('rep', '3 hours 51 minutes.',
+     '26 minutes. Published 7 January 2022, 226,000 views. Checked 10 October 2026. '
+     'A beginner&rsquo;s walkthrough of Upwork itself rather than a business to buy into. '
+     'It is older than the split this page describes and older than the fee schedule in '
+     'the chart above, so take the fees from the chart and not from the video.'),
+
+    # The other four stand; their numbers were re-read on 10 October 2026 and
+    # two had moved, which is what a "checked" date is for.
+    ('rep', '34 minutes. Published 17 April 2024',
+     '34 minutes. Published 17 April 2024, 2.9 million views. Checked 10 October 2026. '
+     'Chosen over the larger dropshipping courses because it starts at nearly zero '
+     'capital. It carries sponsor links; you need none of them to begin.'),
+    ('rep', '2 hours. Published 27 May 2026',
+     '2 hours. Published 27 May 2026, 47,000 views. Checked 10 October 2026. Chosen over '
+     'more-watched Etsy tutorials because those predate the AI-disclosure rules. '
+     'Complete, recent, no income screenshots; her own course is optional.'),
+    ('rep', '40 minutes. Published 4 October 2024',
+     '40 minutes. Published 4 October 2024, 1.0 million views. Checked 10 October 2026. '
+     'Shorter than the twelve-hour courses and from someone who built his channel beside '
+     'a full-time job as a doctor, which is your situation.'),
+    ('rep', '1 hour 48 minutes. Published 24 May 2023',
+     '1 hour 48 minutes. Published 24 May 2023, 720,000 views. Checked 10 October 2026. '
+     'From a search-tool company rather than a hosting affiliate, which is rare here. It '
+     'predates AI Overviews, so read the paragraph above alongside it.'),
 
     # ------------------------------------------------------------ D4
     # Both documented cases in Engine One are credentialed professionals: a

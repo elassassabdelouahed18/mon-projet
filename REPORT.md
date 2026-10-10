@@ -3,8 +3,8 @@
 Branch `claude/new-session-hcmz47`. Every change is in `FIXLOG.md` with its
 evidence; this is the summary the fix list asked for.
 
-**91 IDs: 84 done, 4 done with a stated limit or deviation, 3 blocked.**
-**Re-verified against the built files after the fact: 105 checks, 104 pass, 1 blocked, 0 fail (§5).**
+**91 IDs: 84 done, 5 done with a stated limit or deviation, 2 blocked.**
+**Re-verified against the built files after the fact: 105 checks, 105 pass, 0 fail (§5).**
 **Acceptance tests: 7 pass, 1 blocked, 0 fail.** Nothing failed.
 
 ---
@@ -17,7 +17,7 @@ evidence; this is the summary the fix list asked for.
 | A2 | done | `model/financial-model.cjs` | A pre-tax 401(k) deferral saves income tax and not FICA, which was backwards. Maya's step-up cost: **$146 → $117**. |
 | A3 | done | `ed_errata.py` | The ten essential items sum to $2,522 and the chart marker moved with it: 91.1%. |
 | A4–A18 | done | `ed_errata.py`, `ed_front.py` | Fifteen errata applied as named, checked replacements. A14's investing order is a six-step chart with the HSA third. |
-| A19 | done | `ed_sources.py` | Etsy was two rows; it is one, carrying both the processing fee and the offsite-ads fee. 98 rows, no repeated fact. |
+| A19 | done | `ed_sources.py` | Etsy was two rows; it is one, carrying both the processing fee and the offsite-ads fee. 100 rows, no repeated fact. |
 | A20 | done | `ed_recaps.py` | "Ninety days, four phases" is gone. |
 | A21 | done | `ed_errata.py`, `shots.cjs` | The simulator box and the screenshot beside it now read the same sample file: **24 months / $1,083 / 13 months / $657 → 48 months / $7,115 / 26 months / $4,032**. |
 | A22–A24 | done | `ed_errata.py`, `ed_spine.py` | Cash milestones state their 0% real assumption; the spine is one framework. |
@@ -38,9 +38,9 @@ evidence; this is the summary the fix list asked for.
 | D2 | done | `ed_sources.py` | Eight overstatements softened to what the source supports. |
 | D3 | done | `ed_errata.py` | Morgan's revenue is "on track to", which is what the source says. |
 | D4 | done | `ed_sources.py` | **Erica Krupin**: a pharmacy technician on about **$20 an hour**, no bachelor's degree, about **$1,000** of supplies in August 2018, fifteen customers within weeks, worked before and after her hospital shifts, and she did not quit until the annual revenue passed the wage. CNBC Make It read her financial documents and reported the business **on track for $250,000 of revenue in 2024**. Read in the NBC 7 San Diego syndication, 10 October 2026, because cnbc.com still refuses this address. |
-| D5 | **blocked** | — | A replacement course for Engine One, **with its view count, length and publish date recorded**. YouTube serves this container a consent shell, so I cannot read any of those three. Choosing a course is easy; typing plausible metadata beside it is what ground rule 8 forbids. |
+| D5 | done, with a stated limit | `ed_sources.py` | Liam Ottley's AI-agents course is out. In its place, the one you chose: **Upwork Tutorial for Beginners [FULL GUIDE]** · Evan Fisher, **26 minutes, 226,000 views, published 7 January 2022**, read from YouTube's own watch data on 10 October 2026, and all four remaining course boxes re-read the same day. **The limit:** it is **four years and nine months old**, where D5 asked for 24 months, and I cannot watch a video from here, so *“no income screenshots, not a done-for-you pitch”* rests on your judgement, not on mine. The box says in print that it predates both the AI split and the fee chart. §4.1 lists three recent alternatives with their numbers. |
 | D6 | done | `tools/make-site-pages.py`, `ed_site.py`, `site-pages/` | `befreeacademy.site/engines`, generated from the book's own five boxes, with a QR code. Each box carries the address, the QR and "checked every quarter". **Not deployed.** |
-| D7 | done | same | `befreeacademy.site/sources`, generated from Appendix G itself, 98 rows, with a QR. Appendix G prints the address. **Not deployed.** |
+| D7 | done | same | `befreeacademy.site/sources`, generated from Appendix G itself, 100 rows, with a QR. Appendix G prints the address. **Not deployed.** |
 | D8 | done | `ed_sources.py` | Now "Widely quoted, left out as unverifiable", with the dropshipping figure added. |
 | E1–E8 | done | `guide.html`, `start-here/book.html` | The migration note, the small-version rule, one caution instead of ten, Streak as part of the system, the eight phases in place of "the four moves", the variable-income pages merged, the rhythm verbatim from J3, the duplicated time note. |
 | F1 | done | `gap/app.js`, `gap/index.html` | Today loads with **exactly one** suggestion; the rest is behind a toggle. |
@@ -50,7 +50,7 @@ evidence; this is the summary the fix list asked for.
 | F5 | done | `gap/app.js` | The sample file is Marcus, Appendix D. Last month is his month 6, to the cent. |
 | F6 | done | `gap/app.js` | "Early in the month: one paycheck is still on its way." |
 | G1 | done | `tools/make-epub.py`, `tools/epub.css` | EPUB 3 from the same source: 48 documents, every chart, **0 overflow at 390 × 844**. |
-| G2 | done | `sys2.css` | Ligatures off. `pdftotext` over 198 pages: `nancial` 0, `yve` 0, `deycit` 0. |
+| G2 | done | `sys2.css` | Ligatures off. `pdftotext` over 199 pages: `nancial` 0, `yve` 0, `deycit` 0. |
 | G3 | done | `build.py`, `ed_alt.py` | PDF/UA-1. **80 of 80 figures carry alt text**, 245 of 245 links carry a description. |
 | G4 | done | `ed_links.py` | **204 internal links and 38 external addresses**, where five YouTube URLs were the only links in the book. |
 | G5 | done, with a limit | `tools/cover-rebuild.py` | 1800 × 2700, 300 ppi. The artwork is **upscaled, not re-exported** — it was generated at 1024 × 1536 and there is no larger original. The bottom line is re-set as real type. |
@@ -77,7 +77,7 @@ evidence; this is the summary the fix list asked for.
 | J9 | done | `STYLESHEET.md`, `tools/check-stylesheet.py` | The contract, and a script that enforces it. **0 failures.** |
 | K1 | **pass** | `tools/acceptance.py` | The model reproduces itself byte for byte and ships. |
 | K2 | **pass** | same | 90 internal links, every one with a target that it names. |
-| K3 | **blocked** | `tools/check-sources.py` | 228 numbers against 98 rows; 8 are examples, 18 are the book's own arithmetic, **6 unsourced** — the Chapter 12 case studies above. |
+| K3 | **blocked** | `tools/check-sources.py` | 229 numbers against 100 rows; 8 are examples, 18 are the book's own arithmetic, **3 unsourced** — Gumroad's 2020 creator count, Graham Stephan's $5.1 million and Midwest Foodie's quarter, all in Chapter 12. |
 | K4 | **pass** | `tools/acceptance.py` | No leftovers. |
 | K5 | **pass** | `tools/check-stylesheet.py` | 0 failures. |
 | K6 | **pass** | `tools/acceptance.py` | 0 broken ligatures, 0 Type 3, 0 fallback fonts, `/Lang en-US` and tagged on all four PDFs. |
@@ -120,14 +120,14 @@ evidence; this is the summary the fix list asked for.
 
 | | Pages | Size |
 |---|---|---|
-| The Anti-Paycheck Trap (PDF, 6×9, PDF/UA-1) | **198** | 2,809 KB |
+| The Anti-Paycheck Trap (PDF, 6×9, PDF/UA-1) | **199** | 2,809 KB |
 | The Anti-Paycheck Trap (EPUB 3, reflowable) | 48 documents | 1,340 KB |
 | Start Here: The BeFree System (PDF, 6×9) | **32** | 2,987 KB |
 | Start Here: The BeFree System (PDF, phone, 390×845) | 65 sheets | 2,999 KB |
 | Install Gap and Streak (PDF, US Letter) | 1 | 144 KB |
 | `befree-apps/` — the folder to upload to Netlify | 42 files | 1.8 MB |
 
-The book was 189 pages when this pass began and is 198: the new charts, Model
+The book was 189 pages when this pass began and is 199: the new charts, Model
 four, the spine map, the minimum version and the Saver's Credit section, less
 what B4 took out.
 
@@ -143,35 +143,27 @@ registers, the page renders with the network off, and there are no page errors.
 
 ## 4 · What only you can do
 
-1. **D5, the Engine One course.** This is the one source still open, and it
-   needs ten minutes of your eyes, not an hour of mine. YouTube answers this
-   address with a login wall on every surface that carries metadata — the watch
-   page returns a captcha, the embed returns an interstitial, and the player API
-   returns `LOGIN_REQUIRED`. Only oEmbed answers, and it carries the title and
-   the channel and nothing else, so **length, view count and publish date cannot
-   be read from here, and I will not type a plausible number beside a link.**
-   What I need, for whichever course you pick: its **length, its view count and
-   its publish date**, and your answer to the two things no metadata shows —
-   does it push a paid program, and does it show income screenshots. These
-   candidates are real links whose titles and channels I confirmed through
-   oEmbed today; I have not watched any of them and I am not recommending one:
+1. **D5's two judgement calls.** The swap is made and the numbers are read, but
+   two things about that video are yours, not mine. It was published **7 January
+   2022**, which is four years and nine months ago where D5 asked for 24 months;
+   the chapter's AI split and the fee chart beside it are both newer, and the box
+   says so in print. And **I cannot watch a video from this container**, so
+   whether it shows income screenshots or sells a program is your call. If you
+   would rather have a recent one, these three are read at the source today and
+   one word switches it:
 
-   | | |
-   |---|---|
-   | `youtube.com/watch?v=Rbkp7n05bA0` | *How to Get Your First Job on Upwork in 2025 · Full Step-by-Step Guide* — Manishdna |
-   | `youtube.com/watch?v=bCcssVfBd98` | *Upwork Tutorial for Beginners [FULL GUIDE]* — Evan Fisher |
-   | `youtube.com/watch?v=yLi3dEsoBDk` | *Upwork Tutorial For Beginners 2025: The Complete Upwork Course* — Jesse Kamara |
+   | | length | views | published |
+   |---|---|---|---|
+   | `DnetNoirovA` · *Fiverr Tutorial for Beginners — The Complete Fiverr Guide* · Aasil Khan | 39:48 | 1,294,000 | 27 Feb 2025 |
+   | `eRK5Nb8W4NU` · *Upwork Complete Course 2026 — Step-by-Step Freelancing Guide* | 3:37:56 | 64,800 | 14 Mar 2026 |
+   | `y9NnNswHmts` · *Complete Upwork Course 2026* · Asad Sharif | 2:15:21 | 33,600 | 29 Oct 2025 |
 
-   I also checked the non-YouTube route and closed it: Upwork's own academy,
-   Fiverr Learn, both help centres and SCORE all answer this address with a
-   Cloudflare challenge, and the one Coursera course that fits the topic sits
-   inside a *“Generate Passive Income”* specialization whose own page carries the
-   instructor's sales figures — which is the thing D5 exists to keep out of the
-   book. Until then the box still carries Liam Ottley's AI-agents course with the
-   caveat it already prints.
-2. **The six Chapter 12 figures** behind K3, for the same reason. The book cites
-   each inline with its URL and your check date of 26 September 2026; what is
-   missing is a second check, not a citation.
+2. **The three Chapter 12 figures** still outside Appendix G: Gumroad's 45,917
+   creators (the 2020 post is gone from gumroad.com and the Wayback index
+   refuses this address), Graham Stephan's $5.1 million (said inside a video,
+   not in any metadata I can read) and Midwest Foodie's $206,000 quarter (the
+   blog answers with a Cloudflare challenge). Open any of the three in a browser
+   and paste the line; each is one Appendix G row away from closing.
 3. **The Gap trademark.** "Gap" alone overlaps a major apparel mark. Get legal
    clearance before scaling the brand. Nothing in this pass is that clearance.
 4. **The tax review (K9).** `REVIEW_PACKET_TAX.md` is ready for an EA or CPA.
@@ -205,8 +197,8 @@ install sheet, both `app.js` files, both manifests, `STYLESHEET.md`, the
 
 | | |
 |---|---|
-| Checks that passed | **104** |
-| Still blocked, reported above | **1** — D5 |
+| Checks that passed | **105** |
+| Still blocked, reported above | **0** |
 | Failures | **0** |
 
 Four flags in the first run were faults in the checking expressions, not in the
@@ -239,4 +231,24 @@ With it the book is **198 pages**, Appendix G is **98 rows**, and
 `check-sources.py` reads **228 numbers, 8 examples, 18 the book's own
 arithmetic, 6 unsourced** — the same six Chapter 12 figures, unchanged.
 
-Nothing else moved. The suite still reads **7 pass, 1 blocked, 0 fail**.
+**Then D5 closed too, by the same stubbornness.** YouTube refuses this address
+on the watch page, both embeds and `youtubei/v1/player` — but not on
+**`youtubei/v1/next`**, which answers without a login and carries the view count
+and the publish date, and `youtubei/v1/search` carries the duration. So the
+course you picked went in **with all three numbers read at the source**, and
+while that endpoint was open I re-read **all five course boxes**: four numbers
+had drifted since 26 September and two of them are now correct where they were
+stale. Appendix G carries the five courses as a row, which also sourced two of
+the six figures K3 was holding.
+
+**And one more figure turned out to be wrong.** Chasing the rest of K3,
+stephsmith.io loads from here: her own site says *Doing Content Right* was
+**written in seven weeks** and has **sold more than $250,000 and 4,800 copies**.
+The book said "$130,000 in about eight months", an interview number from years
+ago. Corrected, and rowed.
+
+K3 is down from **8 → 6 → 3** unsourced figures in one day. The three left are in
+§4.2.
+
+Nothing else moved. The suite still reads **7 pass, 1 blocked, 0 fail**, and
+`verify-fixlist.py` now reads **105 of 105**.

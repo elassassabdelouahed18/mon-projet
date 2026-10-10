@@ -6,7 +6,7 @@ commit `d1d3bde`.
 
 ## 1. Pipeline map
 
-### Book — *The Anti-Paycheck Trap*, 6×9, 198 pp, WeasyPrint 70
+### Book — *The Anti-Paycheck Trap*, 6×9, 199 pp, WeasyPrint 70
 
     docs/book/src/original.html     third-edition source as supplied — NEVER edited
     docs/book/src/sys.css           its stylesheet — NEVER edited
@@ -832,11 +832,11 @@ this is recorded rather than hidden.
 
 | ID | what changed | evidence |
 |---|---|---|
-| A19 | **Appendix G's duplicates.** Etsy was listed twice, once with the payment-processing fee and once with the offsite-ads fee. One row now carries both and one source line. Pew and Ahrefs were already single rows by then. | 98 rows, **no repeated fact**, checked by script |
+| A19 | **Appendix G's duplicates.** Etsy was listed twice, once with the payment-processing fee and once with the offsite-ads fee. One row now carries both and one source line. Pew and Ahrefs were already single rows by then. | 100 rows, **no repeated fact**, checked by script |
 | A21 | **The simulator box and the screenshot beside it** came from two different debt sets. Both now read the sample file the app itself loads — Marcus's four debts — driven in the app and read off the screen: minimums alone 48 months and $7,115 of interest; $300 a month clears it 22 months sooner and saves $4,032. The screenshot was re-shot at the same $300. | page 118 of the book: the panel and its caption carry the same four numbers |
 | A25 | **The six doors name their page.** Each door in the chart reads "Ch 14 · p110". The number is a `{{p:ch14}}` token that `build.py` resolves against where the chapter actually landed, in the same pass that fills the contents, so it cannot drift when the book repaginates. The box underneath now says "turn to the page beside it". | pages 53, 61, 65, 90, 110 printed into the chart on page 12 |
 | D6 | **befreeacademy.site/engines**, generated into `site-pages/engines.html` from the book's own five course boxes, with a QR code. Each box in the book carries that address, its QR, and the line "checked every quarter". **Not deployed.** | 5 boxes, 10 link annotations, the QR renders at 30pt |
-| D7 | **befreeacademy.site/sources**, generated into `site-pages/sources.html` from Appendix G itself — all 98 rows — with a QR code. Appendix G's opening now prints the address. **Not deployed.** | page 182 |
+| D7 | **befreeacademy.site/sources**, generated into `site-pages/sources.html` from Appendix G itself — all 100 rows — with a QR code. Appendix G's opening now prints the address. **Not deployed.** | page 182 |
 | D8 | The section is now **"Widely quoted, left out as unverifiable"**, which is what it is for. The 160-million headcount stays listed, and the "80 to 90% of dropshippers fail" figure joins it, with a pointer to what Chapter 12 says instead. | page 188 |
 
 **D5 — BLOCKED, and it needs a person.** The review asks me to replace Liam
@@ -967,3 +967,66 @@ the one Coursera course on the topic sits in a "Generate Passive Income"
 specialization whose page carries the instructor's own sales figures. Three
 candidate links, with titles and channels confirmed through oEmbed today, are in
 REPORT.md §4.1 for whoever can open a browser.
+
+---
+
+## 7. D5 — the course replaced, and the metadata finally read
+
+**The endpoint that answers.** YouTube refuses this address everywhere the
+obvious reader looks: the watch page redirects to a Google captcha (429), both
+`/embed` and `youtube-nocookie.com/embed` return a "watch on YouTube"
+interstitial, and `youtubei/v1/player` returns `LOGIN_REQUIRED` for WEB, MWEB,
+ANDROID, IOS, ANDROID_VR and both embedded clients. **`youtubei/v1/next` does
+not.** It answers unauthenticated and carries `viewCount` and `publishDate`;
+`youtubei/v1/search` carries `lengthText` for the same video. Between the two,
+every number D5 asks for is readable from the primary source.
+
+**The swap, as instructed.** Engine One's box now reads:
+
+> **Upwork Tutorial for Beginners [FULL GUIDE]** &middot; Evan Fisher
+> `youtube.com/watch?v=bCcssVfBd98`
+> 26 minutes. Published 7 January 2022, 226,000 views. Checked 10 October 2026.
+
+Read 10 October 2026: `lengthText` 25:46, `viewCount` 226,078, `publishDate`
+7 January 2022.
+
+**Two limits, printed rather than hidden.** The video is **four years and nine
+months old**, where D5 asked for 24 months, so the box says in print that it
+predates both the AI split the page describes and the fee chart above it, and
+tells the reader to take the fees from the chart. And no container can watch a
+video, so *"no income screenshots, not a done-for-you pitch"* is the author's
+call; the box claims nothing about the content beyond what the title states.
+Three recent alternatives, with length, views and publish date read the same
+way, are in REPORT.md &sect;4.1.
+
+**All five boxes re-read the same day**, since the endpoint was open:
+
+| box | the book said | read 10 October 2026 |
+|---|---|---|
+| Engine One | Ottley, 3 h 51 m, 3.8 m views, 26 Mar 2025 | replaced |
+| Engine Two, print on demand | 34 min, 2.8 m views, 17 Apr 2024 | 33:43, **2,894,609**, 17 Apr 2024 &rarr; **2.9 million** |
+| Engine Three, digital products | 2 h, 45,000 views, 27 May 2026 | 1:59:32, **47,193**, 27 May 2026 &rarr; **47,000** |
+| Engine Four, YouTube | 40 min, 1.0 m views, 4 Oct 2024 | 39:59, **1,011,545**, 4 Oct 2024 &rarr; unchanged |
+| Engine Five, affiliate | 1 h 48 m, 719,000 views, 24 May 2023 | 1:48:23, **720,133**, 24 May 2023 &rarr; **720,000** |
+
+Every "Checked 26 September 2026" became **10 October 2026**, which is what a
+checked date is for. Appendix G carries the five as one row, which also sources
+two of the figures K3 was holding.
+
+## 8. One more wrong number, found while chasing K3
+
+`stephsmith.io` loads from this address. Her own site states it twice: *"I wrote
+my book in 7 weeks and it has now sold over $250k"* and *"I also wrote a book,
+Doing Content Right, that's sold over $250k and 4800 copies."*
+
+The book said **"wrote one ebook while working a full-time job and sold more
+than $130,000 of it in about eight months"** — an interview number from years
+ago, with a timeframe her site does not state. It now says what she says: written
+in seven weeks, more than $250,000 and 4,800 copies, with a row in Appendix G.
+
+**K3 went 8 &rarr; 6 &rarr; 3 unsourced in one day.** What is left: Gumroad's 45,917
+creators (the 2020 post is gone from gumroad.com, and the Wayback CDX index
+answers this address with 403), Graham Stephan's $5.1 million (stated inside a
+video, which no metadata endpoint carries) and Midwest Foodie's $206,000 quarter
+(the blog answers with a Cloudflare challenge). Appendix G: **100 rows**. The
+book: **199 pages**.

@@ -1,1 +1,5 @@
 storefront/preview/
+
+# the Netlify upload, rebuilt from befree-apps/ whenever it is needed:
+#   (cd befree-apps && zip -qr ../befree-apps-netlify.zip .)
+befree-apps-netlify.zip

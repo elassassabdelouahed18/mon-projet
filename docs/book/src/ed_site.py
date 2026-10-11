@@ -1,9 +1,9 @@
-"""D6 and D7 - one short address per box, so a dead link is not a dead end.
+"""D7 - one short address for the sources, so a dead link is not a dead end.
 
-Every course box names a YouTube video. Videos are taken down, renamed and
-re-uploaded, and a printed book cannot follow them. Each box now also carries
-befreeacademy.site/engines and its QR code; the sources appendix carries
-befreeacademy.site/sources the same way. Those two pages are generated from
+D6 put befreeacademy.site/engines and its QR under each of the five course
+boxes as well. The author has since asked for the boxes to end on the course
+itself, so that line is gone from them and the sources appendix keeps its own:
+befreeacademy.site/sources. Those two pages are generated from
 this book by tools/make-site-pages.py and live in site-pages/, ready to
 publish. Nothing is deployed from here.
 """
@@ -22,12 +22,11 @@ def svg(name):
 def apply(html):
     boxes = re.findall(r'<div class="box learn"><p class="lab">Start here</p>.*?</div>', html, re.S)
     if len(boxes) != 5:
-        sys.exit(f'[site] expected 5 course boxes, found {len(boxes)}')
-    q = svg('engines')
-    for b in boxes:
-        tail = ('<p class="short">' + q + '<span>If this course has moved, the current one is at '
-                '<b>befreeacademy.site/engines</b>, checked every quarter.</span></p></div>')
-        html = html.replace(b, b[:-6] + tail, 1)
+        sys.exit(f'[site] expected 5 course boxes, found {len(boxes)}')   # still checked
+    # The course boxes carried befreeacademy.site/engines and its QR under every
+    # course. They do not any more: the author wants the box to end on the
+    # course. The page is still generated into site-pages/ and Appendix G still
+    # prints its own address below.
 
     # Appendix G's own line, under its opening paragraph
     i = html.index('id="appG"')
@@ -35,5 +34,5 @@ def apply(html):
     html = (html[:j] + '<p class="short">' + svg('sources') +
             '<span>Every row on this page, with its link, is also at '
             '<b>befreeacademy.site/sources</b>.</span></p>' + html[j:])
-    print('site: 5 course boxes and Appendix G carry a short address and its QR')
+    print('site: Appendix G carries the short address and its QR; the course boxes do not')
     return html

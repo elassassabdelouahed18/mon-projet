@@ -1182,3 +1182,39 @@ mockups), both guide editions re-rendered, the book rebuilt, the EPUB and the
 site pages regenerated. **Acceptance 8 pass, 0 blocked, 0 fail. verify-fixlist
 105 of 105. The four app suites: 20 + 14 + 11 + 17 = 62 tests, all passing.**
 
+---
+
+## 11. The five courses, re-chosen, and the address line removed
+
+**The line is gone.** Every course box carried *&ldquo;If this course has moved,
+the current one is at befreeacademy.site/engines, checked every quarter&rdquo;* and
+its QR code, which was D6. The author has asked for the boxes to end on the
+course itself, so `ed_site.py` no longer adds it to the five. The page is still
+generated into `site-pages/engines.html`, and **Appendix G keeps its own**
+address line, which was D7. The cost, stated plainly: if one of these five
+videos is taken down, the printed book has no pointer to a replacement.
+
+**The five courses were re-chosen on four tests** &mdash; English, strong, recent,
+widely watched. Every number below was read from YouTube's own watch data on
+**11 October 2026**, and every sentence the book now prints about a course comes
+from that course's own description, read the same way.
+
+| engine | was | is | why |
+|---|---|---|---|
+| One &middot; services | Upwork walkthrough, Evan Fisher, 26 min, 226,000 views, **Jan 2022** | **Fiverr Tutorial for Beginners: The Complete Fiverr Guide** &middot; Aasil Khan, 40 min, **1.3 m views**, **Feb 2025** | 5.7&times; the views and three years newer; the box's own stated limit was its age |
+| Two &middot; e-commerce | Mark Tilbury, 34 min, 2.9 m views, Apr 2024 | **unchanged** | at 2.9 million it was already the strongest of the five |
+| Three &middot; digital products | Sandra Di, 2 h, 47,000 views, May 2026 | **How to Sell Digital Products on Etsy: Full Masterclass** &middot; Yale Jeannette, 45 min, **254,000 views**, May 2026 | same month, five times the audience, and an hour shorter |
+| Four &middot; content | Ali Abdaal, 40 min, 1.0 m views, Oct 2024 | **How to Make Your First YouTube Video in 2026** &middot; vidIQ, 28 min, **273,000 views**, **Dec 2025** | a year newer, and from the analytics company rather than from someone selling a course about channels |
+| Five &middot; blogs and search | Ahrefs, 1 h 48, 720,000 views, **May 2023** | **The Complete SEO and AI SEO Course for 2026** &middot; Surfer Academy, 51 min, **285,000 views**, **Apr 2026** | the old box had to warn that it predated AI Overviews; this one teaches them |
+
+**What was rejected, and why.** The highest-viewed result for Engine Four was a
+43-minute course at 3.5 million views &mdash; **in Hindi**. The next two were
+faceless-channel courses, which contradict the paragraph on that same page about
+YouTube removing AI-run channels. A 7-hour course at 7.7 million views leads its
+description with an affiliate link for AI video software. For Engine Three, the
+1.6-million-view course links 1:1 coaching and four affiliate tools, and its own
+description points at a newer edition of itself.
+
+Appendix G's course row carries all five, with length, view count and publish
+date, so K3 still reads **0 unsourced**.
+

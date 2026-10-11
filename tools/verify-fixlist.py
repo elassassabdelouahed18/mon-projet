@@ -92,12 +92,15 @@ chk('D3', has(flat,'on track'), 'Morgan stated as on track to')
 chk('D4', has(flat,'Erica Krupin') and has(flat,'pharmacy technician on about $20 an hour')
      and has(flat,'reading her financial documents') and has(flat,'Kroopin'),
     'hourly, no degree, documents reviewed, rowed in Appendix G')
-chk('D5', has(flat,'Upwork Tutorial for Beginners [FULL GUIDE]') and has(book,'bCcssVfBd98')
-     and has(flat,'26 minutes. Published 7 January 2022, 226,000 views. Checked 10 October 2026')
-     and nope(book,'w0H1-b044KY') and nope(flat,'Liam Ottley')
-     and len(re.findall(r'Checked 10 October 2026', flat))>=5,
-    'Ottley out, all five boxes re-read at the source')
-chk('D6', os.path.exists(R+'/site-pages/engines.html') and has(flat,'befreeacademy.site/engines'), '')
+chk('D5', has(flat,'Fiverr Tutorial for Beginners: The Complete Fiverr Guide')
+     and has(book,'DnetNoirovA') and has(book,'RAn7R954Xhc') and has(book,'XtfOGijCZXw')
+     and has(book,'7DRO4rEIHDk') and has(book,'9tKeNT-k4kk')
+     and nope(book,'w0H1-b044KY') and nope(book,'bCcssVfBd98') and nope(flat,'Liam Ottley')
+     and len(re.findall(r'Checked 11 October 2026', flat)) >= 5
+     and nope(flat,'If this course has moved'),
+    'five courses re-chosen and re-read, the address line gone')
+chk('D6', os.path.exists(R+'/site-pages/engines.html') and nope(flat,'befreeacademy.site/engines'),
+    'page still generated; the author took its line out of the course boxes')
 chk('D7', os.path.exists(R+'/site-pages/sources.html') and has(flat,'befreeacademy.site/sources'), '')
 chk('D8', has(flat,'Widely quoted, left out as unverifiable') and has(flat,'dropshippers fail'), '')
 

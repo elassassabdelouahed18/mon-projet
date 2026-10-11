@@ -102,12 +102,12 @@ ROWS = [
     # address even though the watch page, both embeds and the player endpoint
     # do not, and it carries the view count and the publish date.
     ('Chapter 12&rsquo;s five courses: length, view count and publish date',
-     'Upwork walkthrough (Evan Fisher) 26 minutes, 226,000 views, 7 January 2022; '
+     'Fiverr (Aasil Khan) 40 minutes, 1.3 million views, 27 February 2025; '
      'print on demand (Mark Tilbury) 34 minutes, 2.9 million views, 17 April 2024; '
-     'digital products (Sandra Di) 2 hours, 47,000 views, 27 May 2026; '
-     'YouTube (Ali Abdaal) 40 minutes, 1.0 million views, 4 October 2024; '
-     'affiliate marketing (Ahrefs) 1 hour 48 minutes, 720,000 views, 24 May 2023',
-     'YouTube, each video&rsquo;s own watch data. Read 10 October 2026'),
+     'digital products (Yale Jeannette) 45 minutes, 254,000 views, 1 May 2026; '
+     'YouTube (vidIQ) 28 minutes, 273,000 views, 8 December 2025; '
+     'search (Surfer Academy) 51 minutes, 285,000 views, 16 April 2026',
+     'YouTube, each video&rsquo;s own watch data. Read 11 October 2026'),
     # D4: the one ceiling case a reader on an hourly wage can stand next to.
     # Read in the NBC 7 San Diego syndication of the CNBC Make It story, because
     # cnbc.com refuses this address; the syndication carries the full copy and
@@ -232,39 +232,69 @@ EDITS = [
      'was reporting around $50,000 a month by 2023.'),
 
     # ------------------------------------------------------------ D5
-    # Engine One's course was Liam Ottley's AI-agents guide: it teaches a
-    # different business from the one this engine describes, and it advertises
-    # his own paid program. Replaced, and every course box's numbers re-read at
-    # the source the same day.
+    # The five courses, re-chosen on what the author asked for: English, strong,
+    # recent and widely watched. Every figure below was read from YouTube's own
+    # watch data on 11 October 2026 (youtubei/v1/next for the view count and the
+    # publish date, youtubei/v1/search for the length), and every sentence about
+    # a course comes from that course's own description, which was read the same
+    # way. Engine Two keeps Mark Tilbury: at 2.9 million views it was already
+    # the strongest of the five.
     ('rep', 'How to Build & Sell AI Agents',
-     '<strong>Upwork Tutorial for Beginners [FULL GUIDE]</strong> &middot; Evan Fisher'),
+     '<strong>Fiverr Tutorial for Beginners: The Complete Fiverr Guide</strong> &middot; Aasil Khan'),
     ('rep', 'https://www.youtube.com/watch?v=w0H1-b044KY',
-     '<a href="https://www.youtube.com/watch?v=bCcssVfBd98">'
-     'https://www.youtube.com/watch?v=bCcssVfBd98</a>'),
+     '<a href="https://www.youtube.com/watch?v=DnetNoirovA">'
+     'https://www.youtube.com/watch?v=DnetNoirovA</a>'),
     ('rep', '3 hours 51 minutes.',
-     '26 minutes. Published 7 January 2022, 226,000 views. Checked 10 October 2026. '
-     'A beginner&rsquo;s walkthrough of Upwork itself rather than a business to buy into. '
-     'It is older than the split this page describes and older than the fee schedule in '
-     'the chart above, so take the fees from the chart and not from the video.'),
+     '40 minutes. Published 27 February 2025, 1.3 million views. Checked 11 October 2026. '
+     'One sitting, from a blank profile to a first gig, on the platform that charges nothing '
+     'to join. He sells a course of his own and links it first; this video is complete '
+     'without it.'),
 
-    # The other four stand; their numbers were re-read on 10 October 2026 and
-    # two had moved, which is what a "checked" date is for.
     ('rep', '34 minutes. Published 17 April 2024',
-     '34 minutes. Published 17 April 2024, 2.9 million views. Checked 10 October 2026. '
-     'Chosen over the larger dropshipping courses because it starts at nearly zero '
-     'capital. It carries sponsor links; you need none of them to begin.'),
+     '34 minutes. Published 17 April 2024, 2.9 million views. Checked 11 October 2026. '
+     'Chosen over the larger dropshipping courses because it starts at nearly zero capital. '
+     'It carries sponsor links; you need none of them to begin.'),
+
+    ('rep', 'How to Sell Digital Products From Scratch (Full Masterclass)',
+     '<strong>How to Sell Digital Products on Etsy: Full Masterclass</strong> &middot; Yale Jeannette'),
+    ('rep', 'https://www.youtube.com/watch?v=1NrAYr60c5g',
+     '<a href="https://www.youtube.com/watch?v=RAn7R954Xhc">'
+     'https://www.youtube.com/watch?v=RAn7R954Xhc</a>'),
     ('rep', '2 hours. Published 27 May 2026',
-     '2 hours. Published 27 May 2026, 47,000 views. Checked 10 October 2026. Chosen over '
-     'more-watched Etsy tutorials because those predate the AI-disclosure rules. '
-     'Complete, recent, no income screenshots; her own course is optional.'),
+     '45 minutes. Published 1 May 2026, 254,000 views. Checked 11 October 2026. Etsy end to '
+     'end: what to make, how to list it, the photographs, the search terms and the price. One '
+     'tool of hers is linked at the top; nothing in the hour needs it.'),
+
+    ('rep', 'How to Start a YouTube Channel',
+     '<strong>How to Make Your First YouTube Video in 2026: Complete Beginner Guide</strong> '
+     '&middot; vidIQ'),
+    ('rep', 'https://www.youtube.com/watch?v=meMJdfytNI0',
+     '<a href="https://www.youtube.com/watch?v=XtfOGijCZXw">'
+     'https://www.youtube.com/watch?v=XtfOGijCZXw</a>'),
     ('rep', '40 minutes. Published 4 October 2024',
-     '40 minutes. Published 4 October 2024, 1.0 million views. Checked 10 October 2026. '
-     'Shorter than the twelve-hour courses and from someone who built his channel beside '
-     'a full-time job as a doctor, which is your situation.'),
+     '28 minutes. Published 8 December 2025, 273,000 views. Checked 11 October 2026. From the '
+     'analytics company rather than from someone selling a course about channels, and it stops '
+     'at the first video, which is the only step that matters this month.'),
+
+    ('rep', 'Complete Affiliate Marketing Course for Beginners',
+     '<strong>The Complete SEO and AI SEO Course for 2026</strong> &middot; Surfer Academy'),
+    ('rep', 'https://www.youtube.com/watch?v=CF3Uk2jc_ig',
+     '<a href="https://www.youtube.com/watch?v=7DRO4rEIHDk">'
+     'https://www.youtube.com/watch?v=7DRO4rEIHDk</a>'),
     ('rep', '1 hour 48 minutes. Published 24 May 2023',
-     '1 hour 48 minutes. Published 24 May 2023, 720,000 views. Checked 10 October 2026. '
-     'From a search-tool company rather than a hosting affiliate, which is rare here. It '
-     'predates AI Overviews, so read the paragraph above alongside it.'),
+     '51 minutes. Published 16 April 2026, 285,000 views. Checked 11 October 2026. It teaches '
+     'search as it is now, AI answers included, which is the paragraph above, and it ends on a '
+     'thirty-day plan. From a tool company, so read that paragraph before you buy anything.'),
+
+    # ---------------------------------------------------------- K3, Smith
+    # The book said "more than $130,000 in about eight months", which is an
+    # interview number from years ago. Her own site states the writing time and
+    # the cumulative total, so the book now says what she says.
+    ('rep', 'The ceiling, documented. Steph Smith',
+     'The ceiling, documented. Steph Smith wrote one ebook, <em>Doing Content Right</em>, '
+     'in seven weeks; her own site reports it has sold more than $250,000 and 4,800 copies. '
+     'Easlo built Notion templates on weekends during his military service in Singapore and '
+     'was reporting around $50,000 a month by 2023.'),
 
     # ------------------------------------------------------------ D4
     # Both documented cases in Engine One are credentialed professionals: a

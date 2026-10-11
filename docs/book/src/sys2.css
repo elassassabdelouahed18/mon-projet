@@ -64,7 +64,8 @@ figure.hero{background:#fff;border:.6pt solid var(--hair);padding:12pt 12pt 10pt
 figure.hero figcaption{margin-top:8pt}
 
 /* the contents fit two pages again after this revision's additions */
-.toc a{padding:3.9pt 0}
+.toc a{padding:3.2pt 0}   /* 37 entries and 6 part heads onto one spread */
+.toc .part{margin:11pt 0 4pt}
 
 /* the recap and the action that follows it travel together */
 .recap{break-after:avoid;page-break-after:avoid}

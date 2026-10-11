@@ -41,7 +41,7 @@ def source(path):
 REQUIRED = [
     ('J1', 'book',   "The small version keeps your run. It does not complete the day’s record.", 2),
     ('J1', 'guide',  "The small version keeps your run. It does not complete the day’s record.", 1),
-    ('J1', 'streak', "The small version keeps your run. It does not complete the day's record.", 1),
+    ('J1', 'streak', "The small version keeps your run. It does not complete the day’s record.", 1),
     ('J2', 'book',   "Essentials as a share of take-home", None),
     ('J2', 'guide',  "Past 60%, earning beats cutting. Past 85%, move a big cost or raise income.", 1),
     ('J2', 'gap',    "Past 60%, earning beats cutting.", None),

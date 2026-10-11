@@ -14,7 +14,7 @@ function run(){
  const ms=P.extraPayMonths(dates,freq),end12=iso(new Date(now.getFullYear(),now.getMonth()+12,1)).slice(0,7);
  const n12=ms.filter(m=>m.month<end12).reduce((s,m)=>s+m.extra.length,0);
  res.innerHTML=ms.length?`<h2>Your extra paychecks, next 24 months</h2>${ms.map(m=>`<div class="m"><b>${fmt(m.month+'-01',{month:'long',year:'numeric'})}</b><span>${m.extra.map(x=>fmt(x,{weekday:'short',month:'short',day:'numeric'})).join(', ')}${amt?` · +${money(amt*m.extra.length)}`:''}</span></div>`).join('')}
-  ${amt?`<p>That's about <b>${money(amt*n12)}</b> in the next 12 months that no regular bill is counting on.</p>`:''}`
+  ${amt?`<p>That’s about <b>${money(amt*n12)}</b> in the next 12 months that no regular bill is counting on.</p>`:''}`
   :'<p>No extra paychecks in the next 24 months with that schedule.</p>'}
 ['#freq','#day','#amt'].forEach(s=>$(s).addEventListener('input',run));
 $('#f').addEventListener('submit',e=>{e.preventDefault();run()});

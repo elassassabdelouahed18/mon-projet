@@ -11,7 +11,9 @@ const { chromium } = require(process.env.PW || 'playwright');
 
 const BASE = process.env.BASE || 'http://localhost:8124/';
 const OUT = path.join(__dirname, '..', 'befree-apps', 'shots');
-const WHEN = new Date('2026-09-30T10:30:00');   // payday falls on Friday 9 October
+const WHEN = new Date('2026-09-24T10:30:00');   // mid-cycle in the sample file,
+// the same hour the book's and the booklet's screens are shot at, so every
+// screenshot in the bundle shows one consistent week of Marcus's month
 
 (async () => {
   const browser = await chromium.launch();

@@ -1,10 +1,10 @@
 /* BeFree Gap — offline shell.
    Precache on install so the app opens with the radio off. Pages are
-   network-first (so a new version arrives the next time you're online) and
+   network-first (so a new version arrives the next time you’re online) and
    fall back to the cached copy offline; icons and the manifest are served from
    the cache and refreshed in the background. Nothing here talks to a server we
-   own, because there isn't one. Bump CACHE whenever index.html changes. */
-const CACHE = 'befree-gap-v19';
+   own, because there isn’t one. Bump CACHE whenever index.html changes. */
+const CACHE = 'befree-gap-v20';
 const MINE = /^befree-gap-/;
 const SHELL = ['./app.js', './extras.js', '../finance-core.js', '../plus-core.js', './', './index.html', './manifest.webmanifest',
   './icons/icon-192.png', './icons/icon-512.png', './icons/icon-maskable-192.png',
@@ -16,8 +16,8 @@ self.addEventListener('install', e => {
     .then(() => self.skipWaiting()));
 });
 self.addEventListener('activate', e => {
-  /* only this app's old caches: Gap and Streak share an origin, so deleting
-     every other cache would wipe the sibling app's offline copy */
+  /* only this app’s old caches: Gap and Streak share an origin, so deleting
+     every other cache would wipe the sibling app’s offline copy */
   e.waitUntil(caches.keys()
     .then(ks => Promise.all(ks.filter(k => k !== CACHE && (MINE.test(k) || k === 'befree-1')).map(k => caches.delete(k))))
     .then(() => self.clients.claim()));

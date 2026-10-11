@@ -37,18 +37,18 @@ const LIVE=NS==='befree.';
    whether the pay cycle has room; nothing here makes daily saving or daily
    "no spend" the standard. */
 const LIB=[
- {tpl:'log-daily',grp:'Spending',name:"Log today's spending",action:"Add today's purchases in Gap, or mark a no-spend day",when:'Evening, after dinner',small:'Log just the biggest purchase',rule:{t:'week',days:[1,1,1,1,1,1,1]},link:'log',why:'The one everything else rests on.'},
- {tpl:'review-daily',grp:'Spending',name:'Quick money check',action:"Open Gap, look at today's total and what's available until payday",when:'Before bed',small:'Glance at one number: available until payday',rule:{t:'week',days:[0,1,1,1,1,1,0]},link:'review',why:'Two minutes that stop surprises.'},
+ {tpl:'log-daily',grp:'Spending',name:"Log today’s spending",action:"Add today’s purchases in Gap, or mark a no-spend day",when:'Evening, after dinner',small:'Log just the biggest purchase',rule:{t:'week',days:[1,1,1,1,1,1,1]},link:'log',why:'The one everything else rests on.'},
+ {tpl:'review-daily',grp:'Spending',name:'Quick money check',action:"Open Gap, look at today’s total and what’s available until payday",when:'Before bed',small:'Glance at one number: available until payday',rule:{t:'week',days:[0,1,1,1,1,1,0]},link:'review',why:'Two minutes that stop surprises.'},
  {tpl:'balance-check',grp:'Spending',name:'Update your balance',action:'Check your bank balance and update it in Gap',when:'Monday and Thursday mornings',small:'Just look at the balance',rule:{t:'week',days:[0,1,0,0,1,0,0]},link:'balance',why:'Keeps the until-payday number honest.'},
- {tpl:'grocery-plan',grp:'Spending',name:"Plan the week's groceries",action:"Make a list from what's already at home",when:'Before the weekly shop',small:'Check the fridge before you leave',rule:{t:'week',days:[0,0,0,0,0,0,1]},link:null,why:'Groceries are the biggest flexible cost for most households.'},
+ {tpl:'grocery-plan',grp:'Spending',name:"Plan the week’s groceries",action:"Make a list from what’s already at home",when:'Before the weekly shop',small:'Check the fridge before you leave',rule:{t:'week',days:[0,0,0,0,0,0,1]},link:null,why:'Groceries are the biggest flexible cost for most households.'},
  {tpl:'bills-weekly',grp:'Bills',name:'Check bills due this week',action:'Look at Coming up in Gap and confirm anything already paid',when:'Monday morning',small:'Look at the next bill only',rule:{t:'week',days:[0,1,0,0,0,0,0]},link:'review',why:'No bill arrives as a surprise.'},
- {tpl:'bill-before',grp:'Bills',name:'Pay a bill before it\'s due',action:'Pay it, or check that autopay has the money, then confirm it in Gap',when:'Two days before the due date',small:'Check the amount and the date',rule:{t:'before',days:2},link:'bills',why:'Late fees are the most avoidable cost there is.'},
- {tpl:'subs-review',grp:'Bills',name:'Review subscriptions',action:"Check each subscription and cancel one you don't use",when:'Mid-month',small:'Check just one subscription',rule:{t:'month',day:15},link:null,why:'Small charges add up quietly.'},
+ {tpl:'bill-before',grp:'Bills',name:'Pay a bill before it’s due',action:'Pay it, or check that autopay has the money, then confirm it in Gap',when:'Two days before the due date',small:'Check the amount and the date',rule:{t:'before',days:2},link:'bills',why:'Late fees are the most avoidable cost there is.'},
+ {tpl:'subs-review',grp:'Bills',name:'Review subscriptions',action:"Check each subscription and cancel one you don’t use",when:'Mid-month',small:'Check just one subscription',rule:{t:'month',day:15},link:null,why:'Small charges add up quietly.'},
  {tpl:'payday-plan',grp:'Paydays',name:'Payday plan',action:'When pay arrives, confirm it in Gap and decide where it goes',when:'On payday',small:'Confirm the paycheck; plan the rest tomorrow',rule:{t:'payday',off:0},link:'log',why:'Every dollar gets a job before it drifts.'},
- {tpl:'payday-save',grp:'Saving',name:'Move money to savings on payday',action:'Move a set amount to savings or your buffer, only if this pay cycle has room',when:'The day after payday',small:'Move $5, or skip this cycle if it\'s tight',rule:{t:'payday',off:1},link:'save',afford:true,why:'Saving follows your paycheck, not the calendar.'},
- {tpl:'fund-topup',grp:'Saving',name:'Top up a sinking fund',action:"Move this paycheck's set-aside into the fund",when:'The day after payday',small:'Move part of it',rule:{t:'payday',off:1},link:'save',afford:true,why:"So the next big bill is already covered."},
- {tpl:'weekly-review',grp:'Reviews',name:'Weekly money review',action:"Ten minutes: last week's spending, what's coming, one adjustment",when:'Sunday evening',small:"Look at last week's total only",rule:{t:'week',days:[1,0,0,0,0,0,0]},link:'review',why:'Where small course corrections happen.'},
- {tpl:'monthly-review',grp:'Reviews',name:'Close the month',action:"Look at last month's surplus in Gap and pick one thing to change",when:'First day of the month',small:"Read the month-close note",rule:{t:'month',day:1},link:'review',why:'A monthly look keeps goals realistic.'}];
+ {tpl:'payday-save',grp:'Saving',name:'Move money to savings on payday',action:'Move a set amount to savings or your buffer, only if this pay cycle has room',when:'The day after payday',small:'Move $5, or skip this cycle if it’s tight',rule:{t:'payday',off:1},link:'save',afford:true,why:'Saving follows your paycheck, not the calendar.'},
+ {tpl:'fund-topup',grp:'Saving',name:'Top up a sinking fund',action:"Move this paycheck’s set-aside into the fund",when:'The day after payday',small:'Move part of it',rule:{t:'payday',off:1},link:'save',afford:true,why:"So the next big bill is already covered."},
+ {tpl:'weekly-review',grp:'Reviews',name:'Weekly money review',action:"Ten minutes: last week’s spending, what’s coming, one adjustment",when:'Sunday evening',small:"Look at last week’s total only",rule:{t:'week',days:[1,0,0,0,0,0,0]},link:'review',why:'Where small course corrections happen.'},
+ {tpl:'monthly-review',grp:'Reviews',name:'Close the month',action:"Look at last month’s surplus in Gap and pick one thing to change",when:'First day of the month',small:"Read the month-close note",rule:{t:'month',day:1},link:'review',why:'A monthly look keeps goals realistic.'}];
 const tplOf=id=>LIB.find(x=>x.tpl===id)||null;
 
 /* six identity colors, drawn from the same ramp Gap uses */
@@ -89,7 +89,7 @@ function migrate(d){
   return n});
 /* Streak runs on its own. Older builds took paydays and bill dates from
    Gap through shared browser storage; what this record relied on is
-   copied once from Gap's last summary, so payday and bill habits keep
+   copied once from Gap’s last summary, so payday and bill habits keep
    their dates. Bill habits become a monthly due day. */
  let g=null;if(LIVE){try{g=JSON.parse(localStorage.getItem('befree.bridge.gap.v2')||'null')}catch(e){}if(!g||g.v!==2)g=null}
  if(!S0.standaloneV1){S0.standaloneV1=true;
@@ -162,7 +162,7 @@ const tk=(h,ds)=>S.ticks[h.id+'|'+ds];
 const isDoneV=v=>v==='d'||v==='s'||v==='g';
 
 /* ── one definition of status, used by every number on the page ──
-   before: the habit didn't exist yet · off: not scheduled that day ·
+   before: the habit didn’t exist yet · off: not scheduled that day ·
    paused / excused: not counted · done / small: counted as done ·
    missed: counted as not done · open: today, not done yet (not counted
    until it is done) · future. */
@@ -249,7 +249,7 @@ function todoSummary(){const y=today().slice(0,4),d=S.tasks.filter(x=>x.done&&x.
 const TICK_SVG='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E2910" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>';
 function affordLine(h){
  const L=tplOf(h.tpl);if(!(h.link==='save'||(L&&L.afford)))return '';
- return `<div class="ev">Only move money you won't need before payday. If this pay cycle is tight, the small version or "Not this time" is the right call; it won't count against you.</div>`}
+ return `<div class="ev">Only move money you won’t need before payday. If this pay cycle is tight, the small version or "Not this time" is the right call; it won’t count against you.</div>`}
 function habitRow(h,ds){
  const s=status(h,ds),on=DONE.has(s),c=hcol(h),v=tk(h,ds),ev=evidence(h,ds);
  const r30=rate([h],addD(ds,-29),ds),st=habitStreak(h);
@@ -280,10 +280,10 @@ function drawToday(){
  const due=S.habits.filter(h=>['open','done','small','excused'].includes(status(h,t)));
  const n=due.filter(h=>DONE.has(status(h,t))).length,cnt=due.filter(h=>status(h,t)!=='excused').length;
  const adj=(S.reviews[weekKey(addD(t,-7))]||{}).adjust,adjNow=(S.reviews[weekKey(t)]||{}).adjust;
- const tip=adjNow||adj?`<br><span style="font-size:14px">This week's adjustment: <b>${esc(adjNow||adj)}</b></span>`:'';
+ const tip=adjNow||adj?`<br><span style="font-size:14px">This week’s adjustment: <b>${esc(adjNow||adj)}</b></span>`:'';
  $('#doneCap').innerHTML=(!S.habits.length?'No habits yet. Pick one below to start.'
    :!cnt?(due.length?'Nothing else needed today.':'Nothing scheduled today. Rest days are part of the plan.')
-   :n===cnt?'<b>All done for today.</b> That\'s a full day.'
+   :n===cnt?'<b>All done for today.</b> That’s a full day.'
    :n===0?`<b>${plural(cnt,'habit')}</b> for today.${cnt>1?' Start with the one that takes the least effort.':''}`
    :`<b>${cnt-n} left</b> for today. The small version counts.`)+tip;
  let h='';
@@ -295,7 +295,7 @@ function drawToday(){
  const rest=S.habits.filter(x=>!due.includes(x));
  $('#later').innerHTML=rest.length?`<details class="later"><summary>Not due today (${rest.length})</summary>${rest.map(x=>{
   const s=status(x,t),nd=nextDue(x),r=curRule(x);
-  const why=s==='paused'?'paused':s==='before'?'starts later':(r.t==='payday'||r.t==='before')&&!nd?(r.t==='payday'?'needs your paydays':'needs the bill\'s due date'):nd?'next '+fmtD(nd):'—';
+  const why=s==='paused'?'paused':s==='before'?'starts later':(r.t==='payday'||r.t==='before')&&!nd?(r.t==='payday'?'needs your paydays':'needs the bill’s due date'):nd?'next '+fmtD(nd):'—';
   return `<div class="lrow"><button data-edit="${x.id}"><span class="hdot" style="background:${hcol(x)}"></span>${esc(x.name)}</button><span>${why}</span></div>`}).join('')}</details>`:'';
  bindToday();
  const st=streak();
@@ -305,8 +305,8 @@ function drawToday(){
 }
 function bindToday(){
  $$('[data-tick]').forEach(b=>b.onclick=()=>toggleToday(b.dataset.tick,b));
- $$('[data-small]').forEach(b=>b.onclick=()=>{setTick(b.dataset.small,today(),'s');toast('Small version counted. That\'s the habit working.')});
- $$('[data-skip]').forEach(b=>b.onclick=()=>{setTick(b.dataset.skip,today(),'x');toast('Marked "not this time". It won\'t count against you.')});
+ $$('[data-small]').forEach(b=>b.onclick=()=>{setTick(b.dataset.small,today(),'s');toast('Small version counted. That’s the habit working.')});
+ $$('[data-skip]').forEach(b=>b.onclick=()=>{setTick(b.dataset.skip,today(),'x');toast('Marked "not this time". It won’t count against you.')});
  $$('[data-unskip]').forEach(b=>b.onclick=()=>setTick(b.dataset.unskip,today(),null));
  $$('[data-nospend]').forEach(b=>b.onclick=()=>{S.nospend[today()]=1;autoTick();save();render();toast('Recorded: reviewed, no spending today')});
  $$('[data-edit]').forEach(b=>b.onclick=()=>openHabit(S.habits.find(h=>h.id===b.dataset.edit)));
@@ -374,10 +374,10 @@ function drawReview(){
  $('#revTag').textContent=`${DNL[+S.prefs.revDay||0]}s`;
  const fact=wk.t?`Last 7 days: <b>${wk.d} of ${wk.t}</b> scheduled done.`:'';
  $('#rev').innerHTML=r?`<div class="prev"><p><b>Worked:</b> ${esc(r.worked||'—')}</p><p><b>Got in the way:</b> ${esc(r.blocked||'—')}</p><p><b>Adjustment:</b> ${esc(r.adjust||'—')}</p></div>
-  <button class="btn2" id="revEdit" style="margin-top:10px">Edit this week's review</button>`
-  :`<p class="prev">${isDay?'It\'s review day.':'Anytime this week works.'} What worked, what got in the way, and one adjustment. ${fact}</p>
+  <button class="btn2" id="revEdit" style="margin-top:10px">Edit this week’s review</button>`
+  :`<p class="prev">${isDay?'It’s review day.':'Anytime this week works.'} What worked, what got in the way, and one adjustment. ${fact}</p>
    ${pr&&pr.adjust?`<p class="prev" style="margin-top:6px">Last week you planned: <b>${esc(pr.adjust)}</b></p>`:''}
-   <button class="${isDay?'btn':'btn2'}" id="revEdit" style="margin-top:12px">Do this week's review</button>`;
+   <button class="${isDay?'btn':'btn2'}" id="revEdit" style="margin-top:12px">Do this week’s review</button>`;
  $('#revEdit').onclick=openReview;
 }
 function openReview(){const k=weekKey(),r=S.reviews[k]||{};
@@ -507,7 +507,7 @@ function drawMonth(wrap){
    <span class="wkr mono">${new Date(Y,M,d0).toLocaleDateString('en-US',{month:'short',day:'numeric'})} &ndash; ${new Date(Y,M,d1).toLocaleDateString('en-US',{month:'short',day:'numeric'})}</span>
    <button id="wkNext" class="wknav" aria-label="Later week">&#8250;</button></div>
   <div class="wtab">${head}${rows}</div>
-  <p class="whint">Tap a box to mark it done, tap again for the small version, again to clear. Tap a habit's name to edit it.</p>`;
+  <p class="whint">Tap a box to mark it done, tap again for the small version, again to clear. Tap a habit’s name to edit it.</p>`;
  $('#wkPrev').disabled=V.wk===0;$('#wkNext').disabled=V.wk===wins.length-1;
  $('#wkPrev').onclick=()=>{if(V.wk>0){V.wk--;drawGrid();$('#wkPrev').focus()}};
  $('#wkNext').onclick=()=>{if(V.wk<wins.length-1){V.wk++;drawGrid();$('#wkNext').focus()}};
@@ -609,7 +609,7 @@ function syncSch(){
  const ps=$('#hPaySet');if(ps)ps.onclick=()=>{readHabitForm();openPay(true)};
  const daily=r.t==='week'&&r.days.every(x=>x),saveish=$('#hLink').value==='save';
  $('#hSchNote').textContent=H.edit?'Schedule changes apply from today. Past weeks keep the schedule they had.':
-  daily&&saveish?'Daily saving isn\'t necessary. Saving on payday, when the cycle has room, works for most people.':'';
+  daily&&saveish?'Daily saving isn’t necessary. Saving on payday, when the cycle has room, works for most people.':'';
 }
 function readHabitForm(){H.name=$('#hName').value;H.action=$('#hAction').value;H.when=$('#hWhen').value;H.small=$('#hSmall').value;H.link=$('#hLink').value||null;
  const r=H.rule;
@@ -640,7 +640,7 @@ $('#hSave').onclick=()=>{
 $('#hPause').onclick=()=>{const x=S.habits.find(y=>y.id===H.id),t=today();
  const p=x.pauses.find(p=>inRange(p,t));
  if(p){p.to=addD(t,-1);if(p.to<p.from)x.pauses=x.pauses.filter(q=>q!==p);toast('Resumed')}
- else{x.pauses.push({from:t,to:null});toast('Paused. Paused days don\'t count, so your record is safe.')}
+ else{x.pauses.push({from:t,to:null});toast('Paused. Paused days don’t count, so your record is safe.')}
  save();closeAll();render()};
 $('#hDel').onclick=async()=>{const id=H.id;
  if(!await ask('Delete this habit?','Its history is removed too. If you only need a break, pausing keeps everything.','Delete',true))return;
@@ -711,7 +711,7 @@ function syncSet(){
  $('#setPay').textContent=src==='own'?`Set here: ${({weekly:'every week',biweekly:'every 2 weeks',semimonthly:'twice a month',monthly:'once a month'})[S.pay.freq]}`:'Not set';
  const br=inRange(S.pauseAll,today());
  $('#breakBtn').textContent=br?'Resume':'Pause all';
- $('#setBreak').textContent=br?`On a break since ${fmtD(S.pauseAll.from)}. Paused days don't count.`:'Pause every habit. Paused days aren\'t counted, so nothing is lost.';
+ $('#setBreak').textContent=br?`On a break since ${fmtD(S.pauseAll.from)}. Paused days don’t count.`:'Pause every habit. Paused days aren’t counted, so nothing is lost.';
  }
 $('#setBtn').onclick=()=>{syncSet();show('#shSet')};
 $('#setClose').onclick=()=>closeAll();
@@ -792,7 +792,7 @@ addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'
 /* ── PWA ───────────────────────────────────────────── */
 function iconURL(size,mask){
  const c=document.createElement('canvas');c.width=c.height=size;const x=c.getContext('2d');
- /* Streak's identity: Gap's ring on cream, with a check inside */
+ /* Streak’s identity: Gap’s ring on cream, with a check inside */
  const BG='#F2DDB0',CR='#113C1E',GD='#C9790C';
  x.fillStyle=BG;x.fillRect(0,0,size,size);
  {const s=size/64*(mask?0.322/0.42:1);x.save();x.translate(size/2,size/2);x.strokeStyle=CR;x.lineWidth=4.4*s;x.lineCap='round';x.lineJoin='round';
@@ -849,7 +849,7 @@ if(!migrNotice()&&!backupNudge())remindBanner();
 /* ══════════ one install card, both platforms ══════════
    The shortest path to a permanent record differs by phone, so the card asks
    for the same thing in the same place and only the middle changes: Android
-   gets the browser's own one-tap install, iPhone gets the two taps Safari
+   gets the browser’s own one-tap install, iPhone gets the two taps Safari
    requires because Apple exposes no install API. Once the app is running from
    the Home Screen the card never appears again, and on iPhone that is also
    what stops Safari deleting the record after seven days. */
@@ -886,7 +886,7 @@ if(!migrNotice()&&!backupNudge())remindBanner();
    + '<path d="M6 12H4.8v7.2A1.8 1.8 0 0 0 6.6 21h10.8a1.8 1.8 0 0 0 1.8-1.8V12H18" '
    + 'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
 
- /* The browser's own menu buttons, drawn rather than typed: the font the app
+ /* The browser’s own menu buttons, drawn rather than typed: the font the app
     carries is a Latin subset, so a real \u22ee or \u2022\u2022\u2022 would fall back to whatever
     the system has, at a different size and weight. */
  var KEBAB = '<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" '
@@ -921,7 +921,7 @@ if(!migrNotice()&&!backupNudge())remindBanner();
        + '<p class="ic-n">No <b>Add to Dock</b>? It needs macOS Sonoma or later \u2014 '
        + 'on an older Mac, open this page in Chrome instead.</p>';
    }
-   /* Chrome's own wording, so the choice on screen is the one named here:
+   /* Chrome’s own wording, so the choice on screen is the one named here:
       a shortcut only bookmarks the page, an install keeps it offline. */
    if (android) {
      return LEAD + '<ol class="ic-s"><li>Tap ' + KEBAB + ' at the top right</li>'
@@ -989,6 +989,12 @@ if(!migrNotice()&&!backupNudge())remindBanner();
    if (su && !late && window.MutationObserver) {
      obs = new MutationObserver(function(){
        if (!el) return;
+       if (!su.classList.contains('on')) {          /* the questions are done */
+         if (!el.classList.contains('float')) {
+           el.classList.add('float'); document.body.appendChild(el);
+         }
+         return;
+       }
        var h2 = host(), hd2 = h2.querySelector(':scope > header');
        if (el.parentElement !== h2) h2.insertBefore(el, hd2 ? hd2.nextSibling : h2.firstChild);
      });
@@ -1004,8 +1010,11 @@ if(!migrNotice()&&!backupNudge())remindBanner();
  window.addEventListener('appinstalled', function(){ close(true); });
 
  function start(){
-   if (iOS || macSafari || android) { show(); return; }
-   /* A computer can install from the browser's own menu even when the browser
+   /* I3: a phone gets the same floating card as a computer, so it sits at
+      the foot of Today and nowhere else. show() still pins it in place while
+      the first-run questions are up, and lets it float when they close. */
+   if (iOS || macSafari || android) { show(true); return; }
+   /* A computer can install from the browser’s own menu even when the browser
       never offers to do it for you — Chrome rations that offer per site, so the
       second app someone adds often gets nothing. The wait gives the one-tap
       button its chance first, and Firefox, which cannot install at all, is
@@ -1023,7 +1032,7 @@ if(!migrNotice()&&!backupNudge())remindBanner();
 
 /* ══════════ optional PIN lock, shared by both apps ══════════
    Each app has its own PIN: the config lives in
-   its own localStorage key (not inside either app's own record, so it
+   its own localStorage key (not inside either app’s own record, so it
    never gets caught up in an export, a restore, or a version migration),
    and it is checked before either app ever paints on screen — the
    data-applock attribute is set pre-paint by the inline head script, so
@@ -1031,7 +1040,7 @@ if(!migrNotice()&&!backupNudge())remindBanner();
    never stored: only a salted hash. */
 /* each app keeps its own PIN. Older builds shared befree.applock.v1 with
    Gap; that value is copied once, and turning the PIN off here stores
-   {on:false} so the shared copy can't switch it back on. */
+   {on:false} so the shared copy can’t switch it back on. */
 const AL_KEY='befree.streak.applock.v2',AL_OLD='befree.applock.v1';
 const AL_SUPPORTED=!!(window.crypto&&crypto.subtle&&crypto.subtle.digest&&crypto.getRandomValues);
 

@@ -38,10 +38,10 @@ const CH=[
   todos:[{title:'Decide where your tax refund goes before it arrives',note:'Buffer, a debt, or a sinking fund. Money with a job is harder to lose.'},{title:'Check whether you qualify for free filing (IRS Free File or VITA)',note:'Search irs.gov for Free File and VITA.'}]},
  {id:'school',name:'Back-to-school budget',span:y=>[`${y}-07-15`,`${y}-09-05`],why:'Supplies, clothes and fees land at once. A list and a weekly check keep it inside a number you pick.',
   habits:[{name:'Check school spending against the list',action:'Compare what you bought with the list and the budget',when:'Sunday evening',small:'Look at the total so far',rule:{t:'week',days:[1,0,0,0,0,0,0]}}],
-  todos:[{title:'Write the school list with a dollar cap before shopping',note:'Check what you already have at home first.'},{title:'Check your state\'s sales tax holiday dates',note:'Many states drop sales tax on school supplies for a weekend in July or August.'}]},
+  todos:[{title:'Write the school list with a dollar cap before shopping',note:'Check what you already have at home first.'},{title:'Check your state’s sales tax holiday dates',note:'Many states drop sales tax on school supplies for a weekend in July or August.'}]},
  {id:'nospend',name:'No-Spend November',span:y=>[`${y}-11-01`,`${y}-11-30`],why:'Three no-spend days a week, essentials excepted. A slip is logged, not a failure.',
   habits:[{name:'No-spend day',action:'Buy nothing beyond essentials; log it if you slip',when:'All day',small:'Skip one impulse buy',rule:{t:'week',days:[0,1,0,1,0,1,0]}}],todos:[]},
- {id:'holiday',name:'Holiday spending plan',span:y=>[addD(thanksgiving(y),1),`${y}-12-31`],why:'From Black Friday to New Year\'s, a gift list with a cap and a weekly check keep January\'s card bill small.',
+ {id:'holiday',name:'Holiday spending plan',span:y=>[addD(thanksgiving(y),1),`${y}-12-31`],why:'From Black Friday to New Year’s, a gift list with a cap and a weekly check keep January’s card bill small.',
   habits:[{name:'Check holiday spending against the plan',action:'Add up gifts, travel and food so far and compare with your cap',when:'Sunday evening',small:'Look at the running total',rule:{t:'week',days:[1,0,0,0,0,0,0]}}],
   todos:[{title:'Write a gift list with a dollar cap per person',note:'Decide the total first, then split it.'}]}];
 function spanOf(c,t){if(c.any)return null;const y=+t.slice(0,4);
@@ -169,7 +169,9 @@ body[data-stab=today] #main>[data-t]:not([data-t=today]),body[data-stab=chal] #m
 body.locked .toast{opacity:0!important}`;
 document.head.appendChild(tcss);
 /* an install card that arrives after load goes below the content, so nothing jumps or gets covered */
-new MutationObserver(()=>{const c=document.querySelector('body > .instcard');if(c){c.classList.remove('float');main.insertAdjacentElement('afterend',c)}}).observe(document.body,{childList:true});
+/* I3: the card that arrives after load floats at the foot of Today, where the
+   stylesheet shows it on Today alone. It used to be stripped of its float here
+   and parked in the page, which put a tall card on top of every tab. */
 
 drawChal();
 })();

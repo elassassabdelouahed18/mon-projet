@@ -39,7 +39,7 @@ TAGS = {
     'ch20': '6 · Invest',
     'ch16': '7 · Walk', 'ch19': '7 · Walk',
     'ch21': '8 · Cross',
-    'ch18': 'Phases 1 to 4',
+    'ch18': 'Phases 1–4',   # already plural: the template leaves it alone
 }
 
 # the chapters that run the system, marked Core in the contents and on the doors
@@ -167,7 +167,10 @@ def apply(html):
         tag = TAGS.get(owner)
         out.append(html[cursor:m.start()])
         if tag:
-            out.append(f'<p class="lab">Do this now <span class="phase">Phase {tag}</span></p>')
+            # a tag that already names the word keeps it: "Phases 1-4", not
+            # "Phase Phases 1-4", which is what Chapter 18 used to print
+            label = tag if tag.startswith('Phase') else f'Phase {tag}'
+            out.append(f'<p class="lab">Do this now <span class="phase">{label}</span></p>')
             tagged += 1
         else:
             out.append(LAB)

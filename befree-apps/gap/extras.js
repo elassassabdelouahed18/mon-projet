@@ -135,13 +135,13 @@ function paycheckCard(){
    <span class="v ${left<0?'neg':''}">${money(left)} left</span>
    <span class="s">${money(est.amt)}${est.est?' (planning amount)':''} in · ${bills.length?`${money(out)} scheduled out: ${names}`:'nothing scheduled before the next one'}</span></div>`}).join('');
  box.innerHTML=`<div class="ch"><h2 class="eb">Paychecks ahead</h2><div class="eb mono">${FREQ_L[p.freq]}</div></div><div class="pxl">${rows}</div>
-  <p class="foot">Each paycheck covers the scheduled bills due before the next one. ${est.est?`Pay that changes uses ${esc(est.basis)}.`:''} Spending you haven't planned still needs room.</p>`}
+  <p class="foot">Each paycheck covers the scheduled bills due before the next one. ${est.est?`Pay that changes uses ${esc(est.basis)}.`:''} Spending you haven’t planned still needs room.</p>`}
 
 function extraCard(){
  const box=$('#plExtra'),p=primary();
  const head=`<div class="ch"><h2 class="eb">Extra paychecks</h2></div>`;
  if(!p){box.innerHTML=head+`<p class="foot">Once your pay schedule is set, this shows the months with an extra paycheck.</p>`;return}
- if(p.freq!=='weekly'&&p.freq!=='biweekly'){box.innerHTML=head+`<p class="foot">You're paid ${FREQ_L[p.freq]}, so every month has the same number of paychecks. Paid every two weeks, two months a year bring a third one.</p>`;return}
+ if(p.freq!=='weekly'&&p.freq!=='biweekly'){box.innerHTML=head+`<p class="foot">You’re paid ${FREQ_L[p.freq]}, so every month has the same number of paychecks. Paid every two weeks, two months a year bring a third one.</p>`;return}
  const t=today(),from=t.slice(0,8)+'01',ms=P.extraPayMonths(paydays(p,from,addD(from,395)),p.freq).filter(m=>m.month<=addD(from,364).slice(0,7));
  const amt=recEst(p).amt;
  box.innerHTML=head+(ms.length?`<div class="pxl">${ms.map(m=>`<div class="pxr"><span class="k">${mon(m.month)}</span><span class="v">+${money(amt*m.extra.length)}</span>
@@ -185,7 +185,7 @@ const DN_S=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 function exportICS(){const t=today(),inc=!!plus().icsAmt;
  const ev=monthItems(t,addD(t,365)).filter(x=>!x.paid).map(x=>({uid:x.uid+'@befree-gap',date:x.date,
   title:x.kind==='in'?`Payday: ${x.name}${inc&&x.amt?` (${money(x.amt)})`:''}`:x.kind==='tax'?x.name:`Due: ${x.name}${inc&&x.amt?` (${money(x.amt)})`:''}`,
-  desc:x.kind==='tax'?'Federal estimated tax payment (Form 1040-ES). Confirm the date and your state\'s schedule at irs.gov.':'From BeFree Gap.',alarm:x.kind==='in'?0:1}));
+  desc:x.kind==='tax'?'Federal estimated tax payment (Form 1040-ES). Confirm the date and your state’s schedule at irs.gov.':'From BeFree Gap.',alarm:x.kind==='in'?0:1}));
  if(!ev.length){toast('Nothing scheduled in the next 12 months yet');return}
  dl(`befree-gap-bills-${t}.ics`,P.buildICS(ev,{name:'BeFree Gap bills'}),'text/calendar');toast(`${plural(ev.length,'date')} saved to a calendar file`)}
 
@@ -225,7 +225,7 @@ function matchCard(){
    :res.max<1?'Enter the match your employer offers.'
    :res.missing<1?`<b>You get the full match:</b> about ${money(res.employer)} a year from your employer.`
    :`Your employer adds about <b>${money(res.employer)}</b> a year. The most they offer is ${money(res.max)}, so about <b>${money(res.missing)}</b> a year${per?` (${money(per)} a paycheck)`:''} is left on the table. Putting in ${res.needPct}% gets all of it.`}</div></div>
-  <p class="foot">Before-tax contributions lower take-home pay by less than the amount put in. Check your plan's vesting schedule and contribution limits with HR or your plan documents.</p>`;
+  <p class="foot">Before-tax contributions lower take-home pay by less than the amount put in. Check your plan’s vesting schedule and contribution limits with HR or your plan documents.</p>`;
  const upd=()=>{const o=plus().k401=plus().k401||{};o.salary=+$('#kSal').value||0;o.pct=$('#kPct').value===''?null:Math.max(0,Math.min(100,+$('#kPct').value||0));o.formula=$('#kF').value;
   ['r1','u1','r2','u2'].forEach(x=>{const e=$('#k'+x.toUpperCase());if(e)o[x]=+e.value||0});save();matchCard()};
  ['#kSal','#kPct','#kR1','#kU1','#kR2','#kU2'].forEach(s=>{const e=$(s);if(e)e.onchange=upd});$('#kF').onchange=upd}
@@ -269,13 +269,13 @@ window.drawCreditUse=function(){
   ${lim.length?lim.map(d=>{const x=P.utilization(debtBal(d),d.limit);return `<div class="pxr" style="display:block"><div style="display:flex;justify-content:space-between;gap:10px"><span class="k">${esc(d.name)}</span><span class="mono">${money(debtBal(d))} of ${money(+d.limit)}</span></div>
    <div class="pxbar" role="img" aria-label="${Math.round(x.pct)}% of the limit used"><i class="${x.band}" style="width:${Math.min(x.pct,100)}%"></i></div>
    <div class="s" style="color:var(--tx3);font-size:13px">${Math.round(x.pct)}% used${+d.close?` · pay before the ${ord(d.close)} to lower the balance on the statement`:''}</div></div>`}).join('')
-   :'<p class="foot" style="margin-top:0">Add each card\'s credit limit (tap the card above) to see how much of your available credit you\'re using.</p>'}
+   :'<p class="foot" style="margin-top:0">Add each card’s credit limit (tap the card above) to see how much of your available credit you’re using.</p>'}
   <p class="foot">Credit scores usually look at the balance on each statement compared with the limit. Keeping it under 30%, and lower if you can, generally helps. This is general information, not a score prediction.</p>`};
 
 /* ══════════ bank file import ══════════ */
 const sh=document.createElement('div');sh.className='sheet';sh.id='shBank';sh.setAttribute('role','dialog');sh.setAttribute('aria-modal','true');sh.setAttribute('aria-labelledby','bkT');
 sh.innerHTML=`<div class="handle"></div><div class="stitle" id="bkT">Import a bank file</div>
- <div class="ssub">Download transactions from your bank's website as CSV, QFX or OFX. The file is read on this device; nothing is uploaded.</div>
+ <div class="ssub">Download transactions from your bank’s website as CSV, QFX or OFX. The file is read on this device; nothing is uploaded.</div>
  <div class="seg" id="bkAcct" role="group" aria-label="Account"><button data-a="checking" aria-pressed="true">Checking or savings</button><button data-a="card" aria-pressed="false">Credit card</button></div>
  <div class="fld" id="bkCardW" style="display:none"><label for="bkCard">Which card</label><select id="bkCard"></select></div>
  <input type="file" id="bkFile" accept=".csv,.ofx,.qfx,.qbo,.txt,text/csv" hidden>
@@ -294,7 +294,7 @@ $('#bkPick').onclick=()=>$('#bkFile').click();
 $('#bkFile').onchange=e=>{const f=e.target.files[0];if(!f)return;if(f.size>1e7){e.target.value='';toast('That file is too large for a bank export. Download a shorter date range.');return}const r=new FileReader();r.onload=()=>{BK.text=String(r.result);BK.name=f.name;readBank()};r.readAsText(f);e.target.value=''};
 function readBank(){
  const res=P.readBankFile(BK.text,BK.name);
- if(res.error||!res.rows.length){$('#bkOut').innerHTML=`<div class="status" style="margin-top:12px"><span class="dotc"></span><div>${esc(res.error||'No transactions found in this file.')} Try the CSV download from your bank's activity page.</div></div>`;$('#bkGo').style.display='none';return}
+ if(res.error||!res.rows.length){$('#bkOut').innerHTML=`<div class="status" style="margin-top:12px"><span class="dotc"></span><div>${esc(res.error||'No transactions found in this file.')} Try the CSV download from your bank’s activity page.</div></div>`;$('#bkGo').style.display='none';return}
  BK.rows=res.rows.map((r,i)=>{const g=P.guess(r.desc,r.amt,BK.acct);let type=g.type,cat=g.cat;
   if(!allCats(type).includes(cat))cat=type==='transfer'?'Between accounts':'Other';
   if(!allCats(type).includes(cat))cat=allCats(type)[0];
@@ -329,7 +329,7 @@ $('#expLock').onclick=exportLocked;
    missing the number is still shown, marked as an estimate, with the next
    input that would make it exact. Without a pay schedule or a balance there
    is no honest number, so the card asks for that instead. */
-const FIX={pay:['Add your pay schedule',()=>openPay()],bal:['Update your checking balance',()=>openCyc()],review:["Confirm today's bills and pending charges",()=>openCyc()],
+const FIX={pay:['Add your pay schedule',()=>openPay()],bal:['Update your checking balance',()=>openCyc()],review:["Confirm today’s bills and pending charges",()=>openCyc()],
  ess:['Add what everyday essentials cost you',()=>openCyc()],buf:['Choose a small safety buffer',()=>openCyc()],card:['Enter purchases still owed on your card',()=>openCyc()]};
 function homeState(){
  const t=today();
@@ -397,8 +397,9 @@ SUB.forEach(([p])=>{const pg=$('#p-'+p);if(!pg)return;const nav=document.createE
  pg.insertBefore(nav,pg.firstChild);nav.onclick=e=>{const b=e.target.closest('button');if(b&&b.dataset.go!==V.page)go(b.dataset.go,true)}});
 
 /* ── floating things never cover the page ── */
-/* the install card, when it arrives after the page has loaded, goes below the content, so nothing on screen jumps */
-new MutationObserver(()=>{const c=document.querySelector('body > .instcard');if(c){c.classList.remove('float');const m=$('#main');if(m)m.insertAdjacentElement('afterend',c)}}).observe(document.body,{childList:true});
+/* I3: the card that arrives after load floats at the foot of Today, where the
+   stylesheet shows it on Today alone. It used to be stripped of its float here
+   and parked in the page, which put a tall card on top of every tab. */
 $('#logBtn').onclick=()=>openQuick();
 document.body.dataset.page=V.page;
 

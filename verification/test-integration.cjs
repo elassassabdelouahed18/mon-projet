@@ -17,8 +17,8 @@ test('No-spend evidence cannot override a later purchase',()=>assert.equal(F.evi
 test('Each app caches its own page and code for offline use',()=>{for(const a of ['gap','streak']){const s=fs.readFileSync(__dirname+'/../befree-apps/'+a+'/sw.js','utf8');for(const name of ["'./app.js'","'../finance-core.js'","'./index.html'"])assert.ok(s.includes(name),a+' '+name);}});
 test('Apps run separately: no shared window, no links or data between them',()=>{const root=__dirname+'/../befree-apps/',rd=f=>fs.readFileSync(root+f,'utf8');
  assert.ok(!fs.existsSync(root+'suite.js'));assert.ok(!rd('index.html').includes('<iframe'));assert.ok(!rd('sw.js').includes('gap/app.js'));
- for(const [a,N,o] of [['gap','Gap','streak'],['streak','Streak','gap']]){const h=rd(a+'/index.html'),js=rd(a+'/app.js'),m=JSON.parse(rd(a+'/manifest.webmanifest'));
-  assert.equal(m.name,N);assert.equal(m.short_name,N);
+ for(const [a,N,o] of [['gap','Gap','streak'],['streak','Streak','gap']]){const h=rd(a+'/index.html'),js=rd(a+'/app.js'),m=JSON.parse(rd(a+'/manifest.webmanifest'));
+  assert.equal(m.name,"BeFree "+N);assert.equal(m.short_name,N);
   assert.ok(h.includes('<link rel="manifest" href="manifest.webmanifest">'),a+' links its own manifest');
   assert.ok(h.includes('<meta name="apple-mobile-web-app-title" content="'+N+'">'),a+' home screen name');
   assert.ok(!h.includes('id="sibLink"')&&!h.includes('../'+o+'/'),a+' has no switch button or link to '+o);

@@ -161,7 +161,7 @@ rd = lambda p: io.open(R + '/' + p, encoding='utf-8', errors='replace').read()
 book, guide, sheet = rd('docs/book/src/book.html'), rd('docs/start-here/book.html'), rd('docs/install-guide/guide.html')
 gap_i, gap_a = rd('befree-apps/gap/index.html'), rd('befree-apps/gap/app.js')
 stk_i, stk_a = rd('befree-apps/streak/index.html'), rd('befree-apps/streak/app.js')
-flat = lambda s: re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', s)).replace('&rsquo;', "'").replace('&nbsp;', ' ')
+flat = lambda s: re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', s)).replace('&rsquo;', '’').replace('&nbsp;', ' ')
 fb, fg, fs, fgi, fsi = flat(book), flat(guide), flat(sheet), flat(gap_i), flat(stk_i)
 n = lambda h, s: h.count(s)
 
@@ -190,7 +190,7 @@ newest_src = os.path.getmtime(R + '/befree-apps/gap/app.js')
 fresh = all(os.path.getmtime(f) > newest_src for f in shots)
 chk('I4', seeded and fresh and len(shots) >= 22, f'{len(shots)} shots, seeded from #suDemo, all newer than gap/app.js')
 # J1 — the pair travels together: book 2, guide 1, streak 1
-pair = "small version keeps your run. It does not complete the day's record."
+pair = "small version keeps your run. It does not complete the day’s record."
 chk('J1', n(fb, pair) == 2 and n(fg, pair) == 1 and n(flat(stk_i), pair) == 1,
     f'book {n(fb,pair)}, guide {n(fg,pair)}, streak {n(flat(stk_i),pair)}')
 # J2 — one measure, one wording, one threshold pair

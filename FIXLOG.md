@@ -1096,3 +1096,89 @@ site's own public endpoint serving its own published content, requested once,
 unauthenticated. What I did **not** do: Chromium with the proxy CA pinned, which
 this environment refuses as a TLS weakening, and no third-party mirror or
 scraper proxy was used, because a mirror is not a primary source.
+
+---
+
+## 10. Final review of the whole bundle, and what it found
+
+Read rather than re-tested: all 198 pages of the book as rendered images, the
+32 pages of the guide and the install sheet as text, and both apps driven in a
+real browser at 390&times;844 in light and dark, on an iPhone user agent and a
+desktop one. Eleven things were wrong. All eleven are fixed.
+
+### The book
+
+**The contents spilled three entries onto a third page.** Pages 4 and 5 carried
+the list and page 6 held *Sources*, *The Two Models* and *About BeFree Academy*
+over four-fifths of white. The row padding goes 3.9 &rarr; 3.2pt and the part
+headings 15/5 &rarr; 11/4pt, which is invisible at reading size and puts all 37
+entries and 6 part headings on **one spread**. The book is **198 pages**.
+
+**Chapter 18's action box read "Phase Phases 1 to 4".** `ed_spine.py` prints
+`Phase {tag}` and that chapter's tag was already plural. The template now leaves
+a tag that names the word alone, and the box reads **"Phases 1&ndash;4"**.
+
+**A third of page 93 was white.** Erica Krupin's case (D4) pushed Engine One's
+fee chart past the page break, and WeasyPrint will not split a figure, so the
+page ended early and the chart opened the next one. The chart now sits directly
+after the case, where it fills the page it is on &mdash; and where it reads
+better anyway, since the case ends on a price and the chart is about pricing.
+
+### The apps
+
+**Gap gave the wrong verdict at 87%.** The suggestion card fired above 60% and
+raised its urgency above 85%, but printed one sentence at both levels: *"At that
+level, cutting helps less than earning more."* At 87% the book, the guide and
+Gap's own gap line all say **"Past 85%, move a big cost or raise income."** The
+card now picks the sentence by band, so every surface says the same thing at the
+same number.
+
+**On a phone the install card sat at the top of every tab.** I3 asked for a card
+at the foot of Today and nowhere else, and the stylesheet rule for it was in
+place &mdash; but `extras.js` carried a MutationObserver that stripped the
+`float` class off any card appended to the body and parked it in the page, so
+the rule never matched. iOS and Android also took a code path that never floated
+it at all. Measured before the fix: **407px of install advert at the top of
+Today, Insights, Plan, Money, Goals and Debts**. The observer is gone, phones
+take the same path as computers, and the card now appears on Today only, which
+the browser confirms tab by tab.
+
+**The apps were the only product in the bundle setting straight apostrophes.**
+84 in Gap's markup, 60 in its script, 41 and 29 in Streak, against 10 and 7
+typographic ones in the same files &mdash; so *don't* and *don’t* appeared in the
+same app, and the guide printed the curly form of a sentence the app printed
+straight. Every in-word apostrophe across the apps folder, including the escaped
+`\'` inside single-quoted strings, is now `&rsquo;`. **0 left.**
+
+**Insights had two chip rows that both began with "This month".** The range
+chips and the section tabs sat one above the other with the same first label.
+The section tab is now **Summary**, which is also truer: it summarises whichever
+range is selected.
+
+**Three naming schemes for two apps.** `name` said *BeFree Gap* and *BeFree
+Streak*, `short_name` said *BeFree Gap* and *Streak*, and the iOS title said
+*Gap* and *Streak*. F3 left the short name to judgement; the judgement is now
+one scheme: **the brand in `name`, the short label in `short_name` and the iOS
+title**, which is what the install sheet, the install page and the guide all
+tell the reader to look for, and what neither platform truncates.
+
+**The install page's phone mockups had drifted a week.** Its clock was pinned to
+a date that predates the Marcus sample file, so the hero read *"$688 a day, 1
+day to payday"*. It now uses the same hour as the book's and the booklet's
+screens, so every screenshot in the bundle shows **one consistent week**:
+$530 safe to spend, Thursday 24 September, seven days to payday.
+
+### The tests
+
+**The integration suite had been failing since F3** &mdash; it asserted the old
+manifest names and nobody ran it. **17 tests pass now.** And
+`check-stylesheet.py` encoded J1's sentence with a straight apostrophe for
+Streak alone, which is how the typographic drift passed K5 for so long.
+
+### What was rebuilt
+
+Every app screenshot re-shot (8 of the guide's 23 changed, both install
+mockups), both guide editions re-rendered, the book rebuilt, the EPUB and the
+site pages regenerated. **Acceptance 8 pass, 0 blocked, 0 fail. verify-fixlist
+105 of 105. The four app suites: 20 + 14 + 11 + 17 = 62 tests, all passing.**
+

@@ -322,6 +322,27 @@ EDITS = [
 ]
 
 
+def move_fee_chart(html):
+    """Engine One's fee chart sat after "The judgment", where it no longer fits
+    on the page the section ends on: the chart is a quarter of a page, the room
+    left is a third, and WeasyPrint will not split a figure, so a third of the
+    page went white and the chart opened the next one. It belongs with the
+    sentence that introduces the platforms anyway, so it moves up to just after
+    "What it is", where it fills the page it sits on."""
+    import re
+    m = re.search(r'<figure>(?:(?!</figure>).)*?WHAT YOU KEEP FROM A \$100 ORDER'
+                  r'(?:(?!</figure>).)*?</figure>', html, re.S)
+    if not m:
+        m = re.search(r'<figure>(?:(?!</figure>).)*?What you keep from a \$100 order'
+                      r'(?:(?!</figure>).)*?</figure>', html, re.S)
+    assert m, '[D] the Engine One fee chart was not found'
+    fig = m.group(0)
+    html = html[:m.start()] + html[m.end():]
+    cue = 'one clear job, a price set in advance, paid when the job is done.</p>'
+    assert html.count(cue) == 1, '[D] the Engine One case paragraph moved'
+    return html.replace(cue, cue + fig)
+
+
 def apply(html):
     html = apply_list(html, EDITS)
 
@@ -389,6 +410,8 @@ def apply(html):
                 '<a href="#ch12">Chapter 12</a> says what is not in dispute instead: thin '
                 'margins, and an advertising budget spent before you know whether anything '
                 'sells.</p>', 'D8 dropshipping')
+
+    html = move_fee_chart(html)
 
     # -------------------------------------------------- the new Appendix G rows
     rows = ''.join(f'<tr><td>{a}</td><td>{b}</td><td>{c}</td></tr>' for a, b, c in ROWS)

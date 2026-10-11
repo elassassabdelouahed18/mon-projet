@@ -5,7 +5,7 @@ evidence; this is the summary the fix list asked for.
 
 **91 IDs: 85 done, 5 done with a stated limit or deviation, 1 declined with reasons (H6). Nothing blocked.**
 **Re-verified against the built files after the fact: 105 checks, 105 pass, 0 fail (§5).**
-**Acceptance tests: 8 pass, 0 blocked, 0 fail.**
+**Acceptance tests: 8 pass, 0 blocked, 0 fail. The four app suites: 62 tests, all passing.**
 
 ---
 
@@ -45,12 +45,12 @@ evidence; this is the summary the fix list asked for.
 | E1–E8 | done | `guide.html`, `start-here/book.html` | The migration note, the small-version rule, one caution instead of ten, Streak as part of the system, the eight phases in place of "the four moves", the variable-income pages merged, the rhythm verbatim from J3, the duplicated time note. |
 | F1 | done | `gap/app.js`, `gap/index.html` | Today loads with **exactly one** suggestion; the rest is behind a toggle. |
 | F2 | done | `gap/app.js` | "Net assignments" and "card purchase reserve" are gone; the gap footnote is a sentence a person says. |
-| F3 | done | both manifests, both `index.html` | **BeFree Gap** and **BeFree Streak**. `short_name` is "BeFree Gap" and "Streak" — 13 characters truncates on an iPhone, 10 does not. **The Gap trademark is yours to clear.** |
+| F3 | done | both manifests, both `index.html` | One scheme, after §6 found three: `name` carries the brand (**BeFree Gap**, **BeFree Streak**), `short_name` and the iOS title carry the label the install sheet tells the reader to look for (**Gap**, **Streak**), which neither platform truncates. **The Gap trademark is yours to clear.** |
 | F4 | done | `gap/app.js`, `gap/index.html`, `streak/app.js` | A weekly-catch-up mode: one setup question, a Sunday banner, the bank file first, and the weekly review as Streak's first suggested habit. |
 | F5 | done | `gap/app.js` | The sample file is Marcus, Appendix D. Last month is his month 6, to the cent. |
 | F6 | done | `gap/app.js` | "Early in the month: one paycheck is still on its way." |
 | G1 | done | `tools/make-epub.py`, `tools/epub.css` | EPUB 3 from the same source: 48 documents, every chart, **0 overflow at 390 × 844**. |
-| G2 | done | `sys2.css` | Ligatures off. `pdftotext` over 199 pages: `nancial` 0, `yve` 0, `deycit` 0. |
+| G2 | done | `sys2.css` | Ligatures off. `pdftotext` over 198 pages: `nancial` 0, `yve` 0, `deycit` 0. |
 | G3 | done | `build.py`, `ed_alt.py` | PDF/UA-1. **80 of 80 figures carry alt text**, 245 of 245 links carry a description. |
 | G4 | done | `ed_links.py` | **204 internal links and 38 external addresses**, where five YouTube URLs were the only links in the book. |
 | G5 | done, with a limit | `tools/cover-rebuild.py` | 1800 × 2700, 300 ppi. The artwork is **upscaled, not re-exported** — it was generated at 1024 × 1536 and there is no larger original. The bottom line is re-set as real type. |
@@ -70,7 +70,7 @@ evidence; this is the summary the fix list asked for.
 | H7 | done | `install-guide/guide.html` | The address and the email are links; `···`, `⋮`, `›` and the arrow are drawn, so **no fallback font is embedded at all**. |
 | I1 | done | `gap/app.js`, `gap/index.html` | Today is **1.73 screens**, was 4.4. |
 | I2 | done | same | Three groups, no chart removed; the gap number and both bars on the first screen. |
-| I3 | done | `gap/index.html` | The install card floats at the foot of Today and nowhere else. |
+| I3 | done | `gap/index.html`, both `extras.js` | The install card appears at the foot of Today and nowhere else. The stylesheet rule was right from the start; §6 found the observer that was stripping the class it matched on, which had put a 407px card at the top of every tab on a phone. |
 | I4 | done | `shots.cjs` ×2 | Every app screenshot recaptured from the Marcus file. |
 | I5 | done | `tools/axe-audit.cjs` | **40 screens, light and dark, 0 WCAG 2 A/AA violations.** |
 | J1–J8 | done, with one stated deviation | `STYLESHEET.md`, `ed_shared.py`, both apps | One wording per idea. J2's thresholds moved **50/65/80 → 60/85** and the app computes the same number the same way. **J8 deviates:** its short form, *“Regular paycheck first. Appendix B when your pay changes,”* is the rule in `STYLESHEET.md` and is not pasted into the four products. The book states it in voice on the who-it's-for page and in Appendix B's subtitle (B6); the guide points at Appendix B from *If your pay changes* (E6); the apps have no appendix to point at, so the sentence would read as a stray book advert on an app screen. The idea is one; the sentence is not copied. |
@@ -120,14 +120,14 @@ evidence; this is the summary the fix list asked for.
 
 | | Pages | Size |
 |---|---|---|
-| The Anti-Paycheck Trap (PDF, 6×9, PDF/UA-1) | **199** | 2,809 KB |
+| The Anti-Paycheck Trap (PDF, 6×9, PDF/UA-1) | **198** | 2,809 KB |
 | The Anti-Paycheck Trap (EPUB 3, reflowable) | 48 documents | 1,340 KB |
 | Start Here: The BeFree System (PDF, 6×9) | **32** | 2,987 KB |
 | Start Here: The BeFree System (PDF, phone, 390×845) | 65 sheets | 2,999 KB |
 | Install Gap and Streak (PDF, US Letter) | 1 | 144 KB |
 | `befree-apps/` — the folder to upload to Netlify | 42 files | 1.8 MB |
 
-The book was 189 pages when this pass began and is 199: the new charts, Model
+The book was 189 pages when this pass began and is 198: the new charts, Model
 four, the spine map, the minimum version and the Saver's Credit section, less
 what B4 took out.
 
@@ -268,3 +268,44 @@ ago. Corrected, and rowed.
 **K3 went 8 → 6 → 3 → 0 in one day, and the suite is 8 pass, 0 blocked, 0 fail.**
 
 `verify-fixlist.py` reads **105 of 105**.
+
+---
+
+## 6 · The final review, and the eleven things it found
+
+Read, not re-tested: all 198 pages of the book as rendered images, the guide and
+the install sheet in full, and both apps driven in a browser at 390&times;844 in
+light and dark, under an iPhone user agent and a desktop one. `FIXLOG.md` &sect;10
+has each finding with its evidence; in short:
+
+| | what was wrong | now |
+|---|---|---|
+| Book | the contents spilled three entries onto a third page, four-fifths white | one spread, and the book is **198 pages** |
+| Book | Chapter 18's action box read **"Phase Phases 1 to 4"** | "Phases 1&ndash;4" |
+| Book | a third of page 93 was white, because D4's case pushed the fee chart past the break | the chart sits after the case, which also reads better |
+| Gap | the suggestion card said *"cutting helps less than earning more"* at **87%**, where every other surface says *"move a big cost or raise income"* | the sentence follows the band |
+| Both apps | on a phone the install card sat at the **top of every tab**, 407px tall: an observer in `extras.js` stripped the class the I3 rule matched on | the foot of Today, and nowhere else, confirmed tab by tab |
+| Both apps | **254 straight apostrophes** against 17 typographic ones, in the only product in the bundle that was not typeset | every one converted, 0 left |
+| Gap | Insights had two chip rows both beginning **"This month"** | the section tab is **Summary** |
+| Both apps | three naming schemes for two apps | the brand in `name`, the documented label in `short_name` and the iOS title |
+| Install page | its phone mockups had drifted to a different week, reading *"$688 a day, 1 day to payday"* | the same hour as every other screenshot in the bundle |
+| Tests | the integration suite had been **failing since F3** and nobody ran it | 17 tests pass |
+| Tests | `check-stylesheet.py` encoded J1 with a straight apostrophe for Streak alone, which is how the typographic drift passed K5 | the rule matches what the apps print |
+
+Then everything downstream was rebuilt: every app screenshot re-shot, both guide
+editions re-rendered, the book, the EPUB and the site pages regenerated.
+
+**Acceptance 8 pass, 0 blocked, 0 fail &middot; `verify-fixlist.py` 105 of 105 &middot;
+the four app suites 20 + 14 + 11 + 17 = 62 tests, all passing.**
+
+### The files this pass produced
+
+| | |
+|---|---|
+| `docs/book/The-Anti-Paycheck-Trap.pdf` | 198 pages, 2,814 KB |
+| `docs/book/The-Anti-Paycheck-Trap.epub` | 48 documents, 1,340 KB |
+| `docs/start-here/Start-Here-The-BeFree-System.pdf` | 32 pages, 2,987 KB |
+| `docs/start-here/Start-Here-The-BeFree-System-phone.pdf` | 65 sheets, 3,000 KB |
+| `docs/install-guide/Installation-Guide-Gap-and-Streak.pdf` | 1 page, 144 KB |
+| `befree-apps/` | the Netlify publish directory, service workers at v20 |
+

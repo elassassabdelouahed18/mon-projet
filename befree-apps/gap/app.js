@@ -131,7 +131,7 @@ function tot(l){return BeFreeFinance.totals(l)}
 
 /* ══════════ demo data ══════════ */
 /* ══════════ sample data: Marcus, from Appendix D ══════════
-   F5. The tour runs on the book's Marcus, not an invented stranger. The month
+   F5. The tour runs on the book’s Marcus, not an invented stranger. The month
    on screen is his month 7, in progress, where the $154.58 lead differential
    starts. Last month is his month 6, closed: the month the side income begins
    and the first quarterly estimate is paid.
@@ -140,9 +140,9 @@ function tot(l){return BeFreeFinance.totals(l)}
    Appendix D models one month at a time, so his $2,769 of take-home is paid on
    the 1st and the 15th and every calendar month carries all of it. His bills
    are split across the two pay cycles, each one landing just after a deposit,
-   which is the book's own advice; the sample is a person who has taken it.
+   which is the book’s own advice; the sample is a person who has taken it.
    Essentials come to $2,005 a month and the optional categories to $185.40,
-   which is Appendix D's $2,175 of living costs plus its $15.40 of optional
+   which is Appendix D’s $2,175 of living costs plus its $15.40 of optional
    spending. The one figure Appendix D does not model is a checking balance,
    because it models flows; $810 is the sample. */
 const MX={
@@ -300,7 +300,7 @@ function inRange(t){if(V.range==='month')return sameMonth(t,mk(V.off));
  return D(t.date)>=f&&t.date<=today()}
 const pTx=()=>S.tx.filter(inRange);
 /* entries grouped by month once per render, so charts that look at six or
-   twelve months don't rescan years of history for every bar */
+   twelve months don’t rescan years of history for every bar */
 let MC=null;
 const mcReset=()=>{MC=null};
 function mcBuild(){MC={tx:{},tot:{},ref:S.tx,n:S.tx.length};S.tx.forEach(t=>{const k=t.date.slice(0,7);(MC.tx[k]=MC.tx[k]||[]).push(t)})}
@@ -571,7 +571,7 @@ function drawPos(){
 }
 let LAST_GAP=null;
 function drawGap(){
- /* Two bars on one scale, and nothing drawn that isn't money. When more came in
+ /* Two bars on one scale, and nothing drawn that isn’t money. When more came in
     than went out, the out bar carries the difference as "Surplus"; when more
     went out, the in bar carries it as "Short". Scheduled amounts are ghosts. */
  const T=tot(pTx()),svg=$('#gapSvg'),px=svg.getBoundingClientRect().width||340;
@@ -636,12 +636,12 @@ function drawGap(){
 function drawCycle(){
  const C=cycle(),box=$('#cyc');
  if(C.need.length){
-  const L={review:['Review this pay cycle','Confirm bills, pending charges and card reserves today','cyc'],card:['Card purchases not yet paid','Cash needed to settle purchases already recorded, excluding old debt minimums','cyc'],pay:['Your pay schedule','One real payday and how often you\'re paid','pay'],
-   bal:['Today\'s checking balance','What your account shows right now','cyc'],
+  const L={review:['Review this pay cycle','Confirm bills, pending charges and card reserves today','cyc'],card:['Card purchases not yet paid','Cash needed to settle purchases already recorded, excluding old debt minimums','cyc'],pay:['Your pay schedule','One real payday and how often you’re paid','pay'],
+   bal:['Today’s checking balance','What your account shows right now','cyc'],
    ess:['Essential spending per week','Groceries, gas, medicine. Or log about three weeks of spending and Gap works it out','cyc'],
-   buf:['A protective buffer','Money you keep untouched so a surprise doesn\'t overdraw you','cyc']};
+   buf:['A protective buffer','Money you keep untouched so a surprise doesn’t overdraw you','cyc']};
   $('#cycTag').textContent='needs '+C.need.length+' more';
-  box.innerHTML=`<p class="ccap" style="margin:0 0 12px">Gap won't show an amount until it has these, because a guess here could lead to overspending.</p>
+  box.innerHTML=`<p class="ccap" style="margin:0 0 12px">Gap won’t show an amount until it has these, because a guess here could lead to overspending.</p>
    <div class="miss">${C.need.map(k=>`<div class="mi2"><div><b style="font-weight:600">${L[k][0]}</b><br><span style="font-size:13.5px">${L[k][1]}</span></div>
     <button class="btn2" data-open="${L[k][2]}">Add</button></div>`).join('')}</div>`;
   bindOpen(box);return}
@@ -652,7 +652,7 @@ function drawCycle(){
  box.innerHTML=`<div class="cyc"><div>
    <div class="cbig fr mono${neg?' neg':''}">${money(C.avail)}</div>
    <p class="ccap">${neg?`Short by <b class="mono">${money(-C.avail)}</b> before payday on <b>${fmtD(C.next,{weekday:'long',month:'short',day:'numeric'})}</b>. The next best step below shows how to handle it.`
-    :`estimated room over the next <b>${plural(C.days,'day')}</b>, until payday on <b>${fmtD(C.next,{weekday:'long',month:'short',day:'numeric'})}</b>. That's about <b class="mono">${money(C.perDay)}</b> a day beyond your essentials.`}</p>
+    :`estimated room over the next <b>${plural(C.days,'day')}</b>, until payday on <b>${fmtD(C.next,{weekday:'long',month:'short',day:'numeric'})}</b>. That’s about <b class="mono">${money(C.perDay)}</b> a day beyond your essentials.`}</p>
    ${C.stale>=3?`<p class="ccap" style="color:var(--warn)">Your balance was entered ${plural(C.stale,'day')} ago. Updating it makes this more accurate.</p>`:''}
    ${C.payToday?`<p class="ccap">Today is payday. Once it arrives, mark it received and update your balance.</p>`:''}
    <div class="runw"><div class="rwh"><span class="eb">Balance, day by day</span><span class="eb mono" id="runTag"></span></div>
@@ -672,7 +672,7 @@ function drawCycle(){
  drawRunway(C);
  bindOpen(box);
 }
-/* the runway: today's balance, less essentials each day and each bill on its
+/* the runway: today’s balance, less essentials each day and each bill on its
    date, ending at the buffer plus what is available */
 function drawRunway(C){
  const svg=$('#runSvg');if(!svg)return;
@@ -747,10 +747,10 @@ function moves(){
    math:`<ol>
     <li>Cover essentials and minimum payments first: <b>${money(C.obl)}</b> is due before ${fmtD(C.next)}.</li>
     ${dw>5?`<li>Pause optional spending until payday. It has averaged <b>${money(dw)}</b> a week lately.</li>`:''}
-    ${C.funds>0?`<li>Hold this cycle's sinking-fund set-asides (<b>${money(C.funds)}</b>). They can resume next paycheck.</li>`:''}
-    <li>If a bill still won't fit, call the company before its due date and ask for a later date or a hardship plan.</li></ol>`,
-   ctas:[{l:'See what\'s due',a:'up'},{l:'Income options',a:'income'}],habit:{tpl:'bills-weekly'},
-   todo:{key:'short-call',title:'Call about a bill that won\'t fit before payday',note:'Ask for a later due date or a hardship plan.',due:'payday'}})}
+    ${C.funds>0?`<li>Hold this cycle’s sinking-fund set-asides (<b>${money(C.funds)}</b>). They can resume next paycheck.</li>`:''}
+    <li>If a bill still won’t fit, call the company before its due date and ask for a later date or a hardship plan.</li></ol>`,
+   ctas:[{l:'See what’s due',a:'up'},{l:'Income options',a:'income'}],habit:{tpl:'bills-weekly'},
+   todo:{key:'short-call',title:'Call about a bill that won’t fit before payday',note:'Ask for a later due date or a hardship plan.',due:'payday'}})}
  /* the month is running behind */
  if(T.gap<0&&T.i>0){
   const vc={};cur.filter(x=>isDone(x)&&x.type==='variable'&&!isEss(x.cat,'variable')).forEach(x=>vc[x.cat]=(vc[x.cat]||0)+spendAmt(x));
@@ -768,15 +768,15 @@ function moves(){
  /* a debt whose payment does not cover its interest */
  liveDebts().forEach(d=>{const b=debtBal(d),mi=b*(+d.apr||0)/1200;
   if(mi>0.5&&(+d.min||0)<=mi)add({u:3,imp:mi*12,yr:1,feas:2,tag:'Debt',icon:'card',
-   head:`${esc(d.name)}: the payment doesn't cover its interest`,
+   head:`${esc(d.name)}: the payment doesn’t cover its interest`,
    math:`At <b>${(+d.apr).toFixed(1)}%</b> on <b>${money(b)}</b>, interest is about <b>${money2(mi)}</b> a month and the payment is <b>${money2(+d.min||0)}</b>. The balance grows unless at least <b>${money(mi-(+d.min||0)+1)}</b> more goes to it each month.`,
    ctas:[{l:'Open the simulator',a:'sim'}],todo:{key:'rate-'+d.id,title:`Call ${d.name} about the rate or a hardship plan`,note:`Payment ${money2(+d.min||0)}, interest about ${money2(mi)} a month.`}})});
  /* setup that the numbers depend on */
  if(C.need.length&&(hasData||S.rec.length)){
-  const w={pay:'your pay schedule',bal:'today\'s balance',ess:'an estimate of everyday essentials',buf:'a protective buffer',
-   review:'a quick check that today\'s numbers are current',card:'the cash you keep for card purchases'};
+  const w={pay:'your pay schedule',bal:'today’s balance',ess:'an estimate of everyday essentials',buf:'a protective buffer',
+   review:'a quick check that today’s numbers are current',card:'the cash you keep for card purchases'};
   const miss=C.need.map(k=>w[k]).filter(Boolean),list=miss.length>1?miss.slice(0,-1).join(', ')+' and '+miss[miss.length-1]:miss[0];
-  add({u:2,imp:0,feas:3,tag:'Setup',icon:'cal',head:'See what\'s available until payday',
+  add({u:2,imp:0,feas:3,tag:'Setup',icon:'cal',head:'See what’s available until payday',
    math:`Gap still needs ${list}.`,
    ctas:[{l:'Add '+(C.need[0]==='pay'?'pay schedule':'the missing numbers'),a:C.need[0]==='pay'?'open:pay':'open:cyc'}]})}
  if(!S.rec.length&&hasData)add({u:2,imp:40,feas:3,tag:'Setup',icon:'loop',head:'Schedule your paycheck and regular bills',
@@ -791,12 +791,12 @@ function moves(){
  if(S.tax.on){const x=taxEst(cur);
   if(x.base>0&&x.need-x.held>5)add({u:2,imp:(x.need-x.held)*2,feas:2,tag:'Tax reserve',icon:'file',
    head:`Consider setting aside about ${money(x.need-x.held)} for taxes`,
-   math:`<b>${money(x.inc)}</b> came in this month without withholding${x.biz?`, less <b>${money(x.biz)}</b> in business expenses`:''}. At your <b>${+S.tax.rate}%</b> reserve rate that's <b>${money(x.need)}</b>, and <b>${money(x.held)}</b> is set aside. An estimate, not a tax bill.`,
+   math:`<b>${money(x.inc)}</b> came in this month without withholding${x.biz?`, less <b>${money(x.biz)}</b> in business expenses`:''}. At your <b>${+S.tax.rate}%</b> reserve rate that’s <b>${money(x.need)}</b>, and <b>${money(x.held)}</b> is set aside. An estimate, not a tax bill.`,
    ctas:[{l:'Set it aside',a:'tax:'+Math.round(x.need-x.held)}],todo:{key:'tax-'+t.slice(0,7),title:`Set aside about ${money(x.need-x.held)} for taxes`,due:'payday'}})}
  /* emergency buffer */
  const em=S.goals.find(g=>g.emerg),EM=essMonthly(),sa=surplusAvg();
  if(!em&&hasData)add({u:sa.avg>0?2:1,imp:500,feas:2,tag:'Buffer',icon:'shield',head:'Start an emergency buffer',
-  math:`Start where it's realistic: <b>$500</b>, then a month of essentials${EM?` (about <b>${money(EM.total)}</b> for you)`:''}.`,
+  math:`Start where it’s realistic: <b>$500</b>, then a month of essentials${EM?` (about <b>${money(EM.total)}</b> for you)`:''}.`,
   ctas:[{l:'Set one up',a:'goal:new-emerg'}],habit:{tpl:'payday-save'}});
  else if(em&&EM&&EM.total>0){const b=goalBal(em).saved,days=b/(EM.total/30.44);
   if(days<30)add({u:1,imp:300,feas:2,tag:'Buffer',icon:'shield',head:`Your buffer covers about ${Math.floor(days)} days of essentials`,
@@ -816,7 +816,7 @@ function moves(){
   const n=cs(0,c),a=avgC(c),min=isEss(c,'variable')?40:12;if(a>0&&n>a&&n-a>=min&&(!ov||n-a>ov.d))ov={c,n,a,d:n-a}});
  if(ov){const opt=!isEss(ov.c,'variable');
   add({u:opt?2:1,imp:ov.d*12,yr:opt,feas:opt?2:1,tag:opt?'Optional spending':'Essential spending',icon:'alert',head:`${esc(ov.c)} is past a usual month`,
-  math:`You're at <b>${money(ov.n)}</b> on ${esc(ov.c.toLowerCase())}; your usual full month is <b>${money(ov.a)}</b>, with ${plural(dLeft,'day')} to go.`,
+  math:`You’re at <b>${money(ov.n)}</b> on ${esc(ov.c.toLowerCase())}; your usual full month is <b>${money(ov.a)}</b>, with ${plural(dLeft,'day')} to go.`,
   ctas:[{l:`See ${ov.c.toLowerCase()}`,a:'cat:'+ov.c}],habit:{tpl:'review-daily'}})}
  /* subscriptions */
  const subNow=cs(0,'Subscriptions'),sub=subNow||avgC('Subscriptions');
@@ -825,9 +825,9 @@ function moves(){
   const one=rs.length>=2?Math.round(rs[0].amt):Math.round(sub/2);
   add({u:1,imp:one*12,yr:1,feas:3,tag:'Fixed, optional',icon:'loop',head:rs.length>=2?'Cancel one subscription and keep the difference every month':`Subscriptions cost ${money(sub*12)} a year`,
    math:rs.length>=2?`Subscriptions run <b>${money(sub)}</b> a month across ${rs.length} lines. The smallest is <b>${esc(rs[0].note)}</b> at <b>${money(one)}</b>: <b>${money(one*12)}</b> a year.`
-    :`That's <b>${money(sub)}</b> a month. Halving it keeps <b>${money(one)}</b> a month, <b>${money(one*12)}</b> over a year.`,
+    :`That’s <b>${money(sub)}</b> a month. Halving it keeps <b>${money(one)}</b> a month, <b>${money(one*12)}</b> over a year.`,
    ctas:[{l:'See the schedules',a:'reps'}],habit:{tpl:'subs-review'},
-   todo:{key:'subs-'+(rs.length>=2?rs[0].id:'one'),title:rs.length>=2?`Cancel ${rs[0].note} if you don't use it`:'Cancel one subscription you don\'t use',worth:one*12}})}
+   todo:{key:'subs-'+(rs.length>=2?rs[0].id:'one'),title:rs.length>=2?`Cancel ${rs[0].note} if you don’t use it`:'Cancel one subscription you don’t use',worth:one*12}})}
  /* the costliest debt, only when a payoff actually happens */
  const lds=liveDebts().filter(d=>d.apr>0);
  if(lds.length){const d=[...lds].sort((a,b)=>debtBal(b)*b.apr-debtBal(a)*a.apr)[0];
@@ -840,12 +840,12 @@ function moves(){
  if(lastFull){const LT=monthTot(lastFull),ess=sum(monthTx(lastFull).filter(x=>isDone(x)&&isSpend(x)&&isEss(x.cat,x.type)),spendAmt);
   if(LT.i>0&&ess/LT.i>.6)add({u:ess/LT.i>.85?2:1,imp:LT.i*.05*12,feas:1,tag:'Income',icon:'bulb',
    head:`Essentials took ${Math.round(ess/LT.i*100)}% of income last month`,
-   math:`<b>${money(ess)}</b> of <b>${money(LT.i)}</b> went to essentials. At that level, cutting helps less than earning more.`,
+   math:`<b>${money(ess)}</b> of <b>${money(LT.i)}</b> went to essentials. ${ess/LT.i>.85?'Past 85%, move a big cost or raise income.':'Past 60%, earning beats cutting.'}`,
    ctas:[{l:'Income options',a:'income'}]})}
  /* small optional buys */
  const sm=cur.filter(x=>isDone(x)&&x.type==='variable'&&!x.refund&&x.amt<15&&!isEss(x.cat,'variable')),smS=sum(sm,x=>x.amt);
  if(sm.length>=5&&smS>=25)add({u:1,imp:smS*6,yr:1,feas:3,tag:'Small buys',icon:'drop',head:`${sm.length} small optional buys came to ${money(smS)} this month`,
-  math:`Together they're <b>${money(smS)}</b>, about <b>${money(smS*12)}</b> a year at this pace.`,
+  math:`Together they’re <b>${money(smS)}</b>, about <b>${money(smS*12)}</b> a year at this pace.`,
   ctas:[{l:'See them',a:'size:-20'}],habit:{tpl:'review-daily'}});
  /* surplus into a goal, with honest projections */
  const open=S.goals.map(g=>({g,left:(+g.target||0)-goalBal(g).saved})).filter(x=>x.left>0).sort((a,b)=>a.left-b.left)[0];
@@ -975,16 +975,16 @@ function skipPlanned(p){
 function addTx(o){const t=Object.assign({id:uid(),ts:Date.now(),src:'manual',status:'done'},o);
  Object.keys(t).forEach(k=>t[k]===undefined&&delete t[k]);delete S.reviewed[t.date.slice(0,7)];if(S.checks[t.date]&&isSpend(t))delete S.checks[t.date];S.tx.push(t);return t}
 
-/* ══════════ today's money check ══════════ */
+/* ══════════ today’s money check ══════════ */
 function todayManual(){const t=today();
  return S.tx.filter(x=>isDone(x)&&['manual','schedule','route'].includes(x.src)&&iso(new Date(x.ts||0))===t)}
 function drawCheck(){
  const t=today(),c=S.checks[t],ml=todayManual(),spentToday=ml.some(x=>isSpend(x)&&!x.refund);
- let h=`<p class="chkd">${ml.length?`You've logged <b>${plural(ml.length,'entry','entries')}</b> today.`:'Nothing logged today yet.'}</p>`;
+ let h=`<p class="chkd">${ml.length?`You’ve logged <b>${plural(ml.length,'entry','entries')}</b> today.`:'Nothing logged today yet.'}</p>`;
  if(c){h+=`<div class="status on" style="margin-top:10px"><span class="dotc"></span><div><b>${c.t==='nospend'?'No-spend day, reviewed':'Reviewed today'}</b><br>${c.src==='streak'?'Recorded earlier from BeFree Streak.':'Saved to your daily record.'}</div></div>
   <button class="tlink" id="ckUndo" style="margin-top:10px">Undo</button>`}
  else h+=`<div class="chk-row" style="margin-top:12px"><button class="btn2" id="ckRev">I reviewed today</button>${spentToday?'':'<button class="btn2" id="ckNo">No spending today</button>'}</div>
-  <p class="foot" style="margin-top:10px">A quick look at today's spending. Reviewed days make your spending estimates more reliable.</p>`;
+  <p class="foot" style="margin-top:10px">A quick look at today’s spending. Reviewed days make your spending estimates more reliable.</p>`;
  $('#checkBox').innerHTML=h;
  const rv=$('#ckRev');if(rv)rv.onclick=()=>{S.checks[t]={t:'review',ts:Date.now(),src:'gap'};save();drawCheck();toast('Reviewed. Nice.')};
  const no=$('#ckNo');if(no)no.onclick=()=>{S.checks[t]={t:'nospend',ts:Date.now(),src:'gap'};save();drawCheck();toast('Recorded: reviewed, no spending today')};
@@ -1031,7 +1031,7 @@ function drawVari(){
    <div class="d">${v.months?`Your leanest recent month cost ${money(v.lean)}. Spread over 4.35 weeks, this is what a week needs to cover.`:'Needs a complete month of entries.'}</div></div>
   <div class="vb"><div class="k">Earned the week before last</div>
    <div class="v mono">${money(v.prevWk)}</div>
-   <div class="d">${v.prevWk&&v.week?`Already received, so it's safe to plan this week with. It covers <b style="color:var(--tx)">${cover.toFixed(1)} ${cover===1?'week':'weeks'}</b> of your baseline.`:'No income logged that week. When you log what you earned, it becomes the money to plan the next week with.'}</div>
+   <div class="d">${v.prevWk&&v.week?`Already received, so it’s safe to plan this week with. It covers <b style="color:var(--tx)">${cover.toFixed(1)} ${cover===1?'week':'weeks'}</b> of your baseline.`:'No income logged that week. When you log what you earned, it becomes the money to plan the next week with.'}</div>
    <div class="wk"><div class="wkf" data-w="${Math.min(cover*50,100).toFixed(0)}"></div></div></div>
   ${x?`<div class="vb"><div class="k">Tax reserve, estimated</div>
    <div class="v mono" style="color:${x.need-x.held>5?'var(--warn)':'var(--acc2)'}">${money(Math.max(x.need-x.held,0))}</div>
@@ -1042,7 +1042,7 @@ function drawVari(){
  bindActs($('#variGrid'));
 }
 
-/* ══════════ pace: this month's variable spending, day by day, against a typical month ══════════ */
+/* ══════════ pace: this month’s variable spending, day by day, against a typical month ══════════ */
 function cumBy(o){const m=mk(o),n=dayCount(m.getFullYear(),m.getMonth()),a=new Array(n+1).fill(0);
  monthTx(o).filter(t=>isDone(t)&&t.type==='variable').forEach(t=>a[D(t.date).getDate()]+=spendAmt(t));
  for(let d=1;d<=n;d++)a[d]+=a[d-1];return a}
@@ -1078,7 +1078,7 @@ function drawPace(){
  let foot;
  if(!known&&!spent)foot='Log a few purchases and this shows whether you are ahead of the month or behind it.';
  else if(!isCur)foot=`Closed at <b class="mono">${money(spent)}</b> variable${known?`, against a typical <b class="mono">${money(base)}</b>`:''}.`;
- else if(!known)foot=`<b class="mono">${money(burn)}</b> a day so far. After a complete month there's a typical month to compare with.`;
+ else if(!known)foot=`<b class="mono">${money(burn)}</b> a day so far. After a complete month there’s a typical month to compare with.`;
  else foot=`About <b class="mono">${money(burn)}</b> a day. At this pace the month lands near <b class="mono" style="color:${proj>base?'var(--neg)':'var(--acc2)'}">${money(proj)}</b>, against a typical <b class="mono">${money(base)}</b> (${plural(full.length,'complete month')}).`;
  $('#paceFoot').innerHTML=foot;
 }
@@ -1184,7 +1184,7 @@ function drawCats(){
  $('#cats').innerHTML=(F.length||Vr.length)
   ?lead+`<div class="cgrid">${col(F,'Fixed',T.f,'var(--c-fix)',pc(T.f))}${col(Vr,'Variable',T.v,'var(--c-var)',pc(T.v))}</div>`
    +(T.i?`<div class="load">${loadNote(T)}</div>`:'')
-   +(trs.length?`<p class="foot" style="margin-top:10px">Not included above: <b class="mono">${money(sum(trs,t=>t.amt))}</b> in ${plural(trs.length,'transfer')} (savings, goals, funds, card payments). Moving money isn't spending it.</p>`:'')
+   +(trs.length?`<p class="foot" style="margin-top:10px">Not included above: <b class="mono">${money(sum(trs,t=>t.amt))}</b> in ${plural(trs.length,'transfer')} (savings, goals, funds, card payments). Moving money isn’t spending it.</p>`:'')
   :empty('basket','Nothing logged yet','Add one entry and the split builds itself.',['Add an entry','add']);
  requestAnimationFrame(()=>$$('#cats .cf').forEach(f=>f.style.width=f.dataset.w+'%'));
  $$('#cats .cr').forEach(r=>r.onclick=()=>{V.cat=V.cat===r.dataset.c?null:r.dataset.c;go('ledger')});
@@ -1195,7 +1195,7 @@ function drawCats(){
    categories tagged essential in Settings plus every debt minimum, which is
    what Chapter 3 means by the word. Fixed costs were the old measure and are
    not the same thing: a gym membership is fixed and optional, rent is fixed
-   and not. Thresholds 60 and 85; the verdicts are the book's. */
+   and not. Thresholds 60 and 85; the verdicts are the book’s. */
 function loadNote(T){
  const ess=sum(pTx().filter(t=>isDone(t)&&(t.type==='fixed'||t.type==='variable')
    &&(t.debtRole==='minimum'||isEss(t.cat,t.type))),spendAmt);
@@ -1207,7 +1207,7 @@ function loadNote(T){
 }
 /* ══════════ where income went ══════════
    Surplus is what was left after spending; actual savings is the part of it
-   that was moved. The rest is surplus you haven't assigned yet. */
+   that was moved. The rest is surplus you haven’t assigned yet. */
 function drawSplit(){
  const T=tot(pTx()),sv=Math.max(T.sav,0),loose=Math.max(T.unassigned,0);
  const ps=[['Fixed',Math.max(T.f,0),'var(--c-fix)'],['Variable',Math.max(T.v,0),'var(--c-var)'],['Moved to savings',sv,'var(--k5)'],['Extra debt paid',Math.max(T.extra,0),'var(--c-over)'],['Unassigned \u00b7 no job yet',loose,'var(--c-keep)']];
@@ -1289,7 +1289,7 @@ function drawSched(){
  let h='';
  if(un.length)h+=`<div class="uphead"><span>Needs confirming</span></div>`+un.map(p=>upRow(p)).join('');
  if(soon.length)h+=`<div class="uphead"><span>Next 45 days</span><span class="mono">in ${money(sum(soon.filter(p=>p.flow>0),p=>p.amt))} · out ${money(sum(soon.filter(p=>p.flow<0),p=>p.amt))}</span></div>`+soon.map(p=>upRow(p)).join('');
- h+=`<p class="foot" style="margin-top:10px">Planned items don't change any total until you mark them done. Amounts marked * are conservative estimates for income that changes.</p>`;
+ h+=`<p class="foot" style="margin-top:10px">Planned items don’t change any total until you mark them done. Amounts marked * are conservative estimates for income that changes.</p>`;
  $('#sched').innerHTML=(un.length||soon.length)?h:empty('cal','Nothing scheduled','Add your paycheck and regular bills below. They appear here before they happen.');
  bindUp($('#sched'));
 }
@@ -1345,7 +1345,7 @@ function simulate(extra){
  }
  const left=sum(ds,d=>Math.max(d.b,0)),ok=left<=.5;
  return{m:ok?m:null,int:I,ok,left,path,budget,i0,short:Math.max(i0-budget,0),months:m,clr,ds}}
-const SIM_ASSUME=`<b>How this is worked out:</b> interest is charged monthly at each APR you entered and doesn't change; payments stay at today's minimums (real card minimums usually shrink as the balance falls, which makes a minimums-only payoff slower than shown); no new charges; extra money goes to one debt at a time in the order above, and each cleared debt's payment rolls to the next. It stops at 50 years. Balances come from what you entered plus payments logged since; interest charged since then isn't added, so update balances from your statements now and then.`;
+const SIM_ASSUME=`<b>How this is worked out:</b> interest is charged monthly at each APR you entered and doesn’t change; payments stay at today’s minimums (real card minimums usually shrink as the balance falls, which makes a minimums-only payoff slower than shown); no new charges; extra money goes to one debt at a time in the order above, and each cleared debt’s payment rolls to the next. It stops at 50 years. Balances come from what you entered plus payments logged since; interest charged since then isn’t added, so update balances from your statements now and then.`;
 function debtExtra(d,bal){
  if(d.kind==='bnpl'){const l=bnplLeft(d);return `<span class="dmeta" style="display:block">${l.length?`${plural(l.length,'payment')} left · next ${fmtD(l[0])}`:'No payments scheduled'}</span>`}
  if(d.kind==='card'&&+d.limit>0){const u=BeFreePlus.utilization(bal,d.limit);
@@ -1364,7 +1364,7 @@ function drawDebts(){
     <span><span class="dbal mono" style="display:block">${money(bal)}</span>
     <span class="dmeta mono" style="display:block;text-align:right">${tot0?Math.round(p*100)+'% paid':''}</span></span></span>
    <span class="dtrack" style="display:block"><span class="dfill" data-w="${(p*100).toFixed(1)}" style="display:block"></span></span>
-   ${warn?`<span class="dwarn" style="display:block">The payment (${money2(+d.min||0)}) doesn't cover the monthly interest (about ${money2(mi)}), so this balance grows.</span>`:''}</button>`}).join('')
+   ${warn?`<span class="dwarn" style="display:block">The payment (${money2(+d.min||0)}) doesn’t cover the monthly interest (about ${money2(mi)}), so this balance grows.</span>`:''}</button>`}).join('')
   :empty('card','No debts listed','Add one to see how and when it clears, or enjoy the quiet.',['Add a debt','debt-add']);
  $('#rList').innerHTML=rs.length?rs.map(d=>{const bal=debtBal(d);
   return `<button type="button" class="dcard" data-id="${d.id}"><span class="dtop">
@@ -1387,7 +1387,7 @@ function drawDebts(){
  else{setV('#simM','Not on this plan',true);setV('#simD','No date',true);setV('#simI',now.months>=600?money(now.int)+'+':'keeps growing',!now.ok)}
  setV('#simS',V.extra&&base.ok&&now.ok?money(Math.max(base.int-now.int,0)):'-');
  let note='';
- if(!now.ok)note=`With ${money(now.budget)} a month going to debt, ${now.short>0?`interest of about <b class="mono">${money(now.i0)}</b> a month is more than the payments, so the total grows`:'the total does not reach zero within 50 years'}. No payoff date is shown because there isn't one on this plan. ${now.short>0?`Paying at least <b class="mono">${money(now.short+1)}</b> more each month is where progress starts.`:'Adding to the monthly amount is what changes that.'}`;
+ if(!now.ok)note=`With ${money(now.budget)} a month going to debt, ${now.short>0?`interest of about <b class="mono">${money(now.i0)}</b> a month is more than the payments, so the total grows`:'the total does not reach zero within 50 years'}. No payoff date is shown because there isn’t one on this plan. ${now.short>0?`Paying at least <b class="mono">${money(now.short+1)}</b> more each month is where progress starts.`:'Adding to the monthly amount is what changes that.'}`;
  else if(V.extra&&base.ok)note=`Adding <b class="mono">${money(V.extra)}</b> a month clears everything <b>${plural(Math.max(base.m-now.m,0),'month')}</b> sooner and saves about <b class="mono">${money(Math.max(base.int-now.int,0))}</b> in interest.`;
  else if(V.extra&&!base.ok)note=`Minimums alone never clear these balances. With <b class="mono">${money(V.extra)}</b> extra a month, they do.`;
  else note=`Paying only the current payments takes <b>${plural(base.m,'month')}</b> and costs about <b class="mono">${money(base.int)}</b> in interest. Drag the slider to compare.`;
@@ -1475,10 +1475,10 @@ function drawGoals(){
   let proj='';
   if(left<=0)proj='Reached. Point the surplus somewhere new.';
   else{const pace=goalPace(g);if(!(pace>0))proj='No date yet: record and review a full month of positive transfers to this goal.';
-   else{const m=Math.ceil(left/pace),d=new Date();d.setMonth(d.getMonth()+m);proj=`At this goal's own pace: approximately <b>${d.toLocaleString('en-US',{month:'short',year:'numeric'})}</b>.`;}}
+   else{const m=Math.ceil(left/pace),d=new Date();d.setMonth(d.getMonth()+m);proj=`At this goal’s own pace: approximately <b>${d.toLocaleString('en-US',{month:'short',year:'numeric'})}</b>.`;}}
 
   if(left>0&&g.due){const mo=Math.max(diffD(today(),g.due)/30.44,.5);proj+=`<br>To reach it by ${fmtD(g.due,{month:'short',year:'numeric'})}: about <b>${money(left/mo)}</b> a month.`}
-  const pace=goalPace(g);if(pace>0)proj+=`<br>You've moved about ${money(pace)} a month to it lately.`;
+  const pace=goalPace(g);if(pace>0)proj+=`<br>You’ve moved about ${money(pace)} a month to it lately.`;
   if(g.emerg){if(EM&&EM.total>0){const days=Math.max(b.saved,0)/(EM.total/30.44);proj=`Covers about <b>${Math.floor(days)} days</b> of essential costs (≈${money(EM.total)} a month${EM.partial?', partly estimated':''}).<br>`+proj}
    else proj='Days of essentials covered appears once essential costs are known: schedule essential bills or add a weekly essentials estimate.<br>'+proj}
   return `<div class="gcard" data-id="${g.id}">
@@ -1780,7 +1780,7 @@ function padKey(k){
  else if(k==='.'){if(!A.raw.includes('.'))A.raw=(A.raw||'0')+'.'}
  else if(/^\d$/.test(k)&&!(A.raw.includes('.')&&A.raw.split('.')[1].length>=2)&&A.raw.length<9)A.raw=(A.raw+k).replace(/^0(?=\d)/,'');
  syncTx()}
-/* typing on a keyboard works too, when focus isn't in a text field */
+/* typing on a keyboard works too, when focus isn’t in a text field */
 $('#shTx').addEventListener('keydown',e=>{if(/INPUT|SELECT|TEXTAREA/.test(e.target.tagName))return;
  if(/^\d$/.test(e.key)||e.key==='.'||e.key==='Backspace'){e.preventDefault();padKey(e.key)}
  else if(e.key==='Enter'&&!$('#txSave').disabled&&e.target.tagName!=='BUTTON'){e.preventDefault();$('#txSave').click()}});
@@ -2079,8 +2079,8 @@ function fundPreview(){
 $('#fSave').onclick=()=>{
  const o={name:$('#fName').value.trim()||'Sinking fund',target:+$('#fTarget').value||0,due:$('#fDue').value||'',every:+$('#fEvery').value||0,
   start:+$('#fSaved').value||0,cat:$('#fCat').value};
- if(!o.target){toast('Add the amount you\'ll need');$('#fTarget').focus();return}
- if(!o.due){toast('Add when it\'s due');$('#fDue').focus();return}
+ if(!o.target){toast('Add the amount you’ll need');$('#fTarget').focus();return}
+ if(!o.due){toast('Add when it’s due');$('#fDue').focus();return}
  if(FD.edit)Object.assign(S.funds.find(x=>x.id===FD.id),o);else S.funds.push({id:uid(),made:today(),...o});
  save();closeAll();render();toast(FD.edit?'Fund updated':'Fund added')};
 $('#fDel').onclick=async()=>{const id=FD.id;
@@ -2119,7 +2119,7 @@ function syncPay(){segSet('#payFreq','f',PY.freq);const f=PY.freq,anc=f==='weekl
  $('#payD1Lab').textContent=f==='semimonthly'?'First payday':'Payday (day of month)';
  $('#payLowW').style.display=$('#payVar').checked?'flex':'none';
  const r=payFromForm(),l=r?occ(r,today(),addD(today(),120),{all:true}).slice(0,4):[];
- $('#payPreview').innerHTML=l.length?`Next paydays: <b>${l.map(d=>fmtD(d,{weekday:'short',month:'short',day:'numeric'})).join(', ')}</b>. That's ${PER_YEAR[f]} paychecks a year.`:(anc?'Pick one real payday to see the schedule.':'')}
+ $('#payPreview').innerHTML=l.length?`Next paydays: <b>${l.map(d=>fmtD(d,{weekday:'short',month:'short',day:'numeric'})).join(', ')}</b>. That’s ${PER_YEAR[f]} paychecks a year.`:(anc?'Pick one real payday to see the schedule.':'')}
 function payFromForm(){const f=PY.freq,anc=f==='weekly'||f==='biweekly';
  const r={freq:f,anchor:anc?$('#payAnchor').value:undefined,day:+$('#payD1').value||(f==='monthly'?1:15),day2:+$('#payD2').value||31,wk:anc?'same':$('#payWk').value,on:true};
  if(anc&&!r.anchor)return null;return r}
@@ -2158,19 +2158,19 @@ $('#cSave').onclick=()=>{
 /* ── explanations ── */
 const INFO={
  surplus:['Surplus (your gap)',`<div class="eq">Surplus = income received − fixed spending − variable spending</div>
-  <p>Only <b>completed</b> entries count. Scheduled paychecks and bills don't change it until you confirm them.</p>
-  <p><b>Refunds</b> lower spending in their category; they aren't income. <b>Transfers</b> (to savings, goals, sinking funds, the tax reserve, or a credit card payment) aren't spending, so they don't lower your surplus.</p>
-  <p>Surplus is what was <i>left over</i>. It isn't the same as savings: savings is what you actually moved.</p>`],
+  <p>Only <b>completed</b> entries count. Scheduled paychecks and bills don’t change it until you confirm them.</p>
+  <p><b>Refunds</b> lower spending in their category; they aren’t income. <b>Transfers</b> (to savings, goals, sinking funds, the tax reserve, or a credit card payment) aren’t spending, so they don’t lower your surplus.</p>
+  <p>Surplus is what was <i>left over</i>. It isn’t the same as savings: savings is what you actually moved.</p>`],
  savings:['Actual savings',`<div class="eq">Actual savings = transfers into savings, goals, funds and the tax reserve − money taken back out of them</div>
   <p>Paying a bill out of a sinking fund counts as taking money out, because it leaves the fund.</p>
-  <p><b>Allocated</b> money is different: it's planned, not moved yet. It appears as "planned" on goals and funds, and in Coming up until you confirm it.</p>
+  <p><b>Allocated</b> money is different: it’s planned, not moved yet. It appears as "planned" on goals and funds, and in Coming up until you confirm it.</p>
   <p>Surplus not moved to savings is still in your account, unassigned.</p>`],
  balance:['Checking balance estimate',`<div class="eq">Estimate = balance you entered + entries logged since then</div>
   <p>Gap never connects to your bank. It starts from the balance you type in and adds income and subtracts spending and transfers you log after that.</p>
-  <p>Purchases on a credit card don't leave checking until you pay the card, so if you log card purchases, the estimate can run low. That errs on the safe side; updating the balance from your bank now and then keeps it exact.</p>`],
+  <p>Purchases on a credit card don’t leave checking until you pay the card, so if you log card purchases, the estimate can run low. That errs on the safe side; updating the balance from your bank now and then keeps it exact.</p>`],
  available:['Available until next payday',`<div class="eq">Available = balance now − unpaid bills and planned transfers before payday − sinking-fund set-asides − essential spending until payday − protective buffer</div>
-  <p><b>Balance now</b> is the balance you entered plus what you've logged since.</p>
-  <p><b>Bills</b> are scheduled or planned items dated from your balance date up to the day before payday that you haven't confirmed. Anything before your balance date is assumed to be reflected in that balance already.</p>
+  <p><b>Balance now</b> is the balance you entered plus what you’ve logged since.</p>
+  <p><b>Bills</b> are scheduled or planned items dated from your balance date up to the day before payday that you haven’t confirmed. Anything before your balance date is assumed to be reflected in that balance already.</p>
   <p><b>Essential spending</b> is your daily essentials rate × days until payday. It uses your logged essential spending over up to 60 days, or your weekly estimate, whichever is higher.</p>
   <p><b>Income</b> is never counted before it arrives, including your next paycheck. For income that changes, forecasts use the lowest recent amount.</p>
   <p>If the pay schedule, balance, buffer or essentials estimate is missing, Gap asks for it instead of showing a number.</p>`]};
@@ -2194,7 +2194,7 @@ function openIncome(){
  $('#incBody').innerHTML=`${gap?`<p>The gap to close is about <b>${money(gap)}</b>${!C.need.length&&C.avail<0?' before your next payday':' this month'}.</p>`:''}
   <p><b>Right now</b></p>
   <ul style="margin:0 0 12px 18px;display:flex;flex-direction:column;gap:6px">
-   <li>Call any company whose bill won't fit before its due date. Ask for a later date, a payment plan, or a hardship program.</li>
+   <li>Call any company whose bill won’t fit before its due date. Ask for a later date, a payment plan, or a hardship program.</li>
    <li>Dial <b>211</b> (or visit 211.org) for local help with rent, utilities and food. Energy bills may qualify for LIHEAP assistance through your state.</li>
    <li>Sell something you no longer use, or pick up a one-off job this week.</li></ul>
   <p><b>Over the next few months</b></p>
@@ -2206,7 +2206,7 @@ function openIncome(){
   <div class="fld"><label for="incRate">If you picked up extra hours, at what hourly pay?</label><input id="incRate" type="number" inputmode="decimal" min="0" placeholder="e.g. 18"></div>
   <p id="incOut" class="foot"></p>`;
  const calc=()=>{const r=+$('#incRate').value;const need=gap||150;
-  $('#incOut').innerHTML=r>0?`Closing <b>${money(need)}</b> takes about <b>${Math.ceil(need/(r*.8))} extra hours</b>, assuming roughly 20% goes to taxes.${per?` Spread over ${per>=2?'this month\'s paychecks':'a month'}, that's about ${Math.ceil(need/(r*.8)/Math.max(per,1))} hours per pay period.`:''}`:''};
+  $('#incOut').innerHTML=r>0?`Closing <b>${money(need)}</b> takes about <b>${Math.ceil(need/(r*.8))} extra hours</b>, assuming roughly 20% goes to taxes.${per?` Spread over ${per>=2?'this month’s paychecks':'a month'}, that’s about ${Math.ceil(need/(r*.8)/Math.max(per,1))} hours per pay period.`:''}`:''};
  $('#incRate').oninput=calc;show('#shIncome')}
 $('#incClose').onclick=()=>closeAll();
 
@@ -2385,7 +2385,7 @@ function remindBanner(){
  if(!remindCheck())return false;
  banner({b1:'Nothing logged yet today',b2:'A minute now keeps the picture accurate.',
   action:'Log one',fn:()=>openTx(null)}); return true}
-/* weekly mode: the review beat belongs to the app, not to the reader's memory */
+/* weekly mode: the review beat belongs to the app, not to the reader’s memory */
 function weeklyBanner(){
  if(!S.weekly)return false;
  const t=today();
@@ -2415,7 +2415,7 @@ function startSetup(){
   +BILLS.map(([n,d])=>`<div class="bill">
    <label class="bn" for="bill-${n.replace(/\s/g,'')}">${n}${isEss(n,'fixed')?'':' <span class="etag d">Optional</span>'}</label>
    <input id="bill-${n.replace(/\s/g,'')}" data-bill="${n}" type="number" inputmode="decimal" min="0" placeholder="0">
-   <input data-day="${n}" type="number" inputmode="numeric" min="1" max="31" value="${d}" aria-label="${n}, day of month it's due"></div>`).join('');
+   <input data-day="${n}" type="number" inputmode="numeric" min="1" max="31" value="${d}" aria-label="${n}, day of month it’s due"></div>`).join('');
  SU.step=1;stepTo(1);syncSu();
  $('#setup').classList.add('on');document.body.classList.add('locked')}
 function stepTo(n){SU.step=n;
@@ -2466,7 +2466,7 @@ $('#su3').onclick=()=>{
  $('#suGap').style.color=gap>=0?'var(--acc2)':'var(--neg)';
  $('#suWord').innerHTML=(gap>=0
   ?`Groceries, gas and everything else come out of that ${money(gap)}. Whatever is left at the end of the month is your surplus, and this app exists to help it grow.`
-  :`Your bills run ${money(-gap)} past your pay in a typical month. That's worth knowing now rather than on the 28th, and it isn't a judgment. Gap will show where there's room and where more income would help most.`)
+  :`Your bills run ${money(-gap)} past your pay in a typical month. That’s worth knowing now rather than on the 28th, and it isn’t a judgment. Gap will show where there’s room and where more income would help most.`)
   +(SU.freq==='biweekly'?' Every 2 weeks means two months a year have a third paycheck; the typical month above already spreads that out.':'');
  stepTo(4)};
 $('#su4').onclick=()=>{
@@ -2483,7 +2483,7 @@ $('#su4').onclick=()=>{
  save();
  $('#setup').classList.remove('on');document.body.classList.remove('locked');
  render();memWarn();
- toast(S.weekly?'You\'re set. Import your bank file when the week is done.':'You\'re set. Tap + to log a purchase.')};
+ toast(S.weekly?'You’re set. Import your bank file when the week is done.':'You’re set. Tap + to log a purchase.')};
 $('#suDemo').onclick=()=>{S=demoState();save();
  $('#setup').classList.remove('on');document.body.classList.remove('locked');
  render();memWarn();toast('Sample numbers loaded. Clear them any time in Settings.')};
@@ -2589,7 +2589,7 @@ else{
 /* ══════════ one install card, both platforms ══════════
    The shortest path to a permanent record differs by phone, so the card asks
    for the same thing in the same place and only the middle changes: Android
-   gets the browser's own one-tap install, iPhone gets the two taps Safari
+   gets the browser’s own one-tap install, iPhone gets the two taps Safari
    requires because Apple exposes no install API. Once the app is running from
    the Home Screen the card never appears again, and on iPhone that is also
    what stops Safari deleting the record after seven days. */
@@ -2626,7 +2626,7 @@ else{
    + '<path d="M6 12H4.8v7.2A1.8 1.8 0 0 0 6.6 21h10.8a1.8 1.8 0 0 0 1.8-1.8V12H18" '
    + 'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
 
- /* The browser's own menu buttons, drawn rather than typed: the font the app
+ /* The browser’s own menu buttons, drawn rather than typed: the font the app
     carries is a Latin subset, so a real \u22ee or \u2022\u2022\u2022 would fall back to whatever
     the system has, at a different size and weight. */
  var KEBAB = '<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" '
@@ -2661,7 +2661,7 @@ else{
        + '<p class="ic-n">No <b>Add to Dock</b>? It needs macOS Sonoma or later \u2014 '
        + 'on an older Mac, open this page in Chrome instead.</p>';
    }
-   /* Chrome's own wording, so the choice on screen is the one named here:
+   /* Chrome’s own wording, so the choice on screen is the one named here:
       a shortcut only bookmarks the page, an install keeps it offline. */
    if (android) {
      return LEAD + '<ol class="ic-s"><li>Tap ' + KEBAB + ' at the top right</li>'
@@ -2729,6 +2729,12 @@ else{
    if (su && !late && window.MutationObserver) {
      obs = new MutationObserver(function(){
        if (!el) return;
+       if (!su.classList.contains('on')) {          /* the questions are done */
+         if (!el.classList.contains('float')) {
+           el.classList.add('float'); document.body.appendChild(el);
+         }
+         return;
+       }
        var h2 = host(), hd2 = h2.querySelector(':scope > header');
        if (el.parentElement !== h2) h2.insertBefore(el, hd2 ? hd2.nextSibling : h2.firstChild);
      });
@@ -2744,8 +2750,11 @@ else{
  window.addEventListener('appinstalled', function(){ close(true); });
 
  function start(){
-   if (iOS || macSafari || android) { show(); return; }
-   /* A computer can install from the browser's own menu even when the browser
+   /* I3: a phone gets the same floating card as a computer, so it sits at
+      the foot of Today and nowhere else. show() still pins it in place while
+      the first-run questions are up, and lets it float when they close. */
+   if (iOS || macSafari || android) { show(true); return; }
+   /* A computer can install from the browser’s own menu even when the browser
       never offers to do it for you — Chrome rations that offer per site, so the
       second app someone adds often gets nothing. The wait gives the one-tap
       button its chance first, and Firefox, which cannot install at all, is
@@ -2763,7 +2772,7 @@ else{
 
 /* ══════════ optional PIN lock, shared by both apps ══════════
    Each app has its own PIN: the config lives in
-   its own localStorage key (not inside either app's own record, so it
+   its own localStorage key (not inside either app’s own record, so it
    never gets caught up in an export, a restore, or a version migration),
    and it is checked before either app ever paints on screen — the
    data-applock attribute is set pre-paint by the inline head script, so
@@ -2771,7 +2780,7 @@ else{
    never stored: only a salted hash. */
 /* each app keeps its own PIN. Older builds shared befree.applock.v1 with
    Streak; that value is copied once, and turning the PIN off here stores
-   {on:false} so the shared copy can't switch it back on. */
+   {on:false} so the shared copy can’t switch it back on. */
 const AL_KEY='befree.gap.applock.v2',AL_OLD='befree.applock.v1';
 const AL_SUPPORTED=!!(window.crypto&&crypto.subtle&&crypto.subtle.digest&&crypto.getRandomValues);
 
@@ -2900,7 +2909,7 @@ function revisionOverview(){
   const grid=$('#g-records')||host.querySelector('.bento');(grid||host).appendChild(box);}
  const m=V.range==='month'?mKey(V.off):null,reviewed=m&&S.reviewed[m],t=tot(pTx()),pending=S.tx.filter(x=>x.needsReview).length;
  const mName=m?fmtD(m+'-01',{month:'long',year:'numeric'}):'';
- box.innerHTML=`<div class="ch"><h2 class="eb">Your records</h2><div class="eb mono">${reviewed?'reviewed':'in progress'}</div></div><p style="margin:0 0 8px">${reviewed?`${mName} is reviewed: its entries were checked against your statements.`:`${m?mName+' is still open, so these':'These'} totals cover only what you have logged so far.`} The surplus is not your checking balance.</p>${pending?`<p class="neg">${pending} older payment entries need a purpose. Edit them in Money, then check your debt and checking balances.</p>`:''}<div class="chk-row"><button class="btn2" id="revCompleteDay">Today's spending is all logged</button>${m?`<button class="btn2" id="revCloseMonth">${reviewed?'Reopen this month':'Close this month'}</button>`:''}<button class="btn2" id="revFI">Financial independence estimate</button></div><p class="foot">Mark a day as logged only after adding cash, debit and card purchases. Save a backup each week and after you close a month.</p>`;
+ box.innerHTML=`<div class="ch"><h2 class="eb">Your records</h2><div class="eb mono">${reviewed?'reviewed':'in progress'}</div></div><p style="margin:0 0 8px">${reviewed?`${mName} is reviewed: its entries were checked against your statements.`:`${m?mName+' is still open, so these':'These'} totals cover only what you have logged so far.`} The surplus is not your checking balance.</p>${pending?`<p class="neg">${pending} older payment entries need a purpose. Edit them in Money, then check your debt and checking balances.</p>`:''}<div class="chk-row"><button class="btn2" id="revCompleteDay">Today’s spending is all logged</button>${m?`<button class="btn2" id="revCloseMonth">${reviewed?'Reopen this month':'Close this month'}</button>`:''}<button class="btn2" id="revFI">Financial independence estimate</button></div><p class="foot">Mark a day as logged only after adding cash, debit and card purchases. Save a backup each week and after you close a month.</p>`;
  $('#revCompleteDay').onclick=()=>{S.checks[today()]={t:'complete',ts:Date.now(),src:'gap'};save();render();toast('Spending marked complete for today.');};
  if($('#revCloseMonth'))$('#revCloseMonth').onclick=async()=>{if(S.reviewed[m]){delete S.reviewed[m];save();render();return;}if(m>=today().slice(0,7)){toast('Close this month after it ends; current totals stay provisional.');return;}if(pending){toast('Review legacy payment purposes before closing a month.');return;}if(await ask('Confirm complete month?','Check all income, cash/card purchases, refunds, bills, debt minimums, business costs and transfers against statements. Missing entries make forecasts misleading.','Records checked')){S.reviewed[m]=Date.now();save();render();}};
  $('#revFI').onclick=revisionFI;
